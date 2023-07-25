@@ -1,0 +1,44 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui{
+  &_inputbtn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    .mui_input, .mui_select{
+      position: static;
+    }
+    .btn_sec{
+      padding-left: 12px;
+    }
+    &.ico {
+      .mui_button:not(.mui_select) {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+      }    
+      &.search {
+        .mui_button:not(.mui_select) {
+          background: url($url_common+"ico_search.svg") no-repeat center;
+        }    
+      }
+    }
+    .mui_button:not(.mui_select) {
+      width: auto;
+      height: 28px;
+      padding: 0 8px;
+      font-size: 13px;
+      background: #5C627C;
+      span{
+        white-space: nowrap;
+      }
+      &[disabled] {
+        background: $basic_color05;
+        color:$font_color03;
+      }
+    }
+  }
+}

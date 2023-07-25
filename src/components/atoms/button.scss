@@ -1,0 +1,437 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui{
+  &_button{
+    padding: 0 16px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center; 
+    justify-content: center;
+    outline: 0;
+    &.select_type{
+      display: block;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      width: 100%;
+      text-align: left;
+      background: none;
+      color: #000;
+      &::before{
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        transform: rotate(45deg);
+      }
+    }
+    & ~ .mui_button{
+      margin-left: 8px;
+    }
+  }
+  &_large{
+    height: 52px;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+  &_medium{
+    height: 40px;
+    font-size: 16px;
+  }
+  &_small{
+    height: 30px;
+  }
+  &_primary{
+    background-color: $main_color01;
+    color:$font_color06;
+    &:disabled{
+      background: $basic_color05;
+      color:$font_color03;
+    }
+  }
+  &_grey{
+    background-color:$font_color05;
+    color:$font_color03;
+  }
+  &_default{
+    background-color:#5C627C;
+    color:$font_color06;
+  }
+  &_white{
+    background-color:$bg_color03;
+    color:$main_color01;
+    border: 1px solid $line_color02;
+  }
+  &_select{
+    display: block;
+    width: 100%;
+    text-align: left;
+    height: 48px;
+    border-radius: 0;
+    padding: 0;
+    font-size: 16px;
+    &[disabled]{
+      .inset::after{
+        @include icon_svg(arrow-down, "#ccc", 20px);
+      }  
+    }
+    &+.mui_select {
+      margin-left:0;
+      margin-top:16px;
+    }
+    .inset{
+      display: block;
+      position: relative;
+      height: 48px;
+      &::after{
+        content: '';
+        @include icon_svg(arrow-down, "#111", 20px);
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        right: 0;
+      }
+    }
+    .label{
+      font-weight: 700;
+      color:$font_color01;
+      line-height: 48px;
+    }
+    .placeholder{
+      display: none;
+      color:$basic_color04;
+      line-height: 48px;
+      &:first-child{
+        display: block;
+      }
+    }
+    &:disabled{
+      .placeholder, .label{
+        color:$font_color05;
+      }
+      color:$font_color05;
+      &::before{
+        background: $font_color05 !important;
+      }
+    }
+    &::before{
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $line_color02;
+      
+    }
+
+    &:focus{
+      &::before{
+        height: 2px;
+        background: $line_color01;
+        z-index: 2;
+      }
+    }
+    &.account{
+      border-radius: 20px;
+      border: 1px solid $line_color03;
+      padding: 20px;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+      &::before{
+        display: none;
+      }
+      .inset{
+        height: auto;
+        padding-left: 44px;
+        &::after{
+          top: 8px;
+          margin-top: 0;
+        }
+      }
+      .img{
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid $line_color03;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .label, .accnum{
+        display: block;
+        height: auto;
+        line-height: 1.4;
+      }
+      .label{
+        font-size: 14px;
+        color:$font_color01;
+      }
+      .accnum, .money{
+        font-size: 13px;
+        color:$basic_color04;
+      }
+      .money{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        .num{
+          font-size: 22px;
+          font-weight: 700;
+          color:$main_color01;
+          span{
+            font-weight: 400;
+          }
+        }
+      }
+      
+    }
+  }
+  &_more{
+    border-radius: 0;
+    padding: 12px 0;
+    span{
+      display: inline-block;
+      position: relative;
+      height: 16px;
+      padding-right: 16px;
+      color: $basic_color04;
+      &::after{
+        content: '';
+        display: block;
+        @include icon_svg(arrow-down, "#888", 16px);
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  &_link_text{
+		margin-top: 60px;
+		a{
+			display: block;
+			padding: 20px 36px 20px 0;
+			position: relative;
+			border-bottom: 1px solid $line_color03;
+			&::after{
+				content: '';
+				display: block;
+				@include icon_svg(arrow-left, "#ccc", 20px);
+				transform: rotate(180deg);
+				position: absolute;
+				top: 50%;
+				right: 0;
+				margin-top: -10px;
+			}
+			span{
+				display: block;
+				font-size: 14px;
+				color:$font_color02;
+			}
+		}
+	}
+  &_button_fixed{
+    height: 108px;
+    .inset{
+      position: fixed;
+      z-index: 2;
+      background:$font_color06;
+      padding: 40px 16px 16px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+    }
+  }
+
+  &_button_custom{
+    display: inline-block;
+    vertical-align: top;
+    &.round-40{
+      height: 40px;
+      line-height: 40px;
+      border-radius: 20px;
+      border: 1px solid $line_color01;
+      font-size: 14px;
+      padding: 0 24px;
+    }
+    &.darkgray-28{
+      background: #5C627C;
+      font-size: 13px;
+      padding: 0 8px;
+      color:$font_color06;
+      height: 28px;
+      border-radius: 4px;
+    }
+    &.gray-32{
+      height: 32px;
+      background:$bg_color02;
+      border-radius: 8px;
+      padding: 0 8px;
+    }
+    &.download-32{
+      height: 28px;
+      background-color:#5c627c;
+      color:$font_color06;
+      line-height: 28px;
+      padding: 0 12px 0 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url($url_common+"ico_download.svg") no-repeat center;
+        margin-top: 4px;
+        vertical-align: top;
+        margin-right: 6px;
+      }
+    }
+    &.timeselect-24{  
+      background:$bg_color02;
+      border-radius: 8px;
+      padding: 0 4px 0 4px;
+      font-size: 13px;
+      color:$font_color02;
+      line-height: 24px;
+      height: 24px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url($url_common+"icon_time.svg") no-repeat center;
+        vertical-align: top;
+        margin-right: 2px;
+        margin-top: 2px;
+      }
+    }
+    &.white-round-24{
+      height: 24px;
+      border-radius: 4px;
+      background:$font_color06;
+      border: 1px solid $line_color02;
+      font-size: 13px;
+      color:$basic_color04;
+      line-height: 22px;
+      padding: 0 8px;
+    }
+    &:disabled {
+      color:$basic_color04;
+      border:1px solid $line_color02;
+    }
+  }
+  &_tooltip{
+    width: 20px;
+    height: 20px;
+    background: url($url_common+"ico_tooltip.svg") no-repeat center;
+    &_wrap{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+    &_content{
+      --mui-position-viewport-offset: 12;
+      display: block;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 13px;
+      color:$font_color03;
+      box-shadow: 0 6px 8px rgba(0,0,0,.04);
+      background:$bg_color03;
+      z-index: 999;
+      .text{
+        max-width: calc(100vw - 58px);
+        display: block;
+      }
+      .mui_arrow{
+        width: 12px;
+        height: 9px;
+        background: url($url_common+"ico_arrow2.png") no-repeat center;
+        background-size: 100%;
+        position: absolute;
+        top: -8.5px;
+        left: 50%;
+        margin-left: -6px;
+      }
+    }
+  }
+  &_button_group{
+    display: flex;
+    .group{
+      flex: 1;
+      & ~ .group{
+        margin-left: 4px;
+      }
+    }
+    .mui_button {
+      background-color:$bg_color01;
+      height: 32px;
+      color:$font_color02;
+      font-size: 14px;
+    }
+  }
+}
+.mui_keypad{
+  position: fixed;
+  background: $bg_color03;
+  bottom: 94px;
+  left: 0;
+  right: 0;
+  .mui_button_group{
+    display: flex;
+    margin: 0 24px;
+    .group{
+      flex: 1;
+      & ~ .group{
+        margin-left: 4px;
+      }
+      .mui_button {
+        height: 32px;
+        text-align: center;
+        font-size: 14px;
+        color:$font_color02;
+        background:$bg_color01;
+        border-radius: 8px;
+      }
+    }
+  }
+  .key_number{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    margin-top: 8px;
+    .key{
+      width: 33.3333%;
+      height: 64px;
+      text-align: center;
+      font-size: 22px;
+      color:$font_color01;
+      &.del{
+        background: url($url_common+"ico_del.svg") no-repeat center;
+      }
+    }
+  }
+}
+.mui_bottom_tray {
+  .mui_button_fixed {
+    height: 108px;
+  }
+}

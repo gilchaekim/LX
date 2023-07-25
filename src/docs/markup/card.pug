@@ -1,0 +1,128 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"카드형 목록"
+    })
+    +guideTitle({
+      text:"카드 리스트",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +card_ico_list({
+          src:"/src/images/ico_example2.png",
+          text:"카드 리스트"
+        })
+        +card_ico_list({
+          src:"/src/images/ico_example2.png",
+          text:"카드 리스트"
+        })
+    br
+    br
+    +guideTitle({
+      text:"카드 데이터",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +card({
+          isLinked:true,
+          tag : {
+            label:"정상",
+            status:"default"
+          },
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+        +card({
+          tag : {
+            label:"정상",
+            status:"error"
+          },
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+        +card({
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+        +card({
+          isSelecte:true,
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+          +radioCheck({
+            type:"radio",
+            name:'chk250176',
+            label:'라디오 버튼 있음!'
+          })
+        +card({
+          isSelecte:true,
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+          +radioCheck({
+            type:"radio",
+            name:'chk250176',
+            label:'라디오 버튼 있음!'
+          })
+        +card({
+          isLinked:true,
+          title : "타이틀",
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+        +card({
+          isLinked:true,
+          tag : {
+            label:"정상",
+            status:"disabled"
+          },
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+        +card({
+          isLinked:true,
+          tag : {
+            label:"정상",
+            status:"error"
+          },
+          data: [
+              {
+                title:"내용",
+                text:"내용",
+              },
+            ]
+        })
+
+

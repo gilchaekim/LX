@@ -1,0 +1,110 @@
+mixin select_list(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const baseLoop = 4;
+  - const { element="div", className, lists, active, type, ...rest } = Object.assign({}, params)
+  - const activeIndex = !!active ? active : 0;
+  - const selectType = !!type ? type : "base";
+  - 
+    const exampleData = {
+      base:{
+        title:"리스트"
+      },
+      account:{
+        title:"상품 명",
+        acc:"123-1212-1234-56",
+        aka:"별칭",
+      },
+      account_img:{
+        title:"상품 명",
+        src:'/src/images/icon_bank.png',
+      },
+      accountlist_img:{
+        title:"상품 명",
+        acc:"123-1212-1234-56",
+        aka:"별칭",
+        src:'/src/images/icon_bank.png',
+      },
+              
+    }
+    const getProps = function(type){
+      const arr = [];
+      let obj = exampleData[type];
+      for (let i = 0; i < baseLoop; i++){
+        arr.push(obj);
+      }
+      return arr;
+    }
+  
+  #{element}(
+    class=`${prefix}${divide}selectlist`
+    class=selectType
+    class=className
+  )
+    <!-- 체크 시 mui_active 클래스 추가 -->
+    ul
+      - const data = !!lists ? lists : getProps(selectType);
+      if selectType === "base"
+        each item, index in data
+          li(
+            class="lists"
+            class={"mui_active":(activeIndex===index)}
+          )
+            button(
+              type="button"
+            )
+              !=item.title+(index+1)
+              if activeIndex===index
+                span.hidden 선택 됨
+      else if selectType === "account"
+        each item, index in data
+          li(
+            class="lists"
+            class={"mui_active":(activeIndex===index)}
+          )
+            button(
+              type="button"
+            ) 
+              span.title!=item.title
+              span.acc_num!=item.acc
+                span.acc_aka!=item.aka
+              if activeIndex===index
+                span.hidden 선택 됨
+      else if selectType === "accountlist_img"
+        each item, index in data
+          li(
+            class="lists"
+            class={"mui_active":(activeIndex===index)}
+          )
+            button(
+              type="button"
+            ) 
+              span.img
+                img(
+                  src=item.src
+                  alt=item.title
+                )
+              span.title!=item.title
+              span.acc_num!=item.acc
+                span.acc_aka!=item.aka
+              if activeIndex===index
+                span.hidden 선택 됨
+      else if selectType === "account_img"
+        each item, index in data
+          li(
+            class="lists"
+            class={"mui_active":(activeIndex===index)}
+          )
+            button(
+              type="button"
+            ) 
+              span.img
+                img(
+                  src=item.src
+                  alt=item.title
+                )
+              span.title!=item.title
+              if activeIndex===index
+                span.hidden 선택 됨

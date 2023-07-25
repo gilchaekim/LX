@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Accordion</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_accordion" mui-accordion="">
+            <div class="acc_lists">
+              <div class="acc_header"><span class="acc_title">아코디언 리스트 타이틀 이건 텍스트고1</span><button class="mui_acc_button" type="button"> 열기</button></div>
+              <div class="mui_acc_content">
+                <div>content1</div>
+              </div>
+            </div>
+            <div class="acc_lists">
+              <div class="acc_header">
+                <div style="border:1px solid red">아코디언 리스트 타이틀 이건 dom 구조로 들어온 것</div><button class="mui_acc_button" type="button"> 열기</button>
+              </div>
+              <div class="mui_acc_content">
+                <div>content2</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+accordion({
+  active:2
+})
+  +acc_title('아코디언 리스트 타이틀 이건 텍스트고1')
+  +acc_content()
+    div content1
+ 
+  +acc_title()
+    div(
+      style="border:1px solid red"
+    ) 아코디언 리스트 타이틀 이건 dom 구조로 들어온 것
+  +acc_content()
+    div content2</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_accordion type2" mui-accordion="">
+            <div class="acc_lists mui_open">
+              <div class="acc_header"><span class="acc_title">타이틀</span><button class="mui_acc_button" type="button"> 닫기</button></div>
+              <div class="mui_acc_content">
+                <div class="mui_result default greybox">
+                  <dl>
+                    <dt>예치금액</dt>
+                    <dd> 10,000,000원</dd>
+                  </dl>
+                  <dl>
+                    <dt>이자(세전)</dt>
+                    <dd> 10,000,000원</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="acc_lists">
+              <div class="acc_header"><span class="acc_title">타이틀2</span><button class="mui_acc_button" type="button"> 열기</button></div>
+              <div class="mui_acc_content">
+                <p>sdfsdfsdfsd</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+accordion({
+  active:0,
+  className:'type2'
+})
+  +acc_title('타이틀')
+  +acc_content()
+    +result({
+      className:"greybox",
+      data:[
+        {
+          title:"예치금액",
+          text:"10,000,000원",
+        },
+        {
+          title:"이자(세전)",
+          text:"10,000,000원",
+        }
+      ]
+    })
+  +acc_title('타이틀2')
+  +acc_content()
+    p sdfsdfsdfsd</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>active</td>
+                <td>활성화 텝 "all" or number </td>
+                <td>number</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>커스텀 클래스</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

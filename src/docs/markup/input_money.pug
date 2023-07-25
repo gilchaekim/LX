@@ -1,0 +1,40 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Input + @"
+    })
+    +guideTitle({
+      text:"Input Money",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_money()
+        +input_money({btns:["1만", "1만", "1만", "1만"], message:{type:"error", text:"에러 메세지"}})
+        +input_money({guideMoney:true})
+    br
+    br
+
+    +guideTitle({
+      text:"Input + button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_button({
+          btnText:"인증요청",
+          placeholder:"'-'제외하고 숫자만 입력하세요",
+          title:"숫자만 입력하세요"
+        })
+    +guideExample()(code)
+      :code
+        +input_button({
+          btnText:"검색",
+          placeholder:"주소 입력",
+          title:"주소 입력",
+          className:"ico search"
+        })
+    br
+    br

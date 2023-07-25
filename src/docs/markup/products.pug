@@ -1,0 +1,107 @@
+extends ../../components/templates/base.pug
+
+block prepend top 
+
+
+block content
+  .bank_products
+    +content_group(0)   
+      +title({
+        text:"<em>상품 명</em>",
+        lv:1,
+      })
+      p.sub_txt 금액, 기간 제한없이 입출금이 자유로운 상품입니다.
+      .detail
+        .list 
+          dl 
+            dt 금리
+            dd 연 1.3%
+        .list 
+          dl 
+            dt 가입기간
+            dd 제한없음
+          dl 
+            dt 가입기간
+            dd 제한없음
+        .img 
+          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+      button.btn_arrow
+        span.calc_txt 나의 대출 이자는?
+          strong 계산해보기
+    hr
+    +content_group(0)
+      +accordion({
+        active:0
+      })
+        +acc_title('상품안내')
+        +acc_content()
+          .product_data   
+            p.title 가입대상
+            p.text 만 20세 이상 내국인
+            p.title 가입기간
+            p.text 제한없음
+            p.title  이자지급시기
+            p.text 매분기 마지막월 셋째주 토요일을 결산기준일로 하여 결산기준일 익일에 원가
+
+        +acc_title('금리정보')
+        +acc_content()
+          +dataTable({
+            caption:"금리정보",
+            colgroup:[50,50],
+            headData:[
+              [
+                {text: "계약기간",},
+                {text: "기본금리"},
+              ],
+            ],
+            bodyData:[
+              [
+                {text: "6개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "12개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "24개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "36개월"},
+                {text: "연 0%"},
+              ],
+            ]
+          })
+        +acc_title('유의사항')
+        +acc_content()
+          .product_data   
+            p.title 유의사항이 있나요??
+            p.text 유의사항이 있나요??
+        +acc_title('약관 및 상품설명서')
+        +acc_content()
+          +button_wrap()
+            +button({
+              label:"입출 자유 예금 약관",
+              size:"medium",
+              type:"white",
+            })
+          +button_wrap()
+            +button({
+              label:"입출 자유 예금 약관",
+              size:"medium",
+              type:"white",
+            })
+    hr
+    .other_guide 
+      .img 
+        img(src="/src/images/img_kdic.png", alt="kdic보호예금상품 1인당 최고 5만원")    
+      .text 이 예금은 예금자보호법에 따라 예금보험공사가 보호하되, 보호 한도는 본 상호저축은행에 있는 귀하의 모든 예금보호 대상 금융상품의 원금과 소정의 이자를 합하여 1인당 "최고 5천만원"이며, 5천만원을 초과하는 나머지 금액은 보호하지 않습니다.
+
+
+  
+  +button_bottom_fixed()
+    +button({
+      label:"가입하기",
+      size:"large",
+    })

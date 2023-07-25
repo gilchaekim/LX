@@ -1,0 +1,218 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_agree_check{
+  & ~ .mui_agree_check{
+    margin-top: 16px;
+  }
+  &.auto_chk {
+    .chk_btn{
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &:not(.chk_lists, .chk_lists_block) {
+    .chk_btn{
+      &.mui_active{
+        // & + .inset{
+        //   display: none;
+        // }
+      }
+    }
+  }
+  .chk_btn{
+    border: 1px solid $line_color02;
+    border-radius: 8px;
+    padding: 16px 20px ;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    &::after{
+      content: '';
+      display: block;
+      @include icon_svg(arrow-left, "#111", 20px);
+      transform: rotate(180deg);
+      position: absolute;
+      top: 18px;
+      right: 20px;
+    }
+    .text{
+      display: block;
+      position: relative;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 700;
+      color:$font_color01;
+      padding: 0 20px 0 32px;
+      &::before{
+        content: '';
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        border-radius: 12px;
+        border: 1px solid $basic_color05;
+        top: 0;
+        left: 0;
+      }
+    }
+    .status{
+      &_1{
+        display: none;
+      }
+    }
+
+    &.mui_active{
+      .text{
+        &::before{
+          content: '';
+          border-color:$main_color01;
+          background-color:$main_color01;
+        }
+        &::after{
+          content: '';
+          display: block;
+          @include icon_svg(check, "#fff", 16px);
+          position: absolute;
+          top: 4px;
+          left: 4px;
+        }
+      }
+      .status{
+        &_1{
+          display: inline;
+          position: absolute;
+        }
+        &_2{
+          display: none;
+        }
+      }
+    }
+
+  }
+  &.chk_lists {
+    border: 1px solid $line_color02;
+    border-radius: 8px;
+    .chk_btn{
+      border: 0 none;
+    }
+    .inset{
+      padding-top: 0;
+      padding-left: 38px;
+      margin-top: -6px;
+      padding-bottom: 14px;
+      .mui_checkbox{
+        margin: 6px 10px;
+        min-width: 65px;
+        label{
+          padding-left: 28px;
+          font-size: 14px;
+          line-height: 20px;
+          color:$font_color01;
+          &::before{
+            display: none;
+          }
+          &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include icon_svg(check, "#ccc", 20px);
+          }
+        }
+        input:checked + label{
+          &::after{
+            @include icon_svg(check, "#DF6311", 20px);
+          }
+        }
+      }
+    }
+  }
+  .inset{
+    padding: 24px 16px 0;
+    .inset{
+      padding-top: 16px;
+    }
+    .mui_agree_check{
+      & ~.mui_agree_check{
+        margin-top: 16px;
+      }
+      .chk_btn{
+        border: 0 none;
+        padding: 0;
+
+        &::after{
+          right: 0;
+          top: 2px;
+        }
+        .text{
+          font-size: 14px;
+          font-weight: 400;
+          padding-left: 28px;
+          &::before{
+            content: '';
+            border: 0 none;
+            @include icon_svg(check, "#ccc", 20px);
+            top: 2px;
+          }
+        }
+        &.mui_active{
+          .text{
+            &::before{
+              background: none;
+              @include icon_svg(check, "#df6311", 20px);
+            }
+            &::after{
+              display: none;
+            }
+          }
+          .status{
+            &_1{
+              display: inline;
+              position: absolute;
+            }
+            &_2{
+              display: none;
+            }
+          }
+        }
+    
+      }
+    }
+  }
+  & > .mui_agree_check{
+    padding: 10px 0 0 30px;
+    .chk_btn{
+      font-size: 16px;
+      
+    }
+  }
+}
+.mui_agree_box{
+  .check_sec{
+    text-align: right;
+    margin-top: 12px;
+    
+  }
+  .agree_box{
+    background:$bg_color02;
+    border-radius: 8px;
+    padding: 16px;
+    padding-right: 0;
+    font-size: 14px;
+    color:$font_color03;
+    .inset{
+      max-height: 104px;
+      padding-right: 16px;
+      overflow: auto;
+    }
+  }
+  .mui_checkbox {
+    margin-right: 0;
+    label, input:checked + label{
+      font-weight: 700;
+      color:$font_color01;
+    }
+  }
+}

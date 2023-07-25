@@ -1,0 +1,141 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_card{
+  border-radius: 20px;
+  border: 1px solid $line_color03;
+  box-shadow: 0 4px 8px rgba(0,0,0,.04);
+  & + .mui_more {
+    margin-top: 12px;
+  }
+  .title{
+    color:$font_color01;
+    font-weight: 700;
+    font-size: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $line_color03;
+    & + .mui_result {
+      margin-top: 16px;
+    }
+  }
+  & ~ .mui_card{
+    margin-top: 16px;
+  }
+  &.no_tag{
+    &.is_linked:not(.in_title){
+      .inset{
+        padding-top: 62px;
+      }
+    }
+  }
+  &.is_linked{
+    .inset{
+      display: block;
+      &:after{
+        content: '';
+        display: block;
+        @include icon_svg(arrow-left, "#111", 20px);
+        transform: rotate(180deg);
+        position: absolute;
+        top: 24px;
+        right: 24px;
+      }
+    }  
+  }
+  &.select_type{
+    .inset{
+      padding-top: 62px;
+    }
+    .mui_radio{
+      position: static;
+      display: block;
+      label{
+        position: absolute;
+        padding: 20px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 16px;
+        font-weight: 700;
+        color:$font_color01;
+        &::before{
+          top: 20px;
+          left: auto;
+          right: 20px;
+        }
+      }
+    }
+    .mui_result {
+      padding-top: 16px;
+      border-top: 1px solid $line_color03;
+    }
+  }
+  .inset{
+    padding: 20px;
+    position: relative;
+  }
+  .mui_result {
+    padding: 0;
+    dl{
+      & ~ dl{
+        margin-top: 16px;
+      }
+    }
+    & + .mui_button_custom  {
+      margin-top: 24px;
+      width: 100%;
+    }
+  }
+  .tags{
+
+    margin-bottom: 16px;
+    .tag{
+      border-radius: 10px;
+      height: 20px;
+      line-height: 20px;
+      background: #3282FA;
+      color:$bg_color03;
+      display: inline-block;
+      padding: 0 8px;
+      font-size: 13px;
+      &.disabled{
+        background:$basic_color04;
+      }
+      &.error{
+        background:$font_color08;
+      }
+    }
+  }
+  &_list{
+    a{
+      display: flex;
+      position: relative;
+      align-items:center;
+      border-radius: 20px;
+      padding: 20px 20px 20px 76px;
+      border: 1px solid $line_color03;
+      height: 80px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+    }
+    
+    
+    & ~ .mui_card_list{
+      margin-top: 12px;
+    }
+    .img{
+      display: block;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background:$line_color03;
+    }
+    .text{
+      color:$font_color02;
+      font-size: 15px;
+    }
+  }
+}
+

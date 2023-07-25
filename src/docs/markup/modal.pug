@@ -1,0 +1,392 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Modal"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 호출 버튼
+        +button({
+          label:"기본 모달 호출",
+          size:'large',
+          muiToggle:'target:#modal;mode:hover;'
+        })
+
+
+        +modal({
+          title:"모달 타이틀"
+        })
+          //- 컨텐츠 영역
+          div 모달 컨텐츠
+
+          //- //- 푸터 영역
+          //- +footer()
+          +button_wrap()
+            
+            +button({
+              label:"확인",
+              size:'large',
+            })
+            +button({
+              label:"취소",
+              size:'large',
+              className:"mui_modal_close"
+            })
+
+    +guideExample()(code)
+      :code
+        //- 호출 버튼
+        +button({
+          label:"풀팝업 호출",
+          size:'large',
+          muiToggle:'target:#fullLayer;'
+        })
+
+
+        +modal({
+          title:"풀팝업 타이틀",
+          id:"fullLayer",
+          type:"full"
+        })
+          div dasfasdlkjfasdklfjasldkjf
+          div dasfasdlkjfasdklfjasldkjf
+
+          //- 푸터 영역
+          +footer()
+            +button_bottom_fixed()
+              +button({
+                label:"확인",
+                size:'large',
+              })
+              +button({
+                label:"취소",
+                size:'large',
+                className:"mui_modal_close"
+              })
+    br
+    br
+    br
+    +guideTitle({
+      text:"버텀 트레이",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 호출 버튼
+        +button({
+          label:"버텀 트레이",
+          size:'large',
+          muiToggle:'target:#modal_bottom;mode:hover;'
+        })
+
+
+        +modal({
+          title:"모달 타이틀",
+          id:"modal_bottom",
+          type:"bottom"
+        })
+          div 모달 컨텐츠111111111111111111111111111111111111
+            div dsfsdf
+    br
+    br
+    +guideTitle({
+      text:"Pug - Attribute",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'title'
+        },
+        {
+          text:'모달 제목'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'id'
+        },
+        {
+          text:'id 속성'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+      ,
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'모달 타입 지정 - default, bottom, full'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+    br
+    br
+    +guideTitle({
+      text:"UI - Events",
+      level:2
+    })
+
+    +eventLists([
+      [
+        {
+          text:'beforeshow'
+        },
+        {
+          text:'항목 실행되기 직전 발생합니다.'
+        }
+      ],
+      [
+        {
+          text:'show'
+        },
+        {
+          text:'항목이 실행된 직후 발생합니다.'
+        }
+      ],
+      [
+        {
+          text:'shown'
+        },
+        {
+          text:'Show animation 이 완료된 후 발생합니다.'
+        }
+      ],
+      [
+        {
+          text:'beforehide'
+        },
+        {
+          text:'항목이 닫히기 직전 발생합니다.'
+        }
+      ],
+      [
+        {
+          text:'hide'
+        },
+        {
+          text:'항목이 닫힌 직후 직전 발생합니다.'
+        }
+      ],
+      [
+        {
+          text:'hidden'
+        },
+        {
+          text:'Hide animation 이 완료된 후 발생합니다.'
+        }
+      ]
+    ])
+    br
+    br
+    +guideTitle({
+      text:"UI - Methods",
+      level:2
+    })
+    .methods
+      +guideTitle({
+        text:"show",
+        level:3
+      })
+      pre.pre GCui.modal(element).show()
+      +guideTitle({
+        text:"hide",
+        level:3
+      })
+      pre.pre GCui.modal(element).hide()
+    br
+    br
+    +guideTitle({
+      text:"UI - Modal Dialog Box",
+      level:2
+    })
+    .methods
+      +guideTitle({
+        text:"다이얼로그 공통",
+        level:3
+      })
+      pre.pre 
+        |  then() 함수를 통해 콜백을 제공하고 있습니다.
+        | Example -
+        |  GCui.modal.alert({
+        |    title:"String",
+        |    text:"String",
+        |    ok: "String"        // 확인 버튼 문구 (Defaut "확인")
+        |  }).then(function(){console.log('Closed!')})
+        | 
+        | 
+        |  GCui.modal.confirm({
+        |    title:"String",
+        |    text:"String",
+        |    ok: "String"        // 확인 버튼 문구 (Defaut "확인")
+        |    cancel: "String"    // 취소 버튼 문구 (Defaut "취소")
+        |  }).then(function(){console.log('OK')}, function(){console.log('CANCEL')})
+        | 
+
+      +guideTitle({
+        text:"Alert",
+        level:3
+      }) 
+        button(id="callAlert").guide_btn Call
+      pre.pre 
+        | // Alert + X 버튼
+        | GCui.modal.alert({
+        |   title:"String",
+        |   text:"String",
+        | })
+
+      +guideTitle({
+        text:"Alert Dialog Type",
+        level:3
+      })
+        button(id="callAlert2").guide_btn Call
+      pre.pre 
+        | GCui.modal.alert({
+        |   title:"String",
+        |   text:"String",
+        | }, {
+        |   className:"dialog_type",
+        | })
+      //- +button({
+      //-   label:"Confirm 버텀 트레이",
+      //-   size:'large',
+      //-   id:"callConfirm2"
+      //- })
+      //- +button({
+      //-   label:"Dialog 호출",
+      //-   size:'large',
+      //-   id:"callDialog"
+      //- })
+      +guideTitle({
+        text:"Alert Bottom Type",
+        level:3
+      })
+        button(id="callAlert3").guide_btn Call
+      pre.pre 
+        | GCui.modal.alert({
+        |   title:"String",
+        |   text:"String",
+        | }, {
+        |   className:"bottom_tray",
+        | })
+      +guideTitle({
+        text:"Conform",
+        level:3
+      })
+        button(id="callConfirm").guide_btn Call
+      pre.pre 
+        |  GCui.modal.confirm({
+        |    title:"String",
+        |    text:"String",
+        |  })
+
+      +guideTitle({
+        text:"Toast popup",
+        level:3
+      })
+        button(id="callToast").guide_btn Call
+      pre.pre GCui.toast({text:"String"})
+
+        
+      
+
+
+    script. 
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        let elem = []
+        elem.push(document.querySelector("#callAlert"))
+        elem.push(document.querySelector("#callAlert2"))
+        elem.push(document.querySelector("#callAlert3"))
+        elem.push(document.querySelector("#callConfirm"))
+        elem.push(document.querySelector("#callConfirm2"))
+        elem.push(document.querySelector("#callDialog"))
+        const toast = document.querySelector("#callToast")
+        
+        elem.forEach((el, i) => {
+          GCui.util.on(el, 'click', (e) => {
+            const id = el.id
+            switch (id) {
+              case "callAlert":{
+                GCui.modal.alert({
+                  title:"로그아웃",
+                  text:"로그아웃 하시겠습니까?",
+                })
+                break;
+              }
+              case "callAlert2":{
+                GCui.modal.alert({
+                  title:"로그아웃",
+                  text:"로그아웃 하시겠습니까?",
+                }, {
+                  className:"dialog_type",
+                  closeBtn:true,
+                })
+                break;
+              }
+              case "callAlert3":{
+                GCui.modal.alert({
+                  title:"타이틀",
+                  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+                }, {
+                  className:"bottom_tray",
+                })
+                break;
+              }
+              case "callConfirm":{
+                GCui.modal.confirm({
+                  title:"타이틀",
+                  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                })
+                break;
+              }
+              case "callConfirm2":{
+                GCui.modal.confirm({
+                  title:"타이틀",
+                  text:"이건 하단에서 뜹니다.",
+                }, {
+                  className:"bottom_tray",
+                })
+                break;
+              }
+              case "callDialog":{
+                GCui.modal.alert({
+                  text:"로그아웃 하시겠습니까?"
+                })
+                break;
+              }
+            }
+          })
+        })
+        
+        GCui.util.on(toast, 'click', (e) => {
+          GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
+        })
+      });
+
+

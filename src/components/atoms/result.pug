@@ -1,0 +1,44 @@
+mixin result(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, dataType="default", type, mainText, subText, img, data } = Object.assign({}, params);
+
+  if data
+    #{element}(
+      class=`${prefix}${divide}result ${dataType}`
+      class=className
+    )
+      each obj in data
+        if !obj.text
+          p.inner_title!=obj.title
+        else
+          dl 
+            dt
+              !=obj.title
+            dd 
+              !=obj.text
+      block
+  //- success, fail, null
+  if type                                        
+    #{element}(
+      class=`${prefix}${divide}result${divide}ico ${type}`
+      class=className
+    )
+      if type == "null"
+        if img
+          .icon_img
+            img(src=img, alt="")
+        if mainText  
+          p.main_txt!=mainText
+        if subText
+          p.sub_txt!=subText
+      else 
+        if img
+          .icon_img
+            img(src=img, alt="")
+        if mainText  
+          p.main_txt!=mainText
+        if subText
+          p.sub_txt!=subText

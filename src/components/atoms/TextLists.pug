@@ -1,0 +1,22 @@
+mixin textLists(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element = 'div', lists, type="dot", ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}text${divide}lists`
+    class=type
+  )
+    ul
+      - for(let i = 0; i < lists.length; i++)
+        li(
+          class=lists[i].className
+        )
+          != lists[i].text
+          if lists[i].subLists
+            +textLists(lists[i].subLists)
+
+
+

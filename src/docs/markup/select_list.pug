@@ -1,0 +1,56 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Select list"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideTitle({
+      text:"base",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +select_list()
+    br
+    +guideExample()(code)
+      :code
+        +select_list({
+          type:"account"
+        })
+    br
+    +guideExample()(code)
+      :code
+        +select_list({
+          type:"account_img"
+        })
+    br
+    br
+
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'리스트 타입 - base, account, account_img'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'base'
+        }
+      ]
+    ])
+
+

@@ -1,0 +1,16 @@
+mixin label(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="span", className, id, text, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}label`
+    class=className
+  )
+    label(
+      for=id
+    )!=text
+
+

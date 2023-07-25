@@ -1,0 +1,229 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Data Table"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +dataTable({
+          caption:"테이블 제목",
+          colgroup:[10, 40, 10],
+          headData:[
+            [
+              {
+                text: "<em>제목1</em>",
+                className:"custom-class"
+              },
+              {
+                text: "제목2"
+              },
+              {
+                text: "제목3"
+              },
+            ],
+            [
+              {
+                text: "제목1-1"
+              },
+              {
+                text: "제목1-2"
+              },
+              {
+                text: "제목1-3"
+              },
+            ],
+          ],
+          bodyData:[
+            [
+              {
+                text: "<em>제목2-1</em>",
+                className:"custom-class",
+                isTitle:true
+              },
+              {
+                text: "내용"
+              },
+              {
+                text: "내용"
+              }
+            ],
+            [
+              {
+                text: "제목2-2",
+                isTitle:true
+              },
+              {
+                text: "내용"
+              },
+              {
+                text: "내용"
+              }
+            ],
+          ],
+          footerData:[
+            [
+              {
+                text: "<em>tfoot 제목</em>",
+                className:"custom-class",
+                isTitle:true
+              },
+              {
+                text: "내용"
+              },
+              {
+                text: "내용"
+              }
+            ],
+          ]
+        })
+                      
+    br
+    br
+    +guideTitle({
+      text:"Attribute - global",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'caption'
+        },
+        {
+          text:'테이블 제목'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'colgroup'
+        },
+        {
+          text:'테이블 cols 지정'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'headData'
+        },
+        {
+          text:'thead 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'bodyData'
+        },
+        {
+          text:'tbody 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'footerData'
+        },
+        {
+          text:'tfoot 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+    +guideTitle({
+      text:"Attribute - rows",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'cell 내용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'isTitle'
+        },
+        {
+          text:'제목(th)로 할 것인가'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'cell에 커스텀 클래스 적용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'colspan'
+        },
+        {
+          text:'colspan 적용 값'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'-'
+        }
+      ],
+    ])
+
+

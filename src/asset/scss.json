@@ -1,0 +1,277 @@
+{
+	// Place your snippets for scss here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"\\$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"ellipsis": {
+		"prefix": "@ellipsis",
+		"body": [
+			"@include ellipsis()$0;"
+		],
+		"description": "Log output to console"
+	},
+	"sb-icon1": {
+		"prefix": "@sb-icon",
+		"body": [
+			"@include icon_svg(${1|arrow-left-right,check,arrow-left,arrow-down,refresh,doubleRect,search-circle|}, \"${2:#999}\", ${3:20px})$0;"
+		],
+		"description": "Log output to console"
+	},
+	"sb-icon2": {
+		"prefix": "@sb-icon__search",
+		"body": [
+			"@include icon_svg_search(${0:20px});"
+		],
+		"description": "Log output to console"
+	},
+	"sb-icon3": {
+		"prefix": "@sb-icon__tooltip",
+		"body": [
+			"@include icon_svg_tooltip(${1|white,black,black2,grey|}, ${0:20px});"
+		],
+		"description": "Log output to console"
+	},
+	"var01": {
+		"prefix": "!main_color01 - #DF6311 - 은행별 포인트 컬러 01 ",
+		"body": [
+			"\\$main_color01"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01 "
+	},
+	"url": {
+		"prefix": "!url - 배경 이미지 경로 ",
+		"body": [
+			" url(\\$url_common+\"$0\") no-repeat center"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01 "
+	},
+	"var02": {
+		"prefix": "!main_color02 - #477A71 - 은행별 포인트 컬러 02",
+		"body": [
+			"\\$main_color02"
+		],
+		"description": "#477A71 - 은행별 포인트 컬러 02"
+	},
+	"var03": {
+		"prefix": "!main_color03 - #DF6311 /6%",
+		"body": [
+			"\\$main_color03"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01/ opacity: 8%"
+	},
+	"var04_1": {
+		"prefix": "!main_color04 - #477A71 /6%",
+		"body": [
+			"\\$main_color04"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01/ opacity: 8%"
+	},
+	"basic01": {
+		"prefix": "!basic_color01 - #111",
+		"body": [
+			"\\$basic_color01"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic02": {
+		"prefix": "!basic_color02 - #333",
+		"body": [
+			"\\$basic_color02"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic03": {
+		"prefix": "!basic_color03 - #666",
+		"body": [
+			"\\$basic_color03"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic04": {
+		"prefix": "!basic_color04 - #888",
+		"body": [
+			"\\$basic_color04"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic05": {
+		"prefix": "!basic_color05 - #ccc",
+		"body": [
+			"\\$basic_color05"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic06": {
+		"prefix": "!basic_color06 - #fff",
+		"body": [
+			"\\$basic_color06"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic07": {
+		"prefix": "!basic_color07 - #3282fa",
+		"body": [
+			"\\$basic_color07"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic08": {
+		"prefix": "!basic_color08 - #ff334b",
+		"body": [
+			"\\$basic_color08"
+		],
+		"description": "#111 - 베이직"
+	},
+	"var04": {
+		"prefix": "!font_color01 - #111",
+		"body": [
+			"\\$font_color01"
+		],
+		"description": "#111 - 폰트"
+	},
+	"var05": {
+		"prefix": "!font_color02 - #333",
+		"body": [
+			"\\$font_color02"
+		],
+		"description": "#333 - 폰트"
+	},
+	"var06": {
+		"prefix": "!font_color03 - #666",
+		"body": [
+			"\\$font_color03"
+		],
+		"description": "#666 - 폰트"
+	},
+	"var07": {
+		"prefix": "!font_color04 - #919191",
+		"body": [
+			"\\$font_color04"
+		],
+		"description": "#919191 - 폰트"
+	},
+	"var08": {
+		"prefix": "!font_color05 - #ccc",
+		"body": [
+			"\\$font_color05"
+		],
+		"description": "#ccc - 폰트"
+	},
+	"var09": {
+		"prefix": "!font_color06 - #fff",
+		"body": [
+			"\\$font_color06"
+		],
+		"description": "#fff - 폰트"
+	},
+	"var10": {
+		"prefix": "!font_color07 - #3282fa",
+		"body": [
+			"\\$font_color07"
+		],
+		"description": "#3282fa - 폰트"
+	},
+	"var11": {
+		"prefix": "!font_color08 - #ff334b",
+		"body": [
+			"\\$font_color08"
+		],
+		"description": "#ff334b - 폰트"
+	},
+	"var12": {
+		"prefix": "!button_color01 - #DF6311",
+		"body": [
+			"\\$button_color01"
+		],
+		"description": "#DF6311 - UI 버튼"
+	},
+	"var13": {
+		"prefix": "!button_color02 - #DF6311",
+		"body": [
+			"\\$button_color02"
+		],
+		"description": "#DF6311 - UI 버튼"
+	},
+	"var14": {
+		"prefix": "!button_color03 - #DF6311",
+		"body": [
+			"\\$button_color03"
+		],
+		"description": "#DF6311 - UI 버튼"
+	},
+	"var15": {
+		"prefix": "!line_color01 - #111",
+		"body": [
+			"\\$line_color01"
+		],
+		"description": "#111 - 라인"
+	},
+	"var16": {
+		"prefix": "!line_color02 - #DDD",
+		"body": [
+			"\\$line_color02"
+		],
+		"description": "#DDD - 라인"
+	},
+	"var17": {
+		"prefix": "!line_color03 - #EEE",
+		"body": [
+			"\\$line_color03"
+		],
+		"description": "#EEE - 라인"
+	},
+	"var18": {
+		"prefix": "!line_color04 - #F6F6F6",
+		"body": [
+			"\\$line_color04"
+		],
+		"description": "#F6F6F6 - 라인"
+	},
+	"var19": {
+		"prefix": "!bg_color01 - #F1F1F1",
+		"body": [
+			"\\$bg_color01"
+		],
+		"description": "#F1F1F1 - 배경 그레이"
+	},
+	"var20": {
+		"prefix": "!bg_color02 - #F7F8FA",
+		"body": [
+			"\\$bg_color02"
+		],
+		"description": "#F7F8FA - 배경 그레이"
+	},
+	"var21": {
+		"prefix": "!bg_color03 - #FFF",
+		"body": [
+			"\\$bg_color03"
+		],
+		"description": "#FFF - 배경 화이트"
+	},
+	"var22": {
+		"prefix": "!bg_color04 - rgba(255,255,255,.8)",
+		"body": [
+			"\\$bg_color04"
+		],
+		"description": "rgba(255,255,255,.8) - 배경 화이트 80%"
+	},
+	"var23": {
+		"prefix": "!bg_color05 - rgba(0,0,0,.8)",
+		"body": [
+			"\\$bg_color05"
+		],
+		"description": "rgba(0,0,0,.8) - 배경 블랙 80%"
+	}
+	
+	
+}
+

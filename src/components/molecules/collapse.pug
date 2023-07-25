@@ -1,0 +1,28 @@
+mixin collapse(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, isOpen, ...rest} = Object.assign({}, params);
+  - let blockData = {};
+
+
+  mixin header(params={})
+    - blockData.header =block
+  mixin content(params={})
+    - blockData.content =block
+  block
+  #{element}(
+    class=`${prefix}${divide}collapse`
+    class=className
+  )
+    +accordion({
+      active:(isOpen?0:-1)
+    })
+      +acc_title()
+        - blockData.header && blockData.header()
+      +acc_content()
+        - blockData.content && blockData.content()
+        
+
+        

@@ -1,0 +1,59 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"조회 계좌"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 거래중지 = type1
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          endDate:"2025.12.31",
+          btns: [
+            {
+              label:"이체"
+            },
+            {
+              label:"거래내역조회"
+            }
+          ],
+          
+          tags:[{
+            
+            text:"전용계좌", type:"type1"
+          }]
+
+        })
+    +guideExample()(code)
+      :code
+        +accountbox({
+          accNameLink:"비대면 파킹통장 보통예금예금예금예",
+          accNum:"평생 010-12345678",
+          accVal:"20,303,031,3333",
+          endDate:"2025.12.31",
+          className:"main_card",
+          btns: [
+            {
+              label:"버튼"
+            },
+            {
+              label:"버튼"
+            }
+          ],
+          tags:[{
+            text:"거래중지", type:"test111222"
+          }]
+
+        })
+    br
+    br
+
+

@@ -1,0 +1,16 @@
+
+mixin tag(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="span", className, type, text, ...rest } = Object.assign({}, params)
+  - const stepItems = [];
+  #{element}(
+    class=`${prefix}${divide}tag`
+    class=className
+    class=type
+  )!=text
+    
+        

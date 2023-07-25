@@ -1,0 +1,43 @@
+mixin agree_check(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, isChecked, text, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}agree_check`
+    class=className
+    class={'inner_agree':!!block}
+  )
+    <!-- 체크 시 mui_active 클래스 추가 -->
+    button(
+      type="button"
+      class="chk_btn"
+      class={"mui_active":isChecked}
+    )
+      span.text!=text
+      span.hidden.status_1 동의 완료
+      span.hidden.status_2 동의 안됨
+      span.hidden 변경하려면 클릭 하세요
+    if block
+      .inset
+        block
+
+mixin agree_box(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, isChecked, text, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}agree_box`
+    class=className
+    class={'inner_agree':!!block}
+  )
+    .agree_box 
+      .inset
+        p!=text
+    .check_sec
+      block

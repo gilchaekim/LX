@@ -1,0 +1,52 @@
+mixin accordion(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, active=0, multiple} = Object.assign({}, params);
+  - let accItems = [];
+  - let options = ""
+  - if (multiple) options+='multiple:true;'
+  mixin acc_title(title)
+    //- - console.log(block)
+    if !!block
+      - accItems.push({titleBlock:block})
+    else if !!title
+      - accItems.push({titleText:title})
+
+  mixin acc_content()
+    - accItems[accItems.length -1].content = block
+
+
+  block
+  //- mui-accordion="collapsible: false"
+  #{element}(
+    class=`${prefix}${divide}accordion`
+    class=className
+    mui-accordion=`${options}`
+  )
+    
+    each item, index in accItems
+      - let isOpen = active === 'all' ? true : active === index;
+      .acc_lists(
+        class={'mui_open':isOpen}
+      )
+        .acc_header
+          if item.titleText
+            span(
+              class="acc_title"
+            )!=item.titleText
+          else if item.titleBlock
+            - item.titleBlock()
+          else
+            !="unknown"
+          button(
+            type="button"
+            class="mui_acc_button"
+          ) 
+            if isOpen
+              | 닫기
+            else
+              | 열기
+        .mui_acc_content
+          - item.content && item.content()

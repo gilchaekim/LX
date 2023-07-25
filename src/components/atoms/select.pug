@@ -1,0 +1,21 @@
+mixin select(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="span", className, title, id, options, selectedInbdex=null, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}select`
+    class=className
+  )
+    select
+      each val, key in options
+        if selectedInbdex && selectedInbdex === key
+          option(
+            selected
+          )=key
+        else
+          option=key
+
+

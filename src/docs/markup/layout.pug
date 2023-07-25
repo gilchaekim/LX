@@ -1,0 +1,71 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Layout"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +content_group(1)
+          | ......
+        +content_group(2)
+          | ......
+        +content_group(3)
+          | ......  
+    br
+    br
+
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'label'
+        },
+        {
+          text:'버튼 텍스트'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'size'
+        },
+        {
+          text:'버튼 사이즈 : large, medium, small'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'medium'
+        }
+      ],
+      [
+        {
+          text:'isIcon'
+        },
+        {
+          text:'아이콘 포함 여부'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ]
+    ])

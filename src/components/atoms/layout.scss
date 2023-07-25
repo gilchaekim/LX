@@ -1,0 +1,35 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_contents_group{
+  &.lv_4{
+    margin-top: 8px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &.lv_3{
+    margin-top: 16px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &.lv_2{
+    margin-top: 24px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &.lv_1{
+    margin-top: 32px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &.lv_0{
+    margin-top: 40px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+}

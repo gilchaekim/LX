@@ -1,0 +1,59 @@
+include ../index
+- let showAllMenu = false;
+
+//- 페이지 제목
+- let pageTitle = '페이지 제목';
+- let showHeader = true;
+
+//- 컨텐츠 메인 클래스 네임
+- let mainClassName = null;
+
+block top
+doctype html
+html#pageRoot(
+  lang="ko"
+  class={"open_allmenu":showAllMenu}
+)
+  head
+    title 저축은행중앙회
+    meta(
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    )
+    meta(
+      charset="UTF-8"
+    )
+    link(
+      rel="stylesheet"
+      href="/css/common.css"
+    )
+    script(
+      type="text/javascript"
+      src="/js/index.js"
+    )
+  body
+    #wrapper
+      if showHeader
+        <!-- 전체메뉴 -->
+        include all_menu.pug
+        <!--// 전체메뉴 -->
+        <!-- header -->
+        #header
+          include header.pug
+          block header
+        <!-- / header -->
+
+
+      <!-- contents -->
+      #contants(
+        class=mainClassName
+      )
+        block content
+      <!-- / contents -->
+
+
+      //- <!-- footer -->
+      //- #footer
+      //-   include footer.pug
+      //- <!-- / footer -->
+      

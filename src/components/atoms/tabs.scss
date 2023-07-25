@@ -1,0 +1,120 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+#contants{
+  & > .mui_tabs{
+    margin-left: -24px;
+    margin-right: -24px;
+  }  
+}
+.mui_tabs{
+  &.link_tab{
+    .tab_contents{
+      .tab_pane{
+        display: block;
+      }
+    }
+  }
+  & + .mui_text{
+    margin-top: 12px;
+  }
+  .mui_tab_nav{
+    display: flex;
+    padding: 0 24px;
+    background: $bg_color03;
+    position: relative;
+    .nav_list{
+      flex: 1;
+      text-align: center;
+      button, a{
+        display: block;
+        position: relative;
+        padding: 14px 0 17px;
+        color: $font_color04;
+        font-size: 16px;
+        width: 100%;
+      }
+      &.mui_active{
+        button, a{
+          color: $font_color01;
+          font-weight:700;
+          &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $line_color01;
+            width: 100%;
+            z-index: 1;
+          }
+        }
+      }
+    }
+    &::after{
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background:$line_color03;
+    }
+  }
+
+  .tab_contents{
+    .tab_pane{
+      display: none;
+      padding: 20px;
+      &.mui_active{
+        display: block;
+      }
+    }
+  }
+  &.overflow {
+    .mui_tab_nav{
+      display: block;
+      padding: 0;
+      font-size: 0;
+      white-space: nowrap;
+      overflow-x: auto;
+      margin-right: -24px;
+      padding-bottom: 8px;
+      .nav_list{
+        flex: none;
+        display: inline-block;
+        margin-left: 8px;
+        &:first-child{
+          margin-left: 0;
+        }
+        button, a{
+          display: block;
+          position: relative;
+          height: 32px;
+          line-height: 32px;
+          background:$bg_color02;
+          color:$font_color03;
+          font-size: 13px;
+          padding: 0 12px;
+          border-radius: 16px;
+        }
+        &.mui_active{
+          button, a{
+            color:$font_color06;
+            background:$basic_color01;
+            font-weight:700;
+            &::after{
+              display: none;
+            }
+          }
+        }
+      }
+      &::after{
+        display: none;
+      }
+    }
+  }
+}

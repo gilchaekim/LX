@@ -1,0 +1,161 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+
+.mui_form {
+  .mui_form {
+    margin-top: 32px;
+  }
+  .add_data{
+    margin-top: 16px;
+    & > .mui_form {
+      margin-top: 24px;
+    }
+  }
+}
+.mui_form_list{
+  .support{
+		text-align: right;
+		margin-top: 12px;
+		a{
+			display: inline-block;
+			font-size: 13px;
+			color:$main_color01;
+			padding-right: 16px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include icon_svg(arrow-left, "#DF6311", 16px);
+				transform: rotate(180deg);
+			}
+		}
+	}
+  & ~ .mui_form_list{
+    margin-top: 32px;
+  }
+  .mui_form_content{
+    margin-top: 8px;
+    position: relative;
+    &:first-child {
+      margin-top: 0;
+    }
+    .mini_type {
+      padding-top: 8px;
+    }
+    .guide_btn{
+      height: 22px;
+      color: #5C627C;
+      font-size: 13px;
+      background:$bg_color02;
+      padding: 0 10px;
+      border-radius: 11px;
+      position: absolute;
+      top: -30px;
+      right: 0;
+    }
+    .mui_button{
+      &:first-child{
+        margin-top: 8px;
+        & + .mui_radio_group{
+          padding-top: 16px;
+        }
+      }
+    }
+    .mui_phone{
+      .mui_button{
+        & + .mui_input{
+          margin-top: 0;
+        }
+      }
+    }
+    .mui_text {
+      margin-top: 12px;
+    }
+    & > .mui_button_custom,
+    & > .mui_checkbox,
+    & > .mui_button_group {
+      &.white-round-24{
+        margin-top: 8px;
+      }
+      & + .mui_form {
+        margin-top: 16px;
+      }
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+      
+    }
+    & > .mui_button_custom + .mui_text {
+      margin-top: 24px;
+    }
+    & > .mui_inputbtn, & > .mui_input {
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+    .right_top{
+      &.mui_button_custom{
+        margin-top: 0;
+      }
+      position: absolute;
+      top: -28px;
+      right: 0;
+    }
+  }
+  .mui_input{
+    & + .mui_input{
+      margin-top: 16px;
+    }
+  }
+  .mui_button{
+    & + .mui_input, & + .mui_inputbtn{
+      margin-top: 16px;
+    }
+  }
+  .mui_radio_group{
+    padding-top: 8px;
+    & + .mui_input,
+    & + .mui_datepicker,
+    & + .mui_select{
+      margin-top: 16px;
+    }
+    & + .mui_inputmultiple{
+      margin-top: 16px;
+    }
+    &.button_type{
+      padding-top: 0 !important;
+    }
+  }
+}
+.mui_form_value{
+  height: 28px;
+  line-height: 28px;
+  font-size: 16px;
+  color:$font_color01;
+  font-weight: 700;
+}
+.msg_form{
+  font-size: 12px;
+  margin-top: 12px;
+  &.msg_error{
+    color:$main_color01;
+  }
+}
+.mui_form_head{
+  font-size: 14px;
+  color:$font_color02;
+  .mui_tooltip_wrap{
+    position: relative;
+    top: -1px;
+  }
+}
+.form_error{
+  .mui_input::after, .mui_select::before{
+    height: 2px;
+    background:$font_color08;
+  }
+}

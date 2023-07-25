@@ -1,0 +1,59 @@
+mixin form(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const formBody = [];
+  - const { element="div", className, message, ...rest } = Object.assign({}, params)
+
+  mixin form_body(params={})
+    - const obj = Object.assign({}, params)
+    - formBody.push({attribute:obj, content:block});
+  block
+  #{element}(
+    class=`${prefix}${divide}form`
+    class=className
+  )
+    each item, index in formBody
+      - const {title, tooltip, required, message} = item.attribute;
+      - let messageType = null;
+      - 
+        if (!!message)
+          messageType = `form_${message.type}`;
+      div(
+        class=`${prefix}${divide}form_list`
+        class=messageType
+      )
+        if !!title
+          div(
+            class=`${prefix}${divide}form_head`
+            class={"form_required":required}
+          )
+            span.form_title!=title
+              if !!tooltip
+                +button_tooltip(tooltip)
+        div(
+          class=`${prefix}${divide}form_content`
+        )
+          - item.content && item.content();
+          if !!message && message.text
+            p(
+              class="msg_form"
+              class=`msg_${message.type}`
+            )!=message.text
+
+
+mixin form_value(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, value, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}form_value`
+    class=className
+  )
+    span!=value
+
+

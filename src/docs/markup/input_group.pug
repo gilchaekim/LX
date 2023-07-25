@@ -1,0 +1,175 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Input"
+    })
+    +guideTitle({
+      text:"주민번호 - 기본",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_idnumber({
+          data:[
+            {
+              value:""
+            },
+            {
+              value:""
+            }
+          ]
+        })
+    br
+    +guideTitle({
+      text:"주민번호 - 뒤 첫번째",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_idnumber({
+          type:'letter',
+          data:[
+            {
+              value:""
+            },
+            {
+              value:""
+            }
+          ]
+        })
+    br
+    +guideTitle({
+      text:"주민번호 - 앞 6자리만 입력",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_idnumber({
+          type:'birthday',
+          data:[
+            {
+              value:"123456"
+            }
+          ]
+        })
+    br
+    br
+    +guideTitle({
+      text:"면허번호",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_drivingnumber({
+          data:[
+            {
+              value:"00"
+            },
+            {
+              value:"00"
+            },
+            {
+              value:"000000"
+            },
+            {
+              value:"00"
+            }
+          ]
+        })
+    br
+    br
+    +guideTitle({
+      text:"인증번호 입력",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_certificate({
+          placeholder:"인증번호 입력",
+          title:"인증번호 입력"
+        })
+
+    br
+    br
+    +guideTitle({
+      text:"기간 입력",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +multiPicker({
+          data:[
+            {
+              placeholder:"시작일",
+              title:"시작일 입력"
+            },
+            {
+              placeholder:"종료일",
+              title:"종료일 입력"
+            }
+          ]
+        })
+    br
+    br
+    +guideTitle({
+      text:"휴대폰 번호",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_phone()
+    br
+    br
+    
+    +guideTitle({
+      text:"Attribute - input",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'disabled'
+        },
+        {
+          text:'비활성화 여부'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'readonly'
+        },
+        {
+          text:'읽기전용'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+

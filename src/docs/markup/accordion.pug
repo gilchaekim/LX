@@ -1,0 +1,90 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Accordion"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +accordion({
+          active:2
+        })
+          +acc_title('아코디언 리스트 타이틀 이건 텍스트고1')
+          +acc_content()
+            div content1
+
+          +acc_title()
+            div(
+              style="border:1px solid red"
+            ) 아코디언 리스트 타이틀 이건 dom 구조로 들어온 것
+          +acc_content()
+            div content2                
+    br
+    br
+    +guideExample()(code)
+      :code
+        +accordion({
+          active:0,
+          className:'type2'
+        })
+          +acc_title('타이틀')
+          +acc_content()
+            +result({
+              className:"greybox",
+              data:[
+                {
+                  title:"예치금액",
+                  text:"10,000,000원",
+                },
+                {
+                  title:"이자(세전)",
+                  text:"10,000,000원",
+                }
+              ]
+            })
+          +acc_title('타이틀2')
+          +acc_content()
+            p sdfsdfsdfsd
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'active'
+        },
+        {
+          text:'활성화 텝 "all" or number '
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'0'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+

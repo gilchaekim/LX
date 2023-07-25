@@ -1,0 +1,606 @@
+{
+	// Place your snippets for jade here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"accordion": {
+		"prefix": "!Accordion",
+		"body": [
+				"+accordion({",
+				"\tactive:0",
+				"})",
+				"\t+acc_title('$1')",
+				"\t+acc_content()",
+				"\t\t$0"
+		],
+		"description": "이코디언 리스트"
+	},
+	"content_group": {
+		"prefix": "!content_group",
+		"body": [
+				"+content_group(${1|0,1,2,3|})",
+				"\t$0"
+		],
+		"description": "컨텐츠 그룹"
+	},
+	"Button": {
+		"prefix": "!button",
+		"body": [
+				"+button({",
+				"\tlabel:\"$0\",",
+				"\tsize:\"${1|small,medium,large|}\",",
+				"\ttype:\"${2|primary,success,grey,white,info,default|}\",",
+				"})"
+		],
+		"description": "기본 버튼"
+	},
+	"button_bottom_fixed": {
+		"prefix": "!button_bottom_fixed",
+		"body": [
+				"+button_bottom_fixed()",
+				"\t$0"
+		],
+		"description": "하단 고정 버튼"
+	},
+	"Button_link": {
+		"prefix": "!button_link",
+		"body": [
+				"+button_link({",
+				"\tlist:[,",
+				"\t\t\"$0\"",
+				"\t],",
+				"})"
+		],
+		"description": "기본 버튼"
+	},
+	"Button_more": {
+		"prefix": "!button_more",
+		"body": [
+			"+button_more()"
+		],
+		"description": "더보기 버튼"
+	},
+	"button_custom": {
+			"prefix": "!button_custom",
+			"body": [
+					"+button_custom({",
+					"\ttype:\"${1|round-40,darkgray-28,gray-32,download-32,timeselect-24,white-round-24|}\",",
+					"\tlabel:\"$0\"",
+					"})"
+			],
+			"description": "1"
+	},
+	"Button_group": {
+		"prefix": "!Button_group",
+		"body": [
+				"+button_group({",
+				"\tbtns:[",
+				"\t\t'$0',",
+				"\t]",
+				"})"
+		],
+		"description": "버튼 그룹"
+	},
+	"Button_wrap": {
+		"prefix": "!button_wrap",
+		"body": [
+				"+button_wrap()",
+				"\t$0"
+		],
+		"description": "버튼 렙핑"
+	},
+	"Button_select": {
+			"prefix": "!button_select",
+			"body": [
+					"+button_select({",
+					"\tplaceholder:\"\",",
+					"\tlabel:\"\"",
+					"})"
+			],
+			"description": "셀렉트 박스형 버튼"
+	},
+	"button_select_account": {
+		"prefix": "!button_select_account",
+		"body": [
+			"+button_select_account({",
+			"\t${1:isMoney:true}",
+			"})"
+	],
+		"description": "계좌선택 셀렉트 버튼"
+	},
+	"button_keypad": {
+			"prefix": "!button_keypad",
+			"body": [
+					"+button_keypad()",
+					"\t+button_group({",
+					"\t\tbtns:[",
+					"\t\t\t\"\",",
+					"\t\t]",
+					"\t})"
+			],
+			"description": "키패드 버튼"
+	},
+	"button_tooltip": {
+		"prefix": "!button_tooltip",
+		"body": [
+				"+button_tooltip(\"$0\")"
+		],
+		"description": "튤팁"
+	},
+	"data_sort": {
+			"prefix": "!data_sort",
+			"body": [
+					"+data_sort({",
+					"\ttotal:\"${1:0}\",",
+					"\tdate:\"$2\",",
+					"\t${3:isBtn:true}",
+					"})"
+			],
+			"description": "1"
+	},
+	"dataTable": {
+		"prefix": "!dataTable",
+		"body": [
+				"+dataTable({",
+				"\tcaption:\"${1:제목}\",",
+				"\tcolgroup:[$0, , ],",
+				"\theadData:[",
+				"\t\t[",
+				"\t\t\t{",
+				"\t\t\t\ttext: \"\",",
+				"\t\t\t},",
+				"\t\t],",
+				"\t],",
+				"\tbodyData:[",
+				"\t\t[",
+				"\t\t\t{",
+				"\t\t\t\ttext: \"\"",
+				"\t\t\t}",
+				"\t\t],",
+				"\t]",
+				"})"
+		],
+		"description": "데이터 테이블"
+	},
+	"datepicker": {
+		"prefix": "!datepicker",
+		"body": [
+				"+datepicker({",
+				"\t${1:quickBtn:true}",
+				"\t${2:value:\"\"}",
+				"})"
+		],
+		"description": "날짜 입력 폼"
+	},
+	"input": {
+		"prefix": "!input",
+		"body": [
+				"+input({",
+				"\t${1:value:\"\",}",
+				"\t${2:subfix:\"\",}",
+				"})"
+		],
+		"description": "1"
+	},
+	"input_money": {
+		"prefix": "!input_money",
+		"body": [
+				"+input_money()"
+		],
+		"description": "금액 입력 폼"
+	},
+	"input_btn": {
+			"prefix": "!input_button",
+			"body": [
+				"+input_button({",
+				"\tbtnText:\"\",",
+				"\tplaceholder:\"\",",
+				"\ttype:\"${1|input,select|}\"",
+				"})"
+			],
+			"description": "input + button"
+	},
+
+	"modal": {
+		"prefix": "!modal",
+		"body": [
+				"+modal({",
+				"\t${1:title:\"\"}",
+				"})",
+				"\t$0",
+				"\t+footer()"
+		],
+		"description": "모달 공통"
+	},
+	"radio&check": {
+		"prefix": ["!radio&check", "!ㄱㅁㅇ"],
+		"body": [
+				"+radioCheck({",
+				"\t${1:type:\"radio\",}",
+				"\tname:'chk$RANDOM',",
+				"\tlabel:'$0'",
+				"\tlists:[",
+				"\t\t{label:'라디오버튼1',},",
+				"\t]",
+				"})"
+		],
+		"description": "라디오 & 체크"
+	},
+	"radio&check_btn": {
+		"prefix": ["!radio&check_btn", "!ㄱㅁㅇ_ㅠ수"],
+		"body": [
+				"+radioCheck({",
+				"\tname:'btnType',",
+				"\ttype:\"radio\",",
+				"\tclassName:'button_type ${1|type1|}',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\tlabel:''",
+				"\t\t}",
+				"\t]",
+				"})"
+		],
+		"description": ""
+	},
+	"radio&check_block": {
+		"prefix": ["!radio&check_block", "!ㄱㅁㅇ_ㅠ수"],
+		"body": [
+				"+radioCheck({",
+				"\tname:'btnType',",
+				"\ttype:\"radio\",",
+				"\tclassName:'block_type',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\tlabel:''",
+				"\t\t}",
+				"\t]",
+				"})"
+		],
+		"description": ""
+	},
+	"result": {
+			"prefix": ["!result", "!ㄱㄷㄴ"],
+			"body": [
+					"+result({",
+					"\tdataType:\"${1|default,line|}\",",
+					"\tdata:[",
+					"\t\t{",
+					"\t\t\ttitle:\"\",",
+					"\t\t\ttext:\"\",",
+					"\t\t},",
+					"\t]",
+					"})"
+			],
+			"description": "결과 리스트"
+	},
+	"result_null": {
+			"prefix": "!result_null",
+			"body": [
+					"+result({",
+					"\ttype:'null',",
+					"\tmainText:\"검색결과가 없습니다.\",",
+					"\timg:\"/src/images/ico_search_empty.svg\",",
+					"})"
+			],
+			"description": "검색 결과 없음"
+	},
+	"result_success": {
+			"prefix": "!result_success",
+			"body": [
+					"+result({",
+					"\ttype:'result',",
+					"\tmainText:\"\",",
+					"\tsubText:\"\",",
+					"\timg:\"/src/images/ico_example2.png\",",
+					"})"
+			],
+			"description": "프로세스 성공 메세지"
+	},
+	"tab": {
+		"prefix": ["!tab", "!ㅅ뮤"],
+		"body": [
+				"+tabsWrap({",
+				"\tactive:0,",
+				"\tclassName:\"\"",
+				"})",
+				"\t+tab(\"$0\")"
+		],
+		"description": "텝"
+	},
+	"tab_link": {
+			"prefix": "!tab_link",
+			"body": [
+					"+tabsLink({",
+					"\tlist:[\t\t",
+					"\t\t{name:\"\", active:true},",
+					"\t\t{name:\"\"},",
+					"\t],",
+					"\tclassName:\"custom_tab\"",
+					"})"
+			],
+			"description": "텝 링크형태"
+	},
+	"tag": {
+		"prefix": ["!tag", "!ㅅㅁㅎ"],
+		"body": [
+				"+tag({",
+				"\ttext:\"\", ",
+				"\ttype:\"\"",
+				"})",
+				""
+		],
+		"description": "태그"
+	},
+	"textLists": {
+		"prefix": ["!text_lists", "ㅅㄷㅌㅅ"],
+		"body": [
+				"+textLists({",
+				"\ttype:'${1|dot,dot,dot|}',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\ttext:\"$0\",",
+				"\t\t\tclassName:\"custom_class_name\",",
+				"\t\t\t${2:subLists:\"\",}",
+				"\t\t},",
+				"\t]",
+				"})"
+		],
+		"description": "텍스트 리스트"
+	},
+	"textarea": {
+		"prefix": ["textarea", "ㅅㄷㅌㅅㅁㄱㄷㅁ"],
+		"body": [
+				"+textarea()"
+		],
+		"description": "textarea"
+	},
+	"text": {
+		"prefix": "!text",
+		"body": [
+				"+text({",
+				"\t${1:type:'warning',}",
+				"\ttext:\"$0\"",
+				"})"
+		],
+		"description": "기본 텍스트 스타일"
+	},
+	"agree_check": {
+			"prefix": "!agree_check",
+			"body": [
+					"+agree_check({",
+					"\ttext:\"$0\",",
+					"\t${1:isChecked:true}",
+					"})"
+			],
+			"description": "1"
+	},
+	"title": {
+		"prefix": ["!title", "!샤ㅅ"],
+		"body": [
+				"+title({",
+				"\ttext:\"$0\",",
+				"\tlv:${1|1,2,3,4,5|},",
+				"})"
+		],
+		"description": "타이틀"
+	},
+	"collapse": {
+		"prefix": "!collapse",
+		"body": [
+				"+collapse({",
+				"\tisOpen:true",
+				"})",
+				"\t+header()",
+				"\t\t",
+				"\t+content()",
+				"\t\t"
+		],
+		"description": "collapse"
+	},
+	"guide_text": {
+		"prefix": "!guide_text",
+		"body": [
+				"+collapse({",
+				"\tclassName:\"guide_text\",",
+				"\tisOpen:true,",
+				"})",
+				"\t+header()",
+				"\t\tp.title 알아두세요",
+				"\t+content()",
+				"\t\t+textLists({",
+				"\t\t\ttype:'guide',",
+				"\t\t\tlists:[",
+				"\t\t\t\t{",
+				"\t\t\t\t\ttext:\"\",",
+				"\t\t\t\t},",
+				"\t\t\t]",
+				"\t\t})"
+		],
+		"description": "알아두세요"
+	},
+	"form": {
+		"prefix": "!form",
+		"body": [
+				"+form()"
+		],
+		"description": "form"
+	},
+	"form_body": {
+		"prefix": "!form_body",
+		"body": [
+			"+form_body({title:\"$0\"})"
+		],
+		"description": "폼 바디"
+	},
+	"form_value": {
+		"prefix": "!form_value",
+		"body": [
+				"+form_value({",
+				"\tvalue:\"$0\"",
+				"})"
+		],
+		"description": "텍스트"
+	},
+	"form_select": {
+		"prefix": "!form_select",
+		"body": [
+				"+button({",
+				"\tlabel:\"$0\",",
+				"\tclassName:'select_type'",
+				"})"
+		],
+		"description": "셀렉트"
+	},
+	"form_datepicker": {
+		"prefix": "!form_datepicker",
+		"body": [
+				"+datepicker()"
+		],
+		"description": "데이트피커"
+	},
+	"form_datepicker_multi": {
+		"prefix": "!form_datepicker_multi",
+		"body": [
+			"+multiPicker({",
+			"\tdata:[",
+			"\t\t{",
+			"\t\t\tplaceholder:\"시작일\"",
+			"\t\t},",
+			"\t\t{",
+			"\t\t\tplaceholder:\"종료일\"",
+			"\t\t}",
+			"\t]",
+			"})"
+		],
+		"description": "날짜입력폼 시작일 ~ 종료일"
+	},
+
+
+	"form_datepicker_quick": {
+		"prefix": "!form_datepicker_quick",
+		"body": [
+				"+datepicker({",
+				"\tquickBtn:true",
+				"})"
+		],
+		"description": "데이트피커 조회기간 버튼"
+	},
+	"form_phon": {
+		"prefix": "!form_phon",
+		"body": [
+				"+input_phone()"
+		],
+		"description": "휴대폰번호입력 폼"
+	},
+	"form_business": {
+		"prefix": "!form_business",
+		"body": [
+				"+input_business()"
+		],
+		"description": "사업자번호 입력 폼"
+	},
+	"form_proofapp": {
+		"prefix": "!form_proofapp",
+		"body": [
+				"+input_proofapp()"
+		],
+		"description": "제증명발행번호 입력 폼"
+	},
+	
+	"form_button_check": {
+		"prefix": "!form_button_check",
+		"body": [
+				"+radioCheck({",
+				"\tname:'btnType',",
+				"\t${2:type:\"radio\",}",
+				"\tclassName:'button_type',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\tlabel:'$3',",
+				"\t\t\tchecked:true",
+				"\t\t},",
+				"\t\t{",
+				"\t\t\tlabel:''",
+				"\t\t}",
+				"\t]",
+				"})"
+		],
+		"description": "버튼형 체크 박스"
+	},
+	"card": {
+		"prefix": "!card",
+		"body": [
+				"+card({",
+				"\t${1:isLinked:true,}",
+				"\ttag : {",
+				"\t\tlabel:\"\",",
+				"\t\tstatus:\"\"",
+				"\t},",
+				"\tdata: [",
+				"\t\t\t{",
+				"\t\t\t\ttitle:\"\",",
+				"\t\t\t\ttext:\"\",",
+				"\t\t\t},",
+				"\t\t]",
+				"})"
+		],
+		"description": "1"
+	},
+	"card_list": {
+			"prefix": "!card_list",
+			"body": [
+					"+card_ico_list({",
+					"\tsrc:\"${1:/src/images/ico_example2.png}\",",
+					"\ttext:\"$0\"",
+					"})"
+			],
+			"description": "1"
+	},
+	"form_jumin": {
+		"prefix": "!form_jumin",
+		"body": [
+				"+input_idnumber({",
+				"${1:\ttype:'letter',}",
+				"${2:\tdata:[{value:\"\"}, {value:\"\"}]}",
+				"})"
+		],
+		"description": "주민등록번호 입력"
+	},
+	"form_jumin_birthday": {
+		"prefix": "!form_jumin_birthday",
+		"body": [
+				"+input_idnumber({",
+				"\ttype:'birthday',",
+				"\t${1:data:[{value:\"\"\\}]}",
+				"})"
+		],
+		"description": "주민번호 생년월일만 입력"
+	},
+	"form_drivingnumber": {
+		"prefix": "!form_drivingnumber",
+		"body": [
+				"+input_drivingnumber(${1:{data:[{value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}]\\}})"
+		],
+		"description": "면허번호"
+	},
+	"step_number": {
+		"prefix": "!step_number",
+		"body": [
+				"+stepNum({",
+				"\ttotal:$1,",
+				"\tactiveIndex:$0",
+				"})"
+		],
+		"description": "숫자 형 스텝"
+	}
+}
+

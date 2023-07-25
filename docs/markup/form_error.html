@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Form_Error</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <div class="mui_form">
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">이름</span></div>
+            <div class="mui_form_content">
+              <div class="mui_form_value"><span>방수현</span></div>
+              <p class="msg_form msg_error">경고 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">입금은행</span></div>
+            <div class="mui_form_content">
+              <button class="guide_btn" type="button">안내</button>
+              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true"></span></span></button>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">주민번호 기본</span></div>
+            <div class="mui_form_content">
+              <div class="mui_idNumber mui_inputmultiple default">
+                <span class="mui_input">
+                  <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="password" title="주민번호 뒤7자리 입력" placeholder="뒤7자리" value="1234567" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">주민번호 앞자리만</span></div>
+            <div class="mui_form_content">
+              <div class="mui_idNumber mui_inputmultiple birthday">
+                <span class="mui_input">
+                  <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" />
+                </span><span class="divide">-</span>
+                <div class="letters">
+                  <div class="mask_box"><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span></div>
+                </div>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">주민번호 뒤 1자리까지</span></div>
+            <div class="mui_form_content">
+              <div class="mui_idNumber mui_inputmultiple letter">
+                <span class="mui_input">
+                  <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" />
+                </span><span class="divide">-</span>
+                <div class="letters">
+                  <span class="mui_input">
+                    <input type="text" title="주민번호 뒤 첫번째 1자리 입력" placeholder="0" value="1" mui-input="" />
+                  </span>
+                  <div class="mask_box"><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span></div>
+                </div>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">면허번호</span></div>
+            <div class="mui_form_content">
+              <div class="mui_drivingnumber mui_inputmultiple">
+                <span class="mui_input">
+                  <input type="text" title="면허번호 첫 번째 두자리 입력" placeholder="00" value="00" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="면허번호 두 번째 두자리 입력" placeholder="00" value="00" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="면허번호 세 번째 여섯자리 입력" placeholder="000000" value="000000" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="면허번호 네 번째 두자리 입력" placeholder="00" value="00" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">입금은행</span></div>
+            <div class="mui_form_content">
+              <div class="mui_certificate">
+                <span class="mui_input">
+                  <input type="tel" placeholder="인증번호 입력" mui-input="" />
+                </span><span class="time">03:00</span>
+                <button type="button"> <span>시간연장</span></button>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">전화번호</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="text" mui-input="" />
+              </span>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">입금계좌번호</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="text" mui-input="" />
+              </span>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">휴대폰번호</span></div>
+            <div class="mui_form_content">
+              <div class="mui_phone">
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button>
+                <span class="mui_input">
+                  <input type="tel" placeholder="휴대폰번호(숫자만)" mui-input="" />
+                </span>
+              </div>
+              <div class="mui_phone">
+                <button class="mui_button mui_select" type="button" disabled="disabled"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button>
+                <span class="mui_input mui_disabled">
+                  <input type="tel" placeholder="휴대폰번호(숫자만)" disabled="disabled" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_content">
+              <div class="mui_multipicker">
+                <div class="mui_datepicker">
+                  <span class="mui_input">
+                    <input type="text" placeholder="시작일" mui-input="" />
+                  </span>
+                </div><span class="divide">~</span>
+                <div class="mui_datepicker">
+                  <span class="mui_input">
+                    <input type="text" placeholder="종료일" mui-input="" />
+                  </span>
+                </div>
+              </div>
+              <div class="mui_multipicker mui_disabled">
+                <div class="mui_datepicker">
+                  <span class="mui_input mui_disabled">
+                    <input type="text" placeholder="시작일" disabled="disabled" mui-input="" />
+                  </span>
+                </div><span class="divide">~</span>
+                <div class="mui_datepicker">
+                  <span class="mui_input mui_disabled">
+                    <input type="text" placeholder="종료일" disabled="disabled" mui-input="" />
+                  </span>
+                </div>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">이체시작일</span></div>
+            <div class="mui_form_content">
+              <div class="mui_datepicker">
+                <span class="mui_input">
+                  <input type="text" placeholder="날짜선택" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">조회기간</span></div>
+            <div class="mui_form_content">
+              <div class="inner_quick_btn">
+                <div class="mui_radio_group button_type">
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId1" name="btnTypeId1" />
+                    <label for="btnTypeId1">일주일</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId2" name="btnTypeId1" />
+                    <label for="btnTypeId2">1개월</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId3" name="btnTypeId1" />
+                    <label for="btnTypeId3">3개월</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId4" name="btnTypeId1" />
+                    <label for="btnTypeId4">6개월</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId5" name="btnTypeId1" />
+                    <label for="btnTypeId5">직접입력</label>
+                  </span>
+                </div>
+                <div class="mui_datepicker">
+                  <span class="mui_input">
+                    <input type="text" placeholder="날짜선택" mui-input="" />
+                  </span>
+                </div>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">거래유형</span></div>
+            <div class="mui_form_content">
+              <div class="mui_radio_group button_type">
+                <span class="mui_radio">
+                  <input type="radio" id="btnTypeId6" name="btnTypeId2" checked="checked" />
+                  <label for="btnTypeId6">전체</label>
+                </span>
+                <span class="mui_radio">
+                  <input type="radio" id="btnTypeId7" name="btnTypeId2" />
+                  <label for="btnTypeId7">입금</label>
+                </span>
+                <span class="mui_radio">
+                  <input type="radio" id="btnTypeId8" name="btnTypeId2" />
+                  <label for="btnTypeId8">출금</label>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">정렬순서</span></div>
+            <div class="mui_form_content">
+              <div class="mui_radio_group button_type">
+                <span class="mui_radio">
+                  <input type="radio" id="btnTypeId9" name="btnTypeId3" checked="checked" />
+                  <label for="btnTypeId9">최신순</label>
+                </span>
+                <span class="mui_radio">
+                  <input type="radio" id="btnTypeId10" name="btnTypeId3" />
+                  <label for="btnTypeId10">과거순</label>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">제증명발행번호</span></div>
+            <div class="mui_form_content">
+              <div class="mui_proofapp mui_inputmultiple">
+                <span class="mui_input">
+                  <input type="text" title="제증명발행번호 첫 번째 네 자리 입력" placeholder="4자리" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="제증명발행번호 두 번째 열한 자리 입력" placeholder="11자리" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input mui_disabled">
+                  <input type="text" title="제증명발행번호 세 번째 자리" placeholder="12" disabled="disabled" value="12" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">사업자번호</span></div>
+            <div class="mui_form_content">
+              <div class="mui_business mui_inputmultiple">
+                <span class="mui_input">
+                  <input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" />
+                </span><span class="divide">-</span>
+                <span class="mui_input">
+                  <input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" />
+                </span>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">금액입력</span></div>
+            <div class="mui_form_content">
+              <div class="mui_inputmoney">
+                <span class="mui_input inner_subfix sublength_1">
+                  <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
+                </span>
+                <div class="mui_button_group"><span class="group">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>10만</span></button></span><span class="group">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>100만</span></button></span><span class="group">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>1,000만</span></button></span>
+                </div>
+              </div>
+              <p class="msg_form msg_error">에러 메세지</p>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">신규계좌 비밀번호 확인</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="password" placeholder="숫자 4자리" mui-input="" />
+              </span>
+              <p class="msg_form msg_error">비밀번호는 4자리를 입력해주세요</p>
+              <p class="mui_text warning">연속된 숫자, 반복된 숫자, 개인정보와 관련된 숫자는 입력하실 수 없습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

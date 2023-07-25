@@ -1,0 +1,71 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui {
+  &_stepnum {
+    ul {
+      display: flex;
+      .step {
+        & ~ .step {
+          margin-left: 4px;
+        }
+        &.mui_active {
+          span {
+            border-color: $line_color01;
+            background: $basic_color01;
+            color: $font_color06;
+          }
+        }
+      }
+      span {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        border: 1px solid $line_color02;
+        color: $font_color03;
+        font-size: 12px;
+        border-radius: 12px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &_step {
+    li {
+      display: flex;
+      align-items: center;
+      &:not(:first-child) {
+        padding:16px 0 0 0;
+      }    
+      &:last-child .num::before {
+        display:none;
+      }
+    }
+    .num {
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:48px;
+      height:48px;
+      font-size:18px;
+      font-weight:700;
+      background:$bg_color01;
+      border-radius:50%;
+      &::before {
+        content:"";
+        position:absolute;
+        top:48px;
+        left:50%;
+        height:16px;
+        transform:translateX(-50%);
+        border:1px dashed $basic_color05;
+      }
+    }
+    .txt {
+      padding-left:12px;
+      font-size:14px;
+      color:$basic_color03;
+    }
+  }
+}

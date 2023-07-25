@@ -1,0 +1,58 @@
+mixin tabsWrap(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, active=0, name='tabConts'} = Object.assign({}, params);
+  - let tabsItems = [];
+
+  mixin tab(item)
+    - tabsItems.push({name:item, body:block})
+    - var tt = 0;
+
+  block
+  #{element}(
+    class=`${prefix}${divide}tabs`
+    class=className
+    mui-tab=""
+  )
+    //- - console.log(tabsItems[0].body())
+    - tabsItems[active].active = true;
+    ul.mui_tab_nav
+      each item, index in tabsItems
+        li(
+          class="nav_list"
+          class={'mui_active':item.active}
+        )
+          button(
+            type="button"
+          )!=item.name
+    .tab_contents
+      each item, index in tabsItems
+        .tab_pane(
+          class={'mui_active':item.active}
+        )
+          - item.body && item.body()
+mixin tabsLink(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const { element='div', className, list, ...rest } = Object.assign({}, params);
+  #{element}(
+    class=`${prefix}${divide}tabs link_tab`
+    class=className
+  )
+    ul.mui_tab_nav
+      each item, index in list
+        li(
+          class="nav_list"
+          class={'mui_active':item.active}
+        )
+          a(
+            href="#none"
+          )!=item.name
+    .tab_contents
+        .tab_pane
+          block
+

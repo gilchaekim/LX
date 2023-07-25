@@ -1,0 +1,20 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Data"
+    })
+    +guideTitle({
+      text:"Data 정렬",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +data_sort({
+          total:"1",
+          date:"2023.03.13~2023.03.19",
+          isBtn:true
+        })
+
+

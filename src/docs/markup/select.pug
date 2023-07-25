@@ -1,0 +1,89 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Select"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +select({
+          selectedInbdex:2,
+          options:[
+            "options1",
+            "options2",
+            "options3",
+          ],
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'selectedInbdex'
+        },
+        {
+          text:'selected index 시작은 0부터..'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'null'
+        }
+      ],
+      [
+        {
+          text:'options'
+        },
+        {
+          text:'option 리스트'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'title'
+        },
+        {
+          text:'셀렉트박스 타이틀 요소'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'id'
+        },
+        {
+          text:'셀렉트박스 아이디 요소'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

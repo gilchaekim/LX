@@ -1,0 +1,348 @@
+include ../../components/atoms/index
+include ../../components/molecules/index
+
+- var friends = rtetreterteter
+- var class111 = "retedfdsfsrt"
+
+
+
+doctype html
+html(lang="ko")
+  head
+    title Welcome to metaui
+    link(
+      rel="stylesheet"
+      href="/css/index.css"
+    )
+    script(
+      src="/js/index.js"
+    )
+    script(
+      src="/orther/cleave.js"
+    )
+    style.
+      input{width:400px}
+  body
+    div hellow
+      br 
+      | worldsdfsdfsdf4234234sfsdfrwerwererwer
+    
+    case friends
+      when 0
+        p you have no friends31231232131
+      when 1
+        p you have a friend
+      default
+        p you have #{friends} friends312321fsdfsd
+
+    ul
+      - for (var x = 0; x < 3; x++)
+        li item
+
+    p(style="background: #f0f")= 'A message with a ' + 'blue' + ' background'
+    +accountbox({
+      accName:"비대면 파킹통장 보통예금",
+      accNum:"평생 010-12345678",
+      accVal:"203030313333",
+      endDate:"2025.12.31",
+      btns: [
+        {
+          label:"이체",
+          size:"large"
+        },
+        {
+          label:"거래내역조회",
+          size:"large"
+        }
+      ],
+      tags:[{
+        text:"거래중지", type:"test111222"
+      }]
+
+    })
+    div
+      a(class='button ' + class111 href='//google.com') Google
+
+    <br><input type="text" mui-formatter="dateForm:true" style="text-align:right;" placeholder="dateForm:true">
+    <br><input type="text" mui-formatter="uppercase:true" style="text-align:right;" placeholder="uppercase">
+    <br><input type="text" mui-formatter="lowercase:true" style="text-align:right;" placeholder="lowercase">
+    <br><input type="text" mui-formatter="numeric:true" value="500000000000000000" style="text-align:right;" placeholder="numeric:true">
+    <br><input type="text" mui-formatter="delimiter:/;blocks:2|2|2;" style="text-align:right;" placeholder="custom format">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br><input type="text" class="testtt-block" style="text-align:right;"  placeholder="block">
+    <br><input type="text" class="testtt" style="text-align:right;" value="100000000000000000" placeholder="cleave">
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+
+    script(type="text/javascript").
+
+
+
+      GCui.util.ready(()=>{
+        //- var cleave = new Cleave('.testtt', {
+        //-   //- blocks: [4, 2, 2],
+        //-   //- delimiter: '-',
+        //-   numeral:true
+        //-   //- delimiterLazyShow:true,
+        //-   //- prefix:'이'
+        //- });
+        var cleave2 = new Cleave('.testtt-block', {
+          date: true,
+          delimiter: '-',
+          datePattern: ['Y', 'm', 'd']
+          //- numeral:true
+          //- delimiterLazyShow:true,
+          //- prefix:'이'
+        });
+      })
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    sc
+    div(class="cm_checkbox")
+      input(
+        type='checkbox'
+        id="test"
+      )
+      input(type='checkbox' checked)
+      |
+      |
+      input(type='checkbox' checked=true)
+      |
+      |
+      input(type='checkbox' checked=false)
+      |
+      |
+      input(type='checkbox' checked=true.toString())
+    div(kui-sticky) 스티키 테스트
+    
+    +button({
+      label:"버튼",
+      size:'large'
+    })
+    +button({
+      label:"버튼",
+      size:'large'
+    })
+    +button({
+      label:"버튼",
+      size:'large'
+    })
+    +button({
+      label:"버튼",
+      size:'large'
+    })
+    +button({
+      label:"버튼",
+      size:'large'
+    })
+    +dataTable({
+      caption:"테이블 제목",
+      headData:[
+        [
+          {
+            text: "<em>dsddddd</em>",
+            className:"custom-class"
+          },
+          {
+            text: "dsddddd"
+          },
+          {
+            text: "dsddddd"
+          },
+          {
+            text: "dsddddd"
+          }
+        ],
+        [
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          }
+        ],
+      ],
+      bodyData:[
+        [
+          {
+            text: "<em>dsddddd</em>",
+            className:"custom-class",
+            colspan:2,
+            title:true
+          },
+          {
+            text: "dsddddd"
+          },
+          {
+            text: "dsddddd"
+          }
+        ],
+        [
+          {
+            text: "dsddddd2",
+            title:true
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          }
+        ],
+      ],
+      footerData:[
+        [
+          {
+            text: "<em>dsddddd</em>",
+            className:"custom-class",
+            colspan:2,
+            title:true
+          },
+          {
+            text: "dsddddd"
+          },
+          {
+            text: "dsddddd"
+          }
+        ],
+        [
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          },
+          {
+            text: "dsddddd2"
+          }
+        ],
+      ]
+    })
+    //- +radioCheck({
+    //-   className:"box_type",
+    //-   lists:[
+    //-     {
+    //-       label:"<div>asdfsdafdsafafdasfsdf</div>"
+    //-     },
+    //-     {
+    //-       label:"라디오2"
+    //-     },
+    //-     {
+    //-       label:"라디오3"
+    //-     }
+    //-   ]
+    //- })
+    br
+    br
+    br
+
+    .mui_datepicker
+      .picker_header
+        button(
+          type="button"
+        ) 
+          span.text 이전 달 보기
+        span.current_month 2월
+        button(
+          type="button"
+        ) 
+          span.text 다음 달 보기
+      .picker_contents
+        table
+          caption 날짜 선택 켈린더
+          thead
+            tr
+              th 일요일
+              th 월요일
+              th 화요일
+              th 수요일
+              th 목요일
+              th 금요일
+              th 토요일
+          toby
+            tr
+              td.disabled 29
+              td.disabled 30
+              td.disabled 31
+              td 1
+              td 2
+              td 3
+              td 4
+            tr
+              td 5
+              td 6
+              td 7
+              td 8
+              td 9
+              td 10
+              td 11
+            tr
+              td 12
+              td 13
+              td 14
+              td 15
+              td 16
+              td 17
+              td 18
+            tr
+              td 19
+              td 20
+              td 21
+              td 22
+              td 23
+              td 24
+              td 25
+            tr
+              td 26
+              td 27
+              td 28
+              td 29
+              td 30
+              td 31
+              td.disabled 1
+            tr
+              td.disabled 2
+              td.disabled 3
+              td.disabled 4
+              td.disabled 5
+              td.disabled 6
+              td.disabled 7
+              td.disabled 8
+
+          
+
+

@@ -1,0 +1,19 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Tag"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +tag({text:"거래중지", type:"test111222"})
+        +tag({text:"전용계좌"})
+        +tag({text:"만기"})
+    br
+    br
+

@@ -1,0 +1,58 @@
+mixin accountbox(params={})
+    //- 공통 요소 Start
+    - const prefix = "mui"
+    - const divide = '_'
+    //- 공통 요소 End
+    - const {element='div', className, accName, accNum, accVal, endDate, btns, tags, accNameLink, ...rest} = Object.assign({}, params);
+    - let blockData = {};
+    - const isTag = !!tags;
+    block
+
+    #{element}(
+        class=`${prefix}${divide}accountbox`
+        class=className
+    )
+        if !!accName
+            .acc_name_wrap(
+                class={'inner_tag':isTag}
+            )
+                p.acc_name!=accName
+                - if (!!tags && (tags.length > 0))
+                    .tags
+                        each val in tags
+                            - let type = val.type ? val.type : "";
+                            +tag({text:val.text, type:type})
+        if !!accNameLink
+            .acc_name_wrap(
+                class={'inner_tag':isTag}
+            )
+                p.acc_name
+                    a(href="")
+                        span!=accNameLink
+                - if (!!tags && (tags.length > 0))
+                    .tags
+                        each val in tags
+                            - let type = val.type ? val.type : "";
+                            +tag({text:val.text, type:type})
+        .acc_data
+            if !!accNum
+                p.acc_num!=accNum
+
+            if !!endDate
+                p.acc_end!=endDate
+
+        if !!accVal
+            p.acc_val
+                !=accVal
+                span.won 원
+
+
+
+
+        if btns.length > 0
+            .btns
+                each val in btns
+                    +button({
+                        label:val.label,
+                        size:val.size,
+                    })

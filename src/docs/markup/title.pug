@@ -1,0 +1,78 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Title"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- clsLv
+        //- tagLv
+        +title({
+          text:'제목 Lv1',
+          lv:1,
+        })
+        +title({
+          text:'제목 Lv2',
+          lv:2,
+        })
+        +title({
+          text:'제목 Lv3',
+          lv:3,
+        })
+        +title({
+          text:'제목 Lv4',
+          lv:4,
+        })
+        +title({
+          text:'제목 Lv5',
+          lv:5,
+        })
+        +title({
+          text:'제목 Lv6',
+          lv:6,
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'타이틀 내용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'lv'
+        },
+        {
+          text:'클래스 레벨 (1 ~ 6)'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

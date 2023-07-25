@@ -1,0 +1,16 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"버텀 트레이",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"리스트 제목",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +select_list({
+      type:"account"
+    })

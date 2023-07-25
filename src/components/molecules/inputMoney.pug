@@ -1,0 +1,28 @@
+mixin input_money(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, btns = ['+1만','+5만','+10만','전액'], message, guideMoney, placeholder="숫자만 입력", ...rest} = Object.assign({}, params);
+
+  #{element}(
+    class=`${prefix}${divide}inputmoney`
+    class=className
+  )
+    +input({
+      value:"",
+      placeholder:placeholder,
+      subfix:"원"
+    })
+    if !!guideMoney
+      p.money_guide 
+        | 100만
+        span 원
+    +button_group({
+      btns:btns
+    })
+  if !!message
+    p(
+      class="msg_form"
+      class=`msg_${message.type}`
+    )!=message.text

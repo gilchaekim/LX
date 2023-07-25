@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Modal</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#modal;mode:hover;"><span>기본 모달 호출</span></button><!-- layer -->
+          <div mui-modal="" id="modal">
+            <div class="mui_modal_dialog mui_size_medium mui_auto_vertical">
+              <div class="mui_modal_body">
+                <div class="mui_modal_header">
+                  <p>모달 타이틀</p>
+                </div>
+                <div class="mui_modal_content">
+                  <div>모달 컨텐츠</div>
+                  <div class="mui_button_wrap"><button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button><button class="mui_button mui_large mui_primary mui_modal_close" type="button"><span>취소</span></button></div>
+                </div><button class="mui_modal_close">닫기</button>
+              </div>
+            </div>
+          </div><!-- / layer -->
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">//- 호출 버튼
++button({
+  label:"기본 모달 호출",
+  size:'large',
+  muiToggle:'target:#modal;mode:hover;'
+})
+ 
+ 
++modal({
+  title:"모달 타이틀"
+})
+  //- 컨텐츠 영역
+  div 모달 컨텐츠
+ 
+  //- //- 푸터 영역
+  //- +footer()
+  +button_wrap()
+    
+    +button({
+      label:"확인",
+      size:'large',
+    })
+    +button({
+      label:"취소",
+      size:'large',
+      className:"mui_modal_close"
+    })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>풀팝업 호출</span></button><!-- layer -->
+          <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+            <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+              <div class="mui_modal_body">
+                <div class="mui_modal_header">
+                  <p>풀팝업 타이틀</p>
+                </div>
+                <div class="mui_modal_content">
+                  <div>dasfasdlkjfasdklfjasldkjf</div>
+                  <div>dasfasdlkjfasdklfjasldkjf</div>
+                </div>
+                <div class="mui_modal_footer">
+                  <div class="mui_button_fixed"><span class="inset"><button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button><button class="mui_button mui_large mui_primary mui_modal_close" type="button"><span>취소</span></button></span></div>
+                </div><button class="mui_modal_close">닫기</button>
+              </div>
+            </div>
+          </div><!-- / layer -->
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">//- 호출 버튼
++button({
+  label:"풀팝업 호출",
+  size:'large',
+  muiToggle:'target:#fullLayer;'
+})
+ 
+ 
++modal({
+  title:"풀팝업 타이틀",
+  id:"fullLayer",
+  type:"full"
+})
+  div dasfasdlkjfasdklfjasldkjf
+  div dasfasdlkjfasdklfjasldkjf
+ 
+  //- 푸터 영역
+  +footer()
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:'large',
+      })
+      +button({
+        label:"취소",
+        size:'large',
+        className:"mui_modal_close"
+      })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">버텀 트레이</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#modal_bottom;mode:hover;"><span>버텀 트레이</span></button><!-- layer -->
+          <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
+            <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
+              <div class="mui_modal_body">
+                <div class="mui_modal_header">
+                  <p>모달 타이틀</p>
+                </div>
+                <div class="mui_modal_content">
+                  <div>모달 컨텐츠111111111111111111111111111111111111<div>dsfsdf</div>
+                  </div>
+                </div><button class="mui_modal_close">닫기</button>
+              </div>
+            </div>
+          </div><!-- / layer -->
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">//- 호출 버튼
++button({
+  label:"버텀 트레이",
+  size:'large',
+  muiToggle:'target:#modal_bottom;mode:hover;'
+})
+ 
+ 
++modal({
+  title:"모달 타이틀",
+  id:"modal_bottom",
+  type:"bottom"
+})
+  div 모달 컨텐츠111111111111111111111111111111111111
+    div dsfsdf</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Pug - Attribute</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>모달 제목</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>id 속성</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>모달 타입 지정 - default, bottom, full</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">UI - Events</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="30%" />
+              <col width="80%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Name</th>
+                <th class="th" scope="cols">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>beforeshow</td>
+                <td>항목 실행되기 직전 발생합니다.</td>
+              </tr>
+              <tr>
+                <td>show</td>
+                <td>항목이 실행된 직후 발생합니다.</td>
+              </tr>
+              <tr>
+                <td>shown</td>
+                <td>Show animation 이 완료된 후 발생합니다.</td>
+              </tr>
+              <tr>
+                <td>beforehide</td>
+                <td>항목이 닫히기 직전 발생합니다.</td>
+              </tr>
+              <tr>
+                <td>hide</td>
+                <td>항목이 닫힌 직후 직전 발생합니다.</td>
+              </tr>
+              <tr>
+                <td>hidden</td>
+                <td>Hide animation 이 완료된 후 발생합니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">UI - Methods</p>
+      </div>
+      <div class="methods">
+        <div class="title_sec">
+          <p class="guide_title title_lv3">show</p>
+        </div>
+        <pre class="pre">GCui.modal(element).show()</pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">hide</p>
+        </div>
+        <pre class="pre">GCui.modal(element).hide()</pre>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">UI - Modal Dialog Box</p>
+      </div>
+      <div class="methods">
+        <div class="title_sec">
+          <p class="guide_title title_lv3">다이얼로그 공통</p>
+        </div>
+        <pre class="pre">  then() 함수를 통해 콜백을 제공하고 있습니다.
+Example -
+ GCui.modal.alert({
+   title:"String",
+   text:"String",
+   ok: "String"        // 확인 버튼 문구 (Defaut "확인")
+ }).then(function(){console.log('Closed!')})
+ 
+ 
+ GCui.modal.confirm({
+   title:"String",
+   text:"String",
+   ok: "String"        // 확인 버튼 문구 (Defaut "확인")
+   cancel: "String"    // 취소 버튼 문구 (Defaut "취소")
+ }).then(function(){console.log('OK')}, function(){console.log('CANCEL')})
+ </pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Alert</p>
+          <button class="guide_btn" id="callAlert">Call</button>
+        </div>
+        <pre class="pre"> // Alert + X 버튼
+GCui.modal.alert({
+  title:"String",
+  text:"String",
+})</pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Alert Dialog Type</p>
+          <button class="guide_btn" id="callAlert2">Call</button>
+        </div>
+        <pre class="pre"> GCui.modal.alert({
+  title:"String",
+  text:"String",
+}, {
+  className:"dialog_type",
+})</pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Alert Bottom Type</p>
+          <button class="guide_btn" id="callAlert3">Call</button>
+        </div>
+        <pre class="pre"> GCui.modal.alert({
+  title:"String",
+  text:"String",
+}, {
+  className:"bottom_tray",
+})</pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Conform</p>
+          <button class="guide_btn" id="callConfirm">Call</button>
+        </div>
+        <pre class="pre">  GCui.modal.confirm({
+   title:"String",
+   text:"String",
+ })</pre>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Toast popup</p>
+          <button class="guide_btn" id="callToast">Call</button>
+        </div>
+        <pre class="pre">GCui.toast({text:"String"})</pre>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+          let elem = []
+          elem.push(document.querySelector("#callAlert"))
+          elem.push(document.querySelector("#callAlert2"))
+          elem.push(document.querySelector("#callAlert3"))
+          elem.push(document.querySelector("#callConfirm"))
+          elem.push(document.querySelector("#callConfirm2"))
+          elem.push(document.querySelector("#callDialog"))
+          const toast = document.querySelector("#callToast")
+
+          elem.forEach((el, i) => {
+            GCui.util.on(el, 'click', (e) => {
+              const id = el.id
+              switch (id) {
+                case "callAlert": {
+                  GCui.modal.alert({
+                    title: "로그아웃",
+                    text: "로그아웃 하시겠습니까?",
+                  })
+                  break;
+                }
+                case "callAlert2": {
+                  GCui.modal.alert({
+                    title: "로그아웃",
+                    text: "로그아웃 하시겠습니까?",
+                  }, {
+                    className: "dialog_type",
+                    closeBtn: true,
+                  })
+                  break;
+                }
+                case "callAlert3": {
+                  GCui.modal.alert({
+                    title: "타이틀",
+                    text: "내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+                  }, {
+                    className: "bottom_tray",
+                  })
+                  break;
+                }
+                case "callConfirm": {
+                  GCui.modal.confirm({
+                    title: "타이틀",
+                    text: "내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                  })
+                  break;
+                }
+                case "callConfirm2": {
+                  GCui.modal.confirm({
+                    title: "타이틀",
+                    text: "이건 하단에서 뜹니다.",
+                  }, {
+                    className: "bottom_tray",
+                  })
+                  break;
+                }
+                case "callDialog": {
+                  GCui.modal.alert({
+                    text: "로그아웃 하시겠습니까?"
+                  })
+                  break;
+                }
+              }
+            })
+          })
+
+          GCui.util.on(toast, 'click', (e) => {
+            GCui.toast({
+              text: "냐냐냐냐냐냐냐냐냐냥!!!!!123123123"
+            })
+          })
+        });
+      </script>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

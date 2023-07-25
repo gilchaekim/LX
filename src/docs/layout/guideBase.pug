@@ -1,0 +1,46 @@
+include ../../components/index
+include ./mixins
+
+doctype html
+html(lang="ko")
+  head
+    title METAUI
+    meta(
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    )
+    meta(
+      charset="UTF-8"
+    )
+    link(
+      rel="stylesheet"
+      href="/docs/css/index.css"
+    )
+    link(
+      rel="stylesheet"
+      href="/css/common.css"
+    )
+    script(
+      type="text/javascript"
+      src="/js/index.js"
+    )
+    script(
+      type="text/javascript"
+      src="/index.js"
+    )
+  body
+    #guideWrap
+      block content
+
+
+    script.
+      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
+      const btn = $$('.view_code button')
+      on(btn, 'click', (e)=>{
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')){
+          removeAttr(target, 'hidden')
+        }else{
+          attr(target, 'hidden', '')
+        }
+      })

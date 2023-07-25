@@ -1,0 +1,60 @@
+-
+  let radioCheckName;
+  let radioCheckId;
+  let radioCheckNameIndex = 0;
+  let radioCheckIdIndex = 0;
+mixin radioCheck(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - ++radioCheckNameIndex;
+  - const { elememt = 'span', className, lists, label, type="checkbox", disabled, checked, name="radioCheck", ...rest } = Object.assign({}, params)
+  - radioCheckName = name;
+  - radioCheckId = `${radioCheckName}Id`
+  - const radioName = type === "radio"?`${radioCheckId}${radioCheckNameIndex}`:null
+  - const dataType = Array.isArray(lists);
+  
+  if dataType
+    div(
+      class=`${prefix}${divide}${type}${divide}group`
+      class=className
+    )
+      each item in lists
+        +radioCheckEl(item, type, radioName)
+  else
+    +radioCheckEl(params, type, name, block)
+
+
+mixin radioCheckEl(params={}, type="checkbox",  radioName, fnBlock)
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  
+  - ++radioCheckIdIndex;
+  - const { elememt = 'span', className, id=`${radioCheckId}${radioCheckIdIndex}`, label, disabled, checked, ...rest } = Object.assign({}, params)
+  
+  //- - return false;
+  #{elememt}(
+    class=`${prefix}${divide}${type}`
+    class=className
+  )
+    input(
+      type=type
+      id=id
+      name=radioName
+      disabled=disabled
+      checked=checked
+    )
+    if !!fnBlock
+      label(
+        for=id
+        class="inner_block"
+      )
+        - fnBlock()
+    else if label
+      label(
+        for=id
+      )!=label
+

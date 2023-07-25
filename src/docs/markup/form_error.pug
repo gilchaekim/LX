@@ -1,0 +1,171 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Form_Error"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      +form()
+        +form_body({title:"이름", message:{type:"error", text:"경고 메세지"}})
+          +form_value({
+            value:"방수현"
+          })
+
+        +form_body({title:"입금은행", message:{type:"error", text:"에러 메세지"}})
+          button(type="button").guide_btn 안내
+          +button_select('셀렉트 버튼')
+        +form_body({title:"주민번호 기본", message:{type:"error", text:"에러 메세지"}})
+          +input_idnumber({
+            data:[
+              {
+                value:"123456"
+              },
+              {
+                value:"1234567"
+              }
+            ]
+          })
+        +form_body({title:"주민번호 앞자리만", message:{type:"error", text:"에러 메세지"}})
+          +input_idnumber({
+            type:'birthday',
+            data:[
+              {
+                value:"123456"
+              }
+            ]
+          })
+        +form_body({title:"주민번호 뒤 1자리까지", message:{type:"error", text:"에러 메세지"}})
+          +input_idnumber({
+            type:'letter',
+            data:[
+              {
+                value:"123456"
+              },
+              {
+                value:"1"
+              }
+            ]
+          })
+        +form_body({title:"면허번호", message:{type:"error", text:"에러 메세지"}})
+          +input_drivingnumber({
+            data:[
+              {
+                value:"00"
+              },
+              {
+                value:"00"
+              },
+              {
+                value:"000000"
+              },
+              {
+                value:"00"
+              }
+            ]
+          })
+        +form_body({title:"입금은행", message:{type:"error", text:"에러 메세지"}})
+          +input_certificate({
+            placeholder:"인증번호 입력"
+          })
+
+        +form_body({title:"전화번호", message:{type:"error", text:"에러 메세지"}})
+          +input()
+
+        +form_body({title:"입금계좌번호", message:{type:"error", text:"에러 메세지"}})
+          +input()
+        +form_body({title:"휴대폰번호", message:{type:"error", text:"에러 메세지"}})
+          +input_phone()
+          +input_phone({
+            disabled:true,
+          })
+
+        +form_body({message:{type:"error", text:"에러 메세지"}})
+          +multiPicker({
+            disabled:false,
+            data:[
+              {
+                placeholder:"시작일"
+              },
+              {
+                placeholder:"종료일"
+              }
+            ]
+          })
+          +multiPicker({
+            disabled:true,
+            data:[
+              {
+                placeholder:"시작일"
+              },
+              {
+                placeholder:"종료일"
+              }
+            ]
+          })
+          //- +input()
+
+        +form_body({title:"이체시작일", message:{type:"error", text:"에러 메세지"}})
+          +datepicker()
+
+        +form_body({title:"조회기간", message:{type:"error", text:"에러 메세지"}})
+          +datepicker({
+            quickBtn:true
+          })
+
+        +form_body({title:"거래유형"})
+          +radioCheck({
+            name:'btnType',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'전체',
+                checked:true
+              },
+              {
+                label:'입금'
+              },
+              {
+                label:'출금'
+              }
+            ]
+          })
+
+        +form_body({title:"정렬순서"})
+          +radioCheck({
+            name:'btnType',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'최신순',
+                checked:true
+              },
+              {
+                label:'과거순'
+              }
+            ]
+          })
+        +form_body({title:"제증명발행번호", message:{type:"error", text:"에러 메세지"}})
+          +input_proofapp()
+        +form_body({title:"사업자번호", message:{type:"error", text:"에러 메세지"}})
+          +input_business()
+        +form_body({title:"금액입력", message:{type:"error"}})
+          +input_money({btns:["1만", "10만", "100만", "1,000만"], message:{type:"error", text:"에러 메세지"}})
+        +form_body({title:"신규계좌 비밀번호 확인", message:{type:"error"}})
+          +input({
+            placeholder:"숫자 4자리",
+            type:"password",
+            message:{type:"error",text:"비밀번호는 4자리를 입력해주세요"}
+          })
+          +text({
+            type:'warning',
+            text:"연속된 숫자, 반복된 숫자, 개인정보와 관련된 숫자는 입력하실 수 없습니다."
+          })
+    br
+    br

@@ -1,0 +1,23 @@
+mixin data_sort(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, total, date, isBtn, ...rest} = Object.assign({}, params);
+
+  #{element}(
+      class=`${prefix}${divide}datasort`
+      class=className
+    )
+      span.sort_data
+        if total
+          span.total 
+            | 총 
+            em #{total}
+            | 건
+        if date
+          span.date #{date}
+      if isBtn
+        +button_select({
+          label:"1주일"
+        })

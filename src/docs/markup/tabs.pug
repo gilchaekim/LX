@@ -1,0 +1,103 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Tabs"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +tabsWrap({
+          active:1,
+          className:'custom_tab'
+        })
+          +tab("텝 네비1")
+            div 11111
+          +tab("텝 네비2")
+            div 22222
+          +tab("텝 네비3")
+            div 33333
+          +tab("텝 네비4")                
+    br
+    br
+    +guideExample()(code)
+      :code
+        +tabsLink({
+          list:[
+            {name:'텝 네비1'},
+            {name:'텝 네비2', active:true},
+            {name:'텝 네비3'},
+            {name:'텝 네비4'},
+          ],
+          className:'custom_tab'
+        })
+          div 텝 컨텐츠
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +guideTitle({
+      text:"+tabsWrap()",
+      level:3
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'active'
+        },
+        {
+          text:'활성화 텝 index'
+        },
+        {
+          text:'nomber'
+        },
+        {
+          text:'0'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+    +guideTitle({
+      text:"+tab()",
+      level:3
+    })
+    +attributesLists([
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'텝 제목'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

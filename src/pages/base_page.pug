@@ -1,0 +1,97 @@
+extends ../components/templates/base.pug
+
+block content
+  +content_group(1)
+    div 총자산
+      p 123,4165,789
+        span 원
+    div 스위치
+  +content_group(1)
+    +accordion({
+      active:0
+    })
+      +acc_title('입출금')
+        div 입출금
+          span (1)
+        div 123,456,789
+          span 원
+      +acc_content()
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          btns: [
+            {
+              label:"이체",
+              size:"large"
+            },
+            {
+              label:"거래내역조회",
+              size:"large"
+            }
+          ],
+          tags:[{
+            text:"", type:""
+          }]
+        })
+      +acc_title('입출금')
+        div 예적금
+          span (1)
+        div 123,456,789
+          span 원
+      +acc_content()
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          btns: [
+            {
+              label:"거래내역조회",
+              size:"large"
+            }
+          ],
+          tags:[{
+            text:"", type:""
+          }]
+        })
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          btns: [
+            {
+              label:"이체",
+              size:"large"
+            },
+            {
+              label:"거래내역조회",
+              size:"large"
+            }
+          ],
+          tags:[{
+            text:"", type:""
+          }]
+        })
+      +acc_title('입출금')
+        span (1)
+        span 123,456,789
+          span 원
+      +acc_content()
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          btns: [
+            {
+              label:"이체",
+              size:"large"
+            },
+            {
+              label:"거래내역조회",
+              size:"large"
+            }
+          ],
+          tags:[{
+            text:"", type:""
+          }]
+        })

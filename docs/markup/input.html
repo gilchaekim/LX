@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Input</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><span class="mui_input"><input type="text" value="default" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="default" mui-input="" /></span><br /><span class="mui_input"><input type="text" value="readonly" mui-input="" /></span><br /><span class="mui_input mui_disabled"><input type="text" disabled="disabled" value="disabled" mui-input="" /></span><br /><span class="mui_input inner_subfix sublength_1"><input type="text" value="default" mui-input="" /><span class="subfix"><span>원</span></span></span></section>
+        <div class="code_block">
+          <pre><code class="language-pug">//- 기본
++input({
+  value:"default"
+})
+br
++input({
+  placeholder:"default"
+})
+br
+//- readOnly
++input({
+  readOnly:true,
+  value:"readonly"
+})
+br
+//- disabled
++input({
+  disabled:true,
+  value:"disabled"
+})
+br
+//- subfix
++input({
+  value:"default",
+  subfix:"원"
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute - input</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>type</td>
+                <td>type: text, tel</td>
+                <td>string</td>
+                <td>text</td>
+              </tr>
+              <tr>
+                <td>placeholder</td>
+                <td>placeholder 텍스트</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>input id</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>title</td>
+                <td>title 텍스트</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>value</td>
+                <td>input 값</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>비활성화</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>readOnly</td>
+                <td>읽기전용</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>커스텀 클래스</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Format</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><span class="mui_input"><input type="text" placeholder="날짜 입력 폼 (yyyy-mm-dd)" mui-formatter="dateForm:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="금액 입력" mui-formatter="numeric:true" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="영문 대문자만 입력" mui-formatter="uppercase:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="영문 소문자만 입력" mui-formatter="lowercase:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="max length" maxlength="10" mui-formatter="viewMaxLength:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="커스텀 포멧" value="123456" mui-formatter="delimiter:/;blocks:2|2|2;" mui-input="" /></span><br /></section>
+        <div class="code_block">
+          <pre><code class="language-pug">//- 기본
++input({
+  muiFormatter:"dateForm:true;",
+  placeholder:"날짜 입력 폼 (yyyy-mm-dd)",
+})
+//- 금액 입력 폼
+br
++input({
+  muiFormatter:"numeric:true",
+  placeholder:"금액 입력"
+})
+br
+//- 영문 대문자 only
++input({
+  muiFormatter:"uppercase:true;",
+  placeholder:"영문 대문자만 입력"
+})
+br
+//- 영문 소문자 only
++input({
+  muiFormatter:"lowercase:true;",
+  placeholder:"영문 소문자만 입력"
+})
+//- maxlength
+br
++input({
+  muiFormatter:"viewMaxLength:true;",
+  maxlength:10,
+  placeholder:"max length"
+})
+br
+//- 커스텀
++input({
+  value:"123456",
+  muiFormatter:"delimiter:/;blocks:2|2|2;",
+  placeholder:"커스텀 포멧",
+})
+br</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>numeric</td>
+                <td>금액입력</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>numericOnly</td>
+                <td>숫자만 입력</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>dateForm</td>
+                <td>날짜 입력 (yyyy-mm-dd)</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>uppercase</td>
+                <td>영문입력 시 대문자로 치환</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>lowercase</td>
+                <td>영문입력 시 소문자로 치환</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>viewMaxLength</td>
+                <td>글자입력 제한 표시</td>
+                <td>boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>delimiter</td>
+                <td>구분 기호</td>
+                <td>boolean</td>
+                <td> "" </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

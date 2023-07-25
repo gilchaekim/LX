@@ -1,0 +1,56 @@
+include ../index
+- let showBg = false;
+
+doctype html
+html#pageRoot(lang="ko")
+  head
+    title 저축은행중앙회
+    meta(
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    )
+    meta(
+      charset="UTF-8"
+    )
+    link(
+      rel="stylesheet"
+      href="/css/common.css"
+    )      
+    link(
+      rel="stylesheet"
+      href="/css/main.css"
+    )
+    script(
+      type="text/javascript"
+      src="/js/index.js"
+    )
+    script(
+      type="text/javascript"
+      src="/js/swiper-bundle.min.js"
+    )
+  body
+    #wrapper.main
+      block top
+      <!-- 전체메뉴 -->
+      include all_menu.pug
+      <!--// 전체메뉴 -->
+      <!-- header -->
+      #header
+        include header_main.pug
+      <!-- / header -->
+
+
+      <!-- contents -->
+      if showBg
+        .main_bg
+          <svg xmlns="http://www.w3.org/2000/svg" width="822" height="480" viewBox="0 0 822 480"><g transform="translate(222 -80)"><circle cx="240" cy="240" r="240" transform="translate(120 80)" fill="#f37320" opacity="0.06"/><rect width="240" height="240" rx="60" transform="translate(342 212)" fill="#666" opacity="0.2"/><rect width="240" height="240" rx="60" transform="translate(-222 212)" fill="#666" opacity="0.2"/></g></svg>
+      #contants
+        block content
+      <!-- / contents -->
+
+
+      <!-- footer -->
+      #footer
+        include footer_main.pug
+      <!-- / footer -->
+      

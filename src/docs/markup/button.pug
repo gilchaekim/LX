@@ -1,0 +1,309 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Button"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_wrap()
+          +button({
+            label:"버튼",
+            size:'large'
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"grey"
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"default"
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"white"
+          })
+        +button_wrap()
+          +button({
+            label:"버튼",
+            size:'medium'
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"grey"
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"default"
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"white"
+          })
+    br
+    br
+
+    +guideTitle({
+      text:"Custom Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_custom({
+          type:"round-40",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"darkgray-28",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"gray-32",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"download-32",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"timeselect-24",
+          label:"버튼ㆍ버튼"
+        })
+        +button_custom({
+          type:"white-round-24",
+          label:"버버튼"
+        })
+        
+    br
+    br
+    +guideTitle({
+      text:"Tooltip Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        p 
+        | 튤튤팁! 튤튤팁! 튤튤팁! 튤튤팁!
+        +button_tooltip(' 텍스트를 입력  해주세요')
+    br
+    br
+    +guideTitle({
+      text:"Button keypad",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_keypad()
+          +button_group({
+            btns:[
+              '+1만',
+              '+5만',
+              '+10만',
+              '+100만',
+            ]
+          })
+    br
+    br
+
+    +guideTitle({
+      text:"Select Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_select({
+          placeholder:"placeholder"
+        })
+        +button_select({
+          placeholder:"placeholder",
+          label:"label"
+        })
+        +button_select_account()
+        +button_select_account({
+          isMoney:true
+        })
+    br
+    br
+
+    +guideTitle({
+      text:"더보기",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_more()
+    br
+    br
+
+    +guideTitle({
+      text:"button wrap - 하단 고정 버튼",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_bottom_fixed()
+          +button({
+            label:"버튼 하단 고정",
+            size:"large",
+            type:"primary",
+          })
+    br
+    br
+    +guideTitle({
+      text:"link button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_link({
+          list: [
+            '버튼1',
+            '버튼2',
+            '버튼3',
+            '버튼4',
+          ]
+        })
+    br
+    br
+
+    +guideTitle({
+      text:"Button Group",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        // 최근, 자주, 내계좌 선택 버튼
+        +button_group({
+          btns:[
+            '최근',
+            '자주',
+            '내계좌',
+          ]
+        })
+    +guideExample()(code)
+      :code
+        
+        // 금액 입력 버튼 그룹
+        +button_group({
+          btns:[
+            '+1만',
+            '+5만',
+            '+10만',
+            '전액',
+          ]
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute - Button",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'label'
+        },
+        {
+          text:'버튼 텍스트'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'size'
+        },
+        {
+          text:'버튼 사이즈 : large, medium, small'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'medium'
+        }
+      ],
+      [
+        {
+          text:'size'
+        },
+        {
+          text:'버튼 타입 : primary , success, grey, white, info, default'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'primary'
+        }
+      ],
+      [
+        {
+          text:'isIcon'
+        },
+        {
+          text:'아이콘 포함 여부'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ]
+    ])
+
+    +guideTitle({
+      text:"Attribute - Button Group",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'btns'
+        },
+        {
+          text:'버튼 그룹 텍스트 리스트'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

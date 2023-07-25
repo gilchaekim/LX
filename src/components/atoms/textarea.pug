@@ -1,0 +1,18 @@
+mixin textarea(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, title, id, muiFormatter, maxlength, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}textarea`
+    class=className
+  )
+    textarea(
+      id=id
+      title=title
+      mui-formatter=muiFormatter
+      maxlength=maxlength
+    )
+

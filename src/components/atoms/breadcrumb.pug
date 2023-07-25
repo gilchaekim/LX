@@ -1,0 +1,16 @@
+mixin breadcrumb(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element = 'div', lists } = Object.assign({}, params)
+  #{element}.mui-button(
+    class=`${prefix}-size-${size}`
+    class={
+      'mui-icon':isIcon,
+    }
+    href="#none"
+  )
+    span
+      | #{label}

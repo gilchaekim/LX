@@ -1,0 +1,15 @@
+
+mixin icon(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { elememt = 'span', size, labelText, isIcon, ...rest } = Object.assign({}, params)
+  - const prefix = 'mui'
+  #{elememt}.mui-icon(
+    class=`${prefix}-size-${size}`
+  )
+    span
+      | dsfsdfsdfsd
+

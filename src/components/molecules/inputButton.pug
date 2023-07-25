@@ -1,0 +1,30 @@
+mixin input_button(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, placeholder, value, btnText, title, type="input", disabled, ...rest} = Object.assign({}, params);
+  - let blockData = {};
+
+  #{element}(
+    class=`${prefix}${divide}inputbtn`
+    class=className
+  )
+    if type === 'input'
+      +input({
+        value:value,
+        title:title,
+        placeholder:placeholder,
+      })
+    else if type === 'select'
+      +button_select({
+        placeholder:placeholder,
+        label:value,
+      })
+    .btn_sec
+      +button({
+        label:btnText,
+        disabled:disabled
+      })
+
+    

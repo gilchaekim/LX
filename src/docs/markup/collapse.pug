@@ -1,0 +1,102 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Collapse"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +collapse({
+          isOpen:true
+        })
+          +header()
+            div header
+          +content()
+            div content
+       
+    br
+    br
+    +guideTitle({
+      text:"알아두세요",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +collapse({
+          className:"guide_text",
+          isOpen:true,
+        })
+          +header()
+           p.title 알아두세요
+          +content()
+            +textLists({
+              type:'guide',
+              lists:[
+                {
+                  text:"블라블라~블라블라~블라블라~블라블라~",
+                  subLists:{
+                    type:'hahaha',
+                    lists:[
+                      {
+                        text:"가나다라마바사아자차카타파하-sub"
+                      },
+                      {
+                        text:"가나다라마바사아자차카타파하-sub",
+                      },
+                      {
+                        text:"가나다라마바사아자차카타파하-sub"
+                      },
+                    ]
+                  }
+                },
+                {
+                  text:"블라블라~블라블라~블라블라~블라블라~"
+                },
+                {
+                  text:"블라블라~블라블라~블라블라~블라블라~블라블라~"
+                },
+              ]
+            })                
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'isOpen'
+        },
+        {
+          text:'활성화 여부'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false '
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+

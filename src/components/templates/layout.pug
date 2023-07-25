@@ -1,0 +1,42 @@
+include ../../components/atoms/index
+
+doctype html
+html(lang="ko")
+  head
+    - let TITLE = "";
+    block head
+      title=`저축은행중앙회${TITLE}`
+      meta(
+        charset="utf-8"
+      )
+      meta(
+        name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+      )
+      script(
+        src="/js/index.js"
+      )
+      link(
+        rel="stylesheet"
+        href="/css/index.css"
+      )
+  body
+  
+    a(
+      href="#contenes"
+      class="skip_nav"
+    ) 본문바로가기
+    #wrap
+
+      //- header
+      include ./header.pug
+      
+      #contenes 
+        +button({
+          label:"버튼",
+          size:'large'
+        })
+        block content
+      
+      //- footer
+      include ./footer.pug

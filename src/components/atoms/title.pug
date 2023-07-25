@@ -1,0 +1,19 @@
+mixin title(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element = 'div', lv=1, text, className, ...rest } = Object.assign({}, params)
+  - let titleTag = 'p';
+  //- - titleTag += tagLv;
+  
+  #{element}(
+    class=`${prefix}${divide}title`
+    class=className
+  )
+    #{titleTag}(
+        class=`title lv${lv}`
+    )
+      != text
+    

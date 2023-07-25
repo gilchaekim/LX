@@ -1,0 +1,294 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_modal, [mui-modal]{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .15s linear;
+    padding: 0 20px;
+    &.system_pop {
+        padding: 0 40px;
+
+        .mui_modal{
+            &_dialog{
+                width: 100%;
+            }
+            &_header{
+                height: 56px;
+                font-size: 16px;
+                font-weight: 700;
+                color:$font_color01;
+                padding: 18px 0 0 20px;
+                & + .mui_modal_content, form + .mui_modal_content {
+                    padding-top: 32px;
+                }
+            }
+            &_content{
+                padding: 40px 24px;
+                text-align: center;
+                .alert_tit {
+                    color:$basic_color02;
+                    strong {
+                        color:$basic_color01;
+                    }
+                }
+                .alert_txt {
+                    padding-top:16px;
+                    font-size:14px;
+                    color:$basic_color03;
+                }
+            }
+            &_footer{
+                padding: 0 12px 12px;
+                .mui_button{
+                    background:$main_color01;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color:$font_color06;
+                    border-radius: 10px;
+                }
+                &.confirm{
+                    display: flex;
+                    .mui_button{
+                        margin: 0;
+                        &.mui_modal_close{
+                            background: #5c627c;
+                        }
+                        & ~ .mui_button {
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
+            &_body{
+
+            }
+        }
+        &.dialog_type{
+            .mui_modal{
+                &_header{
+                    height: auto;
+                    font-size: 18px;
+                    color:$font_color01;
+                    padding: 0 24px 8px;
+                    text-align: center;
+                }
+                &_content{
+                    padding: 0 24px 40px;
+                }
+                &_footer{
+                    border-top: 1px solid $line_color03;
+                    padding: 0;
+                    .mui_button{
+                        background:transparent;
+                        height: 48px;
+                        line-height: 48px;
+                        font-size: 14px;
+                        color:$main_color01;
+                        border-radius: 0;
+                    }
+                }
+                &_body{
+                    padding: 40px 0 0;
+                }
+            }
+        }
+        &.bottom_tray {
+            align-items: end;
+            padding: 0;
+            .mui_modal{
+                &_body{
+                    top: 40px;
+                    border-radius: 20px 20px 0 0;
+                }
+                &_header{
+                    font-size: 16px;
+                    height: 64px;
+                    padding: 20px 0 0 24px;
+                }
+                &_content{
+                    padding: 16px 24px 40px;
+                }
+                &_footer{
+                    padding: 0 16px 16px;
+                    .mui_button{
+                        border-radius: 8px;
+                        height: 52px;
+                        font-size: 18px;
+                        line-height: 52px;
+                    }
+                }
+            }
+            &.mui_open{
+                .mui_modal{
+                    &_body{
+                        top: 0px;
+                    }
+                }   
+            }
+        }
+    }
+    &.mui_flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &.mui_bottom_tray_wrap {
+        align-items: end;
+        padding: 0;
+        .mui_modal{
+            &_dialog{
+                width: 100%;
+                min-width: 0;
+            }
+            &_header{
+                height: 64px;
+                padding: 20px 0 0 24px;
+                color:$font_color01;
+                font-size: 16px;
+                font-weight: 700;
+            }
+            &_body{
+                border-radius: 20px 20px 0 0;
+                top:100px;
+            }
+            &_content{
+                max-height: 70vh;
+                overflow: auto;
+                padding: 16px 24px 40px;
+                .mui_tabs {
+                    margin: 0 -24px;
+                    &.overflow {
+                        margin: 0;
+                        .tab_pane {
+                            padding-left: 0;
+                            padding-right: 0;
+                        }
+                    }
+                }
+                .tab_pane {
+                    padding: 16px 24px 0;
+                }
+                .mui_button_wrap{
+                    padding: 40px 0 16px;
+                    margin: 0 -8px;
+                }
+                &:first-child {
+                    padding-top: 40px;
+                }
+                .mui_button_fixed:last-child{
+                    margin-bottom: -40px;
+                }
+            }
+        }
+    }
+    &.mui_fullpop_wrap{
+        padding: 0;
+        .mui_fullpop{
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            .mui_modal{
+                &_body{
+                    border-radius: 0;
+                    top:0px;
+                    height: 100%;
+                    overflow: auto;
+                }
+            }
+        }
+        .mui_modal_header{
+            height: 56px;
+            padding-left: 24px;
+            p{
+                line-height: 56px;
+                color:$font_color01;
+                font-size: 16px;
+                font-weight: 700;
+                .btn_down {
+                    position:absolute;
+                    top:16px;
+                    right:48px;
+                    width:24px;
+                    height:24px;
+                    font-size:0;
+                    text-indent:-9999px;
+                    background:url($url_common+"btn_down.svg") no-repeat center;
+                }
+            }
+        }
+        .mui_modal_content{
+            padding: 24px;
+            .mui_tabs{
+                &:first-child{
+                    margin: -24px -24px;
+                }
+                .tab_pane{
+                    padding: 24px 24px 0;
+                }
+            }
+        }
+    }
+    .mui_size{
+        &_small{
+            min-width: 400px;
+        }
+        &_medium{
+            min-width: 600px;
+        }
+        &_large{
+            min-width: 800px;
+        }
+    }
+    .mui_modal{
+        &_dialog{
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            transition-duration: .15s;
+        }
+        &_body{
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            top: -20px;
+            transition: top .15s;
+            position: relative;
+            & > .mui_modal_close, form > .mui_modal_close{
+                position: absolute;
+                top: 0;
+                right: 0;
+                text-indent: -9999em;
+                overflow: hidden;
+                width: 56px;
+                height: 56px;
+                background: url($url_common+"ico_close.svg") no-repeat center;
+                background-size: 24px;
+            }
+        }
+
+    }
+    
+    &.mui_open{
+        opacity: 1;
+        .mui_modal_body{
+            top: 0px;
+        }
+    }
+}
+.f18bold{
+    font-size: 18px;
+    font-weight: 700;
+    color:$font_color01;
+    text-align: center;
+}

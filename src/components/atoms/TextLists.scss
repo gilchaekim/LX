@@ -1,0 +1,121 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_text_lists{
+    & + .mui_text {
+        margin-top: 12px;
+    } 
+    li{
+        position: relative;
+
+    }
+    &.dot{
+        & > ul > li{
+            padding-left:9px;
+            font-size:13px;
+            color:$basic_color04;
+            &::before{
+                content: '';
+                display: block;
+                width: 3px;
+                height: 3px;
+                border-radius: 1px;
+                background: #ccc;
+                position: absolute;
+                top: 7px;
+                left: 0;
+            }
+        }
+    }
+    &.hyphhen{
+        & > ul > li{
+            padding-left: 12px;
+            &::before{
+                content: '-';
+                display: block;
+                position: absolute;
+                top: -2px;
+                left: 0;
+            }
+        }
+    }
+    &.guide{
+        & > ul > li{
+            font-size: 14px;
+            color:$font_color03;
+            padding-left: 9px;
+            li{
+                margin-top: 8px;
+                & ~ li{
+                    margin-top: 8px;
+                }
+            }
+            & ~ li{
+                margin-top: 12px;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 3px;
+                height: 3px;
+                border-radius: 2px;
+                background:$basic_color03;
+                position: absolute;
+                top: 5px;
+                left: 0;
+            }
+        }
+    }
+    &.circle_num,
+    &.num{
+        
+        & > ul > li{
+            font-size: 14px;
+            color:$font_color03;
+            padding-left: 28px;
+            & ~ li{
+                margin-top: 16px;
+            } 
+            &::before{
+                content: '1';
+                display: block;
+                text-align: center;
+                width: 16px;
+                height: 16px;
+                border-radius: 8px;
+                font-size: 13px;
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                border: 1px solid $basic_color04;
+            }
+        }
+        @for $i from 1 to 24{
+            & > ul > li:nth-child(#{$i}){
+                &::before{
+                    content: '#{$i}';
+                }
+            }
+        }
+    }
+    &.num {
+        & > ul > li {
+            padding-left:16px;
+            & ~ li{
+                margin-top: 8px;
+            } 
+            &::before {
+                left:0;
+                border:0;
+                border-radius:initial;
+            }
+        }
+        @for $u from 1 to 10{
+            & > ul > li:nth-child(#{$u}){
+                &::before{
+                    content: '#{$u}.';
+                }
+            }
+        }
+    }
+}

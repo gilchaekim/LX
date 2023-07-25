@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "페이지 이름1":["./index.html", "mainFrame"],
+    "페이지 이름2":["./index.html", "mainFrame"],
+    "페이지 이름3":["./index.html", "mainFrame"]
+  },
+  "markupGuide": {
+    "마크업 페이지 이름1":["./index.html", "mainFrame"],
+    "마크업 페이지 이름2":["./index.html", "mainFrame"],
+    "마크업 페이지 이름3":["./index.html", "mainFrame"]
+  },
+  "scriptGuide": {
+    "스크 페이지 이름1":["./index.html", "mainFrame"],
+    "스크 페이지 이름2":["./index.html", "mainFrame"],
+    "스크 페이지 이름3":["./index.html", "mainFrame"]
+  }
+}

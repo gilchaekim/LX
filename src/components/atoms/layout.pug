@@ -1,0 +1,12 @@
+mixin content_group(lv = 1)
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const element = 'div'
+  #{element}(
+    class=`${prefix}${divide}contents${divide}group`
+    class=`lv_${lv}`
+  )
+    block
+

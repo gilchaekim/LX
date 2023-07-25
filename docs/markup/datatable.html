@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Data Table</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_datatable">
+            <table>
+              <colgroup>
+                <col width="10%" />
+                <col width="40%" />
+                <col width="10%" />
+              </colgroup>
+              <caption>테이블 제목</caption>
+              <thead>
+                <tr>
+                  <th class="th custom-class" scope="cols"><em>제목1</em></th>
+                  <th class="th" scope="cols">제목2</th>
+                  <th class="th" scope="cols">제목3</th>
+                </tr>
+                <tr>
+                  <th class="th" scope="cols">제목1-1</th>
+                  <th class="th" scope="cols">제목1-2</th>
+                  <th class="th" scope="cols">제목1-3</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th class="th custom-class" scope="rows"><em>tfoot 제목</em></th>
+                  <td>내용</td>
+                  <td>내용</td>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <th class="th custom-class" scope="rows"><em>제목2-1</em></th>
+                  <td>내용</td>
+                  <td>내용</td>
+                </tr>
+                <tr>
+                  <th class="th" scope="rows">제목2-2</th>
+                  <td>내용</td>
+                  <td>내용</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+dataTable({
+  caption:"테이블 제목",
+  colgroup:[10, 40, 10],
+  headData:[
+    [
+      {
+        text: "<em>제목1</em>",
+        className:"custom-class"
+      },
+      {
+        text: "제목2"
+      },
+      {
+        text: "제목3"
+      },
+    ],
+    [
+      {
+        text: "제목1-1"
+      },
+      {
+        text: "제목1-2"
+      },
+      {
+        text: "제목1-3"
+      },
+    ],
+  ],
+  bodyData:[
+    [
+      {
+        text: "<em>제목2-1</em>",
+        className:"custom-class",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+    [
+      {
+        text: "제목2-2",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+  ],
+  footerData:[
+    [
+      {
+        text: "<em>tfoot 제목</em>",
+        className:"custom-class",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute - global</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>caption</td>
+                <td>테이블 제목</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>colgroup</td>
+                <td>테이블 cols 지정</td>
+                <td>array</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>headData</td>
+                <td>thead 영역</td>
+                <td>array</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>bodyData</td>
+                <td>tbody 영역</td>
+                <td>array</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>footerData</td>
+                <td>tfoot 영역</td>
+                <td>array</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute - rows</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>text</td>
+                <td>cell 내용</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>isTitle</td>
+                <td>제목(th)로 할 것인가</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>cell에 커스텀 클래스 적용</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>colspan</td>
+                <td>colspan 적용 값</td>
+                <td>number</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

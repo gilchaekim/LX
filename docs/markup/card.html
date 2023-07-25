@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">카드형 목록</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">카드 리스트</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_card_list"><a href=""><span class="img"><img src="/src/images/ico_example2.png" /></span><span class="text">카드 리스트</span></a></div>
+          <div class="mui_card_list"><a href=""><span class="img"><img src="/src/images/ico_example2.png" /></span><span class="text">카드 리스트</span></a></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+card_ico_list({
+  src:"/src/images/ico_example2.png",
+  text:"카드 리스트"
+})
++card_ico_list({
+  src:"/src/images/ico_example2.png",
+  text:"카드 리스트"
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">카드 데이터</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_card is_linked"><a class="inset" href="">
+              <div class="tags"><span class="tag default">정상</span></div>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </a></div>
+          <div class="mui_card">
+            <div class="inset">
+              <div class="tags"><span class="tag error">정상</span></div>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="mui_card no_tag">
+            <div class="inset">
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="mui_card no_tag select_type">
+            <div class="inset">
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div><span class="mui_radio"><input type="radio" id="chk250176Id1" name="chk250176" /><label for="chk250176Id1">라디오 버튼 있음!</label></span>
+            </div>
+          </div>
+          <div class="mui_card no_tag select_type">
+            <div class="inset">
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div><span class="mui_radio"><input type="radio" id="chk250176Id2" name="chk250176" /><label for="chk250176Id2">라디오 버튼 있음!</label></span>
+            </div>
+          </div>
+          <div class="mui_card is_linked no_tag in_title"><a class="inset" href="">
+              <p class="title">타이틀</p>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </a></div>
+          <div class="mui_card is_linked"><a class="inset" href="">
+              <div class="tags"><span class="tag disabled">정상</span></div>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </a></div>
+          <div class="mui_card is_linked"><a class="inset" href="">
+              <div class="tags"><span class="tag error">정상</span></div>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </a></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"default"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  tag : {
+    label:"정상",
+    status:"error"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isSelecte:true,
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
+  +radioCheck({
+    type:"radio",
+    name:'chk250176',
+    label:'라디오 버튼 있음!'
+  })
++card({
+  isSelecte:true,
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
+  +radioCheck({
+    type:"radio",
+    name:'chk250176',
+    label:'라디오 버튼 있음!'
+  })
++card({
+  isLinked:true,
+  title : "타이틀",
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"disabled"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"error"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

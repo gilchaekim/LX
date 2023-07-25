@@ -1,0 +1,50 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_accordion{
+  .acc_lists{
+    position: relative;
+    border-bottom: 1px solid $line_color03;
+    .acc_header{
+      position: relative;
+      // border-bottom: 1px solid $line_color03;
+      padding: 20px 0;
+      font-size: 16px;
+      color:$font_color01;
+      
+    }
+    .mui_acc_content{
+      padding: 16px 0;
+    }
+    .mui_acc_button{
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      right: 0;
+      font-size: 0;
+      color: transparent;
+      @include icon_svg(arrow-down, "#111", 20px);
+    }
+    &.mui_open{
+      .mui_acc_button{
+        transform: rotate(180deg);
+        margin-top: -12px;
+      }
+    }
+  }
+  &.type2 {
+    .acc_lists{
+			.acc_header	{
+				border-bottom: 0 none;
+			}
+			.mui_acc_content {
+				padding-top: 0;
+			}
+			&.mui_open{
+				.mui_acc_content {
+					border-bottom: 1px solid $line_color03;
+				}	
+			}
+		}
+  }
+}

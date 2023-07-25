@@ -1,0 +1,83 @@
+mixin modal(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - let alignBottom = false;
+  - let alignFull = false;
+  - const { title, className, size, id, type, isDownBtn=false, isCloseBtn=true, ...rest } = Object.assign({}, params)
+  - let element = "div"
+  - let { muiModal } = Object.assign({}, params)
+  - let modalItems = {};
+  - let modalSize = size || 'medium';
+  - let alignMiddle = true;
+  - 
+    switch(type){
+      case 'bottom':{
+        alignBottom = true;
+        break;
+      }
+      case 'full':{
+        alignFull = true;
+        break;
+      }
+    }
+  mixin footer()
+    - modalItems.footer = block
+    
+  
+  if !muiModal
+    - muiModal = '';
+  <!-- layer -->
+  #{element}(
+    mui-modal=muiModal
+    id=`${id?id:"modal"}`
+    class={"mui_bottom_tray_wrap": alignBottom}
+    class={"mui_fullpop_wrap": alignFull}
+  )
+    div(
+      class=`${prefix}${divide}modal${divide}dialog`
+      class=`mui_size_${modalSize}`
+      class=className
+      class={"mui_auto_vertical": alignMiddle}
+      class={"mui_bottom_tray": alignBottom}
+      class={"mui_fullpop": alignFull}
+    ) 
+      div(
+        class=`${prefix}${divide}modal${divide}body`
+      )
+        if title
+          div(
+            class=`${prefix}${divide}modal${divide}header`
+          ) 
+            p #{title}
+              if isDownBtn
+                a(href="").btn_down 내려받기
+        else if isCloseBtn
+          div(
+            class=`${prefix}${divide}modal${divide}header`
+          ) 
+        div(
+          class=`${prefix}${divide}modal${divide}content`
+        )
+          block
+        if modalItems.footer
+          div(
+            class=`${prefix}${divide}modal${divide}footer`
+          )
+            - modalItems.footer()
+        if isCloseBtn
+          button(
+            class=`${prefix}${divide}modal${divide}close`
+          ) 닫기
+
+  <!-- / layer -->
+
+    
+
+
+
+  
+
+
+

@@ -1,0 +1,28 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Textarea"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +textarea()
+        +textarea({
+          muiFormatter:"viewMaxLength:true;",
+          maxlength:100
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+
+
+
+

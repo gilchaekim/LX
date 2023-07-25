@@ -1,0 +1,93 @@
+extends ../../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"가입정보 입력",
+      lv:2,
+    })
+  +content_group(3)
+    +title({
+      text:"3.상품 정보",
+      lv:4,
+    })
+    .bank_product_details
+      +title({
+        text:"<em>보통예금</em>",
+        lv:1,
+      })
+      p.sub_txt 금액, 기간 제한없이 입출금이 자유로운 상품입니다.
+      .detail
+        .list 
+          dl 
+            dt 최저금리
+            dd 24.5%
+        .img 
+          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+      
+  +content_group(2)
+    +form()
+      +form_body({title:"신규계좌 비밀번호"})
+        +input({
+          placeholder:"숫자 4자리"
+        })
+
+      +form_body({title:"신규계좌 비밀번호 확인", message:{type:"error"}})
+        +input({
+          placeholder:"숫자 4자리", 
+          message:{type:"error",text:"비밀번호는 4자리를 입력해주세요"}
+        })
+        +text({
+          type:'warning',
+          text:"연속된 숫자, 반복된 숫자, 개인정보와 관련된 숫자는 입력하실 수 없습니다."
+        })
+      +form_body({title:"금융정보취약계층 구분"})
+        +button_select({
+          placeholder:"선택하세요",
+          label:"만 65세 이상"
+        })
+      +form_body({title:"금융정보취약계층 안내"})
+        +agree_box({
+          text:"금융정보취약계층(만 65세 이상인자, 은퇴자, 주부) 등에 해당하시고 그 정보를 제공하기로 동의하신 고객께서는 예금보험관계 성립여부 및 보호한도에 대해 다른 정보보다 우선적으로 설명받으실 수 있습니다. 금융정보 취약계층(만 65세 이상인자, 은퇴자, 주부 등)에 해당하여, '예금자보호여부 및 보호한도(원금과 소정의 이자를 합하여 1인당 5천만원)에 대하여 확인하셨습니까?"
+        })
+          +radioCheck({
+            type:"radio",
+            name:'chk172727',
+            lists:[
+              {label:'예',},
+              {label:'아니오',},
+            ]
+          })
+      +form_body()
+        +radioCheck({
+          type:"radio",
+          name:'chk364721',
+          label:'권유직원'
+        })
+        +input_button({
+          btnText:"직원찾기",
+          placeholder:"권유직원",
+          type:"input"
+        })
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS 통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk23',
+              label:'동의',
+            })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

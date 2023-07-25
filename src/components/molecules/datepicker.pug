@@ -1,0 +1,94 @@
+mixin datepicker(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, placeholder="날짜선택", value, quickBtn, disabled, title, ...rest} = Object.assign({}, params);
+  if quickBtn
+    .inner_quick_btn
+      +radioCheck({
+        name:'btnType',
+        type:"radio",
+        className:'button_type',
+        lists:[
+          {
+            label:'일주일'
+          },
+          {
+            label:'1개월'
+          },
+          {
+            label:'3개월'
+          },
+          {
+            label:'6개월'
+          },
+          {
+            label:'직접입력'
+          }
+        ]
+      })
+      #{element}(
+        class=`${prefix}${divide}datepicker`
+        class=className
+      )
+        +input({
+          value:value,
+          disabled:disabled,
+          placeholder:placeholder,
+          title:title
+        })
+  else 
+    #{element}(
+        class=`${prefix}${divide}datepicker`
+        class=className
+      )
+        +input({
+          value:value,
+          disabled:disabled,
+          placeholder:placeholder,
+          title:title
+        })
+
+
+mixin multiPicker(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', disabled, data, quickBtn, ...rest} = Object.assign({}, params);
+
+  if quickBtn
+    .inner_quick_btn
+      +radioCheck({
+        name:'btnType',
+        type:"radio",
+        className:'button_type',
+        lists:[
+          {
+            label:'1주일'
+          },
+          {
+            label:'1개월'
+          },
+          {
+            label:'3개월'
+          },
+          {
+            label:'6개월'
+          },
+          {
+            label:'직접입력'
+          }
+        ]
+      })
+  #{element}(
+      class=`${prefix}${divide}multipicker`
+      class=className
+      class={"mui_disabled":disabled}
+    )
+      each arr, n in data
+        - if (!!disabled) arr.disabled = true;
+        +datepicker(arr)
+        - if (n < data.length -1)
+          span.divide ~

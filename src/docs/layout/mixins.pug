@@ -1,0 +1,103 @@
+mixin pagesNavLists(params={})
+  - const { element = 'div', lists, ...rest } = Object.assign({}, params);
+
+  #{element}(
+    class="nav_lists"
+  )
+    each item, key in lists
+      - const name = item[0]
+      - const url = item[0]
+      - const isTitle = !!!Array.isArray(item);
+      div(
+        class={"tree-title":isTitle}
+        class={"lists":!isTitle}
+      )
+        span
+          button(
+            type="button"
+            data-href=url
+            class={"title":isTitle}
+          ) #{key}
+          if !isTitle
+            a(
+              href=url
+              target="_blank"
+              class="blank"
+            ) 새창 열기
+
+      if isTitle
+        +pagesNavLists({
+          lists:item
+        })
+
+mixin guideTitle(params={})
+  - const { element = 'div', text, level=1, ...rest } = Object.assign({}, params);
+  #{element}(
+    class="title_sec"
+  )
+    p(
+      class="guide_title"
+      class=`title_lv${level}`
+    ) #{text}
+    block
+
+
+mixin guideExample()
+  - const { element = 'div', code,  ...rest } = attributes
+  #{element}(
+    class="guide_card_box"
+  )
+    block
+    if code
+      div.view_code
+        button code view Toggle
+    
+mixin attributesLists(data)
+   - const element = 'div'
+   #{element}(
+    class="attribute_table"
+  )
+    +dataTable({
+      caption:"Attributes",
+      className:'attr_table',
+      colgroup:['15', "55", "15", "15"],
+      headData:[
+        [
+          {
+            text: "Property",
+          },
+          {
+            text: "Description"
+          },
+          {
+            text: "Type"
+          },
+          {
+            text: "Default"
+          }
+        ]
+      ],
+      bodyData:data
+    })
+
+mixin eventLists(data)
+   - const element = 'div'
+   #{element}(
+    class="attribute_table"
+  )
+    +dataTable({
+      caption:"Attributes",
+      className:'attr_table',
+      colgroup:['30', "80"],
+      headData:[
+        [
+          {
+            text: "Name",
+          },
+          {
+            text: "Description"
+          }
+        ]
+      ],
+      bodyData:data
+    })

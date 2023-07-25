@@ -1,0 +1,81 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Toggle"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button({
+          label:"토글 - show/ hide",
+          size:'large',
+          muiToggle:'target:#toggle_box1;'
+        })
+        div#toggle_box1 토글 컨텐츠
+
+    +guideExample()(code)
+      :code
+        +button({
+          label:"토글 - 내용 1 / 내용 2 번갈아 노출",
+          size:'large',
+          muiToggle:'target:.toggles;'
+        })
+        div.toggles 내용 1
+        div.toggles(
+          hidden=""
+        ) 내용 2
+    +guideExample()(code)
+      :code
+        +button({
+          label:"토글 클래스",
+          size:'large',
+          muiToggle:'target:#toggles;cls:test_active'
+        })
+        div#toggles(
+          class="test_active"
+        ) 토글 내용
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })  
+
+    +attributesLists([
+      [
+        {
+          text:'target'
+        },
+        {
+          text:'토글 타겟, class, id 이름'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'cls'
+        },
+        {
+          text:'토글 할 커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

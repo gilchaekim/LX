@@ -1,0 +1,45 @@
+.mui-animation-fade-in {
+  animation-name: mui-fade;
+}
+
+.mui-animation-fade-out {
+  animation-name: mui-fade;
+  animation-direction: reverse;
+}
+
+.mui-animation-scale-in {
+  animation-name: mui-fade, mui-scale-in;
+}
+
+.mui-animation-tooltip {
+  animation-name: mui-fade, mui-slide-up;
+}
+
+@keyframes mui-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes mui-scale-in {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes mui-slide-up {
+  0% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=animation.css.map */

@@ -1,0 +1,308 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Input"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 기본
+        +input({
+          value:"default"
+        })
+        br
+        +input({
+          placeholder:"default"
+        })
+        br
+        //- readOnly
+        +input({
+          readOnly:true,
+          value:"readonly"
+        })
+        br
+        //- disabled
+        +input({
+          disabled:true,
+          value:"disabled"
+        })
+        br
+        //- subfix
+        +input({
+          value:"default",
+          subfix:"원"
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute - input",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'type: text, tel'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'text'
+        }
+      ],
+      [
+        {
+          text:'placeholder'
+        },
+        {
+          text:'placeholder 텍스트'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'id'
+        },
+        {
+          text:'input id'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'title'
+        },
+        {
+          text:'title 텍스트'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'value'
+        },
+        {
+          text:'input 값'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'disabled'
+        },
+        {
+          text:'비활성화'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'readOnly'
+        },
+        {
+          text:'읽기전용'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+    +guideTitle({
+      text:"Format",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 기본
+        +input({
+          muiFormatter:"dateForm:true;",
+          placeholder:"날짜 입력 폼 (yyyy-mm-dd)",
+        })
+        //- 금액 입력 폼
+        br
+        +input({
+          muiFormatter:"numeric:true",
+          placeholder:"금액 입력"
+        })
+        br
+        //- 영문 대문자 only
+        +input({
+          muiFormatter:"uppercase:true;",
+          placeholder:"영문 대문자만 입력"
+        })
+        br
+        //- 영문 소문자 only
+        +input({
+          muiFormatter:"lowercase:true;",
+          placeholder:"영문 소문자만 입력"
+        })
+        //- maxlength
+        br
+        +input({
+          muiFormatter:"viewMaxLength:true;",
+          maxlength:10,
+          placeholder:"max length"
+        })
+        br
+        //- 커스텀
+        +input({
+          value:"123456",
+          muiFormatter:"delimiter:/;blocks:2|2|2;",
+          placeholder:"커스텀 포멧",
+        })
+        br
+    br
+    br
+    +attributesLists([
+      [
+        {
+          text:'numeric'
+        },
+        {
+          text:'금액입력'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'numericOnly'
+        },
+        {
+          text:'숫자만 입력'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'dateForm'
+        },
+        {
+          text:'날짜 입력 (yyyy-mm-dd)'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'uppercase'
+        },
+        {
+          text:'영문입력 시 대문자로 치환'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'lowercase'
+        },
+        {
+          text:'영문입력 시 소문자로 치환'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'viewMaxLength'
+        },
+        {
+          text:'글자입력 제한 표시'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'delimiter'
+        },
+        {
+          text:'구분 기호'
+        },
+        {
+          text:'boolean'
+        },
+        {
+          text:' \"\" '
+        }
+      ]
+    ])
+
+

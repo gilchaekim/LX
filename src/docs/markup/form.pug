@@ -1,0 +1,197 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Form"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +form()
+          +form_body({title:"이름", message:{type:"error", text:"경고 메세지"}})
+            +form_value({
+              value:"방수현"
+            })
+
+          +form_body({title:"입금은행", message:{type:"successes", text:"완료 메세지"}})
+            button(type="button").guide_btn 안내
+            +button_select('셀렉트 버튼')
+          +form_body({title:"주민번호 기본"})
+            +input_idnumber({
+              data:[
+                {
+                  value:"123456"
+                },
+                {
+                  value:"1234567"
+                }
+              ]
+            })
+          +form_body({title:"주민번호 앞자리만"})
+            +input_idnumber({
+              type:'birthday',
+              data:[
+                {
+                  value:"123456"
+                }
+              ]
+            })
+          +form_body({title:"주민번호 뒤 1자리까지", message:{type:"", text:"완료 메세지"}})
+            +input_idnumber({
+              type:'letter',
+              data:[
+                {
+                  value:"123456"
+                },
+                {
+                  value:"1"
+                }
+              ]
+            })
+          +form_body({title:"면허번호", message:{type:"error", text:"완료 메세지"}})
+            +input_drivingnumber({
+              data:[
+                {
+                  value:"00"
+                },
+                {
+                  value:"00"
+                },
+                {
+                  value:"000000"
+                },
+                {
+                  value:"00"
+                }
+              ]
+            })
+          +form_body({title:"입금은행111111", message:{type:"error", text:"완료 메세지"}})
+            +input_certificate({
+              placeholder:"인증번호 입력"
+            })
+
+          +form_body({title:"전화번호", message:{type:"etc", text:"기타 메세지"}})
+            +input()
+
+          +form_body({title:"입금계좌번호"})
+            +input()
+          +form_body({title:"휴대폰번호"})
+            +input_phone()
+            +input_phone({
+              disabled:true,
+            })
+
+          +form_body()
+            +multiPicker({
+              disabled:true,
+              data:[
+                {
+                  placeholder:"시작일"
+                },
+                {
+                  placeholder:"종료일"
+                }
+              ]
+            })
+            //- +input()
+
+          +form_body({title:"이체시작일"})
+            +datepicker()
+
+          +form_body({title:"조회기간"})
+            +datepicker({
+              quickBtn:true
+            })
+
+          +form_body({title:"거래유형"})
+            +radioCheck({
+              name:'btnType',
+              type:"radio",
+              className:'button_type',
+              lists:[
+                {
+                  label:'전체',
+                  checked:true
+                },
+                {
+                  label:'입금'
+                },
+                {
+                  label:'출금'
+                }
+              ]
+            })
+
+          +form_body({title:"정렬순서"})
+            +radioCheck({
+              name:'btnType',
+              type:"radio",
+              className:'button_type',
+              lists:[
+                {
+                  label:'최신순',
+                  checked:true
+                },
+                {
+                  label:'과거순'
+                }
+              ]
+            })
+          +form_body({title:"제증명발행번호"})
+            +input_proofapp()
+          +form_body({title:"사업자번호"})
+            +input_business()
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'title'
+        },
+        {
+          text:'폼 제목'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'required'
+        },
+        {
+          text:'필수 여부'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'message'
+        },
+        {
+          text:'type, text - 폼 메세지 타입과 텍스트'
+        },
+        {
+          text:'object'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])

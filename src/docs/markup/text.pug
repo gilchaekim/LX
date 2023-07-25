@@ -1,0 +1,52 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Text"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +text({
+          text:"가나다라마바사"
+        })
+        +text({
+          type:'warning',
+          text:"가나다라마바사"
+        })
+        +text({
+          type:'link',
+          text:"대출신청 조회"
+        })
+        +text({
+          type:'f18',
+          text:"입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?"
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'타입 - warning'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+

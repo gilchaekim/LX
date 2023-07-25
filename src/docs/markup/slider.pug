@@ -1,0 +1,75 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Slider"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    div
+      iframe#mainFrame
+
+
+    +guideExample()(code)
+      :code
+        div(
+          mui-slider=""
+        ) 
+          .mui_slider_wrapper
+            .mui_slide_container
+              .mui_slide_list
+                .mui_slide_items slides1
+              .mui_slide_list
+                .mui_slide_items slides2
+              .mui_slide_list
+                .mui_slide_items slides3
+              .mui_slide_list
+                .mui_slide_items slides4
+              .mui_slide_list
+                .mui_slide_items slides5
+              .mui_slide_list
+                .mui_slide_items slides6
+              .mui_slide_list
+                .mui_slide_items slides7
+          
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })  
+    
+    +attributesLists([
+      [
+        {
+          text:'target'
+        },
+        {
+          text:'토글 타겟, class, id 이름'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'cls'
+        },
+        {
+          text:'토글 할 커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

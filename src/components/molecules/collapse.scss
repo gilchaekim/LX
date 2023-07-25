@@ -1,0 +1,77 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+.mui_collapse{
+  .acc_title{
+    font-size: 16px;
+    font-weight: 700;
+    color:$font_color01;
+  }
+  .mui_acc_button{
+    @include icon_svg(arrow-down, "#111", 20px);
+    color: transparent;
+    text-indent: -9999em;
+    position: absolute;
+    right: 0;
+    top: 50% !important;
+    font-size: 0;
+    margin-top: -10px;
+  }
+  .mui_open{
+    .mui_acc_button{
+      transform: rotate(180deg);
+      top: 10px;
+      margin-top:-10px;
+    }
+  }
+  .acc_header{
+    position: relative;
+  }
+}
+.guide_text{
+  padding-top: 36px;
+  position: relative;
+  margin-top: 60px;
+  &:before{
+    content: '';
+    display: block;
+    height: 12px;
+    top: 0;
+    left: -24px;
+    right: -24px;
+    background: $line_color04;
+    position: absolute;
+  }
+  .mui_accordion {
+    .acc_lists{
+      .acc_header{
+        padding: 12px 0;
+      }
+      &.mui_open {
+      border-bottom:0;
+      }
+    }
+  }
+  .acc_header{
+    .title{
+      font-size: 16px;
+      font-weight: 700;
+      color:$font_color01;
+      padding-left: 24px;
+      position: relative;
+      &::before{
+        content: '';
+        display: block;
+        @include icon_svg_tooltip(black2, 20px);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+  }
+  .mui_acc_content{
+    border-top: 1px solid $line_color03;
+    padding: 16px 0;
+  }
+
+}

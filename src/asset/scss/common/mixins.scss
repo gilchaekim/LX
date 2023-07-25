@@ -1,0 +1,520 @@
+@import "varialbles";
+
+
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+@mixin ellipsis() {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+@function setStyle($map, $object, $style) {
+    @if map-has-key($map, $object) {
+      @return map-get(map-get($map, $object), $style);
+    }
+    @warn "The key ´#{$object} is not available in the map.";
+    @return null;
+  }
+  
+  @mixin theme($key){
+    --main_color01: #{setStyle($colors, $key, main_color01)};
+    --main_color02: #{setStyle($colors, $key, main_color02)};
+    --main_color03: #{setStyle($colors, $key, main_color03)};
+    --main_color04: #{setStyle($colors, $key, main_color04)};
+    --font_color01: #{setStyle($colors, $key, font_color01)};
+    --font_color02: #{setStyle($colors, $key, font_color02)};
+    --font_color03: #{setStyle($colors, $key, font_color03)};
+    --font_color04: #{setStyle($colors, $key, font_color04)};
+    --font_color05: #{setStyle($colors, $key, font_color05)};
+    --font_color06: #{setStyle($colors, $key, font_color06)};
+    --font_color07: #{setStyle($colors, $key, font_color07)};
+    --font_color08: #{setStyle($colors, $key, font_color08)};
+    --basic_color01: #{setStyle($colors, $key, basic_color01)};
+    --basic_color02: #{setStyle($colors, $key, basic_color02)};
+    --basic_color03: #{setStyle($colors, $key, basic_color03)};
+    --basic_color04: #{setStyle($colors, $key, basic_color04)};
+    --basic_color05: #{setStyle($colors, $key, basic_color05)};
+    --basic_color06: #{setStyle($colors, $key, basic_color06)};
+    --basic_color07: #{setStyle($colors, $key, basic_color07)};
+    --basic_color08: #{setStyle($colors, $key, basic_color08)};
+    --button_color01: #{setStyle($colors, $key, button_color01)};
+    --button_color02: #{setStyle($colors, $key, button_color02)};
+    --button_color03: #{setStyle($colors, $key, button_color03)};
+    --line_color01: #{setStyle($colors, $key, line_color01)};
+    --line_color02: #{setStyle($colors, $key, line_color02)};
+    --line_color03: #{setStyle($colors, $key, line_color03)};
+    --line_color04: #{setStyle($colors, $key, line_color04)};
+    --bg_color01: #{setStyle($colors, $key, bg_color01)};
+    --bg_color02: #{setStyle($colors, $key, bg_color02)};
+    --bg_color03: #{setStyle($colors, $key, bg_color03)};
+    --bg_color04: #{setStyle($colors, $key, bg_color04)};
+    --bg_color05: #{setStyle($colors, $key, bg_color05)};
+  } 
+  
+
+
+
+@mixin respondTo($media) {
+  @if $media == mobile {
+    @media (min-width: "0px") and (max-width: $breakpoints-mobile  - (0px)) { @content; }
+  }
+  @else if $media == tablet {
+    @media (min-width: ($breakpoints-mobile+1) - (0px)) and (max-width:  $breakpoints-tablet - (0px)) { @content; }
+  }
+  @else {
+    @media (max-width:$media-(0px)) { @content; }
+  }
+}
+@mixin respondToMinMax($minSize, $maxSize) {
+  @media (min-width: $minSize-(0px)) and (max-width: $maxSize  - (0px)) { @content; }
+}
+
+
+
+@mixin cssIcon($icon, $txt_position: 'none', $direction:'up', $padding:0, $width:0, $height:0) {
+  @if $icon == delete {
+    &:before, &:after{
+      content:'';
+      display:block;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      position: absolute;
+      left:50%;
+      top:50%;
+      @content;
+    }
+    &:after{
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    @if ($txt_position == 'left' or $txt_position == 'right') {
+      &:before{
+        width:$width;
+        transform: translate(0, -50%) rotate(-45deg);
+      }
+      &:after{
+        width:$width;
+        transform: translate(0, -50%) rotate(45deg);
+      }
+    }
+  }
+  @else if $icon == plus {
+    &:before, &:after{
+      content:'';
+      display:block;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      left:50%;
+      top:50%;
+      @content;
+    }
+    &:after{
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    @if ($txt_position == 'left' or $txt_position == 'right') {
+      &:before{
+        width:$width;
+        transform: translate(0, -50%);
+      }
+      &:after{
+        width:$width;
+        transform: translate(0, -50%) rotate(90deg);
+      }
+    }
+  }
+  @else if $icon == minus {
+    &:before{
+      content:'';
+      display:block;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      left:50%;
+      top:50%;
+      @content;
+    }
+  }
+  @else if $icon == linearrow {
+      //$size:floor($width/$sqrt_2 - 2*$hegith);
+      &:before, &:after{
+          content: '';
+          display:block;
+          position: absolute;
+          transition: all .2s ease;
+          width:round($width/1.41421356237 - 2*$height);
+          height:$height;
+          @content;
+      }
+      @if $direction == 'up' {
+          &:before{
+              top:50%;
+              left:0;
+              transform: translate(0, -50%) rotate(45deg);
+          }
+          &:after{
+              top:50%;
+              right:0;
+              transform: translate(0, -50%) rotate(-45deg);
+          }
+      }
+      @else if $direction == 'down' {
+          &:before{
+              top:50%;
+              left:0;
+              transform: translate(0, -50%) rotate(-45deg);
+          }
+          &:after{
+              top:50%;
+              right:0;
+              transform: translate(0, -50%) rotate(45deg);
+          }
+      }
+      @else if $direction == 'left' {
+          &:before{
+              top:0;
+              left:50%;
+              transform: translate(-50%, round(($width/1.41421356237 - 2*$height)/2)) rotate(-45deg);
+          }
+          &:after{
+              top:100%;
+              left:50%;
+              transform: translate(-50%, - round(($width/1.41421356237 - 2*$height)/2)) rotate(45deg);
+          }
+      }
+      @else if $direction == 'right' {
+          &:before{
+              top:0;
+              left:50%;
+              transform: translate(-50%, round(($width/1.41421356237 - 2*$height)/2)) rotate(45deg);
+          }
+          &:after{
+              top:100%;
+              left:50%;
+              transform: translate(-50%, - round(($width/1.41421356237 - 2*$height)/2)) rotate(-45deg);
+          }
+      }
+      
+  }
+  @else {
+      @media (max-width:$icon - (0px)) { @content; }
+  }
+
+  @if $txt_position == 'left' {
+      width:auto;
+      padding-left:round($padding + $width);
+      &:before,&:after{
+          left:0;
+      }
+  }
+  @else if $txt_position == 'right' {
+      width:auto;
+      padding-right:round($padding + $width);
+      &:before,&:after{
+          left:auto;
+          right:0;
+      }
+  }
+}
+
+$sqrt_2: 1.41421356237;
+@mixin cssIcon2($icon, $size: 20px, $thick: 2px, $color: $text_color01, $icosize: 100%, $display: inline-block, $position: relative,$direction: 'up',$interval: 8px,$align:middle,$width:auto,$height:auto) {
+
+    @if $icon == plus {
+        position: $position;
+        display: $display;
+        vertical-align: $align;
+        width:$size;
+        height:$size;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: $icosize;
+            height: $thick;
+            background-color: $color;
+        }
+        &:before {
+            transform: translate(-50%, -50%);
+        }
+
+        &:after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+    }
+    @else if $icon == close {
+        position: $position;
+        display: $display;
+        vertical-align: $align;
+        width:$size;
+        height:$size;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: $icosize;
+            height: $thick;
+            background-color: $color;
+        } 
+        &:before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        } 
+        &:after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+    @else if $icon == arrow {
+        display: $display;
+        vertical-align: $align;
+        width:$size;
+        height:$size;
+        &:before {
+            content: '';
+            display: block;
+            @if ($direction == 'up'){
+                border-bottom: $size solid $color;
+                border-left: round($size/2) solid transparent;
+                border-right: round($size/2) solid transparent;
+            }
+            @else if ($direction == 'down'){
+                border-top: $size solid $color;
+                border-left: round($size/2) solid transparent;
+                border-right: round($size/2) solid transparent;
+            }
+            @else if ($direction == 'left'){
+                border-top: round($size/2) solid transparent;
+                border-bottom: round($size/2) solid transparent;
+                border-right: $size solid $color;
+            }
+            @else if ($direction == 'right'){
+                border-top: round($size/2) solid transparent;
+                border-bottom: round($size/2) solid transparent;
+                border-left: $size solid $color;
+            }
+        }
+    }
+    @else if $icon == linearrow  {
+        position: $position;
+        display: $display;
+        vertical-align: $align;
+        width: $width;
+        height: $height;
+        $size: floor($width/$sqrt_2 - 2*$thick);
+        $rate: 2*$height/$width;
+        $margin-top: round($rate*$size/(2*$sqrt_2));
+        @if ($direction == 'up' or $direction == 'down') {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: $size;
+                height: $size;
+                @if ($rate == 1) {
+                    transform: translate(-50%, -50%) rotate(45deg);
+                } @else {
+                    transform: translate(-50%, -50%) scale(1, $rate) rotate(45deg);
+                }
+                @if ($direction == 'up') {
+                    margin-top: $margin-top;
+                    border-top: $thick solid $color;
+                    border-left: $thick solid $color;
+                } @else if ($direction == 'down') {
+                    margin-top: - $margin-top;
+                    border-right: $thick solid $color;
+                    border-bottom: $thick solid $color;
+                }
+            }
+        } @else if ($direction == 'left' or $direction == 'right') {
+            $size: floor($height/$sqrt_2 - 2*$thick);
+            $rate: 2*$width/$height;
+            $margin-left: round($rate*$size/(2*$sqrt_2));
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%; 
+                width: $size;
+                height: $size;
+                @if ($rate == 1) {
+                    transform: translate(-50%, -50%) rotate(45deg);
+                } @else {
+                    transform: translate(-50%, -50%) scale($rate, 1) rotate(45deg);
+                }
+                @if ($direction == 'left') {
+                    margin-left: $margin-left;
+                    border-left: $thick solid $color;
+                    border-bottom: $thick solid $color;
+                } @else if ($direction == 'right') {
+                    margin-left: - $margin-left;
+                    border-top: $thick solid $color;
+                    border-right: $thick solid $color;
+                }
+            }
+        }
+    }
+    @else if $icon == longarrow {
+        position: $position;
+        display: $display;
+        vertical-align: $align;
+        width:$width;
+        height:$height;
+        &:before {
+            content: '';
+            position: absolute;
+            border-top: $thick solid $color;
+            border-left: $thick solid $color;
+            @if ($direction == 'up' or $direction == 'down') {
+                $size: round($width/$sqrt_2 - $thick);
+                left: 50%;
+                width: $size;
+                height: $size;
+                @if ($direction == 'up') {
+                    top: round($width/2);
+                    transform: translate(-50%, -50%) rotate(45deg);
+                } @else if ($direction == 'down') {
+                    bottom: round($width/2);
+                    transform: translate(-50%, 50%) rotate(-135deg);
+                }
+            } @else if ($direction == 'left' or $direction == 'right') {
+                $size: round($height/$sqrt_2 - $thick);
+                top: 50%;
+                width: $size;
+                height: $size;
+                @if ($direction == 'left') {
+                    left: round($height/2);
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                } @else if ($direction == 'right') {
+                    right: round($height/2);
+                    transform: translate(50%, -50%) rotate(135deg);
+                }
+            }
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            background-color: $color;
+            @if ($direction == 'up' or $direction == 'down') {
+                @if ($direction == 'up') {
+                    top: round($thick/$sqrt_2);
+                } @else if ($direction == 'down') {
+                    bottom: round($thick/$sqrt_2);
+                }
+                left: 50%;
+                width: $thick;
+                height: $height - round($thick/$sqrt_2);
+                transform: translate(-50%, 0);
+            } @else if ($direction == 'left' or $direction == 'right') {
+                top: 50%;
+                @if ($direction == 'left') {
+                    left: round($thick/$sqrt_2);
+                } @else if ($direction == 'right') {
+                    right: round($thick/$sqrt_2);
+                }
+                width: $width - round($thick/$sqrt_2);
+                height: $thick;
+                transform: translate(0, -50%);
+            }
+        }
+    }
+    @else {
+        
+    }
+}
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    
+    @return $string;
+}
+
+@mixin icon_svg($icon, $color:'#999', $size:20px) {
+
+    $esColor: str-replace($color, "#");
+    $svgIcon:'';
+    @if $icon == arrow-left-right {
+        $svgIcon: "%3Csvg id='icon_20' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg id='icon_change' transform='translate(15578 14989)'%3E%3Crect width='20' height='20' transform='translate(-15578 -14989)' fill='none'/%3E%3Cg transform='translate(-15768.109 -15597.109)'%3E%3Cpath d='M3.564,1.5,1.5,3.564H13.884' transform='translate(192.608 611.609)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Cpath d='M11.82,3.563,13.884,1.5H1.5' transform='translate(192.608 619.033)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == refresh {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Cpath d='M7.5,15A7.5,7.5,0,0,1,2.194,2.194,7.5,7.5,0,0,1,14.3,4.337l.327.7.3-1.409a.626.626,0,0,1,.758-.5.665.665,0,0,1,.466.78l-.718,3.665a.691.691,0,0,1-.679.565.683.683,0,0,1-.376-.114L11.266,6.065A.662.662,0,0,1,11,5.248a.627.627,0,0,1,.913-.259l1.435.858-.335-.763a6.015,6.015,0,1,0-1.253,6.675.741.741,0,0,1,1.048,1.048A7.453,7.453,0,0,1,7.5,15' transform='translate(2 2.5)' fill='%23"+$esColor+"'/%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == doubleRect {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg transform='translate(15675 14974)'%3E%3Crect width='20' height='20' transform='translate(-15675 -14974)' fill='none'/%3E%3Cg transform='translate(-15672 -14970)'%3E%3Cpath d='M12.457,0h-6.5A1.963,1.963,0,0,0,4,1.961v.554H5.248V1.961a.713.713,0,0,1,.712-.712h6.5a.713.713,0,0,1,.712.712v6.5a.714.714,0,0,1-.712.713H11.9v1.248h.555a1.963,1.963,0,0,0,1.961-1.961v-6.5A1.963,1.963,0,0,0,12.457,0' transform='translate(-0.484 -1)' fill='%23"+$esColor+"'/%3E%3Cpath d='M1.961,14.418A1.963,1.963,0,0,1,0,12.457v-6.5A1.963,1.963,0,0,1,1.961,4h6.5a1.963,1.963,0,0,1,1.961,1.961v6.5a1.963,1.963,0,0,1-1.961,1.961Zm0-9.17a.713.713,0,0,0-.712.712v6.5a.714.714,0,0,0,.712.713h6.5a.714.714,0,0,0,.712-.713v-6.5a.713.713,0,0,0-.712-.712Z' transform='translate(0 -1.484)' fill='%23"+$esColor+"'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == search-circle {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg transform='translate(-10 -3)'%3E%3Ccircle cx='12' cy='12' r='12' transform='translate(10 3)' fill='%23574bcd' opacity='0.15'/%3E%3Cpath d='M19.214,34a3.939,3.939,0,1,1,3.94,3.939A3.939,3.939,0,0,1,19.214,34Z' transform='translate(-1.643 -19.332)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3Cline x2='1.641' y2='1.641' transform='translate(24.788 17.635)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == arrow-down {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E";
+    }
+    @else if $icon == arrow-left {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E";
+    }
+    @else if $icon == check {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='"+$size+"' height='"+$size+"' fill='none'/%3E%3C/svg%3E";
+    }
+    
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+@mixin icon_svg_search($size:20px) {
+    $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg transform='translate(-10 -3)'%3E%3Ccircle cx='12' cy='12' r='12' transform='translate(10 3)' fill='%23574bcd' opacity='0.15'/%3E%3Cpath d='M19.214,34a3.939,3.939,0,1,1,3.94,3.939A3.939,3.939,0,0,1,19.214,34Z' transform='translate(-1.643 -19.332)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3Cline x2='1.641' y2='1.641' transform='translate(24.788 17.635)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E%0A";
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+
+@mixin icon_svg_tooltip($color:black, $size:20px) {
+    // $color  - white, black, gray
+    $outer:'555';
+    $inner:'fff';
+    @if $color == white {
+        $outer:'fff';
+        $inner:'555';
+    }
+    @if $color == black2 {
+        $outer:'111';
+        $inner:'fff';
+    }
+    @if $color == grey {
+        $outer:'ccc';
+        $inner:'fff';
+    }
+    $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='9' cy='9' r='9' transform='translate(1 1)' fill='%23"+$outer+"'/%3E%3Cpath d='M11.111,13.861a1,1,0,0,1-1,1H9.889a1,1,0,0,1-1-1V9.334a1,1,0,0,1,1-1h.222a1,1,0,0,1,1,1Z' fill='%23"+$inner+"'/%3E%3Ccircle cx='1.111' cy='1.111' r='1.111' transform='translate(11.111 7.223) rotate(180)' fill='%23"+$inner+"'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E";
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+
+
+
+// svg icon
+
+
+
+

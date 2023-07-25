@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>Welcome to metaui</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <script src="/js/index.js"></script>
+  <script src="/orther/cleave.js"></script>
+  <style>
+    input {
+      width: 400px
+    }
+  </style>
+</head>
+
+<body>
+  <div>hellow<br>worldsdfsdfsdf4234234sfsdfrwerwererwer</div>
+  <p>you have friends312321fsdfsd</p>
+  <ul>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+  <p style="background: #f0f">A message with a blue background</p>
+  <div class="mui_accountbox">
+    <div class="acc_name_wrap inner_tag">
+      <p class="acc_name">비대면 파킹통장 보통예금</p>
+      <div class="tags">
+        <span class="mui_tag test111222">거래중지</span>
+      </div>
+    </div>
+    <div class="acc_data">
+      <p class="acc_num">평생 010-12345678</p>
+      <p class="acc_end">2025.12.31</p>
+    </div>
+    <p class="acc_val">203030313333<span class="won">원</span>
+    </p>
+    <div class="btns">
+      <button class="mui_button mui_large mui_primary" type="button"><span>이체</span></button>
+      <button class="mui_button mui_large mui_primary" type="button"><span>거래내역조회</span></button>
+    </div>
+  </div>
+  <div><a class="button retedfdsfsrt" href="//google.com">Google</a></div><br><input type="text" mui-formatter="dateForm:true" style="text-align:right;" placeholder="dateForm:true">
+  <br><input type="text" mui-formatter="uppercase:true" style="text-align:right;" placeholder="uppercase">
+  <br><input type="text" mui-formatter="lowercase:true" style="text-align:right;" placeholder="lowercase">
+  <br><input type="text" mui-formatter="numeric:true" value="500000000000000000" style="text-align:right;" placeholder="numeric:true">
+  <br><input type="text" mui-formatter="delimiter:/;blocks:2|2|2;" style="text-align:right;" placeholder="custom format">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><input type="text" class="testtt-block" style="text-align:right;" placeholder="block">
+  <br><input type="text" class="testtt" style="text-align:right;" value="100000000000000000" placeholder="cleave">
+  <br>
+  <br>
+  <br>
+  <br>
+  <script type="text/javascript">
+    GCui.util.ready(() => {
+      //- var cleave = new Cleave('.testtt', {
+      //-   //- blocks: [4, 2, 2],
+      //-   //- delimiter: '-',
+      //-   numeral:true
+      //-   //- delimiterLazyShow:true,
+      //-   //- prefix:'이'
+      //- });
+      var cleave2 = new Cleave('.testtt-block', {
+        date: true,
+        delimiter: '-',
+        datePattern: ['Y', 'm', 'd']
+        //- numeral:true
+        //- delimiterLazyShow:true,
+        //- prefix:'이'
+      });
+    })
+  </script><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <sc></sc>
+  <div class="cm_checkbox">
+    <input type="checkbox" id="test">
+    <input type="checkbox" checked>
+
+    <input type="checkbox" checked>
+
+    <input type="checkbox">
+
+    <input type="checkbox" checked="true">
+  </div>
+  <div kui-sticky>스티키 테스트</div>
+  <button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button>
+  <button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button>
+  <button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button>
+  <button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button>
+  <button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button>
+  <div class="mui_datatable">
+    <table>
+      <caption>테이블 제목</caption>
+      <thead>
+        <tr>
+          <th class="th custom-class" scope="cols"><em>dsddddd</em></th>
+          <th class="th" scope="cols">dsddddd</th>
+          <th class="th" scope="cols">dsddddd</th>
+          <th class="th" scope="cols">dsddddd</th>
+        </tr>
+        <tr>
+          <th class="th" scope="cols">dsddddd2</th>
+          <th class="th" scope="cols">dsddddd2</th>
+          <th class="th" scope="cols">dsddddd2</th>
+          <th class="th" scope="cols">dsddddd2</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td class=" custom-class" colspan="2"><em>dsddddd</em></td>
+          <td>dsddddd</td>
+          <td>dsddddd</td>
+        </tr>
+        <tr>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td class=" custom-class" colspan="2"><em>dsddddd</em></td>
+          <td>dsddddd</td>
+          <td>dsddddd</td>
+        </tr>
+        <tr>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+          <td>dsddddd2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><br><br><br>
+  <div class="mui_datepicker">
+    <div class="picker_header">
+      <button type="button"> <span class="text">이전 달 보기</span></button><span class="current_month">2월</span>
+      <button type="button"> <span class="text">다음 달 보기</span></button>
+    </div>
+    <div class="picker_contents">
+      <table>
+        <caption>날짜 선택 켈린더</caption>
+        <thead>
+          <tr>
+            <th>일요일</th>
+            <th>월요일</th>
+            <th>화요일</th>
+            <th>수요일</th>
+            <th>목요일</th>
+            <th>금요일</th>
+            <th>토요일</th>
+          </tr>
+        </thead>
+        <toby>
+          <tr>
+            <td class="disabled">29</td>
+            <td class="disabled">30</td>
+            <td class="disabled">31</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td class="disabled">1</td>
+          </tr>
+          <tr>
+            <td class="disabled">2</td>
+            <td class="disabled">3</td>
+            <td class="disabled">4</td>
+            <td class="disabled">5</td>
+            <td class="disabled">6</td>
+            <td class="disabled">7</td>
+            <td class="disabled">8</td>
+          </tr>
+        </toby>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+@charset "UTF-8";
+body * {
+  box-sizing: border-box;
+}
+body *::after, body *::before {
+  box-sizing: border-box;
+}
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select,
+table, th, td, tr, textarea, button, form, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+/* a 링크 초기화 */
+a {
+  color: #111;
+  text-decoration: none;
+}
+
+a:hover, a:focus, a:active, a:link {
+  color: #111;
+  text-decoration: none;
+}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {
+  font-family: "NanumBarunGothic", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.kpd-group img {
+  max-width: none;
+}
+
+em, address, i {
+  font-style: normal;
+}
+
+ul, li, ol, dl, dt, dd {
+  list-style: none;
+}
+
+/* 제목 태그 초기화 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  color: var(--main_color01);
+}
+em.type2 {
+  color: var(--font_color07);
+}
+
+img {
+  width: 100%;
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  border: 0;
+}
+
+.hidden {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  color: transparent;
+  opacity: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  display: block;
+}
+
+legend {
+  color: inherit;
+  white-space: normal;
+  display: block;
+  border: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+button {
+  background: none;
+  border: 0 none;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+html {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.06);
+  --main_color04: rgba(71, 122, 113, 0.06);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #F7F8FA;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank1 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank2 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+.guide_scroll ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.guide_scroll ::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #000;
+  border-radius: 10px;
+}
+.guide_scroll ::-webkit-scrollbar-track {
+  background: #e8e8e8;
+}
+/*# sourceMappingURL=reset.css.map */

@@ -1,0 +1,72 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Label"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +label({
+          text:'레이블'
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    //- 
+    //- 
+    //- 
+    +attributesLists([
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스 이름'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'id'
+        },
+        {
+          text:'for 속성에 들어갈 id 값'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'label 텍스트 요소'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

@@ -1,0 +1,20 @@
+mixin guidetext(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, isOpen, title="알아두세요", ...rest} = Object.assign({}, params);
+  - let blockData = {};
+
+  #{element}(
+    class=`${prefix}${divide}guide_text`
+    class=className
+  )
+    +accordion({
+      active:(isOpen?0:-1)
+    })
+      +acc_title(title)
+      +acc_content()
+        block
+
+        
