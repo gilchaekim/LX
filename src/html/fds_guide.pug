@@ -1,0 +1,76 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +content_group(0)
+    +content_group(3)
+      +title({
+        text:"FDF UTIL 가이드",
+        lv:1,
+      })
+      +text({
+        text:"텍스트............"
+      })
+      +text({
+        text:"텍스트............"
+      })
+  +content_group(0)
+    +content_group(3)
+      +title({
+        text:"로그인 세션정보",
+        lv:1,
+      })
+    +content_group(3)
+      +dataTable({
+        colgroup:[33, 33, 34],
+        headData:[
+          [
+            {
+              text: "고객정보",
+              colspan:3
+            },
+          ],
+        ],
+        bodyData:[
+          [
+            {
+              text: "로그인타입<br>I:아이디, C: 인증서"
+            },
+            {
+              text: "no session"
+            },
+            {
+              text: "<button class=\"mui_button mui_medium mui_grey\" type=\"button\"><span>Login....</span></button>"
+            },
+          ],
+        ]
+      })
+  +content_group(0)
+    +content_group(3)
+      +title({
+        text:"보안서비스 가입여부 정보",
+        lv:1,
+      })
+    +content_group(3)
+      p -텍스트............
+    +content_group(3)
+      +dataTable({
+        colgroup:[33, 33, 34],
+        bodyData:[
+          [
+            {
+              text: "로그인타입<br>I:아이디, C: 인증서"
+            },
+            {
+              text: "no session"
+            },
+            {
+              text: "<button class=\"mui_button mui_medium mui_grey\" type=\"button\"><span>Login....</span></button>"
+            },
+          ],
+        ]
+      })
+  +content_group(0)
+    
