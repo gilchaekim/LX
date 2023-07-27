@@ -13,7 +13,8 @@ const watch11 = () => {
     server: buildDir,
     notify: false,
     plugins: ['bs-eslint-message'],
-    startPath:"/coding_list.html"
+    port:9999,
+    // startPath:"/coding_list.html"
     // browser: ["google chrome", "firefox"]
   })
   const pugWather = watch(config.source.pugWather);

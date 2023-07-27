@@ -2,4 +2,26 @@ extends ./docs/layout/base.pug
 append global 
   - var title = "페이지 리스트"
 block content
-  
+  //- div 컨텐츠
+  iframe.content_frame#content_frame
+  script.
+    const { $ } = GCui.util;
+    const data = {
+      "공통 레이어" : {
+        "모달 샘플" : ["/html/base_layer.html", ""],
+        "fds_guide" : ["/html/fds_guide.html", ""],
+        "셀렉트01" : ["/html/select01.html", ""],
+        "셀렉트02" : ["/html/select02.html", ""],
+        "셀렉트03" : ["/html/select03.html", ""],
+      }
+
+
+
+
+
+    };
+    GCui.tree($('#treemenu'), {
+      data: data,
+      idName:'tree1',
+      mainFrame:'#content_frame',
+    })
