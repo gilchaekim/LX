@@ -3657,4 +3657,8 @@ table, th, td {
   font-size: 13px;
   color: var(--font_color03);
 }
+
+* {
+  background-color: #ff0;
+}
 /*# sourceMappingURL=contents_admin.css.map */
