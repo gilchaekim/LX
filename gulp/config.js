@@ -1,5 +1,5 @@
 
-const buildDir = "./admin/";
+const buildDir = "./";
 const sourceDir = "./src/";
 
 
@@ -34,9 +34,9 @@ const config = {
     }
   },
   build: {
-    scss: `${buildDir}css/`,
-    js: `${buildDir}js/`,
-    pug: `${buildDir}html/`,
+    scss: `${buildDir}admin/css/`,
+    js: `${buildDir}admin/js/`,
+    pug: `${buildDir}admin/html/`,
     docs:`${sourceDir}docs/`,
   },
   args: {

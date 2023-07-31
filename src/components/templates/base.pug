@@ -10,28 +10,33 @@ include ../index
 
 block top
 doctype html
-html#pageRoot(
+html(
   lang="ko"
-  class={"open_allmenu":showAllMenu}
 )
   head
-    title 저축은행중앙회
+    title 전주시 업무지원시스템 운영관리
     meta(
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+      content="width=device-width, initial-scale=1.0"
     )
     meta(
       charset="UTF-8"
     )
     link(
       rel="stylesheet"
-      href="/css/common.css"
+      href="/admin/css/common.css"
+    )
+    link(
+      rel="stylesheet"
+      href="/admin/css/contents_admin.css"
     )
     script(
       type="text/javascript"
       src="/js/index.js"
     )
   body
+    .accNav 
+      a
     #wrapper
       if showHeader
         <!-- 전체메뉴 -->
