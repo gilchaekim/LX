@@ -9,19 +9,13 @@ include ../index
 - let mainClassName = null;
 
 block top
-doctype html
-html(
-  lang="ko"
-)
+doctype transitional
+html(lang='ko')
+
   head
     title 전주시 업무지원시스템 운영관리
-    meta(
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    )
-    meta(
-      charset="UTF-8"
-    )
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(
       rel="stylesheet"
       href="/admin/css/common.css"
@@ -35,22 +29,66 @@ html(
       src="/js/index.js"
     )
   body
-    .accNav 
-      a
-    #wrapper
-      if showHeader
-        <!-- header -->
-        #header
-          include header.pug
-          block header
-        <!-- / header -->
-
-
+    .accNav
+      a(href='#header') 주요메뉴 바로가기
+      a(href='#content') 본문 바로가기
+      a(href='#footer') 지역메뉴 바로가기
+    #wrap 
+      header#header
+        .inner
+          h1(style='margin-top: 10px;')
+            a(href='/admin/', title='전주시 업무지원시스템 운영관리')
+              span.admin-logo 전주시 업무지원시스템
+              span.admin-logo.subTitle 운영관리
+          // tabContWrap
+          .tabContWrap.type01
+            // tabCont
+            .tabCont.pos-r.active
+              // gnb
+              .gnb
+                ul#headerList
+              // //gnb
+              // rightMenu
+              .rightMenu
+                .user(style='padding:20px')
+                  a(href='/portal/main.do', title='전주시 업무지원시스템 바로가기') 전주시 업무지원시스템 바로가기
+                  .info
+                    span
+                      strong 총괄관리자
+                  a(href='/admin/login/getLogout.do') 로그아웃\
+      #lnb
+        .lnb
+          button.btnPin.active(type='button')
+            span.hidden lnb 고정
+          .lnbTop
+            .lnbTit
+              h1#leftHeader.tit
+            .lnbMenu
+              ul#menuList
+            button.btnHide(type='button')
+              i.ico.ico-lnb-hide
       <!-- contents -->
-      #contants(
-        class=mainClassName
-      )
-        block content
+      #container
+        #content
+          .inner
+            .breadCrumb
+              ul 
+                li 홈
+                li 뎁스1
+                li 뎁스2
+            h2.tit!=pageTitle
+                
+            block content
+
+            #footer
+              .inner
+                h1.logo.left
+                  img.va-m(src='/admin/images/common/footer-logo.png', alt='LX 국토정보플랫폼')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .desc
+                  p.address 전주시 담당자 스마트시티과 김민우 주무관 Tel. 063-281-5379 / HP. 010-2608-6428
+                  p.address 큐레이터 지원기관 한국국토정보공사 전북지역본부 최우진 대리 Tel. 063-713-0746 / HP. 010-5093-1390
+
       <!-- / contents -->
 
 

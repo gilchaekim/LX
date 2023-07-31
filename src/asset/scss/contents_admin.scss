@@ -11,6 +11,20 @@
 @import '../../components/organisms/index.scss';
 @import '../../components/templates/index.scss';
 
-* {
-  background-color: #ff0 ;
+// * {
+//   background-color: #ff0 ;
+// }
+
+.admin-logo {
+  margin-left: 0px;
+  font-size: 16px;
+  font-family: 'Pretendard Bold';
+  letter-spacing: -1.46px;
+  cursor: pointer;
+  color: #ffffff;
+  &.subTitle {
+    margin-left: 5px;
+    font-size: 14px;
+    font-family: 'Pretendard';
+  }
 }

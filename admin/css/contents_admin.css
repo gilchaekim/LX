@@ -3658,7 +3658,17 @@ table, th, td {
   color: var(--font_color03);
 }
 
-* {
-  background-color: #ff0;
+.admin-logo {
+  margin-left: 0px;
+  font-size: 16px;
+  font-family: "Pretendard Bold";
+  letter-spacing: -1.46px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.admin-logo.subTitle {
+  margin-left: 5px;
+  font-size: 14px;
+  font-family: "Pretendard";
 }
 /*# sourceMappingURL=contents_admin.css.map */
