@@ -4,77 +4,25 @@
 .mui_radio, .mui_checkbox{
   position: relative;
   display: inline-block;
-  input{
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    &:checked{
 
-    }
-  }
   label {
-    padding-left: 32px;
+    padding-left: 4px;
     line-height: 24px;
     min-height: 24px;
-    color:$font_color03;
+    color:#555;
     font-size: 16px;
     display: inline-flex;
+    font-family: "Pretendard";
     &.inner_block{
       display: block;
     }
-    &::before{
-      content: '';
-      display: block;
-      width: 24px;
-      height: 24px;
-      background-color:$bg_color03;
-      border: 1px solid $basic_color05;
-      position: absolute;
-      border-radius: 12px;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-    }
   }
-}
-.mui_radio{
   input{
     &:checked + label{
-      color:$main_color01;
-      &::before{
-        border: 5px solid $main_color01;
-      }
+      color:#2E2E2E;
     }
   }
 }
-.mui_checkbox{
-  input{
-    &:checked + label{
-      color:$main_color01;
-      &::before{
-        border: 0 none;
-        background:$main_color01;
-      }
-      &::after{
-        content: '';
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        @include icon_svg(check, "#fff", 16px);
-      }
-    }
-  }
-}
-
-// .mui_radio_group, .mui_checkbox_group{
-//   margin-left: -24px;
-//   .mui_radio, .mui_checkbox{
-//     margin-left: 24px;
-//   }
-// }
 .mui_radio_group, .mui_checkbox_group{
   display: flex;
   flex-wrap: wrap;

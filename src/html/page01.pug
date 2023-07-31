@@ -2,6 +2,35 @@ extends ../components/templates/base.pug
 
 
 block prepend top 
-  - pageTitle = "메인 페이지 관리";
+  - pageTitle = "1111";
 block content
+  +radioCheck({
+    type:"radio",
+    name:'chk473294',
+    lists:[
+      {label:'라디오버튼1',},
+      {label:'라디오버튼2',},
+    ]
+  })
+  +radioCheck({
+    name:'chk473294',
+    lists:[
+      {label:'라디오버튼1',},
+      {label:'라디오버튼2',},
+    ]
+  })
+  +input({
+    placeholder:"",
+  })
+  +inputFile()
+  +text({
+    type:'warning',
+    text:"* 3840px X 2160px 를 권장 합니다."
+  })
+  +form()
+    +form_body({title:"이미지 파일 등록"})
+      +inputFile()
+      +button_select({
+        label:"등록된 이미지 확인 및 수정"
+      })
   

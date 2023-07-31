@@ -1,0 +1,33 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_input_file {
+  display: flex;
+  input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+  }
+  input[type="text"] {
+    width: 99%;
+  }
+  label {
+    display: inline-flex;
+    height: 40px;
+    line-height: 40px;
+    width: 120px;
+    white-space: nowrap;
+    padding: 0 34px;
+    background: #436AEB;
+    font-family: "Pretendard Bold";
+    font-size: 14px;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+  }
+
+}

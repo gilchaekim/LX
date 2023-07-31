@@ -13,7 +13,7 @@
 <body>
   <div class="accNav"><a href="#header">주요메뉴 바로가기</a><a href="#content">본문 바로가기</a><a href="#footer">지역메뉴 바로가기</a></div>
   <div id="wrap">
-    <header id="header">
+    <header id="header" style="display:none">
       <div class="inner">
         <h1 style="margin-top: 10px;"><a href="/admin/" title="전주시 업무지원시스템 운영관리"><span class="admin-logo">전주시 업무지원시스템</span><span class="admin-logo subTitle">운영관리</span></a></h1>
         <!-- tabContWrap-->
@@ -35,7 +35,7 @@
         </div>
       </div>
     </header>
-    <div id="lnb">
+    <div id="lnb" style="display:none">
       <div class="lnb">
         <button class="btnPin active" type="button"><span class="hidden">lnb 고정</span></button>
         <div class="lnbTop">
@@ -59,8 +59,55 @@
               <li>뎁스2</li>
             </ul>
           </div>
-          <h2 class="tit">메인 페이지 관리</h2>
-          <div id="footer">
+          <h2 class="tit">1111</h2>
+          <div class="mui_radio_group">
+            <span class="mui_radio">
+              <input type="radio" id="chk473294Id1" name="chk473294Id1" />
+              <label for="chk473294Id1">라디오버튼1</label>
+            </span>
+            <span class="mui_radio">
+              <input type="radio" id="chk473294Id2" name="chk473294Id1" />
+              <label for="chk473294Id2">라디오버튼2</label>
+            </span>
+          </div>
+          <div class="mui_checkbox_group">
+            <span class="mui_checkbox">
+              <input type="checkbox" id="chk473294Id3" />
+              <label for="chk473294Id3">라디오버튼1</label>
+            </span>
+            <span class="mui_checkbox">
+              <input type="checkbox" id="chk473294Id4" />
+              <label for="chk473294Id4">라디오버튼2</label>
+            </span>
+          </div>
+          <span class="mui_input">
+            <input type="text" placeholder="" mui-input="" />
+          </span>
+          <div class="mui_input_file">
+            <input type="text" readonly="readonly" />
+            <div class="file">
+              <label for="fileadd">찾이보기</label>
+              <input type="file" id="fileadd" />
+            </div>
+          </div>
+          <p class="mui_text warning">* 3840px X 2160px 를 권장 합니다.
+          </p>
+          <div class="mui_form">
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">이미지 파일 등록</span></div>
+              <div class="mui_form_content">
+                <div class="mui_input_file">
+                  <input type="text" readonly="readonly" />
+                  <div class="file">
+                    <label for="fileadd">찾이보기</label>
+                    <input type="file" id="fileadd" />
+                  </div>
+                </div>
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">등록된 이미지 확인 및 수정<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
+              </div>
+            </div>
+          </div>
+          <div id="footer" style="display:none">
             <div class="inner">
               <h1 class="logo left"><img class="va-m" src="/admin/images/common/footer-logo.png" alt="LX 국토정보플랫폼" /></h1>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               <div class="desc">

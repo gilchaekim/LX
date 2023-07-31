@@ -34,7 +34,7 @@ html(lang='ko')
       a(href='#content') 본문 바로가기
       a(href='#footer') 지역메뉴 바로가기
     #wrap 
-      header#header
+      header#header(style="display:none")
         .inner
           h1(style='margin-top: 10px;')
             a(href='/admin/', title='전주시 업무지원시스템 운영관리')
@@ -56,7 +56,7 @@ html(lang='ko')
                     span
                       strong 총괄관리자
                   a(href='/admin/login/getLogout.do') 로그아웃\
-      #lnb
+      #lnb(style="display:none")
         .lnb
           button.btnPin.active(type='button')
             span.hidden lnb 고정
@@ -80,7 +80,7 @@ html(lang='ko')
                 
             block content
 
-            #footer
+            #footer(style="display:none")
               .inner
                 h1.logo.left
                   img.va-m(src='/admin/images/common/footer-logo.png', alt='LX 국토정보플랫폼')

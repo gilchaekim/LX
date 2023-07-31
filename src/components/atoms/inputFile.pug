@@ -1,0 +1,33 @@
+mixin inputFile(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, placeholder, value, readonly, disabled, id="fileadd", ...rest } = Object.assign({}, params)
+  - let titleText;
+  - if(!title && !!placeholder) titleText = placeholder;
+  - let subfixLength = !!subfix ? `sublength_${subfix.length}` : null
+  
+  #{element}(
+    class=`${prefix}${divide}input${divide}file`
+    class=className
+    class={"inner_subfix":!!subfix}
+    class={"mui_disabled":!!disabled}
+    class={"mui_readonly":!!readonly}
+    
+  )
+    input(
+      type="text"
+      readonly="readonly"
+    )
+    .file   
+      label(
+        for=id
+      ) 찾이보기
+      input(
+        type="file"
+        id=id
+      )
+    
+

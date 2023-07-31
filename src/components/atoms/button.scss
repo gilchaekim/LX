@@ -74,15 +74,11 @@
     display: block;
     width: 100%;
     text-align: left;
-    height: 48px;
-    border-radius: 0;
-    padding: 0;
+    height: 40px;
+    border-radius: 4px;
+    padding: 10px;
     font-size: 16px;
-    &[disabled]{
-      .inset::after{
-        @include icon_svg(arrow-down, "#ccc", 20px);
-      }  
-    }
+    border: 1px solid #E9E9E9;
     &+.mui_select {
       margin-left:0;
       margin-top:16px;
@@ -90,7 +86,6 @@
     .inset{
       display: block;
       position: relative;
-      height: 48px;
       &::after{
         content: '';
         @include icon_svg(arrow-down, "#111", 20px);
@@ -101,9 +96,7 @@
       }
     }
     .label{
-      font-weight: 700;
-      color:$font_color01;
-      line-height: 48px;
+      color:#555555;
     }
     .placeholder{
       display: none;
@@ -122,81 +115,8 @@
         background: $font_color05 !important;
       }
     }
-    &::before{
-      content: '';
-      display: block;
-      height: 1px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: $line_color02;
-      
-    }
-
-    &:focus{
-      &::before{
-        height: 2px;
-        background: $line_color01;
-        z-index: 2;
-      }
-    }
-    &.account{
-      border-radius: 20px;
-      border: 1px solid $line_color03;
-      padding: 20px;
-      height: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,.04);
-      &::before{
-        display: none;
-      }
-      .inset{
-        height: auto;
-        padding-left: 44px;
-        &::after{
-          top: 8px;
-          margin-top: 0;
-        }
-      }
-      .img{
-        width: 32px;
-        height: 32px;
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid $line_color03;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      .label, .accnum{
-        display: block;
-        height: auto;
-        line-height: 1.4;
-      }
-      .label{
-        font-size: 14px;
-        color:$font_color01;
-      }
-      .accnum, .money{
-        font-size: 13px;
-        color:$basic_color04;
-      }
-      .money{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 8px;
-        .num{
-          font-size: 22px;
-          font-weight: 700;
-          color:$main_color01;
-          span{
-            font-weight: 400;
-          }
-        }
-      }
-      
+    &:not(:first-child) {
+      margin-top: 10px;
     }
   }
   &_more{
