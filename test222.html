@@ -1,0 +1,650 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+	<head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- script -->
+<link rel="stylesheet" href="/admin/css/common.css" type="text/css">
+<link rel="stylesheet" href="/admin/lib/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="/admin/lib/datetimepicker-master/build/jquery.datetimepicker.min.css" type="text/css">
+<script type="text/javascript" src="/admin/lib/jquery-1.12.4.js" ></script>
+<script type="text/javascript" src="/admin/lib/jquery-ui.js" ></script>
+<script type="text/javascript" src='/admin/js/cmm/customAlert.js'></script>
+<script type="text/javascript" src='/admin/js/cmm/customPopup.js'></script>
+<script type="text/javascript" src='/admin/js/cmm/common.js'></script>
+<script src="/admin/lib/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+<script src="/admin/js/ui.js"></script>
+
+<script type="text/javascript" src='/admin/validator.do'></script>
+
+<!-- AM-CHART -->
+<script src="/admin/lib/amcharts4/core.js"></script>
+<script src="/admin/lib/amcharts4/charts.js"></script>
+<script src="/admin/lib/amcharts4/animated.js"></script>
+
+<script type="text/javascript" src='/admin/js/cmm/cmmn.js'></script>
+		
+
+
+
+
+
+
+
+		<title>전주시 업무지원시스템 운영관리</title>
+		
+		<script type="text/javascript">
+		
+			var contextPath = "/admin";
+			$(document).ready(function() {
+				var msg = "";
+				if(msg != null && msg != ""){
+					callAlert('success', msg);
+				}
+				
+				var headerMenuId = sessionStorage.getItem("headerMenuId");
+				var headerMenuNm = sessionStorage.getItem("headerMenuNm");
+				var upperId = sessionStorage.getItem("upperId");
+				
+				if(headerMenuId == "000000000119") headerMenuId = "000000000066";
+				
+				getHeaderList();							//헤더 목록
+				getMenuList(headerMenuId, headerMenuNm);	//left 메뉴 목록
+
+				//left 메뉴 확장
+				if(headerMenuId != "" && headerMenuId != null){
+					var upperLi = $('#lnb .lnbMenu li span');
+					
+					for(var i=0; i<upperLi.length; i++){
+						if(upperLi[i].id == upperId){
+							$('#lnb .lnbMenu li #'+upperId).closest('li').toggleClass('active').siblings('li').removeClass('active');
+						}
+					}
+				}
+				
+				//헤더 메뉴 클릭 active 추가
+				$('.gnb li').siblings('li').removeClass('active');
+				$('.gnb li #'+headerMenuId).parents("li").addClass('active');
+			});
+			
+			/* header 메뉴 목록 */
+			function getHeaderList(){
+				$.ajax({
+					data : {sysSeCode : "2"},
+					url : "/admin/menu/getMenuHeaderList.do",
+					dataType : 'json',
+					async : false,
+					type : 'get',
+					success : function(data) {
+						var temp = "";
+						var list = data.resultList;
+						
+						$("#headerList").empty();
+						
+						for(var i=0; i<list.length; i++){
+							temp += '<li>';
+							temp += '<a href="#" id="'+list[i].menuId+'" onclick="getHeaderMenu(\''+list[i].menuId+'\', \''+list[i].menuNm+'\')">'+list[i].menuNm+'</a>';
+							temp += '</li>';
+						}
+						
+						$("#headerList").html(temp);
+					},
+					error : function(request, status, error) {
+						callAlert("error","에러가 발생했습니다.");
+					}
+				});
+			}
+			
+			/* 왼쪽 메뉴 목록 */
+			function getMenuList(menuId, menuNm){
+				$.ajax({
+					data : {sysSeCode : "2",
+						    upperMenuId : menuId},
+					url : "/admin/menu/getMenuList.do",
+					dataType : 'json',
+					async : false,
+					type : 'get',
+					success : function(data) {
+						var temp = "";
+						var list = data.resultList;
+						var upperIdArr = [];
+						var upperNmArr = [];
+						var upperUrlArr = [];
+						var lowerNum = 0;
+						
+						/* 좌측 메뉴명 */
+						$("#leftHeader").empty();
+						$("#leftHeader").html(menuNm);
+						
+						$("#menuList").empty();
+						
+						for(var i=0; i<list.length; i++){
+							if(list[i].level == 1){
+								upperIdArr.push(list[i].menuId);
+								upperNmArr.push(list[i].menuNm);
+								upperUrlArr.push(list[i].progrmUrl);
+							}
+						}
+						
+						for(var j=0; j<upperIdArr.length; j++){
+							temp += '<li>';
+							temp += '<div class="menuTit">';
+							if(upperUrlArr[j] == null){
+								temp += '<span id="upperId_'+j+'">'+upperNmArr[j]+'</span>';
+							}else{
+								temp += '<span id="upperId_'+j+'" onclick="getMenu(\''+upperUrlArr[j]+'\', \''+menuId+'\', \''+menuNm+'\', \''+j+'\')">'+upperNmArr[j]+'</span>';
+							}
+							temp += '</div>';
+							temp += '<div class="dep2">';
+							temp += '<ul>';
+							for(var k=0; k<list.length; k++){
+								if(upperIdArr[j] == list[k].upperMenuId){
+									temp += '<li>';
+									temp += '<a href="#" id="lower_'+j+lowerNum+'" onclick="getMenu(\''+list[k].progrmUrl+'\', \''+menuId+'\', \''+menuNm+'\', \''+j+'\')">'+list[k].menuNm+'</a>';
+									temp += '</li>';
+									lowerNum ++;
+								}
+							}
+							
+							temp += '</ul>';
+							temp += '</div>';
+							temp += '</li>';
+						}		
+						
+						$("#menuList").html(temp);
+					},
+					error : function(request, status, error) {
+						callAlert("error","에러가 발생했습니다.");
+					}
+				});
+			}
+			
+			/* 헤더 메뉴 클릭 시 해당 상세 메뉴 클릭 */
+			function getHeaderMenu(menuId, menuNm) {
+				getMenuList(menuId, menuNm);
+				$( "#lower_00" ).trigger( "click" );
+			}
+			
+			/* 메뉴 클릭 시 */
+			function getMenu(progrmUrl, menuId, menuNm, upperId) {
+				sessionStorage.setItem("headerMenuId", menuId);
+				sessionStorage.setItem("headerMenuNm", menuNm);
+				sessionStorage.setItem("upperId", "upperId_"+upperId);
+				
+				$("#currentMenuId").val(menuId);
+				$("#menuMoveForm").attr("action", ""+contextPath+progrmUrl+"");
+				$("#menuMoveForm").submit();
+			};
+		
+		</script>
+	</head>
+	
+	<body>
+		<!--accNav-->
+	    <div class="accNav">
+	        <a href="#header">주요메뉴 바로가기</a>
+	        <a href="#content">본문 바로가기</a>
+	        <a href="#footer">지역메뉴 바로가기</a>
+	    </div>
+	    <!--//accNav-->
+		<div id="wrap">
+			
+
+
+
+
+
+
+
+<style>
+.admin-logo {
+    margin-left: 0px;
+    font-size: 16px;
+    font-family: 'Pretendard Bold';
+    letter-spacing: -1.46px;
+    cursor: pointer;
+    color: #ffffff;
+}
+.admin-logo.subTitle {
+	margin-left: 5px;
+    font-size: 14px;
+    font-family: 'Pretendard';
+}
+</style>
+
+<form id="headerForm" name="headerForm">
+	<!-- header -->
+	<header id="header">
+		<!-- inner -->
+		<div class="inner">
+			<h1 style="margin-top: 10px;">
+				<a href="/admin/" title="전주시 업무지원시스템 운영관리">
+					<span class="admin-logo">전주시 업무지원시스템</span>
+					<span class="admin-logo subTitle">운영관리</span>
+				</a>
+			</h1>
+			<!-- tabContWrap -->
+			<div class="tabContWrap type01">
+				<!-- tabCont -->
+				<div class="tabCont pos-r active">
+					<!-- gnb -->
+					<div class="gnb">
+						<ul id="headerList">
+						</ul>
+					</div>
+					<!-- //gnb -->
+					<!-- rightMenu -->
+					<div class="rightMenu">
+						<div class="user" style="padding:20px">
+							<a href="/portal/main.do" title="전주시 업무지원시스템 바로가기">전주시 업무지원시스템 바로가기</a>
+							
+								<div class="info">
+									<span><strong>총괄관리자</strong>님
+									</span>
+								</div>
+								<a href="/admin/login/getLogout.do">로그아웃</a>
+							
+						</div>
+					</div>
+					<!-- //rightMenu -->
+				</div>
+				<!-- //tabCont -->
+			</div>
+			<!-- //tabContWrap -->
+		</div>
+		<!-- //inner -->
+	</header>
+	<!-- //header -->
+</form>
+			
+
+
+
+
+
+
+
+<!-- lnb -->
+ <div id="lnb">
+ 
+ 	<script type="text/javascript">
+ 		var btnPin = sessionStorage.getItem("btnPin");
+ 		
+ 		/* if(btnPin == "active"){
+ 			document.write('<div class="lnb active">');
+ 			document.write('<button type="button" class="btnPin active">');
+ 		}else{
+ 			document.write('<div class="lnb">');
+ 			document.write('<button type="button" class="btnPin">');
+ 		} */
+ 	</script>
+ 	
+	 <div class="lnb active">
+	 	<button type="button" class="btnPin active">
+            <span class="hidden">lnb 고정</span>
+        </button>
+        <!-- lnbTop -->
+        <div class="lnbTop">
+            <div class="lnbTit">
+                <h1 class="tit" id="leftHeader"></h1>
+            </div>
+            <!-- lnbMenu -->
+            <div class="lnbMenu">
+                <ul id="menuList">
+                </ul>
+            </div>
+            <!-- //lnbMenu -->
+            <!-- lnb 접었을 때 나오는 화살표 -->
+            <button type="button" class="btnHide">
+                <i class="ico ico-lnb-hide"></i>
+            </button>
+        </div>
+        <!-- //lnbTop -->
+        <!-- lnbBottom -->
+        <!-- <div class="lnbBottom">
+            <ul>
+                <li>
+                    <i class="ico ico-lnb-add"></i>
+                    <a href="#">추가설정</a>
+                </li>
+                <li>
+                    <i class="ico ico-dashBoard"></i>
+                    <a href="#">대시보드</a>
+                </li>
+                <li class="lnbMoveTop">
+                    <i class="ico ico-top"></i>
+                    <a href="#">맨위로 이동</a>
+                </li>
+            </ul>
+        </div> -->
+        <!-- //lnbBottom -->
+    </div>
+</div>
+<!-- //lnb -->
+			<!-- container -->
+	        <div id="container">
+	            <!-- content -->
+	            <div id="content">
+	                <div class="inner">
+						
+
+
+
+
+
+
+
+<!-- breadCrumb -->
+<div class="breadCrumb">
+	<ul>
+		<li>홈</li>
+		<li>사용자 관리</li>
+		<li>권한변경 신청 관리</li>
+	</ul>
+</div>
+<!-- //breadCrumb -->
+<h2 class="tit">권한변경 신청 상세정보</h2>
+<div class="titArea">
+	<strong>신청자 정보</strong>
+</div>
+<!-- table -->
+<div class="table row lg">
+	<table>
+		<caption>신청자 정보 테이블</caption>
+		<colgroup>
+			<col style="width: 200px;" />
+			<col style="width: 500px;" />
+			<col style="width: 200px;" />
+			<col style="width: auto;" />
+		</colgroup>
+		<body>
+		<tr>
+			<th scope="row">아이디</th>
+			<td>lxuser</td>
+			<th scope="row">신청자명</th>
+			<td>김국토</td>
+		</tr>
+		<tr>
+			<th scope="row">신청자구분</th>
+			<td>서비스 관리자</td>
+			<th scope="row">소속부서</th>
+			<td>통계청 경북통계사무소 포항출장소</td>
+		</tr>
+		<tr>
+			<th scope="row">전화번호</th>
+			<td>02-2224-4499</td>
+			<th scope="row">휴대폰번호</th>
+			<td>010-1111-1111</td>
+		</tr>
+		</body>
+	</table>
+</div>
+<!-- //table -->
+<div class="titArea">
+	<strong>권한변경 신청 정보</strong>
+</div>
+<!-- table -->
+<div class="table sCroll overflow-y" style="max-height: 390px">
+	<table>
+		<tr>
+			<th rowspan="5 }">신청정보</th>
+			<th scope="row">그룹명</th>
+			<th scope="row">업무권한명</th>
+		</tr>
+		
+		
+		
+			
+			
+			<!-- 그룹 권한이 새로 나왔을 때 -->
+			
+				<tr>
+					<td class="txt-center" rowspan="2">개발자 권한 그룹</td>
+					<td class="txt-center">데이터공간_파일관리 메인 화면</td>
+				</tr>
+			
+
+			<!-- 그 전 그룹 권한에 포함되는 행일때 -->
+			
+		
+			
+			
+			<!-- 그룹 권한이 새로 나왔을 때 -->
+			
+
+			<!-- 그 전 그룹 권한에 포함되는 행일때 -->
+			
+				<tr>
+					<td class="txt-center">데이터공간_테이블관리 메인 화면</td>
+				</tr>
+			
+		
+			
+			
+			<!-- 그룹 권한이 새로 나왔을 때 -->
+			
+				<tr>
+					<td class="txt-center" rowspan="2">플랫폼 사용자 그룹</td>
+					<td class="txt-center">데이터공간_파일관리 메인 화면</td>
+				</tr>
+			
+
+			<!-- 그 전 그룹 권한에 포함되는 행일때 -->
+			
+		
+			
+			
+			<!-- 그룹 권한이 새로 나왔을 때 -->
+			
+
+			<!-- 그 전 그룹 권한에 포함되는 행일때 -->
+			
+				<tr>
+					<td class="txt-center">데이터공간_테이블관리 메인 화면</td>
+				</tr>
+			
+		
+		<tr>
+			<th scope="row">권한변경 신청 사유</th>
+			<td colspan="2">fff</td>
+		</tr>
+	</table>
+</div>
+<br>
+<br>
+<br>
+<div class="titArea">
+	<strong>처리 현황</strong>
+</div>
+<form id="userAuthorChgDmndVO" action="/admin/user/getAuthorChgApply.do" method="post">
+<input id="authorRequstId" name="authorRequstId" value="000000000029" type="hidden" value="000000000029"/>
+<input id="userId" name="userId" value="lxuser" type="hidden" value=""/>
+<input id="updusrId" name="updusrId" value="manager" type="hidden" value=""/>
+<div class="table row lg">
+		<table>
+			<caption>사용자 정보 테이블</caption>
+			<colgroup>
+				<col style="width: 200px;" />
+				<col style="width: 500px;" />
+				<col style="width: 200px;" />
+				<col style="width: auto;" />
+			</colgroup>
+			<tr>
+				<th scope="row">신청일시</th>
+				<td>2023-05-03 18:02:30</td>
+				<th scope="row">처리일시</th>
+				<td id="td_updtDt">2023-05-03 18:06:54</td>
+			</tr>
+			<tr>
+				<th scope="row">처리상태</th>
+				
+				
+					<td colspan="3">승인</td>
+				
+			</tr>
+			
+			
+			
+		</table>
+	</div>
+</form> 
+	<div class="btnArea">
+		<button type="button" class="btn bg-white2 bd-blue lg leftAuto"
+			onclick="getAuthorChgApplyList();"><span class="t-grey2">목록</span></button>
+	</div>
+
+
+
+
+<script type="text/javaScript" language="javascript" defer="defer">
+
+/* 사용권한 신청 목록 조회 */
+function getAuthorChgApplyList() {
+	$("#pageIndex").val(1);
+	$("#userAuthorChgDmndVO").attr("action", "/admin/user/getAuthorChgApplyListView.do");
+	$("#userAuthorChgDmndVO").submit();
+};
+
+/* 사용 승인/반려 처리 */
+function modifyAuthorChgApply(confmAt){
+
+	let formData = new FormData($("#userAuthorChgDmndVO")[0]);
+	formData.set('confmAt', confmAt);
+
+	//반려시 반려이유가 없으면 error
+	if(confmAt == 2){
+		if(formData.get('returnCn') == null || formData.get('returnCn') == "" ){
+			callAlert("error","반려사유를 입력하세요");					
+			return 0;
+		}
+	}
+	
+	$.ajax({
+		  data : formData
+		, url : "/admin/user/modifyAuthorChgApply.do"
+		, dataType : 'json'
+		, type : 'post'
+		, contentType : false
+		, processData : false
+		, success : function(data){
+			if(data.result = 'success'){
+				if(confmAt == 1){
+					callAlert('success', "승인하였습니다.",function(){
+						$('#td_confmAt').text("승인");
+						$('#td_returnCn').text("");
+						let today = new Date();
+						$('#td_updtDt').text(dateToStringByFormatting(today));
+					});
+				}else{
+					callAlert('success', "반려하였습니다.",function(){
+						$('#td_confmAt').text("반려");
+						$('#td_returnCn').text(formData.get('returnCn'));
+						let today = new Date();
+						$('#td_updtDt').text(dateToStringByFormatting(today));
+					});
+				}
+			}
+			else{
+				callAlert("error", "에러가 발생했습니다.");					
+			}
+		}
+		, error : function (request, status, error){
+			callAlert("error", "에러가 발생했습니다.");					
+		}
+	}) 
+	
+}
+
+function dateToStringByFormatting(today){
+	let year = today.getFullYear();
+	let month = ('0' + (today.getMonth()+1)).slice(-2);
+	let date = ('0' + today.getDate()).slice(-2);
+	let hours = ('0' + today.getHours()).slice(-2);
+	let minutes = ('0' + today.getMinutes()).slice(-2);
+	let seconds = ('0' + today.getSeconds()).slice(-2);
+
+	return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+<!-- footer -->
+<div id="footer">
+    <div class="inner">
+        <h1 class="logo left">
+            <img src="/admin/images/common/footer-logo.png" class="va-m" alt="LX 국토정보플랫폼">
+        </h1>
+        <div class="desc">
+        	
+				<p class="address">전주시 담당자 스마트시티과 김민우 주무관 Tel. 063-281-5379 / HP. 010-2608-6428
+</p>
+        	
+				<p class="address">큐레이터 지원기관 한국국토정보공사 전북지역본부 최우진 대리 Tel. 063-713-0746 / HP. 010-5093-1390</p>
+        	
+            
+        </div>
+        <!-- <div class="familySite right">
+            <a href="#" title="FAMILY SITE">FAMILY SITE</a>
+            <ul>
+                <li>
+                    <a href="#">SITE1</a>
+                </li>
+                <li>
+                    <a href="#">SITE2</a>
+                </li>
+                <li>
+                    <a href="#">SITE3</a>
+                </li>
+                <li>
+                    <a href="#">SITE4</a>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</div>
+<!-- //footer -->
+					</div>
+					<!-- //inner -->
+	            </div>
+	            <!-- //content -->
+	        </div>
+	        <!-- //container -->
+	        <div id="divPop"></div>
+		</div>
+		<form id="menuMoveForm" name="menuMoveForm" method="post">
+			<input type="hidden" id="currentMenuId" name="currentMenuId" value="" />
+		</form>
+	</body>
+</html>
