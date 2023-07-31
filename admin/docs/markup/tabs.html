@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Tabs</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_tabs custom_tab" mui-tab="">
+            <ul class="mui_tab_nav">
+              <li class="nav_list"><button type="button">텝 네비1</button></li>
+              <li class="nav_list mui_active"><button type="button">텝 네비2</button></li>
+              <li class="nav_list"><button type="button">텝 네비3</button></li>
+              <li class="nav_list"><button type="button">텝 네비4</button></li>
+            </ul>
+            <div class="tab_contents">
+              <div class="tab_pane">
+                <div>11111</div>
+              </div>
+              <div class="tab_pane mui_active">
+                <div>22222</div>
+              </div>
+              <div class="tab_pane">
+                <div>33333</div>
+              </div>
+              <div class="tab_pane"></div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+tabsWrap({
+  active:1,
+  className:'custom_tab'
+})
+  +tab("텝 네비1")
+    div 11111
+  +tab("텝 네비2")
+    div 22222
+  +tab("텝 네비3")
+    div 33333
+  +tab("텝 네비4")</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_tabs link_tab custom_tab">
+            <ul class="mui_tab_nav">
+              <li class="nav_list"><a href="#none">텝 네비1</a></li>
+              <li class="nav_list mui_active"><a href="#none">텝 네비2</a></li>
+              <li class="nav_list"><a href="#none">텝 네비3</a></li>
+              <li class="nav_list"><a href="#none">텝 네비4</a></li>
+            </ul>
+            <div class="tab_contents">
+              <div class="tab_pane">
+                <div>텝 컨텐츠</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+tabsLink({
+  list:[
+    {name:'텝 네비1'},
+    {name:'텝 네비2', active:true},
+    {name:'텝 네비3'},
+    {name:'텝 네비4'},
+  ],
+  className:'custom_tab'
+})
+  div 텝 컨텐츠</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv3">+tabsWrap()</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>active</td>
+                <td>활성화 텝 index</td>
+                <td>nomber</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>커스텀 클래스</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv3">+tab()</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>text</td>
+                <td>텝 제목</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

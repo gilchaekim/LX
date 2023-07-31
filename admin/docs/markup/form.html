@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Form</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_form">
+            <div class="mui_form_list form_error">
+              <div class="mui_form_head"><span class="form_title">이름</span></div>
+              <div class="mui_form_content">
+                <div class="mui_form_value"><span>방수현</span></div>
+                <p class="msg_form msg_error">경고 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list form_successes">
+              <div class="mui_form_head"><span class="form_title">입금은행</span></div>
+              <div class="mui_form_content"><button class="guide_btn" type="button">안내</button><button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true"></span></span></button>
+                <p class="msg_form msg_successes">완료 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">주민번호 기본</span></div>
+              <div class="mui_form_content">
+                <div class="mui_idNumber mui_inputmultiple default"><span class="mui_input"><input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="password" title="주민번호 뒤7자리 입력" placeholder="뒤7자리" value="1234567" mui-input="" /></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">주민번호 앞자리만</span></div>
+              <div class="mui_form_content">
+                <div class="mui_idNumber mui_inputmultiple birthday"><span class="mui_input"><input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" /></span><span class="divide">-</span>
+                  <div class="letters">
+                    <div class="mask_box"><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list form_">
+              <div class="mui_form_head"><span class="form_title">주민번호 뒤 1자리까지</span></div>
+              <div class="mui_form_content">
+                <div class="mui_idNumber mui_inputmultiple letter"><span class="mui_input"><input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" value="123456" mui-input="" /></span><span class="divide">-</span>
+                  <div class="letters"><span class="mui_input"><input type="text" title="주민번호 뒤 첫번째 1자리 입력" placeholder="0" value="1" mui-input="" /></span>
+                    <div class="mask_box"><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span><span class="mask"></span></div>
+                  </div>
+                </div>
+                <p class="msg_form msg_">완료 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list form_error">
+              <div class="mui_form_head"><span class="form_title">면허번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_drivingnumber mui_inputmultiple"><span class="mui_input"><input type="text" title="면허번호 첫 번째 두자리 입력" placeholder="00" value="00" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="면허번호 두 번째 두자리 입력" placeholder="00" value="00" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="면허번호 세 번째 여섯자리 입력" placeholder="000000" value="000000" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="면허번호 네 번째 두자리 입력" placeholder="00" value="00" mui-input="" /></span></div>
+                <p class="msg_form msg_error">완료 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list form_error">
+              <div class="mui_form_head"><span class="form_title">입금은행111111</span></div>
+              <div class="mui_form_content">
+                <div class="mui_certificate"><span class="mui_input"><input type="tel" placeholder="인증번호 입력" mui-input="" /></span><span class="time">03:00</span><button type="button"> <span>시간연장</span></button></div>
+                <p class="msg_form msg_error">완료 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list form_etc">
+              <div class="mui_form_head"><span class="form_title">전화번호</span></div>
+              <div class="mui_form_content"><span class="mui_input"><input type="text" mui-input="" /></span>
+                <p class="msg_form msg_etc">기타 메세지</p>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">입금계좌번호</span></div>
+              <div class="mui_form_content"><span class="mui_input"><input type="text" mui-input="" /></span></div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">휴대폰번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_phone"><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button><span class="mui_input"><input type="tel" placeholder="휴대폰번호(숫자만)" mui-input="" /></span></div>
+                <div class="mui_phone"><button class="mui_button mui_select" type="button" disabled="disabled"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button><span class="mui_input mui_disabled"><input type="tel" placeholder="휴대폰번호(숫자만)" disabled="disabled" mui-input="" /></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_content">
+                <div class="mui_multipicker mui_disabled">
+                  <div class="mui_datepicker"><span class="mui_input mui_disabled"><input type="text" placeholder="시작일" disabled="disabled" mui-input="" /></span></div><span class="divide">~</span>
+                  <div class="mui_datepicker"><span class="mui_input mui_disabled"><input type="text" placeholder="종료일" disabled="disabled" mui-input="" /></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">이체시작일</span></div>
+              <div class="mui_form_content">
+                <div class="mui_datepicker"><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">조회기간</span></div>
+              <div class="mui_form_content">
+                <div class="inner_quick_btn">
+                  <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1" /><label for="btnTypeId1">일주일</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1" /><label for="btnTypeId2">1개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1" /><label for="btnTypeId3">3개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId4" name="btnTypeId1" /><label for="btnTypeId4">6개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId5" name="btnTypeId1" /><label for="btnTypeId5">직접입력</label></span></div>
+                  <div class="mui_datepicker"><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">거래유형</span></div>
+              <div class="mui_form_content">
+                <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId6" name="btnTypeId2" checked="checked" /><label for="btnTypeId6">전체</label></span><span class="mui_radio"><input type="radio" id="btnTypeId7" name="btnTypeId2" /><label for="btnTypeId7">입금</label></span><span class="mui_radio"><input type="radio" id="btnTypeId8" name="btnTypeId2" /><label for="btnTypeId8">출금</label></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">정렬순서</span></div>
+              <div class="mui_form_content">
+                <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId9" name="btnTypeId3" checked="checked" /><label for="btnTypeId9">최신순</label></span><span class="mui_radio"><input type="radio" id="btnTypeId10" name="btnTypeId3" /><label for="btnTypeId10">과거순</label></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">제증명발행번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_proofapp mui_inputmultiple"><span class="mui_input"><input type="text" title="제증명발행번호 첫 번째 네 자리 입력" placeholder="4자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="제증명발행번호 두 번째 열한 자리 입력" placeholder="11자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input mui_disabled"><input type="text" title="제증명발행번호 세 번째 자리" placeholder="12" disabled="disabled" value="12" mui-input="" /></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">사업자번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_business mui_inputmultiple"><span class="mui_input"><input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" /></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+form()
+  +form_body({title:"이름", message:{type:"error", text:"경고 메세지"}})
+    +form_value({
+      value:"방수현"
+    })
+ 
+  +form_body({title:"입금은행", message:{type:"successes", text:"완료 메세지"}})
+    button(type="button").guide_btn 안내
+    +button_select('셀렉트 버튼')
+  +form_body({title:"주민번호 기본"})
+    +input_idnumber({
+      data:[
+        {
+          value:"123456"
+        },
+        {
+          value:"1234567"
+        }
+      ]
+    })
+  +form_body({title:"주민번호 앞자리만"})
+    +input_idnumber({
+      type:'birthday',
+      data:[
+        {
+          value:"123456"
+        }
+      ]
+    })
+  +form_body({title:"주민번호 뒤 1자리까지", message:{type:"", text:"완료 메세지"}})
+    +input_idnumber({
+      type:'letter',
+      data:[
+        {
+          value:"123456"
+        },
+        {
+          value:"1"
+        }
+      ]
+    })
+  +form_body({title:"면허번호", message:{type:"error", text:"완료 메세지"}})
+    +input_drivingnumber({
+      data:[
+        {
+          value:"00"
+        },
+        {
+          value:"00"
+        },
+        {
+          value:"000000"
+        },
+        {
+          value:"00"
+        }
+      ]
+    })
+  +form_body({title:"입금은행111111", message:{type:"error", text:"완료 메세지"}})
+    +input_certificate({
+      placeholder:"인증번호 입력"
+    })
+ 
+  +form_body({title:"전화번호", message:{type:"etc", text:"기타 메세지"}})
+    +input()
+ 
+  +form_body({title:"입금계좌번호"})
+    +input()
+  +form_body({title:"휴대폰번호"})
+    +input_phone()
+    +input_phone({
+      disabled:true,
+    })
+ 
+  +form_body()
+    +multiPicker({
+      disabled:true,
+      data:[
+        {
+          placeholder:"시작일"
+        },
+        {
+          placeholder:"종료일"
+        }
+      ]
+    })
+    //- +input()
+ 
+  +form_body({title:"이체시작일"})
+    +datepicker()
+ 
+  +form_body({title:"조회기간"})
+    +datepicker({
+      quickBtn:true
+    })
+ 
+  +form_body({title:"거래유형"})
+    +radioCheck({
+      name:'btnType',
+      type:"radio",
+      className:'button_type',
+      lists:[
+        {
+          label:'전체',
+          checked:true
+        },
+        {
+          label:'입금'
+        },
+        {
+          label:'출금'
+        }
+      ]
+    })
+ 
+  +form_body({title:"정렬순서"})
+    +radioCheck({
+      name:'btnType',
+      type:"radio",
+      className:'button_type',
+      lists:[
+        {
+          label:'최신순',
+          checked:true
+        },
+        {
+          label:'과거순'
+        }
+      ]
+    })
+  +form_body({title:"제증명발행번호"})
+    +input_proofapp()
+  +form_body({title:"사업자번호"})
+    +input_business()</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>폼 제목</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>required</td>
+                <td>필수 여부</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>message</td>
+                <td>type, text - 폼 메세지 타입과 텍스트</td>
+                <td>object</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

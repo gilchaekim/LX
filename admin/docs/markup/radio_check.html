@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Radio &amp; checkbox</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view"><span class="mui_radio"><input type="radio" id="chk1Id1" name="chk1" /></span><span class="mui_checkbox"><input type="checkbox" id="chk2Id2" name="chk2" /></span></section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  type:"radio",
+  name:'chk1'
+})
++radioCheck({
+  name:'chk2'
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_radio_group"><span class="mui_radio"><input type="radio" id="radiolistId1" name="radiolistId1" disabled="disabled" /><label for="radiolistId1">라디오버튼1</label></span><span class="mui_radio"><input type="radio" id="radiolistId2" name="radiolistId1" /><label for="radiolistId2">라디오버튼2</label></span><span class="mui_radio"><input type="radio" id="radiolistId3" name="radiolistId1" /><label for="radiolistId3">라디오버튼3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  type:"radio",
+  name:'radiolist',
+  lists:[
+    {
+      label:'라디오버튼1',
+      disabled:true,
+    },
+    {
+      label:'라디오버튼2'
+    },
+    {
+      label:'라디오버튼3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_checkbox_group"><span class="mui_checkbox"><input type="checkbox" id="checklistId1" checked="checked" /><label for="checklistId1">체크1</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId2" /><label for="checklistId2">체크2</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId3" /><label for="checklistId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'checklist',
+  lists:[
+    {
+      label:'체크1',
+      checked:true
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_checkbox_group block_type"><span class="mui_checkbox"><input type="checkbox" id="block_typeId1" /><label for="block_typeId1">체크1</label></span><span class="mui_checkbox"><input type="checkbox" id="block_typeId2" /><label for="block_typeId2">체크2</label></span><span class="mui_checkbox"><input type="checkbox" id="block_typeId3" /><label for="block_typeId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'block_type',
+  className:'block_type',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_radio_group mini_type"><span class="mui_radio"><input type="radio" id="mini_typeId1" name="mini_typeId1" /><label for="mini_typeId1">체크1</label></span><span class="mui_radio"><input type="radio" id="mini_typeId2" name="mini_typeId1" /><label for="mini_typeId2">체크2</label></span><span class="mui_radio"><input type="radio" id="mini_typeId3" name="mini_typeId1" /><label for="mini_typeId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'mini_type',
+  type:"radio",
+  className:'mini_type',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1" /><label for="btnTypeId1">체크1</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1" /><label for="btnTypeId2">체크2</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1" /><label for="btnTypeId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'btnType',
+  type:"radio",
+  className:'button_type',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_radio_group button_type type1"><span class="mui_radio"><input type="radio" id="btnType1Id1" name="btnType1Id1" /><label for="btnType1Id1">체크1</label></span><span class="mui_radio"><input type="radio" id="btnType1Id2" name="btnType1Id1" /><label for="btnType1Id2">체크2</label></span><span class="mui_radio"><input type="radio" id="btnType1Id3" name="btnType1Id1" /><label for="btnType1Id3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'btnType1',
+  type:"radio",
+  className:'button_type type1',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="switch"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId1" name="chk" /><label for="chkId1">잔액표시</label></span></div><br />
+          <div class="switch type2"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId2" name="chk" /><label for="chkId2">잔액표시</label></span></div><br />
+          <div class="switch type2 main_color"><span class="mui_checkbox"><input type="checkbox" id="chk23Id3" name="chk23" /><label for="chk23Id3">동의</label></span></div><br />
+          <div class="switch type3"><span class="mui_checkbox"><input type="checkbox" id="chkId4" name="chk" /><label for="chkId4">잔액</label></span></div>
+          <div class="box_check">
+            <p>만기 SMS 통지</p>
+            <div class="switch type2 main_color"><span class="mui_checkbox"><input type="checkbox" id="chk23Id5" name="chk23" /><label for="chk23Id5">동의</label></span></div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">.switch
+  span.label 잔액 ON
+  +radioCheck({
+    name:'chk',
+    label:'잔액표시',
+  })
+br
+.switch.type2
+  span.label 잔액 ON
+  +radioCheck({
+    name:'chk',
+    label:'잔액표시',
+  })
+br
+.switch.type2.main_color
+  +radioCheck({
+    name:'chk23',
+    label:'동의',
+  })
+br
+.switch.type3
+  +radioCheck({
+    name:'chk',
+    label:'잔액',
+  })
+.box_check 
+  p 만기  SMS 통지
+  .switch.type2.main_color
+    +radioCheck({
+      name:'chk23',
+      label:'동의',
+    })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>type</td>
+                <td>radio, checkbox</td>
+                <td>string</td>
+                <td>checkbox</td>
+              </tr>
+              <tr>
+                <td>lists</td>
+                <td>리스트 형식 데이터</td>
+                <td>array</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>disabled 여부</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>checked</td>
+                <td>checked 여부</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>group 이름</td>
+                <td>string</td>
+                <td>radioCheck</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>custom class 적용</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

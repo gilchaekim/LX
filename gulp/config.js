@@ -1,5 +1,5 @@
 
-const buildDir = "./";
+const buildDir = "./admin/";
 const sourceDir = "./src/";
 
 

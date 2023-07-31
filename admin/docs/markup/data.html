@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Data</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Data 정렬</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_datasort"><span class="sort_data"><span class="total"> 총 <em>1</em>건</span><span class="date">2023.03.13~2023.03.19</span></span><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">1주일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+data_sort({
+  total:"1",
+  date:"2023.03.13~2023.03.19",
+  isBtn:true
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>

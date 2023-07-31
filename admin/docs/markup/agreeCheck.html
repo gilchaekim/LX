@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">약관 동의</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+          <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+          <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn mui_active" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+agree_check({
+  text:"전체 동의"
+})
++agree_check({
+  text:"상세 약관 타이틀"
+})
++agree_check({
+  text:"전체 동의",
+  isChecked:true
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">타입 별</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_agree_check inner_agree"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            <div class="inset">
+              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+agree_check({
+  text:"전체 동의"
+})
+  +agree_check({
+    text:"상세 약관 타이틀"
+  })
+  +agree_check({
+    text:"상세 약관 타이틀"
+  })
+  +agree_check({
+    text:"상세 약관 타이틀"
+  })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">타입 별2</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_agree_check chk_lists inner_agree"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            <div class="inset">
+              <div class="mui_checkbox_group"><span class="mui_checkbox"><input type="checkbox" id="checklistId1" checked="checked" /><label for="checklistId1">전체</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId2" /><label for="checklistId2">SMS</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId3" /><label for="checklistId3">이메일</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId4" /><label for="checklistId4">알림톡</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId5" /><label for="checklistId5">전화</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId6" /><label for="checklistId6">우편</label></span></div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+agree_check({
+  text:"전체 동의",
+  className:"chk_lists"
+})
+  +radioCheck({
+    name:'checklist',
+    lists:[
+      {
+        label:'전체',
+        checked:true
+      },
+      {
+        label:'SMS'
+      },
+      {
+        label:'이메일'
+      },
+      {
+        label:'알림톡'
+      },
+      {
+        label:'전화'
+      },
+      {
+        label:'우편'
+      }
+    ]
+  })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">약관 박스</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_agree_box">
+            <div class="agree_box">
+              <div class="inset">
+                <p>약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트</p>
+              </div>
+            </div>
+            <div class="check_sec"></div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+agree_box({
+  text:"약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트"
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_collapse">
+            <div class="mui_accordion" mui-accordion="">
+              <div class="acc_lists mui_open">
+                <div class="acc_header">
+                  <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div><button class="mui_acc_button" type="button"> 닫기</button>
+                </div>
+                <div class="mui_acc_content">
+                  <p>고객 편의 제공을 위하여 여러 동의 사항에 대한 전체동의 기능을 제공하고 있습니다 전체동의 시 선택 동의사항이 포함될 수 있습니다.</p>
+                  <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+                  <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+                  <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 --><button class="chk_btn" type="button"><span class="text">상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+collapse({
+  isOpen:true
+})
+  +header()
+    +agree_check({
+      text:"전체 동의"
+    })
+  +content()
+    p 고객 편의 제공을 위하여 여러 동의 사항에 대한 전체동의 기능을 제공하고 있습니다  전체동의 시 선택 동의사항이 포함될 수 있습니다.
+    +agree_check({
+      text:"상세 약관 타이틀"
+    })
+    +agree_check({
+      text:"상세 약관 타이틀"
+    })
+    +agree_check({
+      text:"상세 약관 타이틀"
+    })</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Attribute</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>text</td>
+                <td>약관 제목</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>isChecked</td>
+                <td>체크 여부</td>
+                <td>string</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>
