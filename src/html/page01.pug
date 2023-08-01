@@ -38,8 +38,6 @@ block content
     .edit_header 
       .sec.logo 
         +edit_btn({title:"로고"})
-      .sec.main_menu 
-        +edit_btn({title:"메인메뉴"})
       .sec.tnb 
         button(type="button") 
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +72,21 @@ block content
       +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
   
 
+  p.edit_type 가로형
+  .edit_ground.horizontal_type
+    .edit_container
+      .edit_header 
+        .sec.logo 
+          +edit_btn({title:"로고"})
+        .sec.side
+          +edit_btn({title:"메인메뉴"})
+      .edit_contents 
+    .edit_footer 
+      .sec.logo 
+        +edit_btn({title:"로고"})
+      .sec.copy
+        +edit_btn({title:"푸터 내용 입력"})
+      
   p.edit_type 세로형
   .edit_ground.vertrical_type
     .edit_header 
@@ -104,7 +117,7 @@ block content
         +edit_btn({title:"검색"})
       .sec.add_template
         +edit_btn()
-      .sec.grid_4x2
+      .sec.grid_box.grid_4x2
         .grid
           +edit_btn()
         .grid
@@ -117,6 +130,16 @@ block content
           +edit_btn()
         .grid
           +edit_btn()
+        .grid
+          +edit_btn()
+        .grid
+          +edit_btn()
+      .sec.grid_box.grid_2x2
+        .grid
+          +edit_btn()
+        .grid
+          +edit_btn()
+      .sec.grid_box.grid_1x3
         .grid
           +edit_btn()
         .grid
