@@ -60,7 +60,7 @@ a {
 }
 #contents .side_nav {
   height: 100%;
-  width: 600px;
+  width: 300px;
   overflow: auto;
   background-color: #f7f7f7;
   border-right: 1px solid #ddd;
