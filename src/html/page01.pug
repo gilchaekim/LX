@@ -37,7 +37,7 @@ block content
   .edit_ground.fit
     .edit_header 
       .sec.logo 
-        +edit_btn({title:"로고"})
+        +edit_btn({title:"로고", type:"file"})
       .sec.tnb 
         button(type="button") 
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,15 +54,20 @@ block content
 
     .edit_contents 
       .sec.main_title
-        +edit_btn({title:"메인타이틀"})
+        +edit_btn({title:"메인타이틀1"})
+        +move_btn()
       .sec.sub_title
         +edit_btn({title:"서브타이틀"})
+        +move_btn()
       .sec.sub_gotolink
         +edit_btn({title:"바로가기버튼설정"})
+        +move_btn()
       .sec.main_menu
         +edit_btn({title:"메인메뉴"})
+        +move_btn()
       .sec.sub_menu
         +edit_btn({title:"서브메뉴"})
+        +move_btn()
     .edit_footer 
       .sec.logo 
         +edit_btn({title:"로고"})
@@ -113,10 +118,12 @@ block content
           +edit_btn({title:"메인메뉴"})
       .edit_contents 
         .sec.blocks
+          +move_btn({className:"hor"})
           .grid_blocks.main
             +edit_btn({className:"big delete"})
             .grid.title01
               +edit_btn({title:"메인 타이틀"})
+
             .grid.title02
               +edit_btn({title:"서브 타이틀"})
             .grid.search
@@ -125,6 +132,7 @@ block content
               +edit_btn({title:"자주 찾는 서비스"})
 
         .sec.blocks
+          +move_btn({className:"hor"})
           .grid_blocks.sub
             +edit_btn({className:"big delete"})
             .grid.ver1
@@ -134,6 +142,7 @@ block content
             .grid.ver1
               +edit_btn({title:"이미지"})
         .sec.blocks
+          +move_btn({className:"hor"})
           .grid_blocks.sub
             +edit_btn({className:"big delete"})
             .grid.ver2
@@ -144,6 +153,7 @@ block content
               .grid_in
                 +edit_btn({title:"바로가기"})
         .sec.blocks
+          +move_btn({className:"hor"})
           .grid_blocks.sub
             .grid.ver1
               .grid_in
@@ -318,10 +328,13 @@ block content
     .edit_contents 
       .sec.main_title
         +edit_btn({title:"메인타이틀"})
+        +move_btn()
       .sec.sub_title
         +edit_btn({title:"서브타이틀"})
+        +move_btn()
       .sec.search
         +edit_btn({title:"검색"})
+        +move_btn()
       .sec.add_template
         +edit_btn()
       .sec.grid_box.grid_4x2

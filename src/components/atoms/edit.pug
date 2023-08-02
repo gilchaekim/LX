@@ -4,16 +4,43 @@ mixin edit_btn(params={})
   - const divide = '_'
   //- 공통 요소 End
 
-  - const { element="div", className, title, ...rest } = Object.assign({}, params)
+  - const { element="div", className, title, type="btn", id="fileadd", ...rest } = Object.assign({}, params)
   #{element}(
     class=`edit_btn`
     class=className
     class={"btn_only":!title}
   )
+    if type === 'file'
+      input(type="file", id=id)
+      label(for=id)
+        if title
+          span.text!=title
+        span.add
+          span.hidden 추가
+    else
       button(type="button") 
         if title
           span.text!=title
         span.add
           span.hidden 추가
+    
+
+mixin move_btn(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`move_btn`
+    class=className
+  )
+      button(type="button").prev
+        span
+          span.hidden 이전
+      button(type="button").next
+        span
+          span.hidden 다음
     
 
