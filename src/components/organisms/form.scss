@@ -3,15 +3,7 @@
 
 
 .mui_form {
-  .mui_form {
-    margin-top: 32px;
-  }
-  .add_data{
-    margin-top: 16px;
-    & > .mui_form {
-      margin-top: 24px;
-    }
-  }
+
 }
 .mui_form_list{
   .support{
@@ -35,7 +27,10 @@
 		}
 	}
   & ~ .mui_form_list{
-    margin-top: 32px;
+    margin-top: 16px;
+    .mui_form_head{
+      border-top: 1px solid #A3A3A3;
+    }
   }
   .mui_form_content{
     margin-top: 8px;
@@ -146,12 +141,10 @@
   }
 }
 .mui_form_head{
-  font-size: 14px;
-  color:$font_color02;
-  .mui_tooltip_wrap{
-    position: relative;
-    top: -1px;
-  }
+  font-size: 16px;
+  color:#555;
+  font-family: "Pretendard Bold";
+  padding-top: 16px;
 }
 .form_error{
   .mui_input::after, .mui_select::before{

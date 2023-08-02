@@ -8,9 +8,11 @@ mixin edit_btn(params={})
   #{element}(
     class=`edit_btn`
     class=className
+    class={"btn_only":!title}
   )
       button(type="button") 
-        span.text!=title
+        if title
+          span.text!=title
         span.add
           span.hidden 추가
     

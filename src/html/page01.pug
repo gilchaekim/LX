@@ -70,7 +70,38 @@ block content
         +edit_btn({title:"푸터 내용 입력"})
     .edit_quick_service
       +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
-  
+    .edit_config 
+      +button({
+        label:"설정 열기",
+        className:"toggle_layer",
+        muiToggle:'target:#toggle_box1;'
+      })
+      div.config_conts#toggle_box1 
+        p.title 제목
+        +form()
+          +form_body({title:"이미지 파일 등록"})
+            +inputFile()
+            +text({
+              type:'warning',
+              text:"* 3840px X 2160px 를 권장 합니다."
+            })
+            +button_select({
+              label:"등록된 이미지 확인 및 수정"
+            })
+          +form_body({title:"이미지 파일 등록"})
+            +inputFile()
+            +text({
+              type:'warning',
+              text:"* 3840px X 2160px 를 권장 합니다."
+            })
+            +button_select({
+              label:"등록된 이미지 확인 및 수정"
+            })
+          +form_body({title:"Color"})
+            +input({
+              type:"color",
+              value:"#555555"
+            })
 
   p.edit_type 가로형
   .edit_ground.horizontal_type
@@ -81,11 +112,187 @@ block content
         .sec.side
           +edit_btn({title:"메인메뉴"})
       .edit_contents 
+        .sec.blocks
+          .grid_blocks.main
+            +edit_btn({className:"big delete"})
+            .grid.title01
+              +edit_btn({title:"메인 타이틀"})
+            .grid.title02
+              +edit_btn({title:"서브 타이틀"})
+            .grid.search
+              +edit_btn({title:"검색"})
+            .grid.quick_service
+              +edit_btn({title:"자주 찾는 서비스"})
+
+        .sec.blocks
+          .grid_blocks.sub
+            +edit_btn({className:"big delete"})
+            .grid.ver1
+              +edit_btn({title:"동영상"})
+            .grid.ver1
+              +edit_btn({title:"이미지"})
+            .grid.ver1
+              +edit_btn({title:"이미지"})
+        .sec.blocks
+          .grid_blocks.sub
+            +edit_btn({className:"big delete"})
+            .grid.ver2
+              +edit_btn({title:"이미지 & 동영상"})
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"바로가기"})
+              .grid_in
+                +edit_btn({title:"바로가기"})
+        .sec.blocks
+          .grid_blocks.sub
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              +edit_btn({title:"동영상"})
+              
+        .sec.blocks
+          +edit_btn()
+
     .edit_footer 
       .sec.logo 
         +edit_btn({title:"로고"})
       .sec.copy 
         +edit_btn({title:"푸터 내용 입력"})
+    .edit_config 
+      +button({
+        label:"설정 열기",
+        className:"toggle_layer",
+        muiToggle:'target:#toggle_box1;'
+      })
+      div.config_conts#toggle_box1 
+        p.title 제목
+        //- +form()
+        //-   +form_body({title:"이미지 파일 등록"})
+        //-     +inputFile()
+        //-     +text({
+        //-       type:'warning',
+        //-       text:"* 3840px X 2160px 를 권장 합니다."
+        //-     })
+        //-     +button_select({
+        //-       label:"등록된 이미지 확인 및 수정"
+        //-     })
+        //-   +form_body({title:"이미지 파일 등록"})
+        //-     +inputFile()
+        //-     +text({
+        //-       type:'warning',
+        //-       text:"* 3840px X 2160px 를 권장 합니다."
+        //-     })
+        //-     +button_select({
+        //-       label:"등록된 이미지 확인 및 수정"
+        //-     })
+        +tabsWrap({
+          active:2,
+          className:""
+        })
+          +tab("메인 기능")
+            .layout_cont 
+              button(type="button").box_block
+                .box 
+                  span 타이틀
+              button(type="button").box_block
+                .box 
+                  span 타이틀
+              button(type="button").box_block
+                .box 
+                  span 바로가기
+                .box 
+                  span 자주 찾는 서비스
+              button(type="button").box_block.al3x1
+                .box 
+                  span 이미지&동영상
+                .box 
+                  span 이미지<br>&<br>동영상
+              button(type="button").box_block.al1x3
+                .box 
+                  span 이미지<br>&<br>동영상
+                .box 
+                  span 이미지&동영상
+              button(type="button").box_block
+                .box 
+                  span 타이틀
+          +tab("메인 메뉴")
+            .layout_cont 
+              button(type="button").box_block.al4x4
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+                .box 
+                  span 메인메뉴<br>&<br>이미지
+          +tab("서브 메뉴")
+            .layout_cont.al2x2
+              button(type="button").box_block.group.main_menu
+                .box 
+                  span 메인 타이틀
+                .box 
+                  span 서브 타이틀
+                .box 
+                  span 검색바
+                .box.end 
+                  span 자주 찾는 서비스
+              button(type="button").box_block.group.sub1x1x1
+                .box_wrap
+                  .box 
+                    span 이미지
+                  .box 
+                    span 이미지
+                .box_wrap
+                  .box 
+                    span 이미지
+                  .box 
+                    span 이미지
+                .box 
+                  span 동영상
+              button(type="button").box_block.group.sub1x1x1
+                .box 
+                  span 동영상
+                .box 
+                  span 이미지
+                .box 
+                  span 이미지
+              button(type="button").box_block.group.sub2x1
+                .box 
+                  span 동영상
+                .box_wrap
+                  .box 
+                    span 바로가기
+                  .box 
+                    span 바로가기
+              button(type="button").box_block.group.sub2x1
+                .box 
+                  span 동영상
+                .box 
+                  span 이미지
+              button(type="button").box_block.group.sub1x2
+                .box 
+                  span 이미지
+                .box 
+                  span 동영상
+          +tab("이미지&영상")
+
       
   p.edit_type 세로형
   .edit_ground.vertrical_type
@@ -150,7 +357,7 @@ block content
       .sec.copy
         +edit_btn({title:"푸터 내용 입력"})
     .edit_bg 
-      +edit_btn()
+      +edit_btn({className:"big"})
   
 
   
