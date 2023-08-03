@@ -56,7 +56,7 @@ block content
       .sec.main_title(mui-addcontent="type:'title'")
         +edit_btn({title:"메인타이틀1"})
         +move_btn()
-      .sec.sub_title
+      .sec.sub_title(mui-addcontent="type:'sub_title'")
         +edit_btn({title:"서브타이틀"})
         +move_btn()
       .sec.sub_gotolink
@@ -74,7 +74,21 @@ block content
       .sec.copy
         +edit_btn({title:"푸터 내용 입력"})
     .edit_quick_service
-      +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
+      //- +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
+      .quick_service
+        ul 
+          li
+            a(href="") 파일관리
+          li
+            a(href="") 테이블 관리
+          li
+            a(href="") 사진 파일 관리
+          li
+            a(href="") 동영상 파일 관리
+          li
+            a(href="") 첨부파일 관리
+          li
+            a(href="") 영상지도 파일 관리
     .edit_config 
       +button({
         label:"설정 열기",
