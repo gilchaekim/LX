@@ -36,7 +36,7 @@ block content
   p.edit_type FIT 
   .edit_ground.fit
     .edit_header 
-      .sec.logo 
+      .sec.logo(mui-addimage="target:.edit_btn;")
         +edit_btn({title:"로고", type:"file"})
       .sec.tnb 
         button(type="button") 
@@ -53,7 +53,7 @@ block content
           </svg>
 
     .edit_contents 
-      .sec.main_title
+      .sec.main_title(mui-addcontent="type:'title'")
         +edit_btn({title:"메인타이틀1"})
         +move_btn()
       .sec.sub_title
@@ -69,8 +69,8 @@ block content
         +edit_btn({title:"서브메뉴"})
         +move_btn()
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy
         +edit_btn({title:"푸터 내용 입력"})
     .edit_quick_service
@@ -107,13 +107,41 @@ block content
               type:"color",
               value:"#555555"
             })
+          +form_body({title:"메인 타이틀 명"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:25
+            })
+          +form_body({title:"서브 타이틀 명"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:25
+            })
+          +form_body({title:"푸터 내용"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:50
+            })
+          +form_body({title:"정렬"})
+            .select_align 
+              +radioCheck({
+                name:'chk483475',
+                type:"radio",
+                className:'align_type',
+                lists:[
+                  {label:'왼 쪽'},
+                  {label:'중간'},
+                  {label:'오른 쪽'},
+                ]
+              })
+
 
   p.edit_type 가로형
   .edit_ground.horizontal_type
     .edit_container
       .edit_header 
-        .sec.logo 
-          +edit_btn({title:"로고"})
+        .sec.logo(mui-addimage="target:.edit_btn;")
+          +edit_btn({title:"로고", type:"file"})
         .sec.side
           +edit_btn({title:"메인메뉴"})
       .edit_contents 
@@ -172,8 +200,8 @@ block content
           +edit_btn()
 
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy 
         +edit_btn({title:"푸터 내용 입력"})
     .edit_config 
@@ -307,8 +335,8 @@ block content
   p.edit_type 세로형
   .edit_ground.vertrical_type
     .edit_header 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.main_menu 
         +edit_btn({title:"메인메뉴"})
       .sec.tnb 
@@ -365,8 +393,8 @@ block content
         .grid
           +edit_btn()
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy
         +edit_btn({title:"푸터 내용 입력"})
     .edit_bg 

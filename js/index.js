@@ -6178,7 +6178,7 @@
       lastInputValue: "",
       postDelimiterBackspace: false,
       blocks: [],
-      template: "<span class=\"mui_maxlength\">\n      <span class=\"current\"></span>\n      <span class=\"maximun\"></span>\n    </span>"
+      template: "<span class=\"mui_maxlength\">\n      (<span class=\"current\"></span> /\n      <span class=\"maximun\"></span> )\n    </span>"
     },
     computed: {
       blocks: function blocks(_ref) {
@@ -12594,6 +12594,42 @@
     return el ? 'offsetTop' in el ? el : getOffsetElement(parent$1(el)) : document.documentElement;
   }
 
+  var addimage = {
+    props: {
+      target: String,
+      addfile: String
+    },
+    data: {
+      active: 'mui_active',
+      addfile: ' input[type="file"]',
+      target: '',
+      activeClass: "mui_active"
+    },
+    computed: {
+      target: function target(_ref, $el) {
+        var target = _ref.target;
+        return $$1(target, $el);
+      }
+    },
+    events: [{
+      name: 'change',
+      delegate: function delegate() {
+        return this.$props.addfile;
+      },
+      handler: function handler(e) {
+        var imageSrc = URL.createObjectURL(e.target.files[0]);
+        addClass(this.target, this.activeClass);
+        css(this.target, {
+          "background-image": "url(".concat(imageSrc, ")"),
+          "background-repeat": "no-repeat",
+          "background-position": "center",
+          "background-size": "100%"
+        });
+        // css(this.target, {"background":"#f00"})
+      }
+    }]
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -12706,6 +12742,7 @@
     Input: input,
     Tooltip: tooltip,
     Parallax: parallax,
+    Addimage: addimage,
     Worklists: worklists
   });
 

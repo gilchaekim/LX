@@ -51,8 +51,8 @@ export default {
     postDelimiterBackspace:false,
     blocks:[],
     template: `<span class="mui_maxlength">
-      <span class="current"></span>
-      <span class="maximun"></span>
+      (<span class="current"></span> /
+      <span class="maximun"></span> )
     </span>`,
   },
   computed: {
