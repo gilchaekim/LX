@@ -1,100 +1,95 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <title>저축은행중앙회 마크업진행표</title>
-  <link rel="stylesheet" href="/docs/css/index.css">
-  <meta charset="UTF-8">
-  <script type="text/javascript" src="/js/index.js"></script>
-</head>
-
-<body>
-  <div id="wrap">
-    <header id="header">
-      <div class="inner">
-        <h1 class="title">중앙회 마크업 진행표</h1>
-        <ul class="nav" id="topNav">
-          <li> <a href="/coding_list.html">페이지 리스트</a></li>
-          <li> <a href="/markupguide.html">마크업 가이드</a></li>
-        </ul>
-      </div>
-    </header>
-    <div id="contents">
-      <div class="side_nav" id="sideNav">
-        <div id="pages">
-          <div id="markupGuide">
-            <h2 class="side_title">마크업 가이드</h2>
-            <div id="treemenu"></div>
+  <head>
+    <title>저축은행중앙회 마크업진행표</title>
+    <link rel="stylesheet" href="/docs/css/index.css">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/index.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner"> 
+          <h1 class="title">중앙회 마크업 진행표</h1>
+          <ul class="nav" id="topNav">
+            <li> <a href="/coding_list.html">페이지 리스트</a></li>
+            <li> <a href="/markupguide.html">마크업 가이드</a></li>
+          </ul>
+        </div>
+      </header>
+      <div id="contents"> 
+        <div class="side_nav" id="sideNav">
+          <div id="pages"> 
+            <div id="markupGuide">
+              <h2 class="side_title">마크업 가이드</h2>
+              <div id="treemenu"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="contents">
-        <iframe class="content_frame" id="content_frame"></iframe>
-        <script>
-          const {
-            $
-          } = GCui.util;
-          const data = {
-            "마크업 가이드": {
-              "atoms": {
-                "Accordion": ["/docs/markup/accordion.html"],
-                "Button": ["/docs/markup/button.html"],
-                "Card": ["/docs/markup/card.html"],
-                "data": ["/docs/markup/data.html"],
-                "Datatable": ["/docs/markup/datatable.html"],
-                "Datepicker": ["/docs/markup/datepicker.html"],
-                "icon": ["/docs/markup/icon.html"],
-                "Input": ["/docs/markup/input.html"],
-                "input Group": ["/docs/markup/input_group.html"],
-                "Label": ["/docs/markup/label.html"],
-                "Layout": ["/docs/markup/layout.html"],
-                "Modal": ["/docs/markup/modal.html"],
-                "Radio & checkbox": ["/docs/markup/radio_check.html"],
-                "Result": ["/docs/markup/result.html"],
-                "Select": ["/docs/markup/select.html"],
-                "Step": ["/docs/markup/step.html"],
-                "Tabs": ["/docs/markup/tabs.html"],
-                "Tag": ["/docs/markup/tag.html"],
-                "Text": ["/docs/markup/text.html"],
-                "Text List": ["/docs/markup/textlist.html"],
-                "Textarea": ["/docs/markup/textarea.html"],
-                "Title": ["/docs/markup/title.html"],
-                "Toggle": ["/docs/markup/toggle.html"],
-                "셀렉트 리스트": ["/docs/markup/select_list.html"],
-                "약관 동의": ["/docs/markup/agreeCheck.html"],
-              },
-              "molecules": {
-                "input + @": ["/docs/markup/input_money.html"],
-                "collapse": ["/docs/markup/collapse.html"],
-                "조회 계좌": ["/docs/markup/accountbox.html"],
-              },
-              "organisms": {
-                "폼 요소": ["/docs/markup/form.html"],
-                "폼 요소_에러타입": ["/docs/markup/form_error.html"],
-              },
-              "templetes": {
-                "상품 리스트": ["/docs/markup/products.html"],
-                "가입 사전 안내": ["/docs/markup/signup_guide.html"],
-                "가입 정보 입력": ["/docs/markup/signup.html"],
+        <div class="contents"> 
+          <iframe class="content_frame" id="content_frame"></iframe>
+          <script>
+            const { $ } = GCui.util;
+            const data = {
+              "마크업 가이드":{
+                "atoms":{
+                  "Accordion":["/docs/markup/accordion.html"],
+                  "Button":["/docs/markup/button.html"],
+                  "Card":["/docs/markup/card.html"],
+                  "data":["/docs/markup/data.html"],
+                  "Datatable":["/docs/markup/datatable.html"],
+                  "Datepicker":["/docs/markup/datepicker.html"],
+                  "icon":["/docs/markup/icon.html"],
+                  "Input":["/docs/markup/input.html"],
+                  "input Group":["/docs/markup/input_group.html"],
+                  "Label":["/docs/markup/label.html"],
+                  "Layout":["/docs/markup/layout.html"],
+                  "Modal":["/docs/markup/modal.html"],
+                  "Radio & checkbox":["/docs/markup/radio_check.html"],
+                  "Result":["/docs/markup/result.html"],
+                  "Select":["/docs/markup/select.html"],
+                  "Step":["/docs/markup/step.html"],
+                  "Tabs":["/docs/markup/tabs.html"],
+                  "Tag":["/docs/markup/tag.html"],
+                  "Text":["/docs/markup/text.html"],
+                  "Text List":["/docs/markup/textlist.html"],
+                  "Textarea":["/docs/markup/textarea.html"],
+                  "Title":["/docs/markup/title.html"],
+                  "Toggle":["/docs/markup/toggle.html"],
+                  "셀렉트 리스트":["/docs/markup/select_list.html"],
+                  "약관 동의":["/docs/markup/agreeCheck.html"],
+                },
+                "molecules": {
+                  "input + @":["/docs/markup/input_money.html"],
+                  "collapse":["/docs/markup/collapse.html"],
+                  "조회 계좌":["/docs/markup/accountbox.html"],
+                },
+                "organisms": {
+                  "폼 요소":["/docs/markup/form.html"],
+                  "폼 요소_에러타입":["/docs/markup/form_error.html"],
+                },
+                "templetes": {
+                  "상품 리스트":["/docs/markup/products.html"],
+                  "가입 사전 안내":["/docs/markup/signup_guide.html"],
+                  "가입 정보 입력":["/docs/markup/signup.html"],
+                }
+                
+                
+            
+                
+                
+            
+                //- "Slider":["/docs/markup/slider.html"],        
               }
-
-
-
-
-
-
-              //- "Slider":["/docs/markup/slider.html"],        
-            }
-          };
-          GCui.tree($('#treemenu'), {
-            data: data,
-            idName: 'tree2',
-            mainFrame: '#content_frame',
-          })
-        </script>
+            };
+            GCui.tree($('#treemenu'), {
+              data: data,
+              idName:'tree2',
+              mainFrame:'#content_frame',
+            })
+          </script>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

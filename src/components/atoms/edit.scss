@@ -49,6 +49,11 @@
     background: none;
     button, .file_add, label {
       opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
   }
   button, .file_add, label  {

@@ -3,6 +3,9 @@
 
 .mui_input_file {
   display: flex;
+  .file {
+    position: relative;
+  }
   input[type="file"] {
     position: absolute;
     opacity: 0;
