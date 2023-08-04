@@ -221,7 +221,7 @@ block content
             ul
               li 
                 a 
-                  span.text 공지사항입니다.
+                  span.text 공지사항입니다. 공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.
                   span.date 2021-12-31
               li 
                 a 
@@ -396,9 +396,25 @@ block content
         .sec.blocks
           +move_btn({className:"hor"})
           .grid_blocks.sub
-            +edit_btn({className:"big delete"})
+            +edit_btn({className:"big delete", className:"mui_active"})
             .grid.ver1
-              +edit_btn({title:"동영상"})
+              +edit_btn({title:"공지사항"})
+              .notice_wrap
+                .notice
+                  p.title 공지사항
+                  ul
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
             .grid.ver1
               +edit_btn({title:"이미지"})
             .grid.ver1

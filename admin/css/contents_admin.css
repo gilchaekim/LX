@@ -3157,6 +3157,13 @@ table, th, td {
   position: relative;
   line-height: 28px;
 }
+.edit_ground.fit .notice_wrap a .text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
 .edit_ground.fit .notice_wrap a .date {
   opacity: 0.5;
 }
@@ -3236,11 +3243,15 @@ table, th, td {
   position: relative;
 }
 .edit_ground.horizontal_type .edit_contents .grid_blocks .delete {
-  width: auto;
-  height: auto;
+  width: 45px;
+  height: 45px;
   position: absolute;
   top: -42px;
   right: 0px;
+}
+.edit_ground.horizontal_type .edit_contents .grid_blocks .delete button {
+  width: auto;
+  height: auto;
 }
 .edit_ground.horizontal_type .edit_contents .grid_blocks .grid {
   width: 100%;
@@ -3350,6 +3361,19 @@ table, th, td {
 .edit_ground.horizontal_type .menu .sub_menu a:hover {
   font-weight: 700;
   color: #217DA9;
+}
+.edit_ground.horizontal_type .notice_wrap {
+  font-family: "Noto Sans";
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+}
+.edit_ground.horizontal_type .notice_wrap .title {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+.edit_ground.horizontal_type .notice_wrap .title li {
+  display: flex;
 }
 .edit_ground .add_template {
   height: 300px;

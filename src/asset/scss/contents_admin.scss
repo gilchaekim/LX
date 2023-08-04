@@ -246,6 +246,13 @@
         padding-left: 20px;
         position: relative;
         line-height: 28px;
+        .text{
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+        }
         .date{
           opacity: .5;
         }
@@ -328,11 +335,15 @@
         flex-direction: column;
         position: relative;
         .delete {
-          width: auto;
-          height: auto;
+          width: 45px;
+          height: 45px;
           position: absolute;
           top: -42px;
           right: 0px;
+          button {
+            width: auto;
+            height: auto;
+          }
         }
         .grid {
           width: 100%;
@@ -451,6 +462,20 @@
         }
       }
       
+    }
+    .notice_wrap{
+      font-family: 'Noto Sans';
+      background: rgba($color: #fff, $alpha: .9);
+      padding: 30px 40px;
+      .title{
+        color: #000;
+        font-size: 24px;
+        margin-bottom: 25px;
+        li{
+          display: flex;
+
+        }
+      }
     }
   }
   .add_template {
