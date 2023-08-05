@@ -2,7 +2,20 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_textarea{
+  position: relative;
   textarea{
     width: 100%;
+    height: 60px;
+    border-radius: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.2;
+  }
+  .mui_maxlength{
+    position: absolute;
+    top: -24px;
+    right: 0;
+    font-size: 12px;
+    color: rgba(85, 85, 85, 0.5);
   }
 }

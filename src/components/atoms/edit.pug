@@ -11,7 +11,7 @@ mixin edit_btn(params={})
     class={"btn_only":!title}
   )
     if type === 'file'
-      input(type="file", id=id)
+      input(type="file", id=id, accept=".png, .jpeg")
       label(for=id)
         if title
           span.text!=title
@@ -23,6 +23,7 @@ mixin edit_btn(params={})
           span.text!=title
         span.add
           span.hidden 추가
+    block
     
 
 mixin move_btn(params={})

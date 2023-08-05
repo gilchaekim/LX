@@ -36,7 +36,7 @@ block content
   p.edit_type FIT 
   .edit_ground.fit
     .edit_header 
-      .sec.logo 
+      .sec.logo(mui-addimage="target:.edit_btn;")
         +edit_btn({title:"로고", type:"file"})
       .sec.tnb 
         button(type="button") 
@@ -53,35 +53,232 @@ block content
           </svg>
 
     .edit_contents 
-      .sec.main_title
-        +edit_btn({title:"메인타이틀1"})
+      .sec.main_title(mui-addcontent="type:'title'")
+        +edit_btn({title:"메인타이틀1", className:"mui_active"})
+        p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다
         +move_btn()
-      .sec.sub_title
-        +edit_btn({title:"서브타이틀"})
+      .sec.sub_title(mui-addcontent="type:'sub_title'")
+        +edit_btn({title:"서브타이틀", className:"mui_active"})
+        p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
         +move_btn()
       .sec.sub_gotolink
-        +edit_btn({title:"바로가기버튼설정"})
+        +edit_btn({title:"바로가기버튼설정", className:"mui_active"})
+          .goto_link.white_type
+            a(href="") 머머 바로가기
+            a(href="") 머머 바로가기
+            a(href="") 머머 바로가기
         +move_btn()
       .sec.main_menu
-        +edit_btn({title:"메인메뉴"})
+        +edit_btn({title:"메인메뉴", className:"mui_active"})
+        .main_list
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+          .list
+            span.ico
+            p.title 데이터 관리
+            p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            ul.text_list 
+              li
+                a(href="") 파일 관리
+              li
+                a(href="") 동영상 파일 관리
+              li
+                a(href="") 데이터 검색
+              li
+                a(href="") 테이블 관리
+              li
+                a(href="") 첨부파일 파일 관리
+              li
+                a(href="") 메타 데이터 검색
+              li
+                a(href="") 사진 파일 관리
+              li
+                a(href="") 영상지도 파일 관리
+              li
+                a(href="") 공간데이터 보기 (웹앱)
+
+
+          
         +move_btn()
       .sec.sub_menu
-        +edit_btn({title:"서브메뉴"})
+        +edit_btn({title:"서브메뉴", className:"mui_active"})
+        .notice_wrap
+          .notice
+            p.title 공지사항
+            ul
+              li 
+                a 
+                  span.text 공지사항입니다. 공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.
+                  span.date 2021-12-31
+              li 
+                a 
+                  span.text 공지사항입니다.
+                  span.date 2021-12-31
+              li 
+                a 
+                  span.text 공지사항입니다.
+                  span.date 2021-12-31
+          .notice
+            p.title 공지사항
+            ul
+              li 
+                a 
+                  span.text 공지사항입니다.
+                  span.date 2021-12-31
+              li 
+                a 
+                  span.text 공지사항입니다.
+                  span.date 2021-12-31
+              li 
+                a 
+                  span.text 공지사항입니다.
+                  span.date 2021-12-31
         +move_btn()
+
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy
-        +edit_btn({title:"푸터 내용 입력"})
+        +edit_btn({title:"푸터 내용 입력", className:"mui_active"})
+        .footer
+          p.text (우)54994 전라북도 전주시 완산구 노송광장로 10 | 대표전화 : 063-222-1000 | 팩스 : 063-281-5000
+          p.copyright Copyright © 2023 Jeonjy City. All Rights Reserved.
     .edit_quick_service
-      +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
+      //- +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
+      .quick_service
+        ul 
+          li
+            a(href="") 파일관리
+          li
+            a(href="") 테이블 관리
+          li
+            a(href="") 사진 파일 관리
+          li
+            a(href="") 동영상 파일 관리
+          li
+            a(href="") 첨부파일 관리
+          li
+            a(href="") 영상지도 파일 관리
     .edit_config 
       +button({
         label:"설정 열기",
         className:"toggle_layer",
         muiToggle:'target:#toggle_box1;'
       })
-      div.config_conts#toggle_box1 
+      div(hidden).config_conts#toggle_box1
         p.title 제목
         +form()
           +form_body({title:"이미지 파일 등록"})
@@ -107,36 +304,117 @@ block content
               type:"color",
               value:"#555555"
             })
+          +form_body({title:"메인 타이틀 명"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:25
+            })
+          +form_body({title:"서브 타이틀 명"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:25
+            })
+          +form_body({title:"푸터 내용"})
+            +textarea({
+              muiFormatter:"viewMaxLength:true;",
+              maxlength:50
+            })
+          +form_body({title:"정렬"})
+            .select_align 
+              +radioCheck({
+                name:'chk483475',
+                type:"radio",
+                className:'align_type',
+                lists:[
+                  {label:'왼 쪽'},
+                  {label:'중간'},
+                  {label:'오른 쪽'},
+                ]
+              })
+
 
   p.edit_type 가로형
   .edit_ground.horizontal_type
     .edit_container
       .edit_header 
-        .sec.logo 
-          +edit_btn({title:"로고"})
+        .sec.logo(mui-addimage="target:.edit_btn;")
+          +edit_btn({title:"로고", type:"file"})
         .sec.side
-          +edit_btn({title:"메인메뉴"})
+          +edit_btn({title:"메인메뉴", className:"mui_active"})
+          .menu 
+            ul 
+              li  
+                a(href="") 데이터 공간
+                .sub_menu 
+                  ul 
+                    li 
+                      a(href="") 파일 관리
+                    li 
+                      a(href="") 테이블 관리
+                    li 
+                      a(href="") 데이터 검색
+              li  
+                a(href="") 지도 공간
+              li  
+                a(href="") 업무 공간
+              li  
+                a(href="") 통합 게시판
+              li  
+                a(href="") 서비스 공간
+              li  
+                a(href="") 커뮤니티
+              li  
+                a(href="") 고객지원
+
       .edit_contents 
         .sec.blocks
           +move_btn({className:"hor"})
           .grid_blocks.main
             +edit_btn({className:"big delete"})
             .grid.title01
-              +edit_btn({title:"메인 타이틀"})
+              +edit_btn({title:"메인 타이틀", className:"mui_active"})
+              p.text 전주시 빅데이터 플랫폼
 
             .grid.title02
-              +edit_btn({title:"서브 타이틀"})
+              +edit_btn({title:"서브 타이틀", className:"mui_active"})
+              p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
             .grid.search
-              +edit_btn({title:"검색"})
+              +edit_btn({title:"검색", className:"mui_active"})
+              button.search_btn(type="button")
+                p 검색어를 입력해주세요.
             .grid.quick_service
-              +edit_btn({title:"자주 찾는 서비스"})
+              +edit_btn({title:"자주 찾는 서비스", className:"mui_active"})
+              .quick_service_el 
+                p.title 자주 찾는 서비스
+                .tags 
+                  a(href="") 서비스1
+                  a(href="") 서비스2
+                  a(href="") 서비스3
+                  a(href="") 서비스4
+                  a(href="") 서비스5
 
         .sec.blocks
           +move_btn({className:"hor"})
           .grid_blocks.sub
-            +edit_btn({className:"big delete"})
+            +edit_btn({className:"big delete", className:"mui_active"})
             .grid.ver1
-              +edit_btn({title:"동영상"})
+              +edit_btn({title:"공지사항"})
+              .notice_wrap
+                .notice
+                  p.title 공지사항
+                  ul
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
             .grid.ver1
               +edit_btn({title:"이미지"})
             .grid.ver1
@@ -172,8 +450,8 @@ block content
           +edit_btn()
 
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy 
         +edit_btn({title:"푸터 내용 입력"})
     .edit_config 
@@ -307,8 +585,8 @@ block content
   p.edit_type 세로형
   .edit_ground.vertrical_type
     .edit_header 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.main_menu 
         +edit_btn({title:"메인메뉴"})
       .sec.tnb 
@@ -365,8 +643,8 @@ block content
         .grid
           +edit_btn()
     .edit_footer 
-      .sec.logo 
-        +edit_btn({title:"로고"})
+      .sec.logo(mui-addimage="target:.edit_btn;")
+        +edit_btn({title:"로고", type:"file"})
       .sec.copy
         +edit_btn({title:"푸터 내용 입력"})
     .edit_bg 

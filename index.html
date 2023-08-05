@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <title>저축은행중앙회 마크업진행표</title>
-  <link rel="stylesheet" href="/docs/css/index.css">
-  <meta charset="UTF-8">
-  <script type="text/javascript" src="/js/index.js"></script>
-</head>
-
-<body>
-  <div id="wrap">
-    <header id="header">
-      <div class="inner">
-        <h1 class="title">중앙회 마크업 진행표</h1>
-        <ul class="nav" id="topNav">
-          <li> <a href="/coding_list.html">페이지 리스트</a></li>
-          <li> <a href="/markupguide.html">마크업 가이드</a></li>
-        </ul>
-      </div>
-    </header>
-    <div id="contents">
-      <div class="side_nav" id="sideNav">
-        <div id="pages">
-          <div id="markupGuide">
-            <h2 class="side_title">페이지 리스트</h2>
-            <div id="treemenu"></div>
+  <head>
+    <title>저축은행중앙회 마크업진행표</title>
+    <link rel="stylesheet" href="/docs/css/index.css">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/index.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner"> 
+          <h1 class="title">중앙회 마크업 진행표</h1>
+          <ul class="nav" id="topNav">
+            <li> <a href="/coding_list.html">페이지 리스트</a></li>
+            <li> <a href="/markupguide.html">마크업 가이드</a></li>
+          </ul>
+        </div>
+      </header>
+      <div id="contents"> 
+        <div class="side_nav" id="sideNav">
+          <div id="pages"> 
+            <div id="markupGuide">
+              <h2 class="side_title">페이지 리스트</h2>
+              <div id="treemenu"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="contents">
-        <iframe class="content_frame" id="content_frame"></iframe>
-        <script>
-          const {
-            $
-          } = GCui.util;
-          const data = {
-            "공통 레이어": {
-              "모달 샘플": ["/html/base_layer.html", ""],
-              "모달 샘플2": ["/html/page01.html", ""],
-              "fds_guide": ["/html/fds_guide.html", ""],
-              "셀렉트01": ["/html/select01.html", ""],
-              "셀렉트02": ["/html/select02.html", ""],
-              "셀렉트03": ["/html/select03.html", ""],
-            }
-
-
-
-
-
-          };
-          GCui.tree($('#treemenu'), {
-            data: data,
-            idName: 'tree1',
-            mainFrame: '#content_frame',
-          })
-        </script>
+        <div class="contents"> 
+          <iframe class="content_frame" id="content_frame"></iframe>
+          <script>
+            const { $ } = GCui.util;
+            const data = {
+              "공통 레이어" : {
+                "모달 샘플" : ["/html/base_layer.html", ""],
+                "모달 샘플2" : ["/html/page01.html", ""],
+                "fds_guide" : ["/html/fds_guide.html", ""],
+                "셀렉트01" : ["/html/select01.html", ""],
+                "셀렉트02" : ["/html/select02.html", ""],
+                "셀렉트03" : ["/html/select03.html", ""],
+              }
+            
+            
+            
+            
+            
+            };
+            GCui.tree($('#treemenu'), {
+              data: data,
+              idName:'tree1',
+              mainFrame:'#content_frame',
+            })
+          </script>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
