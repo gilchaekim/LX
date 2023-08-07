@@ -27,6 +27,7 @@ export default {
     mixins: [Class],
     props: {
         autoplay: Boolean,
+        arrow: Boolean,
         pagination:Boolean,
         paginationType:String,
         paging:Boolean,
@@ -42,6 +43,7 @@ export default {
         scrollbar:false,
         loop:true,
         paging:false,
+        arrow:false,
         Swiper:null,
         clickable:true,
         controller:false,
@@ -51,6 +53,10 @@ export default {
             <em class="current"></em>
             <em class="total"></em>
         </div>`,
+        arrowTemplate : `<div class="mui_page_arrows">
+            <button type="button" class="mui_button_prev"><span class="hidden">이전</span></button>
+            <button type="button" class="mui_button_next"><span class="hidden">다음</span></button>
+        </div>`,
         controllerTemplate:`<div class="swiper_controller">
             <button type="button" class="control_btn"><span>재생/정지</span></button>
         </div>`,
@@ -59,12 +65,19 @@ export default {
     },
     beforeConnect(){
         const cls = `swiper_${randomStr(8)}`
-        let {autoplay, delay, pagination, paginationType, paginationTemplate, scrollbarTemplate, scrollbar} = this.$props;
+        let {autoplay, delay, arrow,  pagination, paginationType, paginationTemplate, scrollbarTemplate, arrowTemplate, scrollbar} = this.$props;
         swiperData = {};
         
         if(autoplay){
             swiperData.autoplay = {
                 delay:delay
+            };
+        }
+        if(arrow){
+            append(this.$el, arrowTemplate);
+            swiperData.navigation = {
+                nextEl: ".mui_button_next",
+                prevEl: ".mui_button_prev",
             };
         }
         if(scrollbar){

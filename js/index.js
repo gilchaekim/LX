@@ -11502,6 +11502,7 @@
     mixins: [Class],
     props: {
       autoplay: Boolean,
+      arrow: Boolean,
       pagination: Boolean,
       paginationType: String,
       paging: Boolean,
@@ -11517,6 +11518,7 @@
       scrollbar: false,
       loop: true,
       paging: false,
+      arrow: false,
       Swiper: null,
       clickable: true,
       controller: false,
@@ -11524,6 +11526,7 @@
       paginationType: "bullets",
       //	'bullets' | 'fraction' | 'progressbar' | 'custom'
       pagingTemplate: "<div class=\"swiper_page_nav\">\n            <em class=\"current\"></em>\n            <em class=\"total\"></em>\n        </div>",
+      arrowTemplate: "<div class=\"mui_page_arrows\">\n            <button type=\"button\" class=\"mui_button_prev\"><span class=\"hidden\">\uC774\uC804</span></button>\n            <button type=\"button\" class=\"mui_button_next\"><span class=\"hidden\">\uB2E4\uC74C</span></button>\n        </div>",
       controllerTemplate: "<div class=\"swiper_controller\">\n            <button type=\"button\" class=\"control_btn\"><span>\uC7AC\uC0DD/\uC815\uC9C0</span></button>\n        </div>",
       paginationTemplate: "<div class=\"swiper_pagenation\"></div>",
       scrollbarTemplate: "<div class=\"swiper_scrollbar\"></div>"
@@ -11533,15 +11536,24 @@
       var _this$$props = this.$props,
         autoplay = _this$$props.autoplay,
         delay = _this$$props.delay,
+        arrow = _this$$props.arrow,
         pagination = _this$$props.pagination,
         paginationType = _this$$props.paginationType,
         paginationTemplate = _this$$props.paginationTemplate,
         scrollbarTemplate = _this$$props.scrollbarTemplate,
+        arrowTemplate = _this$$props.arrowTemplate,
         scrollbar = _this$$props.scrollbar;
       swiperData = {};
       if (autoplay) {
         swiperData.autoplay = {
           delay: delay
+        };
+      }
+      if (arrow) {
+        append(this.$el, arrowTemplate);
+        swiperData.navigation = {
+          nextEl: ".mui_button_next",
+          prevEl: ".mui_button_prev"
         };
       }
       if (scrollbar) {

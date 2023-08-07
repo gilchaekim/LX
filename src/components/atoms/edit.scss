@@ -32,7 +32,8 @@
       background: url('/images/ico03_1.png') no-repeat center;
     }
   }
-  &.btn_only  .add {
+  &.btn_only {
+    .add {
       margin-left: 0;
     }
   }

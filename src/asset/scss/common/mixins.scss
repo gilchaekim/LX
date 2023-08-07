@@ -72,14 +72,14 @@
     @media (min-width: "0px") and (max-width: $breakpoints-mobile  - (0px)) { @content; }
   }
   @else if $media == tablet {
-    @media (min-width: ($breakpoints-mobile+1) - (0px)) and (max-width:  $breakpoints-tablet - (0px)) { @content; }
+    @media (max-width:  $breakpoints-tablet - (0px)) { @content; }
   }
   @else {
     @media (max-width:$media-(0px)) { @content; }
   }
 }
 @mixin respondToMinMax($minSize, $maxSize) {
-  @media (min-width: $minSize-(0px)) and (max-width: $maxSize  - (0px)) { @content; }
+  @media (min-width: $minSize+"px") and (max-width: $maxSize+"px") { @content; }
 }
 
 

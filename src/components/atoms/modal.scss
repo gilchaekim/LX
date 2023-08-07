@@ -1,6 +1,9 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
+html.mui_modal_page{
+    box-sizing: border-box;
+}
 .mui_modal, [mui-modal]{
     display: none;
     position: fixed;
@@ -207,35 +210,10 @@
             }
         }
         .mui_modal_header{
-            height: 56px;
-            padding-left: 24px;
-            p{
-                line-height: 56px;
-                color:$font_color01;
-                font-size: 16px;
-                font-weight: 700;
-                .btn_down {
-                    position:absolute;
-                    top:16px;
-                    right:48px;
-                    width:24px;
-                    height:24px;
-                    font-size:0;
-                    text-indent:-9999px;
-                    background:url($url_common+"btn_down.svg") no-repeat center;
-                }
-            }
+
         }
         .mui_modal_content{
-            padding: 24px;
-            .mui_tabs{
-                &:first-child{
-                    margin: -24px -24px;
-                }
-                .tab_pane{
-                    padding: 24px 24px 0;
-                }
-            }
+
         }
     }
     .mui_size{
@@ -266,14 +244,19 @@
             position: relative;
             & > .mui_modal_close, form > .mui_modal_close{
                 position: absolute;
-                top: 0;
-                right: 0;
+                top: 10px;
+                right: 50px;
                 text-indent: -9999em;
                 overflow: hidden;
-                width: 56px;
-                height: 56px;
-                background: url($url_common+"ico_close.svg") no-repeat center;
-                background-size: 24px;
+                width: 60px;
+                height: 60px;
+                background: url($url_common+"ico_close.svg") no-repeat center / 60px;
+                @include respondTo("tablet"){
+                    width: 30px;
+                    height: 30px;
+                    background-size: 30px;
+                    right: 16px;
+                }
             }
         }
 

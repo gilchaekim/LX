@@ -333,6 +333,26 @@ block content
               })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   p.edit_type 가로형
   .edit_ground.horizontal_type
     .edit_container
@@ -392,20 +412,74 @@ block content
                   a(href="") 서비스3
                   a(href="") 서비스4
                   a(href="") 서비스5
+        .sec.blocks
+          +move_btn({className:"hor"})
+          .grid_blocks.sub
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              +edit_btn({title:"동영상", className:"mui_active"})
+              .slides_wrap(mui-slider="pagination:true;arrow:true;")
+                .slider
+                  .swiper-wrapper
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+
+
 
         .sec.blocks
           +move_btn({className:"hor"})
           .grid_blocks.sub
-            +edit_btn({className:"big delete", className:"mui_active"})
+            //- +edit_btn({className:"big delete"})
+            .grid.ver2
+              +edit_btn({title:"이미지 & 동영상", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex2.png", alt="")
             .grid.ver1
-              +edit_btn({title:"공지사항"})
+              .grid_in
+                +edit_btn({title:"바로가기", className:"mui_active"})
+                a.goto_link(href="", style="background:rgba(45, 53, 155, 0.9)")
+                  span.icon 
+                    img(src="/images/ico_ex5.png", alt="")
+                  span.text 데이터 공간
+              .grid_in
+                +edit_btn({title:"바로가기", className:"mui_active"})
+                a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
+                  span.icon 
+                    img(src="/images/ico_ex4.png", alt="")
+                  span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+        .sec.blocks
+          +move_btn({className:"hor"})
+          .grid_blocks.sub
+            //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
+            .grid.ver1
+              +edit_btn({title:"공지사항", className:"mui_active"})
               .notice_wrap
                 .notice
                   p.title 공지사항
                   ul
                     li 
                       a 
-                        span.text 공지사항입니다.
+                        span.text 공지사항입니다. 공지사항입니다. 공지사항입니다. 공지사항입니다. 
                         span.date 2021-12-31
                     li 
                       a 
@@ -415,36 +489,24 @@ block content
                       a 
                         span.text 공지사항입니다.
                         span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
             .grid.ver1
-              +edit_btn({title:"이미지"})
+              +edit_btn({title:"이미지", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex3.png", alt="")
+                a(href="").link
+                  span.play
             .grid.ver1
-              +edit_btn({title:"이미지"})
-        .sec.blocks
-          +move_btn({className:"hor"})
-          .grid_blocks.sub
-            +edit_btn({className:"big delete"})
-            .grid.ver2
-              +edit_btn({title:"이미지 & 동영상"})
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"바로가기"})
-              .grid_in
-                +edit_btn({title:"바로가기"})
-        .sec.blocks
-          +move_btn({className:"hor"})
-          .grid_blocks.sub
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"이미지"})
-              .grid_in
-                +edit_btn({title:"이미지"})
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"이미지"})
-              .grid_in
-                +edit_btn({title:"이미지"})
-            .grid.ver1
-              +edit_btn({title:"동영상"})
+              +edit_btn({title:"이미지", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex3.png", alt="")
+
+
               
         .sec.blocks
           +edit_btn()
@@ -460,7 +522,7 @@ block content
         className:"toggle_layer",
         muiToggle:'target:#toggle_box1;'
       })
-      div.config_conts#toggle_box1 
+      div(hidden).config_conts#toggle_box1 
         p.title 제목
         //- +form()
         //-   +form_body({title:"이미지 파일 등록"})
@@ -605,38 +667,137 @@ block content
 
     .edit_contents 
       .sec.main_title
-        +edit_btn({title:"메인타이틀"})
+        +edit_btn({title:"메인타이틀", className:"mui_active"})
+        p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다
         +move_btn()
       .sec.sub_title
-        +edit_btn({title:"서브타이틀"})
+        +edit_btn({title:"서브타이틀", className:"mui_active"})
+        p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다
         +move_btn()
       .sec.search
         +edit_btn({title:"검색"})
+        button.search_btn(type="button")
+          p 검색어를 입력해주세요.
         +move_btn()
       .sec.add_template
         +edit_btn()
       .sec.grid_box.grid_4x2
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
+            span.icon 
+              img(src="/images/ico_ex5.png", alt="")
+            span.text 데이터 공간
+            span.sub_txt 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(229, 169, 12, 1)")
+            span.icon 
+              img(src="/images/ico_ex6.png", alt="")
+            span.text 지도 서비스
+            span.sub_txt 업무에 필요한 주제도를 직접 제작하여공간분석 및 공유합니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(52, 57, 154, 1)")
+            span.icon 
+              img(src="/images/ico_ex6.png", alt="")
+            span.text 업무 서비스
+            span.sub_txt 전주시에 특화된 공간정보 기반의 행정지원 서비스입니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(255, 255, 255, 1)")
+            span.icon 
+              img(src="/images/ico_ex7.png", alt="")
+            span.text(style="color:#000") 서비스 모듈
+            span.sub_txt(style="color:#000") 전주시에 특화된 공간정보 기반의 행정지원 서비스입니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(52, 57, 154, 1)")
+            span.icon 
+              img(src="/images/ico_ex8.png", alt="")
+            span.text(style="color:#fff") 커뮤니티
+            span.sub_txt(style="color:#fff") 전주시 빅데이터 플랫폼 활용 방법에 대한 소통창구입니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link.img
+            img(src="/images/img_ex.png", alt="")
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
+            span.icon 
+              img(src="/images/ico_ex9.png", alt="")
+            span.text(style="color:#fff") 고객지원
+            span.sub_txt(style="color:#fff") 다양한 고객지원 서비스를 제공합니다
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          a.goto_link.img
+            img(src="/images/img_ex.png", alt="")
       .sec.grid_box.grid_2x2
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          .notice_wrap
+            .notice
+              p.title 공지사항
+              ul
+                li 
+                  a 
+                    span.text 
+                      span.tag 소식
+                      | 공지사항입니다. 공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 
+                      span.tag 소식
+                      | 공지사항입니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 
+                      span.tag 소식
+                      | 공지사항입니다.
+                    span.date 2021-12-31
+            a(href="").more_view 더보기
         .grid
-          +edit_btn()
+          +edit_btn({className:"mui_active"})
+          .notice_wrap.type2
+            .notice
+              p.title 사용자포럼
+              ul
+                li 
+                  a 
+                    span.text 
+                      span.tag 플랫폼 서비스
+                      | 공지사항입니다. 공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 
+                      span.tag 플랫폼 서비스
+                      | 공지사항입니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 
+                      span.tag 플랫폼 서비스
+                      | 공지사항입니다.
+                    span.date 2021-12-31
+            a(href="").more_view 더보기
+      .sec.grid_box.grid_2x2
+        .grid
+          +edit_btn({className:"mui_active"})
+          a.goto_link.img
+            img(src="/images/ico_ex10.png", alt="")
+        .grid
+          +edit_btn({className:"mui_active"})
+          .quick_service_el 
+            p.title 자주 찾는 서비스
+            .tags 
+              a(href="") 서비스1
+              a(href="") 서비스2
+              a(href="") 서비스3
+              a(href="") 서비스4
+              a(href="") 서비스5
       .sec.grid_box.grid_1x3
         .grid
           +edit_btn()
@@ -646,9 +807,166 @@ block content
       .sec.logo(mui-addimage="target:.edit_btn;")
         +edit_btn({title:"로고", type:"file"})
       .sec.copy
-        +edit_btn({title:"푸터 내용 입력"})
+        +edit_btn({title:"푸터 내용 입력", className:"mui_active"})
+        .footer
+          p.text (우)54994 전라북도 전주시 완산구 노송광장로 10 | 대표전화 : 063-222-1000 | 팩스 : 063-281-5000
+          p.copyright Copyright © 2023 Jeonjy City. All Rights Reserved.
     .edit_bg 
       +edit_btn({className:"big"})
-  
 
-  
+
+  +modal({
+    id:"commonSearch",
+    type:"full"
+  })
+    .common_search
+      .inner
+        +input_button({
+          btnText:"검색",
+          placeholder:"검색어를 입력하세요.",
+          type:"input",
+          className:"search ico"
+        })
+        p.result_txt
+          | “
+          strong 데이터
+          | ”에 대한 총 
+          strong 29
+          | 건이 검색되었습니다.
+        .search_results 
+          .results.notice 
+            p.title 고객센터
+            .list 
+              ul
+                li 
+                  a 
+                    span.text 시스템 오픈 안내
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 지자체용 분류체계 필요
+                    span.date 2021-12-31
+          .results.notice 
+            p.title 업무공간
+            .list 
+              ul
+                li 
+                  a 
+                    span.text 시스템 오픈 안내
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
+                    span.date 2021-12-31
+                li 
+                  a 
+                    span.text 지자체용 분류체계 필요
+                    span.date 2021-12-31
+          .results.photo
+            p.title 업무공간
+            .list 
+              ul
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼 플랫폼 플랫폼 플랫폼
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a 
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+  +modal({
+    id:"commonMenu",
+    type:"full"
+  })
+    .common_menu 
+      .menu 
+        +accordion({
+          active:0
+        })
+          +acc_title('데이터 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('지도 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('업무 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('서비스 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('커뮤니티')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('고객지원')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+      a(href="").btn_login 로그인
+            
+
+    
+  script.
+    //- GCui.modal('#commonSearch').show()
+    GCui.modal('#commonMenu').show()

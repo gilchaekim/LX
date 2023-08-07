@@ -12,6 +12,10 @@
   }
 }
 .mui_input{
+  input[type="text"]{
+    width: 100%;
+  }
+  width: 100%;
   &.mui_disabled{
     input{
       color: $font_color05 !important;
