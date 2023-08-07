@@ -1409,38 +1409,6 @@ html.mui_modal_page {
   height: 100%;
   overflow: auto;
 }
-<<<<<<< HEAD
-=======
-.mui_modal.mui_fullpop_wrap .mui_modal_header, [mui-modal].mui_fullpop_wrap .mui_modal_header {
-  height: 56px;
-  padding-left: 24px;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_header p, [mui-modal].mui_fullpop_wrap .mui_modal_header p {
-  line-height: 56px;
-  color: var(--font_color01);
-  font-size: 16px;
-  font-weight: 700;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_header p .btn_down, [mui-modal].mui_fullpop_wrap .mui_modal_header p .btn_down {
-  position: absolute;
-  top: 16px;
-  right: 48px;
-  width: 24px;
-  height: 24px;
-  font-size: 0;
-  text-indent: -9999px;
-  background: url("/images/btn_down.svg") no-repeat center;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_content, [mui-modal].mui_fullpop_wrap .mui_modal_content {
-  padding: 24px;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_content .mui_tabs:first-child, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_tabs:first-child {
-  margin: -24px -24px;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane {
-  padding: 24px 24px 0;
-}
->>>>>>> 41d0db962a9c498ed4d59d5d6789d215e2651a39
 .mui_modal .mui_size_small, [mui-modal] .mui_size_small {
   min-width: 400px;
 }
@@ -1471,7 +1439,6 @@ html.mui_modal_page {
   right: 50px;
   text-indent: -9999em;
   overflow: hidden;
-<<<<<<< HEAD
   width: 60px;
   height: 60px;
   background: url("/images/ico_close.svg") no-repeat center/60px;
@@ -1483,12 +1450,6 @@ html.mui_modal_page {
     background-size: 30px;
     right: 16px;
   }
-=======
-  width: 56px;
-  height: 56px;
-  background: url("/images/ico_close.svg") no-repeat center;
-  background-size: 24px;
->>>>>>> 41d0db962a9c498ed4d59d5d6789d215e2651a39
 }
 .mui_modal.mui_open, [mui-modal].mui_open {
   opacity: 1;
@@ -2612,7 +2573,6 @@ html.mui_modal_page {
   border-bottom: 1px solid #000;
 }
 .mui_inputbtn.ico.search .mui_button:not(.mui_select) {
-<<<<<<< HEAD
   background: url("/images/ico_search3.svg") no-repeat center/60px;
   width: 100px;
   height: 100px;
@@ -2636,9 +2596,6 @@ html.mui_modal_page {
     height: 50px;
     padding-left: 0;
   }
-=======
-  background: url("/images/ico_search.svg") no-repeat center;
->>>>>>> 41d0db962a9c498ed4d59d5d6789d215e2651a39
 }
 .mui_inputbtn .mui_button:not(.mui_select) {
   width: auto;
@@ -3964,7 +3921,6 @@ html.mui_modal_page {
   transform: translate(0, -50%);
 }
 
-<<<<<<< HEAD
 .slides_wrap {
   display: block;
   overflow: hidden;
@@ -4212,7 +4168,8 @@ html.mui_modal_page {
 }
 .common_menu .mui_accordion .acc_lists .mui_acc_button {
   right: 20px;
-=======
+}
+
 .select_cont {
   border: 1px solid rgb(51, 51, 51);
   max-height: 120px;
@@ -4298,6 +4255,5 @@ html.mui_modal_page {
 .btnarea_new .al, .btnarea_new .ar {
   display: flex;
   gap: 10px;
->>>>>>> 41d0db962a9c498ed4d59d5d6789d215e2651a39
 }
 /*# sourceMappingURL=contents_admin.css.map */
