@@ -3936,7 +3936,7 @@
       toggle: ' .mui_acc_button',
       content: '> .mui_acc_content',
       transition: 'ease',
-      duration: 100,
+      duration: 500,
       offset: 0
     },
     computed: {
@@ -3948,7 +3948,7 @@
         watch: function watch(items, prev) {
           var _this = this;
           items.forEach(function (el) {
-            return hide($$1(_this.content, el), !hasClass(el, _this.clsOpen));
+            return hide$1($$1(_this.content, el), !hasClass(el, _this.clsOpen));
           });
           if (prev || hasClass(items, this.clsOpen)) {
             return;
@@ -3995,15 +3995,15 @@
             attr($$1(_this2.$props.toggle, el), 'aria-expanded', show);
             var content = $$1("".concat(el._wrapper ? '> * ' : '').concat(_this2.content), el);
             if (animate === false || !_this2.hasTransition) {
-              hide(content, !show);
+              hide$1(content, !show);
               return;
             }
             if (!el._wrapper) {
               el._wrapper = wrapAll(content, "<div".concat(show ? ' hidden' : '', ">"));
             }
-            hide(content, false);
+            hide$1(content, false);
             return toggleHeight(_this2)(el._wrapper, show).then(function () {
-              hide(content, !show);
+              hide$1(content, !show);
               delete el._wrapper;
               unwrap(content);
               if (show) {
@@ -4020,7 +4020,7 @@
       }
     }
   };
-  function hide(el, hide) {
+  function hide$1(el, hide) {
     el && (el.hidden = hide);
   }
 
@@ -12630,6 +12630,106 @@
     }]
   };
 
+  var acclist = {
+    mixins: [Togglable],
+    props: {
+      targets: String,
+      active: null,
+      openText: String,
+      closeText: String,
+      collapsible: Boolean,
+      multiple: Boolean,
+      toggle: String,
+      content: String,
+      transition: String,
+      offset: Number
+    },
+    data: {
+      targets: '> .list',
+      active: false,
+      animation: [true],
+      openSize: null,
+      closeSize: null,
+      openText: "열기",
+      closeText: "닫기",
+      clsOpen: 'mui_active',
+      toggle: ' .ctrl',
+      transition: 'ease',
+      duration: 300,
+      offset: 0
+    },
+    computed: {
+      items: {
+        get: function get(_ref, $el) {
+          var targets = _ref.targets;
+          return $$(targets, $el);
+        },
+        watch: function watch(items, prev) {
+          var _this = this;
+          items.forEach(function (el) {
+            return hide($$1(_this.content, el), !hasClass(el, _this.clsOpen));
+          });
+          if (prev || hasClass(items, this.clsOpen)) {
+            return;
+          }
+          var active = this.active !== false && items[Number(this.active)] || !this.collapsible && items[0];
+          console.log(active);
+          if (active) {
+            this.toggle(active, false);
+          }
+        },
+        immediate: true
+      },
+      toggles: function toggles(_ref2) {
+        var toggle = _ref2.toggle;
+        return this.items.map(function (item) {
+          return $$1(toggle, item);
+        });
+      }
+    },
+    events: [{
+      name: 'click',
+      delegate: function delegate() {
+        return "".concat(this.targets, " ").concat(this.$props.toggle);
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        console.log(index(this.toggles, e.current));
+        this.toggle(index(this.toggles, e.current));
+      }
+    }],
+    methods: {
+      toggle: function toggle(item, animate) {
+        var _this2 = this;
+        var items = [this.items[getIndex(item, this.items)]];
+        var activeItems = filter(this.items, ".".concat(this.clsOpen));
+        this.closeSize = toFloat(css(items, 'paddingLeft')) + toFloat(css(items, 'paddingRight')) + width(items);
+        this.openSize = width(this.$el) - this.closeSize * (this.items.length - 1);
+
+        // css(items, 'width', `${itemWidth}px`)
+        // css(activeItems, 'width', `${minWidth}px`)
+        // addClass(items, this.clsOpen);
+        // removeClass(activeItems, this.clsOpen);
+        if (!this.multiple && !includes(activeItems, items[0])) {
+          items = items.concat(activeItems);
+        }
+
+        // console.log(items);
+        items.forEach(function (el) {
+          return _this2.toggleElement(el, !hasClass(el, _this2.clsOpen), function (el, show) {
+            toggleClass(el, _this2.clsOpen, show);
+            // return toggleAccordion(this)(el, show)
+            css(items, 'width', "".concat(_this2.openSize, "px"));
+            css(activeItems, 'width', "".concat(_this2.closeSize, "px"));
+          });
+        });
+      }
+    }
+  };
+  function hide(el, hide) {
+    el && (el.hidden = hide);
+  }
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -12743,6 +12843,7 @@
     Tooltip: tooltip,
     Parallax: parallax,
     Addimage: addimage,
+    Acclist: acclist,
     Worklists: worklists
   });
 

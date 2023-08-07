@@ -37,16 +37,16 @@
   left: 0;
   width: 20px;
   height: 20px;
-  background: url("/src/images/ico_login.svg") no-repeat center/100%;
+  background: url("/images/ico_login.svg") no-repeat center/100%;
   transform: translateY(-50%);
 }
 .allmenu_wrap .login_wrap .login.logout::before {
-  background: url("/src/images/ico_logout.svg") no-repeat center/100%;
+  background: url("/images/ico_logout.svg") no-repeat center/100%;
 }
 .allmenu_wrap .login_wrap .btn_close {
   width: 24px;
   height: 24px;
-  background: url("/src/images/ico_close.svg") no-repeat center;
+  background: url("/images/ico_close.svg") no-repeat center;
   font-size: 0;
   text-indent: -9999px;
 }
@@ -71,13 +71,13 @@
   padding-top: 16px;
 }
 .allmenu_wrap .quick_wrap li:nth-child(1) a::before {
-  background: url("/src/images/ico_quick01.png") no-repeat center/100%;
+  background: url("/images/ico_quick01.png") no-repeat center/100%;
 }
 .allmenu_wrap .quick_wrap li:nth-child(2) a::before {
-  background: url("/src/images/ico_quick02.png") no-repeat center/100%;
+  background: url("/images/ico_quick02.png") no-repeat center/100%;
 }
 .allmenu_wrap .quick_wrap li:nth-child(3) a::before {
-  background: url("/src/images/ico_quick03.png") no-repeat center/100%;
+  background: url("/images/ico_quick03.png") no-repeat center/100%;
 }
 .allmenu_wrap .quick_wrap a {
   position: relative;
@@ -112,7 +112,7 @@
   flex: none;
   width: 24px;
   height: 24px;
-  background: url("/src/images/ico_search.svg") no-repeat center/100%;
+  background: url("/images/ico_search.svg") no-repeat center/100%;
 }
 .allmenu_wrap .search_wrap input {
   width: 100%;
@@ -129,7 +129,7 @@
   width: 20px;
   height: 20px;
   font-size: 0;
-  background: url("/src/images/btn_inputdel.svg") no-repeat center/100%;
+  background: url("/images/btn_inputdel.svg") no-repeat center/100%;
   text-indent: -9999px;
 }
 .allmenu_wrap .search_result {
@@ -186,19 +186,19 @@
   border-bottom: 1px solid var(--line_color03);
 }
 .allmenu_wrap .tab_allmenu .nav_list:nth-child(1) button::before {
-  background: url("/src/images/ico_allmenu01.png") no-repeat center/100%;
+  background: url("/images/ico_allmenu01.png") no-repeat center/100%;
 }
 .allmenu_wrap .tab_allmenu .nav_list:nth-child(2) button::before {
-  background: url("/src/images/ico_allmenu02.png") no-repeat center/100%;
+  background: url("/images/ico_allmenu02.png") no-repeat center/100%;
 }
 .allmenu_wrap .tab_allmenu .nav_list:nth-child(3) button::before {
-  background: url("/src/images/ico_allmenu03.png") no-repeat center/100%;
+  background: url("/images/ico_allmenu03.png") no-repeat center/100%;
 }
 .allmenu_wrap .tab_allmenu .nav_list:nth-child(4) button::before {
-  background: url("/src/images/ico_allmenu04.png") no-repeat center/100%;
+  background: url("/images/ico_allmenu04.png") no-repeat center/100%;
 }
 .allmenu_wrap .tab_allmenu .nav_list:nth-child(5) button::before {
-  background: url("/src/images/ico_allmenu05.png") no-repeat center/100%;
+  background: url("/images/ico_allmenu05.png") no-repeat center/100%;
 }
 .allmenu_wrap .tab_allmenu .nav_list button {
   position: relative;

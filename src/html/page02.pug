@@ -305,91 +305,9 @@ block content
               type:'warning',
               text:"* 3840px X 2160px 를 권장 합니다."
             })
-            .select_wrap
-              +button_select({
-                label:"등록된 이미지 확인 및 수정11"
-              })(mui-toggle="target:#selectLayer1;")
-              .select_cont#selectLayer1
-                ul 
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일1
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-                  li
-                    .el
-                      button(type="button").file
-                        span.text 이미지 파일2
-                      button(type="button").del 삭제
-          +form_body({title:"폰트 크기 설정"})
-            .select_wrap
-              +button_select({
-                label:"폰트 크기"
-              })(mui-toggle="target:#selectLayer2;")
-              .select_cont#selectLayer2
-                ul 
-                  li
-                    .el
-                      button(type="button", style="font-size:60px").file.mui_active
-                        span.text h1(60px)
-                  li
-                    .el
-                      button(type="button", style="font-size:55px").file
-                        span.text h2(55px)
-                  li
-                    .el
-                      button(type="button", style="font-size:50px").file
-                        span.text h3(50px)
-                  li
-                    .el
-                      button(type="button", style="font-size:45px").file
-                        span.text h4(45px)
-                  li
-                    .el
-                      button(type="button", style="font-size:40px").file
-                        span.text h5(40px)
-                  li
-                    .el
-                      button(type="button", style="font-size:35px").file
-                        span.text h6(35px)
-                  li
-                    .el
-                      button(type="button", style="font-size:30px").file
-                        span.text h7(30px)
-                  li
-                    .el
-                      button(type="button", style="font-size:25px").file
-                        span.text h8(25px)
-                  li
-                    .el
-                      button(type="button", style="font-size:20px").file
-                        span.text h9(20px)
-                    
+            +button_select({
+              label:"등록된 이미지 확인 및 수정"
+            })
           +form_body({title:"이미지 파일 등록"})
             +inputFile()
             +text({
@@ -411,6 +329,7 @@ block content
             })
           +form_body({title:"메인메뉴 선택"})
             +radioCheck({
+              type:"radio",
               name:'chk841054',
               className:"align2",
               lists:[
@@ -420,42 +339,6 @@ block content
                 {label:'서비스 모듈',},
                 {label:'커뮤니티',},
                 {label:'고객지원',},
-              ]
-            })
-          +form_body({title:"서브메뉴 선택"})
-            +radioCheck({
-              name:'chk8410514',
-              className:"align3",
-              lists:[
-                {label:'공지사항',},
-                {label:'자료실',},
-                {label:'FAQ',},
-                {label:'질의응답',},
-                {label:'사용자요청',},
-                {label:'사용자포럼',},
-              ]
-            })
-          +form_body({title:"메뉴 선택"})
-            +radioCheck({
-              name:'chk8410514',
-              className:"align2",
-              lists:[
-                {label:'파일관리',},
-                {label:'테이블관리',},
-                {label:'사진 파일 관리',},
-                {label:'동영상 파일 관리',},
-                {label:'첨부파일 관리',},
-                {label:'영상지도 파일 관리',},
-              ]
-            })
-          +form_body({title:"아이콘 설정"})
-            +radioCheck({
-              type:"radio",
-              name:'chk84105143',
-              className:"align2",
-              lists:[
-                {label:'기본아이콘',},
-                {label:'사용자 지정 아이콘',},
               ]
             })
           +form_body({title:"서브 타이틀 명"})
@@ -799,11 +682,5 @@ block content
     .edit_bg 
       +edit_btn({className:"big"})
   
-  .btnarea_new
-    span.al
-      button(type="button").btn.bg-grey.lg 초기화
-      button(type="button").btn.bg-blue.lg 미리보기
-    span.ar 
-      button(type="button").btn.bg-grey.lg 이전
-      button(type="button").btn.bg-blue.lg 완료
+
   
