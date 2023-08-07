@@ -31,7 +31,7 @@ export default {
         toggle: ' .mui_acc_button',
         content: '> .mui_acc_content',
         transition: 'ease',
-        duration:100,
+        duration:500,
         offset: 0
     },
 

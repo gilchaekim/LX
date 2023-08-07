@@ -17,6 +17,7 @@ export {default as Input} from './core/input';
 export {default as Tooltip} from './core/tooltip';
 export {default as Parallax} from './core/parallax';
 export {default as Addimage} from './core/addimage';
+export {default as Acclist} from './core/acclist';
 
 
 // 마크업진행표

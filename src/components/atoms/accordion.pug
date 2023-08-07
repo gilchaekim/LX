@@ -13,6 +13,8 @@ mixin accordion(params={})
       - accItems.push({titleBlock:block})
     else if !!title
       - accItems.push({titleText:title})
+    else
+      - accItems.push({titleText:''})
 
   mixin acc_content()
     - accItems[accItems.length -1].content = block
@@ -39,7 +41,7 @@ mixin accordion(params={})
           else if item.titleBlock
             - item.titleBlock()
           else
-            !="unknown"
+            !=""
           button(
             type="button"
             class="mui_acc_button"

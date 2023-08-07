@@ -68,7 +68,7 @@ mixin button_select(params={})
   //- 공통 요소 End
   
   - const { element = "button", label, placeholder, disabled, className, ...rest } = Object.assign({}, params)
-
+  - const {...param} = attributes;
 
   #{element}(
     id=id
@@ -77,7 +77,7 @@ mixin button_select(params={})
     class=className
     type="button"
     disabled=disabled
-  )
+  )&attributes(param)
     span.inset
       if label
         span.label!=label

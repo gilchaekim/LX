@@ -27,7 +27,12 @@
   display: flex;
   flex-wrap: wrap;
 	align-content: stretch;
-  gap: 16px;
+  gap: 6px;
+  &.align2{
+    .mui_radio, .mui_checkbox{
+      width: calc(50% - 3px);
+    }
+  }
 }
 .mui_radio_group{
 
