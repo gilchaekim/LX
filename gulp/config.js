@@ -35,7 +35,7 @@ const config = {
   },
   build: {
     scss: `${buildDir}admin/css/`,
-    js: `${buildDir}js/`,
+    js: `${buildDir}admin/js/`,
     pug: `${buildDir}admin/html/`,
     docs:`${sourceDir}docs/`,
   },

@@ -42,7 +42,7 @@ const javascriptBuild = () => {
       // }, 0);
       browserSync.reload();
       return bundle.write({
-        file: buildDir + "js/index.js",
+        file: config.build.js + "/index.js",
         format: "umd",
         name: "GCui",
         sourcemap: true,
