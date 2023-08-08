@@ -1,0 +1,31 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+caption {
+  font-size: 0;
+  width: 0;
+  height: 0;
+}
+table, th, td{
+  border-collapse: collapse;
+}
+.mui_datatable{
+  border-top: 1px solid $line_color01;
+  table{
+    width: 100%;
+  }
+  th, td{
+    border-bottom: 1px solid $line_color03;
+    font-size: 14px;
+    padding: 12px;
+    text-align: center;
+  }
+  th{
+    background-color: $bg_color02;
+    font-size: 14px;
+    color:$basic_color04;
+  }
+  td{
+    color: $font_color02;
+  }
+}
