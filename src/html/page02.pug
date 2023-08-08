@@ -2,369 +2,8 @@ extends ../components/templates/base.pug
 
 
 block prepend top 
-  - pageTitle = "1111";
+  - pageTitle = "메인 페이지 관리";
 block content
-  +radioCheck({
-    type:"radio",
-    name:'chk473294',
-    lists:[
-      {label:'라디오버튼1',},
-      {label:'라디오버튼2',},
-    ]
-  })
-  +radioCheck({
-    name:'chk473294',
-    lists:[
-      {label:'라디오버튼1',},
-      {label:'라디오버튼2',},
-    ]
-  })
-  +input({
-    placeholder:"",
-  })
-  +inputFile()
-  +text({
-    type:'warning',
-    text:"* 3840px X 2160px 를 권장 합니다."
-  })
-  +form()
-    +form_body({title:"이미지 파일 등록"})
-      +inputFile()
-      +button_select({
-        label:"등록된 이미지 확인 및 수정"
-      })
-  p.edit_type FIT 
-  .edit_ground.fit
-    .edit_header 
-      .sec.logo(mui-addimage="target:.edit_btn;")
-        +edit_btn({title:"로고", type:"file"})
-      .sec.tnb 
-        button(type="button") 
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="6.75" r="4.75" stroke="#A3A3A3" stroke-width="2.5"/>
-          <mask id="path-2-inside-1_979_4241" fill="white">
-          <path d="M0 24.25C0 18.7272 4.47715 14.25 10 14.25H16C21.5228 14.25 26 18.7272 26 24.25V25.25H0V24.25Z"/>
-          </mask>
-          <path d="M-2.5 24.25C-2.5 17.3464 3.09644 11.75 10 11.75H16C22.9036 11.75 28.5 17.3464 28.5 24.25H23.5C23.5 20.1079 20.1421 16.75 16 16.75H10C5.85786 16.75 2.5 20.1079 2.5 24.25H-2.5ZM26 25.25H0H26ZM-2.5 25.25V24.25C-2.5 17.3464 3.09644 11.75 10 11.75V16.75C5.85786 16.75 2.5 20.1079 2.5 24.25V25.25H-2.5ZM16 11.75C22.9036 11.75 28.5 17.3464 28.5 24.25V25.25H23.5V24.25C23.5 20.1079 20.1421 16.75 16 16.75V11.75Z" fill="#A3A3A3" mask="url(#path-2-inside-1_979_4241)"/>
-          </svg>
-        button(type="button") 
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.9398 17.2693L24 22.3282L22.3282 24L17.2693 18.9398C15.3869 20.4488 13.0456 21.2696 10.6331 21.2661C4.76361 21.2661 0 16.5025 0 10.6331C0 4.76361 4.76361 0 10.6331 0C16.5025 0 21.2661 4.76361 21.2661 10.6331C21.2696 13.0456 20.4488 15.3869 18.9398 17.2693ZM16.5699 16.3926C18.0693 14.8507 18.9066 12.7838 18.9032 10.6331C18.9032 6.06439 15.2017 2.3629 10.6331 2.3629C6.06439 2.3629 2.3629 6.06439 2.3629 10.6331C2.3629 15.2017 6.06439 18.9032 10.6331 18.9032C12.7838 18.9066 14.8507 18.0693 16.3926 16.5699L16.5699 16.3926Z" fill="#A3A3A3"/>
-          </svg>
-
-    .edit_contents 
-      .sec.main_title(mui-addcontent="type:'title'")
-        +edit_btn({title:"메인타이틀1", className:"mui_active"})
-        p.text 빅데이터 플랫폼에 오신것을 환영합니다
-        +move_btn()
-      .sec.sub_title(mui-addcontent="type:'sub_title'")
-        +edit_btn({title:"서브타이틀", className:"mui_active"})
-        p.text 빅데이터 플랫폼에 오신것을 환영합니다.
-        +move_btn()
-      .sec.sub_gotolink
-        +edit_btn({title:"바로가기버튼설정", className:"mui_active"})
-          .goto_link.white_type
-            a(href="") 머머 바로가기
-            a(href="") 머머 바로가기
-            a(href="") 머머 바로가기
-        +move_btn()
-      .sec.main_menu
-        +edit_btn({title:"메인메뉴", className:"mui_active"})
-        .main_list(mui-acclist="active:1;")
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보기 (웹앱)
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보기
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보기
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보기
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-          .list
-            span.ico
-            .inset 
-              p.title 데이터 관리
-              p.sub 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
-              ul.text_list 
-                li
-                  a(href="") 파일 관리
-                li
-                  a(href="") 동영상 파일 관리
-                li
-                  a(href="") 데이터 검색
-                li
-                  a(href="") 테이블 관리
-                li
-                  a(href="") 첨부파일 파일 관리
-                li
-                  a(href="") 메타 데이터 검색
-                li
-                  a(href="") 사진 파일 관리
-                li
-                  a(href="") 영상지도 파일 관리
-                li
-                  a(href="") 공간데이터 보기 (웹앱)
-            button(type="button").ctrl 
-              span.ico_plus 열기/닫기 
-
-
-          
-        +move_btn()
-      .sec.sub_menu
-        +edit_btn({title:"서브메뉴", className:"mui_active"})
-        .notice_wrap
-          .notice
-            p.title 공지사항
-            ul
-              li 
-                a 
-                  span.text 공지사항입니다. 공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.
-                  span.date 2021-12-31
-              li 
-                a 
-                  span.text 공지사항입니다.
-                  span.date 2021-12-31
-              li 
-                a 
-                  span.text 공지사항입니다.
-                  span.date 2021-12-31
-          .notice
-            p.title 공지사항
-            ul
-              li 
-                a 
-                  span.text 공지사항입니다.
-                  span.date 2021-12-31
-              li 
-                a 
-                  span.text 공지사항입니다.
-                  span.date 2021-12-31
-              li 
-                a 
-                  span.text 공지사항입니다.
-                  span.date 2021-12-31
-        +move_btn()
-
-    .edit_footer 
-      .sec.logo(mui-addimage="target:.edit_btn;")
-        +edit_btn({title:"로고", type:"file"})
-      .sec.copy
-        +edit_btn({title:"푸터 내용 입력", className:"mui_active"})
-        .footer
-          p.text (우)54994 전라북도 전주시 완산구 노송광장로 10 | 대표전화 : 063-222-1000 | 팩스 : 063-281-5000
-          p.copyright Copyright © 2023 Jeonjy City. All Rights Reserved.
-    .edit_quick_service
-      //- +edit_btn({title:"자주 찾는 서비스 설정", className:"vertical"})
-      .quick_service
-        ul 
-          li
-            a(href="") 파일관리
-          li
-            a(href="") 테이블 관리
-          li
-            a(href="") 사진 파일 관리
-          li
-            a(href="") 동영상 파일 관리
-          li
-            a(href="") 첨부파일 관리
-          li
-            a(href="") 영상지도 파일 관리
-    .edit_config 
-      +button({
-        label:"설정 열기",
-        className:"toggle_layer",
-        muiToggle:'target:#toggle_box1;'
-      })
-      div.config_conts#toggle_box1
-        p.title 제목
-        +form()
-          +form_body({title:"이미지 파일 등록"})
-            +inputFile()
-            +text({
-              type:'warning',
-              text:"* 3840px X 2160px 를 권장 합니다."
-            })
-            +button_select({
-              label:"등록된 이미지 확인 및 수정"
-            })
-          +form_body({title:"이미지 파일 등록"})
-            +inputFile()
-            +text({
-              type:'warning',
-              text:"* 3840px X 2160px 를 권장 합니다."
-            })
-            +button_select({
-              label:"등록된 이미지 확인 및 수정"
-            })
-          +form_body({title:"Color"})
-            +input({
-              type:"color",
-              value:"#555555"
-            })
-          +form_body({title:"메인 타이틀 명"})
-            +textarea({
-              muiFormatter:"viewMaxLength:true;",
-              maxlength:25
-            })
-          +form_body({title:"메인메뉴 선택"})
-            +radioCheck({
-              type:"radio",
-              name:'chk841054',
-              className:"align2",
-              lists:[
-                {label:'데이터 관리',},
-                {label:'지도 서비스',},
-                {label:'업무 서비스',},
-                {label:'서비스 모듈',},
-                {label:'커뮤니티',},
-                {label:'고객지원',},
-              ]
-            })
-          +form_body({title:"서브 타이틀 명"})
-            +textarea({
-              muiFormatter:"viewMaxLength:true;",
-              maxlength:25
-            })
-          +form_body({title:"푸터 내용"})
-            +textarea({
-              muiFormatter:"viewMaxLength:true;",
-              maxlength:50
-            })
-          +form_body({title:"정렬"})
-            .select_align 
-              +radioCheck({
-                name:'chk483475',
-                type:"radio",
-                className:'align_type',
-                lists:[
-                  {label:'왼 쪽'},
-                  {label:'중간'},
-                  {label:'오른 쪽'},
-                ]
-              })
-
-
   p.edit_type 가로형
   .edit_ground.horizontal_type
     .edit_container
@@ -424,20 +63,74 @@ block content
                   a(href="") 서비스3
                   a(href="") 서비스4
                   a(href="") 서비스5
+        .sec.blocks
+          +move_btn({className:"hor"})
+          .grid_blocks.sub
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              .grid_in
+                +edit_btn({title:"이미지"})
+              .grid_in
+                +edit_btn({title:"이미지"})
+            .grid.ver1
+              +edit_btn({title:"동영상", className:"mui_active"})
+              .slides_wrap(mui-slider="pagination:true;arrow:true;")
+                .slider
+                  .swiper-wrapper
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+                    .slide_list.swiper-slide
+                      .movie_photo
+                        .preview 
+                          img(src="/images/img_ex3.png", alt="")
+
+
 
         .sec.blocks
           +move_btn({className:"hor"})
           .grid_blocks.sub
-            +edit_btn({className:"big delete", className:"mui_active"})
+            //- +edit_btn({className:"big delete"})
+            .grid.ver2
+              +edit_btn({title:"이미지 & 동영상", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex2.png", alt="")
             .grid.ver1
-              +edit_btn({title:"공지사항"})
+              .grid_in
+                +edit_btn({title:"바로가기", className:"mui_active"})
+                a.goto_link(href="", style="background:rgba(45, 53, 155, 0.9)")
+                  span.icon 
+                    img(src="/images/ico_ex5.png", alt="")
+                  span.text 데이터 공간
+              .grid_in
+                +edit_btn({title:"바로가기", className:"mui_active"})
+                a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
+                  span.icon 
+                    img(src="/images/ico_ex4.png", alt="")
+                  span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+        .sec.blocks
+          +move_btn({className:"hor"})
+          .grid_blocks.sub
+            //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
+            .grid.ver1
+              +edit_btn({title:"공지사항", className:"mui_active"})
               .notice_wrap
                 .notice
                   p.title 공지사항
                   ul
                     li 
                       a 
-                        span.text 공지사항입니다.
+                        span.text 공지사항입니다. 공지사항입니다. 공지사항입니다. 공지사항입니다. 
                         span.date 2021-12-31
                     li 
                       a 
@@ -447,36 +140,24 @@ block content
                       a 
                         span.text 공지사항입니다.
                         span.date 2021-12-31
+                    li 
+                      a 
+                        span.text 공지사항입니다.
+                        span.date 2021-12-31
             .grid.ver1
-              +edit_btn({title:"이미지"})
+              +edit_btn({title:"이미지", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex3.png", alt="")
+                a(href="").link
+                  span.play
             .grid.ver1
-              +edit_btn({title:"이미지"})
-        .sec.blocks
-          +move_btn({className:"hor"})
-          .grid_blocks.sub
-            +edit_btn({className:"big delete"})
-            .grid.ver2
-              +edit_btn({title:"이미지 & 동영상"})
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"바로가기"})
-              .grid_in
-                +edit_btn({title:"바로가기"})
-        .sec.blocks
-          +move_btn({className:"hor"})
-          .grid_blocks.sub
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"이미지"})
-              .grid_in
-                +edit_btn({title:"이미지"})
-            .grid.ver1
-              .grid_in
-                +edit_btn({title:"이미지"})
-              .grid_in
-                +edit_btn({title:"이미지"})
-            .grid.ver1
-              +edit_btn({title:"동영상"})
+              +edit_btn({title:"이미지", className:"mui_active"})
+              .movie_photo
+                .preview 
+                  img(src="/images/img_ex3.png", alt="")
+
+
               
         .sec.blocks
           +edit_btn()
@@ -492,7 +173,7 @@ block content
         className:"toggle_layer",
         muiToggle:'target:#toggle_box1;'
       })
-      div.config_conts#toggle_box1 
+      div(hidden).config_conts#toggle_box1 
         p.title 제목
         //- +form()
         //-   +form_body({title:"이미지 파일 등록"})
@@ -613,74 +294,12 @@ block content
                   span 동영상
           +tab("이미지&영상")
 
-      
-  p.edit_type 세로형
-  .edit_ground.vertrical_type
-    .edit_header 
-      .sec.logo(mui-addimage="target:.edit_btn;")
-        +edit_btn({title:"로고", type:"file"})
-      .sec.main_menu 
-        +edit_btn({title:"메인메뉴"})
-      .sec.tnb 
-        button(type="button") 
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="6.75" r="4.75" stroke="#A3A3A3" stroke-width="2.5"/>
-          <mask id="path-2-inside-1_979_4241" fill="white">
-          <path d="M0 24.25C0 18.7272 4.47715 14.25 10 14.25H16C21.5228 14.25 26 18.7272 26 24.25V25.25H0V24.25Z"/>
-          </mask>
-          <path d="M-2.5 24.25C-2.5 17.3464 3.09644 11.75 10 11.75H16C22.9036 11.75 28.5 17.3464 28.5 24.25H23.5C23.5 20.1079 20.1421 16.75 16 16.75H10C5.85786 16.75 2.5 20.1079 2.5 24.25H-2.5ZM26 25.25H0H26ZM-2.5 25.25V24.25C-2.5 17.3464 3.09644 11.75 10 11.75V16.75C5.85786 16.75 2.5 20.1079 2.5 24.25V25.25H-2.5ZM16 11.75C22.9036 11.75 28.5 17.3464 28.5 24.25V25.25H23.5V24.25C23.5 20.1079 20.1421 16.75 16 16.75V11.75Z" fill="#A3A3A3" mask="url(#path-2-inside-1_979_4241)"/>
-          </svg>
-        button(type="button") 
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.9398 17.2693L24 22.3282L22.3282 24L17.2693 18.9398C15.3869 20.4488 13.0456 21.2696 10.6331 21.2661C4.76361 21.2661 0 16.5025 0 10.6331C0 4.76361 4.76361 0 10.6331 0C16.5025 0 21.2661 4.76361 21.2661 10.6331C21.2696 13.0456 20.4488 15.3869 18.9398 17.2693ZM16.5699 16.3926C18.0693 14.8507 18.9066 12.7838 18.9032 10.6331C18.9032 6.06439 15.2017 2.3629 10.6331 2.3629C6.06439 2.3629 2.3629 6.06439 2.3629 10.6331C2.3629 15.2017 6.06439 18.9032 10.6331 18.9032C12.7838 18.9066 14.8507 18.0693 16.3926 16.5699L16.5699 16.3926Z" fill="#A3A3A3"/>
-          </svg>
-
-    .edit_contents 
-      .sec.main_title
-        +edit_btn({title:"메인타이틀"})
-        +move_btn()
-      .sec.sub_title
-        +edit_btn({title:"서브타이틀"})
-        +move_btn()
-      .sec.search
-        +edit_btn({title:"검색"})
-        +move_btn()
-      .sec.add_template
-        +edit_btn()
-      .sec.grid_box.grid_4x2
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-      .sec.grid_box.grid_2x2
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-      .sec.grid_box.grid_1x3
-        .grid
-          +edit_btn()
-        .grid
-          +edit_btn()
-    .edit_footer 
-      .sec.logo(mui-addimage="target:.edit_btn;")
-        +edit_btn({title:"로고", type:"file"})
-      .sec.copy
-        +edit_btn({title:"푸터 내용 입력"})
-    .edit_bg 
-      +edit_btn({className:"big"})
-  
+  .btnarea_new
+    span.al
+      button(type="button").btn.bg-grey.lg 초기화
+      button(type="button").btn.bg-blue.lg 미리보기
+    span.ar 
+      button(type="button").btn.bg-grey.lg 이전
+      button(type="button").btn.bg-blue.lg 완료
 
   

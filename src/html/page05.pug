@@ -1,0 +1,158 @@
+extends ../components/templates/base2.pug
+block content
+
+  +modal({
+    id:"commonSearch",
+    type:"full"
+  })
+    .common_search
+      .inner
+        +input_button({
+          btnText:"검색",
+          placeholder:"검색어를 입력하세요.",
+          type:"input",
+          className:"search ico"
+        })
+        p.result_txt
+          | “
+          strong 데이터
+          | ”에 대한 총 
+          strong 29
+          | 건이 검색되었습니다.
+        .search_results 
+          .results.notice 
+            p.title 고객센터
+            .list 
+              ul
+                li 
+                  a(href="")
+                    span.text 시스템 오픈 안내
+                    span.date 2021-12-31
+                li 
+                  a(href="")
+                    span.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다. 환영합니다.
+                    span.date 2021-12-31
+                li 
+                  a(href="")
+                    span.text 지자체용 분류체계 필요
+                    span.date 2021-12-31
+          .results.notice 
+            p.title 업무공간
+            .list 
+              ul
+                li 
+                  a(href="")
+                    span.text 시스템 오픈 안내
+                    span.date 2021-12-31
+                li 
+                  a(href="")
+                    span.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
+                    span.date 2021-12-31
+                li 
+                  a(href="")
+                    span.text 지자체용 분류체계 필요
+                    span.date 2021-12-31
+          .results.photo
+            p.title 업무공간
+            .list 
+              ul
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼 플랫폼 플랫폼 플랫폼
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+                li 
+                  a(href="")
+                    span.img
+                      img(src="/images/img_ex11.png", alt="alt")
+                    span.text 행정지권 공간정보 플랫폼
+  +modal({
+    id:"commonMenu",
+    type:"full"
+  })
+    .common_menu 
+      .menu 
+        +accordion({
+          active:0
+        })
+          +acc_title('데이터 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('지도 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('업무 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('서비스 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('커뮤니티')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('고객지원')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+      a(href="").btn_login 로그인
+  script.
+    GCui.modal('#commonSearch').show()
+    //- GCui.modal('#commonMenu').show()
+  
+
+  

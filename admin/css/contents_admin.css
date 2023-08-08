@@ -1585,6 +1585,7 @@ html.mui_modal_page {
   opacity: 0;
   width: 100%;
   height: 100%;
+  right: 0;
 }
 .mui_input_file input[type=text] {
   width: 99%;
@@ -1969,7 +1970,6 @@ html.mui_modal_page {
 }
 
 .edit_ground {
-  border: 1px solid red;
   background: #e9e9e9;
   position: relative;
 }
@@ -2675,6 +2675,8 @@ html.mui_modal_page {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+  max-height: 80vh;
+  overflow: auto;
 }
 .edit_ground .edit_config .title {
   font-size: 18px;
@@ -2966,9 +2968,6 @@ html.mui_modal_page {
   }
 }
 .common_search .inner {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 360px;
@@ -3009,12 +3008,14 @@ html.mui_modal_page {
   margin-top: 10px;
 }
 .common_search .search_results .notice a {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
   font-size: 16px;
   color: #000;
   line-height: 36px;
+  padding-right: 80px;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
 }
 .common_search .search_results .notice a .text {
   display: block;
@@ -3026,6 +3027,9 @@ html.mui_modal_page {
 .common_search .search_results .notice a .date {
   opacity: 0.5;
   white-space: nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 @media (max-width: 1024px) {
   .common_search .search_results .notice a {

@@ -1,0 +1,38 @@
+include ../index
+- let showAllMenu = false;
+
+//- 페이지 제목
+- let pageTitle = '페이지 제목';
+- let showHeader = true;
+
+//- 컨텐츠 메인 클래스 네임
+- let mainClassName = null;
+
+block top
+doctype transitional
+html(lang='ko')
+
+  head
+    title 국토정보플랫폼
+    meta(charset='UTF-8')
+    meta(
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    )
+    link(
+      rel="stylesheet"
+      href="/admin/css/common.css"
+    )
+    link(
+      rel="stylesheet"
+      href="/admin/css/contents_admin.css"
+    )
+    script(
+      type="text/javascript"
+      src="/js/index.js"
+    )
+  body
+    #wrap_main
+      #contant_main
+        block content
+

@@ -1,0 +1,72 @@
+extends ../components/templates/base2.pug
+block content
+
+  +modal({
+    id:"commonMenu",
+    type:"full"
+  })
+    .common_menu 
+      .menu 
+        +accordion({
+          active:0
+        })
+          +acc_title('데이터 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('지도 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('업무 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('서비스 공간')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('커뮤니티')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+          +acc_title('고객지원')
+          +acc_content()
+            ul 
+              li 
+                a(href="") 파일 관리
+              li 
+                a(href="") 데이터 관리
+              li 
+                a(href="") 데이터 검색
+      a(href="").btn_login 로그인
+  script.
+    GCui.modal('#commonMenu').show()
+  
+
+  
