@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+
+<head>
+  <title>전주시 업무지원시스템 운영관리</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/admin/css/common.css" />
+  <link rel="stylesheet" href="/admin/css/contents_admin.css" />
+  <script type="text/javascript" src="/admin/js/index.js"></script>
+</head>
+
+<body>
+  <div class="accNav"><a href="#header">주요메뉴 바로가기</a><a href="#content">본문 바로가기</a><a href="#footer">지역메뉴 바로가기</a></div>
+  <div id="wrap">
+    <header id="header" style="display:none">
+      <div class="inner">
+        <h1 style="margin-top: 10px;"><a href="/admin/" title="전주시 업무지원시스템 운영관리"><span class="admin-logo">전주시 업무지원시스템</span><span class="admin-logo subTitle">운영관리</span></a></h1>
+        <!-- tabContWrap-->
+        <div class="tabContWrap type01">
+          <!-- tabCont-->
+          <div class="tabCont pos-r active">
+            <!-- gnb-->
+            <div class="gnb">
+              <ul id="headerList"></ul>
+            </div>
+            <!-- //gnb-->
+            <!-- rightMenu-->
+            <div class="rightMenu">
+              <div class="user" style="padding:20px"><a href="/portal/main.do" title="전주시 업무지원시스템 바로가기">전주시 업무지원시스템 바로가기</a>
+                <div class="info"><span><strong>총괄관리자</strong></span></div><a href="/admin/login/getLogout.do">로그아웃\</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="lnb" style="display:none">
+      <div class="lnb">
+        <button class="btnPin active" type="button"><span class="hidden">lnb 고정</span></button>
+        <div class="lnbTop">
+          <div class="lnbTit">
+            <h1 class="tit" id="leftHeader"></h1>
+          </div>
+          <div class="lnbMenu">
+            <ul id="menuList"></ul>
+          </div>
+          <button class="btnHide" type="button"><i class="ico ico-lnb-hide"></i></button>
+        </div>
+      </div>
+    </div><!-- contents -->
+    <div id="container">
+      <div id="content">
+        <div class="inner">
+          <div class="breadCrumb">
+            <ul>
+              <li>홈</li>
+              <li>뎁스1</li>
+              <li>뎁스2</li>
+            </ul>
+          </div>
+          <h2 class="tit">메인 페이지 관리</h2>
+          <p class="edit_type">FIT </p>
+          <div class="edit_ground fit">
+            <div class="edit_header">
+              <div class="sec logo" mui-addimage="target:.edit_btn;">
+                <div class="edit_btn">
+                  <input type="file" id="fileadd" accept=".png, .jpeg" />
+                  <label for="fileadd"><span class="text">로고</span><span class="add"><span class="hidden">추가</span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="sec tnb">
+                <button type="button">
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="13" cy="6.75" r="4.75" stroke="#A3A3A3" stroke-width="2.5" />
+                    <mask id="path-2-inside-1_979_4241" fill="white">
+                      <path d="M0 24.25C0 18.7272 4.47715 14.25 10 14.25H16C21.5228 14.25 26 18.7272 26 24.25V25.25H0V24.25Z" />
+                    </mask>
+                    <path d="M-2.5 24.25C-2.5 17.3464 3.09644 11.75 10 11.75H16C22.9036 11.75 28.5 17.3464 28.5 24.25H23.5C23.5 20.1079 20.1421 16.75 16 16.75H10C5.85786 16.75 2.5 20.1079 2.5 24.25H-2.5ZM26 25.25H0H26ZM-2.5 25.25V24.25C-2.5 17.3464 3.09644 11.75 10 11.75V16.75C5.85786 16.75 2.5 20.1079 2.5 24.25V25.25H-2.5ZM16 11.75C22.9036 11.75 28.5 17.3464 28.5 24.25V25.25H23.5V24.25C23.5 20.1079 20.1421 16.75 16 16.75V11.75Z" fill="#A3A3A3" mask="url(#path-2-inside-1_979_4241)" />
+                  </svg>
+                </button>
+                <button type="button">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.9398 17.2693L24 22.3282L22.3282 24L17.2693 18.9398C15.3869 20.4488 13.0456 21.2696 10.6331 21.2661C4.76361 21.2661 0 16.5025 0 10.6331C0 4.76361 4.76361 0 10.6331 0C16.5025 0 21.2661 4.76361 21.2661 10.6331C21.2696 13.0456 20.4488 15.3869 18.9398 17.2693ZM16.5699 16.3926C18.0693 14.8507 18.9066 12.7838 18.9032 10.6331C18.9032 6.06439 15.2017 2.3629 10.6331 2.3629C6.06439 2.3629 2.3629 6.06439 2.3629 10.6331C2.3629 15.2017 6.06439 18.9032 10.6331 18.9032C12.7838 18.9066 14.8507 18.0693 16.3926 16.5699L16.5699 16.3926Z" fill="#A3A3A3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="edit_contents">
+              <div class="sec main_title" mui-addcontent="type:'title'">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">메인타이틀1</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+                <div class="move_btn">
+                  <button class="prev" type="button"><span><span class="hidden">이전</span></span></button>
+                  <button class="next" type="button"><span><span class="hidden">다음</span></span></button>
+                </div>
+              </div>
+              <div class="sec sub_title" mui-addcontent="type:'sub_title'">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">서브타이틀</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+                <div class="move_btn">
+                  <button class="prev" type="button"><span><span class="hidden">이전</span></span></button>
+                  <button class="next" type="button"><span><span class="hidden">다음</span></span></button>
+                </div>
+              </div>
+              <div class="sec sub_gotolink">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">바로가기버튼설정</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+                <div class="move_btn">
+                  <button class="prev" type="button"><span><span class="hidden">이전</span></span></button>
+                  <button class="next" type="button"><span><span class="hidden">다음</span></span></button>
+                </div>
+              </div>
+              <div class="sec main_menu">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">메인메뉴</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+                <div class="move_btn">
+                  <button class="prev" type="button"><span><span class="hidden">이전</span></span></button>
+                  <button class="next" type="button"><span><span class="hidden">다음</span></span></button>
+                </div>
+              </div>
+              <div class="sec sub_menu">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">서브메뉴</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+                <div class="move_btn">
+                  <button class="prev" type="button"><span><span class="hidden">이전</span></span></button>
+                  <button class="next" type="button"><span><span class="hidden">다음</span></span></button>
+                </div>
+              </div>
+            </div>
+            <div class="edit_footer">
+              <div class="sec logo" mui-addimage="target:.edit_btn;">
+                <div class="edit_btn">
+                  <input type="file" id="fileadd" accept=".png, .jpeg" />
+                  <label for="fileadd"><span class="text">로고</span><span class="add"><span class="hidden">추가</span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="sec copy">
+                <div class="edit_btn">
+                  <button type="button"> <span class="text">푸터 내용 입력</span><span class="add"><span class="hidden">추가</span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="edit_quick_service">
+              <div class="edit_btn vertical">
+                <button type="button"> <span class="text">자주 찾는 서비스 설정</span><span class="add"><span class="hidden">추가</span></span>
+                </button>
+              </div>
+            </div>
+            <div class="edit_config">
+              <button class="mui_button mui_medium mui_primary toggle_layer" type="button" mui-toggle="target:#toggle_box1;"><span>설정 열기</span></button>
+              <div class="config_conts" id="toggle_box1">
+                <p class="title">제목</p>
+                <div class="mui_form">
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">이미지 파일 등록</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_input_file">
+                        <input type="text" readonly="readonly" />
+                        <div class="file">
+                          <label for="fileadd">찾이보기</label>
+                          <input type="file" id="fileadd" />
+                        </div>
+                      </div>
+                      <p class="mui_text warning">* 3840px X 2160px 를 권장 합니다.
+                      </p>
+                      <div class="select_wrap">
+                        <button class="mui_button mui_select" type="button" mui-toggle="target:#selectLayer1;"><span class="inset"><span class="label">등록된 이미지 확인 및 수정11<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
+                        <div class="select_cont" id="selectLayer1">
+                          <ul>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일1</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button"><span class="text">이미지 파일2</span></button>
+                                <button class="del" type="button">삭제</button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">폰트 크기 설정</span></div>
+                    <div class="mui_form_content">
+                      <div class="select_wrap">
+                        <button class="mui_button mui_select" type="button" mui-toggle="target:#selectLayer2;"><span class="inset"><span class="label">폰트 크기<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
+                        <div class="select_cont" id="selectLayer2">
+                          <ul>
+                            <li>
+                              <div class="el">
+                                <button class="file mui_active" type="button" style="font-size:60px"><span class="text">h1(60px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:55px"><span class="text">h2(55px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:50px"><span class="text">h3(50px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:45px"><span class="text">h4(45px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:40px"><span class="text">h5(40px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:35px"><span class="text">h6(35px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:30px"><span class="text">h7(30px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:25px"><span class="text">h8(25px)</span></button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="el">
+                                <button class="file" type="button" style="font-size:20px"><span class="text">h9(20px)</span></button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">이미지 파일 등록</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_input_file">
+                        <input type="text" readonly="readonly" />
+                        <div class="file">
+                          <label for="fileadd">찾이보기</label>
+                          <input type="file" id="fileadd" />
+                        </div>
+                      </div>
+                      <p class="mui_text warning">* 3840px X 2160px 를 권장 합니다.
+                      </p>
+                      <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">등록된 이미지 확인 및 수정<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">Color</span></div>
+                    <div class="mui_form_content">
+                      <span class="mui_input">
+                        <input type="color" value="#555555" mui-input="" />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">메인 타이틀 명</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_textarea">
+                        <textarea mui-formatter="viewMaxLength:true;" maxlength="25"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">메인메뉴 선택</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_checkbox_group align2">
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id1" />
+                          <label for="chk841054Id1">데이터 관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id2" />
+                          <label for="chk841054Id2">지도 서비스</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id3" />
+                          <label for="chk841054Id3">업무 서비스</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id4" />
+                          <label for="chk841054Id4">서비스 모듈</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id5" />
+                          <label for="chk841054Id5">커뮤니티</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk841054Id6" />
+                          <label for="chk841054Id6">고객지원</label>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">서브메뉴 선택</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_checkbox_group align3">
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id7" />
+                          <label for="chk8410514Id7">공지사항</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id8" />
+                          <label for="chk8410514Id8">자료실</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id9" />
+                          <label for="chk8410514Id9">FAQ</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id10" />
+                          <label for="chk8410514Id10">질의응답</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id11" />
+                          <label for="chk8410514Id11">사용자요청</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id12" />
+                          <label for="chk8410514Id12">사용자포럼</label>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">메뉴 선택</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_checkbox_group align2">
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id13" />
+                          <label for="chk8410514Id13">파일관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id14" />
+                          <label for="chk8410514Id14">테이블관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id15" />
+                          <label for="chk8410514Id15">사진 파일 관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id16" />
+                          <label for="chk8410514Id16">동영상 파일 관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id17" />
+                          <label for="chk8410514Id17">첨부파일 관리</label>
+                        </span>
+                        <span class="mui_checkbox">
+                          <input type="checkbox" id="chk8410514Id18" />
+                          <label for="chk8410514Id18">영상지도 파일 관리</label>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">아이콘 설정</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_radio_group align2">
+                        <span class="mui_radio">
+                          <input type="radio" id="chk84105143Id19" name="chk84105143Id4" />
+                          <label for="chk84105143Id19">기본아이콘</label>
+                        </span>
+                        <span class="mui_radio">
+                          <input type="radio" id="chk84105143Id20" name="chk84105143Id4" />
+                          <label for="chk84105143Id20">사용자 지정 아이콘</label>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">서브 타이틀 명</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_textarea">
+                        <textarea mui-formatter="viewMaxLength:true;" maxlength="25"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">푸터 내용</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_textarea">
+                        <textarea mui-formatter="viewMaxLength:true;" maxlength="50"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">정렬</span></div>
+                    <div class="mui_form_content">
+                      <div class="select_align">
+                        <div class="mui_radio_group align_type">
+                          <span class="mui_radio">
+                            <input type="radio" id="chk483475Id21" name="chk483475Id5" />
+                            <label for="chk483475Id21">왼 쪽</label>
+                          </span>
+                          <span class="mui_radio">
+                            <input type="radio" id="chk483475Id22" name="chk483475Id5" />
+                            <label for="chk483475Id22">중간</label>
+                          </span>
+                          <span class="mui_radio">
+                            <input type="radio" id="chk483475Id23" name="chk483475Id5" />
+                            <label for="chk483475Id23">오른 쪽</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btnarea_new"><span class="al">
+              <button class="btn bg-grey lg" type="button">초기화</button>
+              <button class="btn bg-blue lg" type="button">미리보기</button></span><span class="ar">
+              <button class="btn bg-grey lg" type="button">이전</button>
+              <button class="btn bg-blue lg" type="button">완료</button></span></div>
+          <div id="footer" style="display:none">
+            <div class="inner">
+              <h1 class="logo left"><img class="va-m" src="/admin/images/common/footer-logo.png" alt="LX 국토정보플랫폼" /></h1>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              <div class="desc">
+                <p class="address">전주시 담당자 스마트시티과 김민우 주무관 Tel. 063-281-5379 / HP. 010-2608-6428</p>
+                <p class="address">큐레이터 지원기관 한국국토정보공사 전북지역본부 최우진 대리 Tel. 063-713-0746 / HP. 010-5093-1390</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- / contents -->
+  </div>
+</body>
+
+</html>
