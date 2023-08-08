@@ -9823,7 +9823,7 @@
       activeItem: 'activeItem',
       mainFrame: null,
       index: 0,
-      template: "<div class=\"tree_control\">\n            <div class=\"path_box\">\uD604\uC7AC \uD398\uC774\uC9C0 : <p class=\"page_path\"></p></div>\n            <span class=\"status\">\n                <span class=\"complete\">\uD37C\uBE14 \uC791\uC5C5 \uC644\uB8CC</span>\n                <span class=\"confirm\">\uAE30\uD68D \uAC80\uC218 \uC644\uB8CC</span>\n            </span>\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
+      template: "<div class=\"tree_control\">\n            <div class=\"path_box\">\uD604\uC7AC \uD398\uC774\uC9C0 : <p class=\"page_path\"></p></div>\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
     },
     beforeConnect: function beforeConnect() {
       this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');

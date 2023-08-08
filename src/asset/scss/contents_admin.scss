@@ -16,7 +16,12 @@
 	src: url(./font/notoSans/eot/NotoSansKR-Bold-Hestia.eot);
 	src: url(./font/notoSans/eot/NotoSansKR-Bold-Hestia.eot?#iefix) format("embedded-opentype"), url(./font/notoSans/woff/NotoSansKR-Bold-Hestia.woff) format("woff");
 }
-
+.align_center{
+  text-align: center;
+}
+.align_right{
+  text-align: right;
+}
 .select_align {
   button {
     width: 30px;
@@ -36,6 +41,44 @@
     margin-left: 5px; 
     font-size: 14px;
     font-family: 'Pretendard';
+  }
+}
+#contant_main{
+  .tnb {
+    button {
+      background: none;
+      border: 0 none;
+    }
+  }
+  .horizontal_type {
+    background: #fff;
+    .edit_contents {
+      .bg{
+        width: 100%;
+      }
+    }
+  }
+  .grid_box {
+    &.grid_2x2{
+      border-bottom: 1px solid rgba(204, 204, 204, 1);
+      &:last-child {
+      border-bottom: 0 none;
+      }
+      .grid {
+        position: relative;
+        &:nth-child(2) {
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            border-left: 1px solid rgba(204, 204, 204, 1);
+          }
+        }
+      }
+    }
   }
 }
 .grid_box {
@@ -80,6 +123,26 @@
 .edit_ground {
   background: #e9e9e9;
   position: relative;
+  .bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .pc{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .edit_header,
+  .edit_contents,
+  .edit_footer{
+    position: relative;
+    z-index: 1;
+  }
   .grid {
     position: relative;
   }
@@ -341,6 +404,8 @@
     .edit_header {
       display: block;
       padding: 0;
+      position: relative;
+      z-index: 2;
       .logo {
         width: 120px;
         height: 38px;
@@ -348,6 +413,7 @@
       .side{
         height: 800px;
         margin-top: 80px;
+
       }
     }
     .edit_contents {
@@ -357,6 +423,10 @@
       padding: 110px 160px;
       overflow: auto;
       white-space: nowrap;
+      position: relative;
+      .contents_inner{
+        
+      }
       .grid {
         display: flex;
         position: relative;
@@ -441,7 +511,7 @@
                 height: 40px;
                 align-items: center;
                 border-radius: 20px;
-                background: rgba($color: #fff, $alpha: .5);
+                background: rgba($color: #fff, $alpha: .8);
               }
             }
           }
@@ -462,6 +532,11 @@
       & > ul {
         & > li {
           position: relative;
+          &.mui_active{
+            .sub_menu {
+              display: block;
+            }
+          }
           & ~ li {
             margin-top: 30px;
           }
@@ -478,16 +553,19 @@
         }
       }
       .sub_menu {
+        .inset{
+          background: #fff;
+          border-radius: 0px 20px 20px 20px;
+          box-shadow: 5px 5px 20px rgba(0,0,0,.3);
+          padding: 20px 30px;
+          font-size: 18px;
+          min-width: 160px;
+        }
+        padding-left: 26px;
         position: absolute;
         display: none;
-        min-width: 160px;
         left: 100%;
         top: 0;
-        background: #fff;
-        border-radius: 0px 20px 20px 20px;
-        box-shadow: 5px 5px 20px rgba(0,0,0,.3);
-        padding: 20px 30px;
-        font-size: 18px;
         li {
           & ~ li{
             margin-top: 8px;
@@ -736,9 +814,24 @@
     justify-content: space-between;
     align-items:center;
     .main_menu {
-      width: 832px;
+      width: 1037px;
       height: 26px;
       margin-top: 0;
+      .menu{
+        ul{
+          display: flex;
+          // flex-direction: row;
+          justify-content: center;
+          gap: 70px;
+          a{
+            font-family: 'Noto Sans Medium';
+            font-size: 18px;
+          }
+        }
+        .sub_menu{
+          display: none;
+        }
+      }
     }
     .logo {
       width: 130px;
@@ -808,6 +901,7 @@
       border-radius: 4px;
       max-height: 80vh;
       overflow: auto;
+      z-index: 3;
     }
     .title {
       font-size: 18px;

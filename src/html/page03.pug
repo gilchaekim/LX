@@ -11,7 +11,33 @@ block content
       .sec.logo(mui-addimage="target:.edit_btn;")
         +edit_btn({title:"로고", type:"file"})
       .sec.main_menu 
-        +edit_btn({title:"메인메뉴"})
+        +edit_btn({title:"메인메뉴", className:"mui_active"})
+        .menu 
+          ul 
+            li.mui_active
+              a(href="") 데이터 공간
+              .sub_menu
+                .inner 
+                  ul 
+                    li 
+                      a(href="") 파일 관리
+                    li 
+                      a(href="") 테이블 관리
+                    li 
+                      a(href="") 데이터 검색
+            li  
+              a(href="") 지도 공간
+            li  
+              a(href="") 업무 공간
+            li  
+              a(href="") 통합 게시판
+            li  
+              a(href="") 서비스 공간
+            li  
+              a(href="") 커뮤니티
+            li  
+              a(href="") 고객지원
+
       .sec.tnb 
         button(type="button") 
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -35,10 +35,6 @@ export default {
         index:0,
         template:`<div class="tree_control">
             <div class="path_box">현재 페이지 : <p class="page_path"></p></div>
-            <span class="status">
-                <span class="complete">퍼블 작업 완료</span>
-                <span class="confirm">기획 검수 완료</span>
-            </span>
             <span class="collapse">
                 <button type="button" class="open_all">open all</button>
                 <button type="button" class="close_all">close all</button>
