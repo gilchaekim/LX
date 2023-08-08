@@ -722,7 +722,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_tooltip {
   width: 20px;
   height: 20px;
-  background: url("/images/ico_tooltip.svg") no-repeat center;
+  background: url("../images/ico_tooltip.svg") no-repeat center;
 }
 .mui_tooltip_wrap {
   width: 20px;
@@ -751,7 +751,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_tooltip_content .mui_arrow {
   width: 12px;
   height: 9px;
-  background: url("/images/ico_arrow2.png") no-repeat center;
+  background: url("../images/ico_arrow2.png") no-repeat center;
   background-size: 100%;
   position: absolute;
   top: -8.5px;
@@ -1196,7 +1196,7 @@ html.mui_modal_page {
   overflow: hidden;
   width: 60px;
   height: 60px;
-  background: url("/images/ico_close.svg") no-repeat center/60px;
+  background: url("../images/ico_close.svg") no-repeat center/60px;
 }
 @media (max-width: 1024px) {
   .mui_modal .mui_modal_body > .mui_modal_close, .mui_modal .mui_modal_body form > .mui_modal_close, [mui-modal] .mui_modal_body > .mui_modal_close, [mui-modal] .mui_modal_body form > .mui_modal_close {
@@ -1735,7 +1735,7 @@ html.mui_modal_page {
   border-bottom: 1px solid #000;
 }
 .mui_inputbtn.ico.search .mui_button:not(.mui_select) {
-  background: url("/images/ico_search3.svg") no-repeat center/60px;
+  background: url("../images/ico_search3.svg") no-repeat center/60px;
   width: 100px;
   height: 100px;
 }
@@ -2119,7 +2119,7 @@ html.mui_modal_page {
   transform: translate(-50%, 0);
   width: 15px;
   height: 15px;
-  background: url("/images/ico_plus.png") no-repeat center/100%;
+  background: url("../images/ico_plus.png") no-repeat center/100%;
 }
 .edit_ground.fit .main_list .list .inset {
   width: 690px;
@@ -2128,7 +2128,7 @@ html.mui_modal_page {
 .edit_ground.fit .main_list .list .ico {
   width: 40px;
   height: 40px;
-  background: url("/images/ico_main01.svg") no-repeat center;
+  background: url("../images/ico_main01.svg") no-repeat center;
   display: block;
   position: absolute;
   top: 32px;
@@ -2633,7 +2633,7 @@ html.mui_modal_page {
   right: 48px;
   width: 16px;
   height: 16px;
-  background: url("/images/ico_plus.png") no-repeat center/16px;
+  background: url("../images/ico_plus.png") no-repeat center/16px;
 }
 .edit_ground.vertrical_type .quick_service_el {
   font-family: "Noto Sans";
@@ -2738,7 +2738,7 @@ html.mui_modal_page {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background: #436AEB url("/images/ico04.png") no-repeat center;
+  background: #436AEB url("../images/ico04.png") no-repeat center;
   font-size: 0;
   color: transparent;
   position: relative;
@@ -2957,7 +2957,7 @@ html.mui_modal_page {
   display: block;
   width: 26px;
   height: 26px;
-  background: url("/images/ico_search.svg") no-repeat center;
+  background: url("../images/ico_search.svg") no-repeat center;
   background-size: 100%;
   position: absolute;
   top: 50%;
@@ -2991,7 +2991,7 @@ html.mui_modal_page {
   display: block;
   width: 70px;
   height: 70px;
-  background: url("/images/ico_play.png") no-repeat center/70px;
+  background: url("../images/ico_play.png") no-repeat center/70px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3248,7 +3248,7 @@ html.mui_modal_page {
   top: 50%;
   right: 10px;
   margin-top: -8px;
-  background: url("/images/btn_del.png") no-repeat center;
+  background: url("../images/btn_del.png") no-repeat center;
   color: transparent;
   font-size: 0;
 }
