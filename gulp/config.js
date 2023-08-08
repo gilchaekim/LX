@@ -28,9 +28,9 @@ const config = {
       pug: [`${sourceDir}*.pug`],
     },
     build:{
-      scss: `${buildDir}docs/css/`,
-      js: `${buildDir}docs/js/`,
-      pug: `${buildDir}`,
+      scss: `${buildDir}admin/docs/css/`,
+      js: `${buildDir}admin/docs/js/`,
+      pug: `${buildDir}admin/`,
     }
   },
   build: {
