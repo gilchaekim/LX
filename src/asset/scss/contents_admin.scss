@@ -8,7 +8,9 @@
 @import '../../components/molecules/index.scss';
 @import '../../components/organisms/index.scss';
 @import '../../components/templates/index.scss';
-
+button, label {
+  cursor: pointer;
+}
 @font-face {
 	font-family: 'Noto Sans';
 	font-style: normal;
@@ -45,6 +47,7 @@
 }
 #contant_main{
   .tnb {
+
     button {
       background: none;
       border: 0 none;
@@ -56,6 +59,14 @@
       .bg{
         width: 100%;
       }
+    }
+    .tnb{
+      .menu {
+        & > button {
+          border: 0 none;
+          background: none;
+        }
+      } 
     }
   }
   .grid_box {
@@ -203,6 +214,139 @@
     }
     .main_list{
       font-family: 'Noto Sans';
+      $main_color1 : #ED3037, #E51C23, #DD191D, #D01716, #C41411, #B0120A;
+      $main_color2 : #E57E85, #E65F68, #EB4852, #EF2F3B, #E61E2B, #D51623;
+      $main_color3 : #FFA726, #FF9800, #FB8C00, #F57C00, #EF6C00, #E65100;
+      $main_color4 : #FFFEF4, #FFFCCE, #FFF9A8, #FFF687, #FFF462, #FFED00;
+      $main_color5 : #9EE45A, #98DD55, #93D752, #8DD04D, #8CCB50, #8AC452;
+      $main_color6 : #2BAF2B, #259B24, #0A8F08, #0A7E07, #056F00, #0D5302;
+      $main_color7 : #26A69A, #009688, #00897B, #00796B, #00695C, #004D40;
+      $main_color8 : #2186F1, #1178E4, #046DDC, #0263C9, #0058B5, #004EA1;
+      $main_color9 : #34B3E8, #01A0E2, #0B68B5, #0A529C, #01378D, #002F7A;
+      $main_color10 : #5C6BC0, #3F51B5, #3949AB, #303F9F, #283593, #1A237E;
+      $main_color11 : #EC407A, #E91E63,#D81B60, #C2185B, #AD1457, #880E4F;
+      $main_color12 : #AB47BC, #9C27B0, #8E24AA, #7B1FA2, #6A1B9A, #4A148C;
+      &.color_type1{
+        .list {
+          @each $item in $main_color1 {
+            $index : index($main_color1, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type2{
+        .list {
+          @each $item in $main_color2 {
+            $index : index($main_color2, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type3{
+        .list {
+          @each $item in $main_color3 {
+            $index : index($main_color3, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type4{
+        .list {
+          @each $item in $main_color4 {
+            $index : index($main_color4, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type5{
+        .list {
+          @each $item in $main_color5 {
+            $index : index($main_color5, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type6{
+        .list {
+          @each $item in $main_color6 {
+            $index : index($main_color6, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type7{
+        .list {
+          @each $item in $main_color7 {
+            $index : index($main_color7, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type8{
+        .list {
+          @each $item in $main_color8 {
+            $index : index($main_color8, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type9{
+        .list {
+          @each $item in $main_color9 {
+            $index : index($main_color9, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type10{
+        .list {
+          @each $item in $main_color10 {
+            $index : index($main_color10, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type11{
+        .list {
+          @each $item in $main_color11 {
+            $index : index($main_color11, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+      &.color_type12{
+        .list {
+          @each $item in $main_color12 {
+            $index : index($main_color12, $item);
+            &:nth-child(#{$index}){
+              background-color: $item;
+            }
+          }
+        }  
+      }
+
       .list {
         padding: 30px 10px 30px 78px;
         overflow: hidden;
@@ -248,24 +392,24 @@
           top: 32px;
           left: 32px;
         }
-        &:nth-child(1) {
-          background: #29B6F6;
-        }
-        &:nth-child(2) {
-          background: #03A9F4;
-        }
-        &:nth-child(3) {
-          background: #039BE5;
-        }
-        &:nth-child(4) {
-          background: #0288D1;
-        }
-        &:nth-child(5) {
-          background: #0277BD;
-        }
-        &:nth-child(6) {
-          background: #01579B;
-        }
+        // &:nth-child(1) {
+        //   background: #29B6F6;
+        // }
+        // &:nth-child(2) {
+        //   background: #03A9F4;
+        // }
+        // &:nth-child(3) {
+        //   background: #039BE5;
+        // }
+        // &:nth-child(4) {
+        //   background: #0288D1;
+        // }
+        // &:nth-child(5) {
+        //   background: #0277BD;
+        // }
+        // &:nth-child(6) {
+        //   background: #01579B;
+        // }
       }
       .title {
         color: #fff;
@@ -401,6 +545,41 @@
 
   }
   &.horizontal_type {
+    .tnb{
+      position: absolute;
+      top: 10px;
+      right: 50px;
+      display: flex;
+      gap:34px;
+      .menu {
+        position: relative;
+        & ~ .menu {
+          &::after{
+            content: ":";
+            position: absolute;
+            left: -17px;
+            top: 1px;
+            line-height: 100%;
+          }
+        }
+        & > button {
+          border: 1px solid #fff;
+          background: rgba($color: #fff, $alpha: .4);
+          height: 18px;
+          line-height: 18px;
+          color: #A3A3A3;
+        }
+      } 
+      .delete.btn_only{
+        border: 0 none;
+        background: none;
+        width: 23px;
+        height: 23px;
+        top: -22px;
+        left: 50%;
+        margin-left: -12px;
+      }
+    }
     .edit_header {
       display: block;
       padding: 0;
@@ -443,17 +622,7 @@
         flex-direction: column;
         position: relative;
         gap: 10px 0;
-        .delete {
-          width: 45px;
-          height: 45px;
-          position: absolute;
-          top: -42px;
-          right: 0px;
-          button {
-            width: auto;
-            height: auto;
-          }
-        }
+
         .grid {
           width: 100%;
         }
@@ -465,7 +634,7 @@
         }
         .title01{
           min-height: 160px;
-          .text {
+          p.text {
             font-family: 'Noto Sans';
             font-size: 64px;
             word-break: keep-all;
@@ -477,7 +646,7 @@
         .title02{
           height: 76px;
           margin-top: 20px;
-          .text {
+          p.text {
             font-family: 'Noto Sans';
             font-size: 26px;
             word-break: keep-all;
@@ -522,8 +691,20 @@
         height: 710px;
         display: inline-block;
         vertical-align: top;
+        position: relative;
         & ~ .blocks {
           margin-left: 30px;
+        }
+        .delete {
+          width: 45px;
+          height: 45px;
+          position: absolute;
+          top: -42px;
+          right: 0px;
+          button {
+            width: auto;
+            height: auto;
+          }
         }
       }
     }
@@ -654,7 +835,7 @@
     }
     .main_title{
       min-height: 60px;
-      .text{
+      p.text{
         font-family: 'Noto Sans';
         font-size: 60px;
         font-weight: 700;
@@ -665,7 +846,7 @@
     .sub_title{
       min-height: 32px;
       margin-top: 20px;
-      .text{
+      p.text{
         font-family: 'Noto Sans';
         font-size: 26px;
         color: #fff;
@@ -839,19 +1020,33 @@
     }
     .tnb {
       display: flex;
-      button {
-        width: 36px;
-        height: 36px;
-        border: 1px solid #fff;
-        background: rgba(255,255,255,.4);    
+      .delete.btn_only{
+        border: 0 none;
+        background: none;
+        width: 23px;
+        height: 23px;
+        top: -22px;
+        left: 50%;
+        margin-left: -12px;
+      }
+      .menu {
         display: inline-flex;
-        vertical-align: top;
-        align-items: center;
-        justify-content: center;
-        & ~ button {
+        position: relative;
+        & ~ .menu {
           margin-left: 10px;
         }
+        & > button {
+          width: 36px;
+          height: 36px;
+          border: 1px solid #fff;
+          background: rgba(255,255,255,.4);    
+          display: inline-flex;
+          vertical-align: top;
+          align-items: center;
+          justify-content: center;
+        }
       }
+      
     }
   }
   .edit_container {
@@ -1103,6 +1298,95 @@
   font-size: 14px;
   .copyright{
     margin: auto 0 0;
+  }
+}
+.colors{
+
+  .mui_radio_group{
+    display: flex;
+    gap:4px;
+    flex-wrap: wrap;
+    .mui_radio{
+      width: 72px;
+      height: 72px;
+      width: calc(25% - 3px);
+      position: relative;
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &:checked + label::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: 2px solid #8236E3;
+        }
+      }
+      label {
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        font-size: 0;
+        position: relative;
+      }
+      $colors: #B0120A, #D51623, #E65100, #FFED00, #8AC452, #0D5302, #004D40, #004EA1, #002F7A, #1A237E, #880E4F, #4A148C;
+      @each $item in $colors {
+        $index : index($colors, $item);
+        &:nth-child(#{$index}) label{
+          background-color: $item;
+        }
+      }
+    }
+  }
+}
+.range_box{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  .text {
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+  .range{
+    width: 99%;
+    padding-top: 18px;
+    .label{
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+  .input{
+    width: 51px;
+    margin-left: 12px;
+    input {
+      width: 100%;
+      height: 20px;
+      font-size: 12px;
+    }
+  }
+  
+  input[type=range] {
+    -webkit-appearance: none;
+    height: 2px;
+    background: rgba(85, 85, 85, 1);
+    width: 100%;
+    box-sizing: border-box;
+    &::-webkit-slider-thumb { 
+      -webkit-appearance: none;
+      background: rgba(67, 106, 235, 1);
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+    }
   }
 }
 .search_btn{

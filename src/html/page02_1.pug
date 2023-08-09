@@ -3,6 +3,13 @@ extends ../components/templates/base2.pug
 block content
   .edit_ground.horizontal_type(mui-scrollbar="")
     .edit_container
+      .sec.tnb 
+        .menu
+          button(type="button") 
+            span.text 검색
+        .menu
+          button(type="button") 
+            span.text 로그인
       .edit_header 
         .sec.logo
           a(href="") 
@@ -36,7 +43,7 @@ block content
 
       .edit_contents
         .bg(style="width:2338px")
-          .pc(style="background:url(/images/bg_ex02.png) no-repeat center top / 100%")
+          .pc(style="background:url(/admin/images/bg_ex02.png) no-repeat center top / 100%")
         .sec.blocks
           .grid_blocks.main
             .grid.title01
@@ -104,7 +111,6 @@ block content
 
 
         .sec.blocks
-          +move_btn({className:"hor"})
           .grid_blocks.sub
             .grid.ver2
               .movie_photo

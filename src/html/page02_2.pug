@@ -20,32 +20,7 @@ block content
         .sec.logo(mui-addimage="target:.edit_btn;")
           +edit_btn({title:"로고", type:"file"})
         .sec.side
-          +edit_btn({title:"메인메뉴", className:"mui_active"})
-          .menu 
-            ul 
-              li.mui_active
-                a(href="") 데이터 공간
-                .sub_menu 
-                  .inset 
-                      ul 
-                        li 
-                          a(href="") 파일 관리
-                        li 
-                          a(href="") 테이블 관리
-                        li 
-                          a(href="") 데이터 검색
-              li  
-                a(href="") 지도 공간
-              li  
-                a(href="") 업무 공간
-              li  
-                a(href="") 통합 게시판
-              li  
-                a(href="") 서비스 공간
-              li  
-                a(href="") 커뮤니티
-              li  
-                a(href="") 고객지원
+          +edit_btn({title:"메인메뉴"})
 
       .edit_contents 
         .contents_inner
@@ -54,30 +29,15 @@ block content
             +edit_btn({className:"big delete"})
             .grid_blocks.main
               .grid.title01
-                +edit_btn({title:"메인 타이틀", className:"mui_active"})
-                p.text 전주시 빅데이터 플랫폼
+                +edit_btn({title:"메인 타이틀"})
 
               .grid.title02
-                +edit_btn({title:"서브 타이틀", className:"mui_active"})
-                p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
+                +edit_btn({title:"서브 타이틀"})
               .grid.search
-                +edit_btn({title:"검색", className:"mui_active"})
-                +input_button({
-                  btnText:"검색",
-                  placeholder:"검색어를 입력해주세요.",
-                  type:"input",
-                  className:"search_btn"
-                })
+                +edit_btn({title:"검색"})
               .grid.quick_service
-                +edit_btn({title:"자주 찾는 서비스", className:"mui_active"})
-                .quick_service_el 
-                  p.title 자주 찾는 서비스
-                  .tags 
-                    a(href="") 서비스1
-                    a(href="") 서비스2
-                    a(href="") 서비스3
-                    a(href="") 서비스4
-                    a(href="") 서비스5
+                +edit_btn({title:"자주 찾는 서비스"})
+
           .sec.blocks
             +move_btn({className:"hor"})
             +edit_btn({className:"big delete"})
@@ -93,24 +53,7 @@ block content
                 .grid_in
                   +edit_btn({title:"이미지"})
               .grid.ver1
-                +edit_btn({title:"동영상", className:"mui_active"})
-                .slides_wrap(mui-slider="pagination:true;arrow:true;")
-                  .slider
-                    .swiper-wrapper
-                      .slide_list.swiper-slide
-                        .movie_photo
-                          .preview 
-                            img(src="/admin/images/img_ex3.png", alt="")
-                      .slide_list.swiper-slide
-                        .movie_photo
-                          .preview 
-                            img(src="/admin/images/img_ex3.png", alt="")
-                      .slide_list.swiper-slide
-                        .movie_photo
-                          .preview 
-                            img(src="/admin/images/img_ex3.png", alt="")
-
-
+                +edit_btn({title:"동영상"})
 
           .sec.blocks
             +move_btn({className:"hor"})
@@ -118,62 +61,23 @@ block content
             .grid_blocks.sub
               //- +edit_btn({className:"big delete"})
               .grid.ver2
-                +edit_btn({title:"이미지 & 동영상", className:"mui_active"})
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex2.png", alt="")
+                +edit_btn({title:"이미지 & 동영상"})
               .grid.ver1
                 .grid_in
-                  +edit_btn({title:"바로가기", className:"mui_active"})
-                  a.goto_link(href="", style="background:rgba(45, 53, 155, 0.9)")
-                    span.icon 
-                      img(src="/admin/images/ico_ex5.png", alt="")
-                    span.text 데이터 공간
+                  +edit_btn({title:"바로가기"})
                 .grid_in
-                  +edit_btn({title:"바로가기", className:"mui_active"})
-                  a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
-                    span.icon 
-                      img(src="/admin/images/ico_ex4.png", alt="")
-                    span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+                  +edit_btn({title:"바로가기"})
           .sec.blocks
             +move_btn({className:"hor"})
             +edit_btn({className:"big delete"})
             .grid_blocks.sub
               //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
               .grid.ver1
-                +edit_btn({title:"공지사항", className:"mui_active"})
-                .notice_wrap
-                  .notice
-                    p.title 공지사항
-                    ul
-                      li 
-                        a 
-                          span.text 공지사항입니다. 공지사항입니다. 공지사항입니다. 공지사항입니다. 
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
+                +edit_btn({title:"공지사항"})
               .grid.ver1
-                +edit_btn({title:"이미지", className:"mui_active"})
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex3.png", alt="")
-                  a(href="").link
-                    span.play
+                +edit_btn({title:"이미지"})
               .grid.ver1
-                +edit_btn({title:"이미지", className:"mui_active"})
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex3.png", alt="")
+                +edit_btn({title:"이미지"})
 
 
                 
