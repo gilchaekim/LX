@@ -4,12 +4,15 @@ block content
   .edit_ground.horizontal_type(mui-scrollbar="")
     .edit_container
       .sec.tnb 
-        .menu
-          button(type="button") 
+        .menu.search_button
+          button(type="button")
             span.text 검색
-        .menu
+        .menu.login_button
           button(type="button") 
             span.text 로그인
+        .menu.all_menu
+          button(type="button")
+            span.hidden 전체메뉴
       .edit_header 
         .sec.logo
           a(href="") 

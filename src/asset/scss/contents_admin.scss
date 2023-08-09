@@ -46,27 +46,374 @@ button, label {
   }
 }
 #contant_main{
+  .edit_contents{
+    @include respondTo("tablet"){
+      margin: 44px 20px;
+    }
+  }
   .tnb {
-
     button {
       background: none;
       border: 0 none;
     }
+    .menu{
+      button{
+        @include respondTo("tablet"){
+          width: 30px;
+          height: 30px; 
+        }
+      }
+      &.login_button{
+        display: none;
+      }
+      &.all_menu{
+        display: none;
+        @include respondTo("tablet"){
+          display: block;
+        }
+        button {
+          width: 30px;
+          height: 30px;
+          background: url($url_common+"ico_hamburger.svg") no-repeat center / 100%;
+        }
+      }
+    }
+  }
+  .main_menu{
+    @include respondTo("tablet"){
+      display: none;
+    }
+  }
+  .btn_login{
+    display: none;
+    @include respondTo("tablet"){
+      display: block;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      height: 45px;
+      font-weight: 700;
+      font-size: 14px;
+
+    }
+  }
+  .edit_footer{
+    @include respondTo("tablet"){
+      padding: 25px 20px;
+      display: block;
+      .copy{
+        height: auto;
+        width: auto;
+      }
+      .footer {
+        align-items: center;
+        margin-left: 0;
+        .text{
+          text-align: center;
+          & + .copyright{
+            margin-top: 20px;
+          }
+        }
+        
+      }
+    }
+    .logo {
+      @include respondTo("tablet"){
+        display: none;
+      }
+    }
+
+  }
+  .fit{
+    @include respondTo("tablet"){
+      .edit_quick_service{
+        display: none;
+      }
+    }
+    .edit_header{
+      @include respondTo("tablet"){
+        padding: 10px 20px;
+        .logo{
+          width: 125px;
+          height: auto;
+        } 
+      }
+    }
+    .main_title{
+      height: auto;
+      min-height: 0;
+      p.text{
+        @include respondTo("tablet"){
+          font-size: 30px;  
+        }
+      }
+    }
+    .main_list {
+      @include respondTo("tablet"){
+        .sub {
+          font-size: 16px;
+          margin-top: 4px;
+          display: none;
+        }
+        .text_list{
+          margin: 15px 0 0 -40px;
+          display: none;
+          li{
+            width: 100%;
+            &:last-child {
+              a {
+                border-bottom: 0 none;
+              }
+            }
+            a{
+              border-top: 0 none;
+              border-bottom: 1px solid rgba($color: #fff, $alpha: .2);
+              font-size: 16px;
+              height: 43px;
+              line-height: 43px;
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+        .list{
+          width: 100% !important;
+          padding: 15px 20px 15px 60px;
+          height: 60px;
+          &.mui_active{
+            height: auto;
+            .title{
+              font-weight: 700;
+              font-family: 'Noto Sans';
+              opacity: 1;
+            }
+            .sub, .text_list{
+              display: block;
+            }
+          }
+          .ctrl{
+            .ico_plus {
+              background: url($url_common+"ico_plus2.png") no-repeat center / 100%;
+              right: 20px;
+              left: auto;
+              top: 50%;
+              bottom: auto;
+              transform: translate(0, -50%);
+            }
+          }
+          .ico{
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            left: 15px;
+          }
+          .title{
+            font-weight: 400;
+            font-family: 'Noto Sans Medium';
+            font-size: 18px;
+            opacity: .4;
+          }
+          .inset {
+            width: auto;
+            display: block;
+          }
+        }        
+      }
+    }
+    .sub_title{
+      height: auto;
+      min-height: 0;
+      @include respondTo("tablet"){
+        margin-top: 10px;
+        p.text{
+          font-size: 18px;
+        } 
+      }
+    }
+    .sub_gotolink{
+      min-height: 0;
+      margin-top: 20px;
+    }
+    .sub_menu{
+      margin-top: 25px;
+      min-height: 0;
+    }
+    .notice_wrap{
+      @include respondTo("tablet"){
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        gap: 25px;
+        a {
+          font-size: 14px;
+        }
+        .title{
+          margin-bottom: 5px;
+        }
+        .notice{
+          width: 100%;
+          min-width: 0;
+        }
+      }
+    }
+
   }
   .horizontal_type {
     background: #fff;
+    @include respondTo("tablet"){
+      .edit_header {
+        .side{
+          display: none;
+        }
+        padding: 10px 20px;
+        .logo{
+          width: 125px;
+          height: auto;
+        } 
+      }
+    }
     .edit_contents {
       .bg{
         width: 100%;
       }
+      @include respondTo("tablet"){
+        margin: 0;
+        padding: 50px 20px;
+      }
     }
     .tnb{
+      @include respondTo("tablet"){
+        gap : 10px;
+        right: 20px;
+        top: 15px;
+      }
       .menu {
-        & > button {
-          border: 0 none;
-          background: none;
+        // & > button {
+        //   border: 0 none;
+        //   background: none;
+        // }
+        @include respondTo("tablet"){
+          &.search_button{
+            button {
+              background: url($url_common+"ico_search.svg") no-repeat center / 24px;
+            }
+          }
+          button {
+            width: 30px;
+            height: 30px;
+            font-size: 0;
+            color: transparent;
+            
+          }
+          &::after{
+            display: none;
+          }
         }
       } 
+    }
+    .edit_container{
+      @include respondTo("tablet"){
+        display: block;
+      }
+    }
+  }
+  .vertrical_type{
+    .edit_header{
+      @include respondTo("tablet"){
+        padding: 10px 20px;
+        .logo{
+          width: 125px;
+          height: auto;
+        } 
+      }
+    }
+    .main_title{
+      height: auto;
+      min-height: 0;
+      p.text{
+        @include respondTo("tablet"){
+          font-size: 28px;  
+        }
+      }
+    }
+    .sub_title{
+      display: none;
+    }
+    .search{
+      display: none;
+    }
+    .goto_link{
+      @include respondTo("tablet"){
+        padding: 24px 22px;
+        font-family: 'Noto Sans Medium';
+        &.img{
+          padding: 0;
+        }
+        .text{
+          font-size: 20px;
+        }
+        .sub_txt{
+          display: none;
+        }
+        .icon{
+          width: 50px;
+          height: 50px;
+          bottom: 12px;
+          right: 12px;
+        }        
+      }
+
+    }
+    .notice_wrap{
+      @include respondTo("tablet"){
+        padding: 28px 20px;
+        .more_view{
+          height: 16px;
+          top: 32px;
+          right: 20px;
+        }
+        li{
+          margin-top: 0;
+        }
+        .title{
+          font-size: 20px;
+          font-family: 'Noto Sans Medium';
+          margin-bottom: 15px;
+        }
+        a{
+          font-size: 14px;
+          .tag {
+            display: none;
+          }
+          height: 32px;
+          line-height: 32px;
+        }
+      }
+    }
+    .grid_box {
+      &.grid_4x2{
+        @include respondTo("tablet"){
+          margin-top: 40px;
+          .grid {
+            width: 50%;
+            height: 160px;
+          } 
+        }
+      }
+      &.grid_2x2{
+        @include respondTo("tablet"){
+          .grid{
+            width: 100%;
+            height: auto;
+            &::after{
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
   .grid_box {
@@ -1017,6 +1364,12 @@ button, label {
     .logo {
       width: 130px;
       height: 45px;
+      a{
+        display: block;
+        img{
+          width: 100%;
+        }
+      }
     }
     .tnb {
       display: flex;
@@ -1261,6 +1614,11 @@ button, label {
 }
 
 .goto_link{
+  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   &.white_type{
     a {
       background: #000;
@@ -1285,9 +1643,6 @@ button, label {
       transform: rotate(180deg);
       margin-left: 6px; 
     }
-    & ~ a {
-      margin-left: 6px;
-    }
   }
 }
 .footer{
@@ -1296,6 +1651,7 @@ button, label {
   height: 100%;
   font-family: 'Noto Sans';
   font-size: 14px;
+  margin-left: 56px;
   .copyright{
     margin: auto 0 0;
   }
