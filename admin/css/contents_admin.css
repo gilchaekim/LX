@@ -1673,7 +1673,7 @@ html.mui_modal_page {
   color: #A3A3A3;
 }
 .edit_btn .add {
-  background: url("/images/ico03.png") no-repeat center;
+  background: url("../images/ico03.png") no-repeat center;
   min-width: 16px;
   min-height: 16px;
   display: inline-flex;
@@ -1692,10 +1692,10 @@ html.mui_modal_page {
   height: 20px;
 }
 .move_btn button.prev {
-  background: url("/images/arr_prev.png") no-repeat center;
+  background: url("../images/arr_prev.png") no-repeat center;
 }
 .move_btn button.next {
-  background: url("/images/arr_next.png") no-repeat center;
+  background: url("../images/arr_next.png") no-repeat center;
   margin-top: 6px;
 }
 .move_btn.hor {
@@ -2057,7 +2057,7 @@ html.mui_modal_page {
 .edit_ground.fit .main_title {
   min-height: 60px;
 }
-.edit_ground.fit .main_title .text {
+.edit_ground.fit .main_title p.text {
   font-family: "Noto Sans";
   font-size: 60px;
   font-weight: 700;
@@ -2068,7 +2068,7 @@ html.mui_modal_page {
   min-height: 38px;
   margin-top: 20px;
 }
-.edit_ground.fit .sub_title .text {
+.edit_ground.fit .sub_title p.text {
   font-family: "Noto Sans";
   font-size: 26px;
   color: #fff;
