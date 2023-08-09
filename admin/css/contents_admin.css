@@ -1659,12 +1659,43 @@ html.mui_modal_page {
   right: 0;
   bottom: 0;
 }
+.edit_btn.on button::after, .edit_btn.on .file_add::after, .edit_btn.on label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
+}
+.edit_btn input:focus + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
+}
 .edit_btn button, .edit_btn .file_add, .edit_btn label {
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.edit_btn button:focus::after, .edit_btn .file_add:focus::after, .edit_btn label:focus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
 }
 .edit_btn .text {
   display: inline-flex;

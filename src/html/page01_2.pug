@@ -8,7 +8,7 @@ block content
   .edit_ground.fit
     .edit_header 
       .sec.logo(mui-addimage="target:.edit_btn;")
-        +edit_btn({title:"로고", type:"file"})
+        +edit_btn({title:"로고", type:"file", className:"on"})
       .sec.tnb 
         button(type="button") 
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,7 @@ block content
 
     .edit_contents 
       .sec.main_title(mui-addcontent="type:'title'")
-        +edit_btn({title:"메인타이틀1"})
+        +edit_btn({title:"메인타이틀1", className:"on"})
         //- p.text 빅데이터 플랫폼에 오신것을 환영합니다
         +move_btn()
       .sec.sub_title(mui-addcontent="type:'sub_title'")
