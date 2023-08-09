@@ -46,7 +46,7 @@ block content
 
       .edit_contents
         .bg(style="width:2338px")
-          .pc(style="background:url(/admin/images/bg_ex02.png) no-repeat center top / 100%")
+          .pc(style="background:url(/admin/images/bg_ex02.png) no-repeat center top / 100% 100%")
         .sec.blocks
           .grid_blocks.main
             .grid.title01
@@ -131,11 +131,9 @@ block content
                     img(src="/admin/images/ico_ex4.png", alt="")
                   span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
         .sec.blocks
-          +move_btn({className:"hor"})
           .grid_blocks.sub
             //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
             .grid.ver1
-              +edit_btn({title:"공지사항", className:"mui_active"})
               .notice_wrap
                 .notice
                   p.title 공지사항
@@ -157,14 +155,12 @@ block content
                         span.text 공지사항입니다.
                         span.date 2021-12-31
             .grid.ver1
-              +edit_btn({title:"이미지", className:"mui_active"})
               .movie_photo
                 .preview 
                   img(src="/admin/images/img_ex3.png", alt="")
                 a(href="").link
                   span.play
             .grid.ver1
-              +edit_btn({title:"이미지", className:"mui_active"})
               .movie_photo
                 .preview 
                   img(src="/admin/images/img_ex3.png", alt="")

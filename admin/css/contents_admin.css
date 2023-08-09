@@ -2194,6 +2194,22 @@ button, label {
     width: 125px;
     height: auto;
   }
+  #contant_main .horizontal_type .goto_link {
+    padding: 40px 0;
+  }
+  #contant_main .horizontal_type .goto_link .icon {
+    width: 40px;
+  }
+  #contant_main .horizontal_type .goto_link .text {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  #contant_main .horizontal_type .notice_wrap {
+    padding: 15px 20px;
+  }
+}
+#contant_main .horizontal_type .edit_contents {
+  overflow-x: hidden;
 }
 #contant_main .horizontal_type .edit_contents .bg {
   width: 100%;
@@ -2202,6 +2218,33 @@ button, label {
   #contant_main .horizontal_type .edit_contents {
     margin: 0;
     padding: 50px 20px;
+  }
+  #contant_main .horizontal_type .edit_contents .blocks {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+  #contant_main .horizontal_type .edit_contents .blocks ~ .blocks {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks .grid {
+    min-height: 0;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks.main {
+    padding-bottom: 30px;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks.main .title01 p.text {
+    font-size: 40px;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks.main .title02 {
+    margin-top: 10px;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks.main .title02 p.text {
+    font-size: 18px;
+  }
+  #contant_main .horizontal_type .edit_contents .grid_blocks.main .search, #contant_main .horizontal_type .edit_contents .grid_blocks.main .quick_service {
+    display: none;
   }
 }
 @media (max-width: 1199px) {
@@ -2938,7 +2981,7 @@ button, label {
   font-weight: 700;
 }
 .edit_ground.horizontal_type .edit_contents .grid_blocks .title02 {
-  height: 76px;
+  min-height: 76px;
   margin-top: 20px;
 }
 .edit_ground.horizontal_type .edit_contents .grid_blocks .title02 p.text {
@@ -3098,6 +3141,12 @@ button, label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.edit_ground.horizontal_type .goto_link .icon {
+  width: 60px;
+}
+.edit_ground.horizontal_type .goto_link .icon img {
+  width: 100%;
 }
 .edit_ground.horizontal_type .goto_link .text {
   margin-top: 10px;
