@@ -19,6 +19,24 @@
 		],
 		"description": "Log output to console"
 	},
+	"respondTo_mobile": {
+		"prefix": "@mobile",
+		"body": [
+			"@include respondTo(\"mobile\"){",
+			"\t$0",
+			"}",
+		],
+		"description": "Log output to console"
+	},
+	"respondTo_tablet": {
+		"prefix": "@tablet",
+		"body": [
+			"@include respondTo(\"tablet\"){",
+			"\t$0",
+			"}",
+		],
+		"description": "Log output to console"
+	},
 	"sb-icon1": {
 		"prefix": "@sb-icon",
 		"body": [

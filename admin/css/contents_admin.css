@@ -2939,10 +2939,8 @@ html.mui_modal_page {
 .search_btn {
   background: rgba(255, 255, 255, 0.9);
   height: 50px;
-  color: rgba(0, 0, 0, 0.4);
   font-family: "Noto Sans";
   font-size: 18px;
-  padding-left: 30px;
   line-height: 50px;
   width: 100%;
   text-align: left;
@@ -2950,19 +2948,30 @@ html.mui_modal_page {
   max-width: 500px;
   margin: 0 auto;
   position: relative;
-  display: block;
+  overflow: hidden;
 }
-.search_btn::after {
+.search_btn input {
+  border: 0 none;
+  height: 50px;
+  color: #000;
+  outline: 0;
+  background-color: transparent;
+}
+.search_btn .btn_sec button {
   content: "";
   display: block;
-  width: 26px;
-  height: 26px;
-  background: url("../images/ico_search.svg") no-repeat center;
+  width: 26px !important;
+  height: 26px !important;
+  background: transparent url("../images/ico_search.svg") no-repeat center !important;
   background-size: 100%;
   position: absolute;
   top: 50%;
   right: 20px;
   transform: translate(0, -50%);
+}
+.search_btn .btn_sec button span {
+  color: transparent;
+  font-size: 0;
 }
 
 .slides_wrap {

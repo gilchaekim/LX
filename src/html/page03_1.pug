@@ -54,8 +54,12 @@ block content
       .sec.sub_title
         p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다
       .sec.search
-        button.search_btn(type="button")
-          p 검색어를 입력해주세요.
+        +input_button({
+          btnText:"검색",
+          placeholder:"검색어를 입력해주세요.",
+          type:"input",
+          className:"search_btn"
+        })
       .sec.grid_box.grid_4x2
         .grid
           a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")

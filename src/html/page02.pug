@@ -53,8 +53,12 @@ block content
                 p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다.
               .grid.search
                 +edit_btn({title:"검색", className:"mui_active"})
-                button.search_btn(type="button")
-                  p 검색어를 입력해주세요.
+                +input_button({
+                  btnText:"검색",
+                  placeholder:"검색어를 입력해주세요.",
+                  type:"input",
+                  className:"search_btn"
+                })
               .grid.quick_service
                 +edit_btn({title:"자주 찾는 서비스", className:"mui_active"})
                 .quick_service_el 

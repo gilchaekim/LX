@@ -1108,10 +1108,8 @@
 .search_btn{
   background: rgba(255, 255, 255,  .9);
   height: 50px;
-  color: rgba($color: #000000, $alpha: .4);
   font-family: 'Noto Sans';
   font-size: 18px;
-  padding-left: 30px;
   line-height: 50px;
   width: 100%;
   text-align: left;
@@ -1119,18 +1117,29 @@
   max-width: 500px;
   margin: 0 auto;
   position: relative;
-  display: block;
-  &::after {
+  overflow: hidden;
+  input {
+    border: 0 none;
+    height: 50px;
+    color: #000;
+    outline: 0;
+    background-color: transparent;
+  }
+  .btn_sec button{
     content: '';
     display: block;
-    width: 26px;
-    height: 26px;
-    background: url($url_common+'ico_search.svg') no-repeat center;
+    width: 26px !important;
+    height: 26px !important;
+    background:transparent url($url_common+'ico_search.svg') no-repeat center !important;
     background-size: 100%;
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translate(0, -50%);
+    span{
+      color: transparent;
+      font-size: 0;
+    }
   }
 }
 .slides_wrap{
