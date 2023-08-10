@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <title>마크업 진행표4342</title>
-    <link rel="stylesheet" href="/admin/docs/css/index.css">
-    <meta charset="UTF-8">
-    <script type="text/javascript" src="/admin/js/index.js"></script>
-  </head>
-  <body>
-    <div id="wrap">
-      <header id="header">
-        <div class="inner"> 
-          <h1 class="title">마크업 진행표</h1>
-        </div>
-      </header>
-      <div id="contents"> 
-        <div class="side_nav" id="sideNav">
-          <div id="pages"> 
-            <div id="markupGuide">
-              <h2 class="side_title">페이지 리스트</h2>
-              <div id="treemenu"></div>
-            </div>
+
+<head>
+  <title>마크업 진행표4342</title>
+  <link rel="stylesheet" href="/admin/docs/css/index.css">
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="/admin/js/index.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="inner">
+        <h1 class="title">마크업 진행표</h1>
+      </div>
+    </header>
+    <div id="contents">
+      <div class="side_nav" id="sideNav">
+        <div id="pages">
+          <div id="markupGuide">
+            <h2 class="side_title">페이지 리스트</h2>
+            <div id="treemenu"></div>
           </div>
         </div>
-        <div class="contents"> 
-          <iframe class="content_frame" id="content_frame"></iframe>
-          <script>
-            const { $ } = GCui.util;
-            const data = {
-              "페이지 리스트" : {
-                "템플릿 선택" : ["/html/page04.html", "complete"],
-                "FIT_관리자" : ["/html/page01.html", "complete"],
-                "가로형_관리자" : ["/html/page02.html", "complete"],
-                "세로형_관리자" : ["/html/page03.html", "complete"],
-                "FIT_관리자_기본" : ["/html/page01_2.html", "complete"],
-                "가로형_관리자_기본" : ["/html/page02_2.html", "complete"],
-                "세로형_관리자_기본" : ["/html/page03_2.html", "complete"],
-                "FIT_페이지" : ["/html/page01_1.html", "complete"],
-                "가로형_페이지" : ["/html/page02_1.html", "complete"],
-                "세로형_페이지" : ["/html/page03_1.html", "complete"],
-            
-                "공통 검색" : ["/html/page05.html", "complete"],
-                "공통 메뉴" : ["/html/page06.html", "complete"],
-              }
-            
-            
-            
-            
-            
-            };
-            GCui.tree($('#treemenu'), {
-              data: data,
-              idName:'tree1',
-              mainFrame:'#content_frame',
-            })
-          </script>
-        </div>
+      </div>
+      <div class="contents">
+        <iframe class="content_frame" id="content_frame"></iframe>
+        <script>
+          const {
+            $
+          } = GCui.util;
+          const data = {
+            "페이지 리스트": {
+              "템플릿 선택": ["/html/page04.html", "complete"],
+              "FIT_관리자": ["/html/page01.html", "complete"],
+              "가로형_관리자": ["/html/page02.html", "complete"],
+              "세로형_관리자": ["/html/page03.html", "complete"],
+              "FIT_관리자_기본": ["/html/page01_2.html", "complete"],
+              "가로형_관리자_기본": ["/html/page02_2.html", "complete"],
+              "세로형_관리자_기본": ["/html/page03_2.html", "complete"],
+              "FIT_페이지": ["/html/page01_1.html", "complete"],
+              "가로형_페이지": ["/html/page02_1.html", "complete"],
+              "세로형_페이지": ["/html/page03_1.html", "complete"],
+
+              "공통 검색": ["/html/page05.html", "complete"],
+              "공통 메뉴": ["/html/page06.html", "complete"],
+            }
+
+
+
+
+
+          };
+          GCui.tree($('#treemenu'), {
+            data: data,
+            idName: 'tree1',
+            mainFrame: '#content_frame',
+          })
+        </script>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
