@@ -289,11 +289,12 @@ button, label {
       }
     }
     .edit_contents {
-      overflow-x: hidden;
+      
       .bg{
         width: 100%;
       }
       @include respondTo("tablet"){
+        overflow-x: hidden;
         margin: 0;
         padding: 50px 20px;
         .blocks{
@@ -557,6 +558,16 @@ button, label {
       left: 0;
       right: 0;
       bottom: 0;
+      &.delete {
+        width: auto;
+        height: auto;
+        top: -16px;
+        left: 0;
+        right: auto;
+        bottom: auto;
+        background: none;
+        border: 0 none;
+      }
     }
   }
   &.fit {

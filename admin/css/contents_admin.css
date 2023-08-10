@@ -1652,12 +1652,14 @@ html.mui_modal_page {
   background: none;
 }
 .edit_btn.mui_active button, .edit_btn.mui_active .file_add, .edit_btn.mui_active label {
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+}
+.edit_btn.mui_active button *, .edit_btn.mui_active .file_add *, .edit_btn.mui_active label * {
+  display: none;
 }
 .edit_btn.on button::after, .edit_btn.on .file_add::after, .edit_btn.on label::after {
   content: "";
@@ -2208,14 +2210,12 @@ button, label {
     padding: 15px 20px;
   }
 }
-#contant_main .horizontal_type .edit_contents {
-  overflow-x: hidden;
-}
 #contant_main .horizontal_type .edit_contents .bg {
   width: 100%;
 }
 @media (max-width: 1199px) {
   #contant_main .horizontal_type .edit_contents {
+    overflow-x: hidden;
     margin: 0;
     padding: 50px 20px;
   }
@@ -2453,6 +2453,16 @@ button, label {
   left: 0;
   right: 0;
   bottom: 0;
+}
+.edit_ground .sec .edit_btn.delete {
+  width: auto;
+  height: auto;
+  top: -16px;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  background: none;
+  border: 0 none;
 }
 .edit_ground.fit .edit_quick_service {
   position: absolute;

@@ -10132,6 +10132,90 @@
     el && (el.hidden = hide);
   }
 
+  var scrollbar = {
+    mixins: [Togglable],
+    props: {
+      targets: String,
+      active: null,
+      openText: String,
+      closeText: String,
+      collapsible: Boolean,
+      multiple: Boolean,
+      toggle: String,
+      content: String,
+      transition: String,
+      offset: Number
+    },
+    data: {
+      target: ' .edit_contents',
+      active: false,
+      animation: [true],
+      openSize: null,
+      closeSize: null,
+      openText: "열기",
+      closeText: "닫기",
+      clsOpen: 'mui_active',
+      toggle: ' .ctrl',
+      transition: 'ease',
+      duration: 300,
+      offset: 0
+    },
+    computed: {
+      target: function target(_ref, $el) {
+        var target = _ref.target;
+        return $$1(target, $el);
+      }
+    },
+    connected: function connected() {
+      // new Swiper(slider, data);
+      console.dir(Swiper);
+      this.Swiper = new Swiper(this.target, {
+        mousewheel: true,
+        direction: "horizontal",
+        slidesPerView: "auto",
+        freeMode: true
+      });
+    },
+    events: [{
+      name: 'click',
+      delegate: function delegate() {
+        return "".concat(this.targets, " ").concat(this.$props.toggle);
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        console.log(index(this.toggles, e.current));
+        this.toggle(index(this.toggles, e.current));
+      }
+    }],
+    methods: {
+      toggle: function toggle(item, animate) {
+        var _this = this;
+        var items = [this.items[getIndex(item, this.items)]];
+        var activeItems = filter(this.items, ".".concat(this.clsOpen));
+        this.closeSize = toFloat(css(items, 'paddingLeft')) + toFloat(css(items, 'paddingRight')) + width(items);
+        this.openSize = width(this.$el) - this.closeSize * (this.items.length - 1);
+
+        // css(items, 'width', `${itemWidth}px`)
+        // css(activeItems, 'width', `${minWidth}px`)
+        // addClass(items, this.clsOpen);
+        // removeClass(activeItems, this.clsOpen);
+        if (!this.multiple && !includes(activeItems, items[0])) {
+          items = items.concat(activeItems);
+        }
+
+        // console.log(items);
+        items.forEach(function (el) {
+          return _this.toggleElement(el, !hasClass(el, _this.clsOpen), function (el, show) {
+            toggleClass(el, _this.clsOpen, show);
+            // return toggleAccordion(this)(el, show)
+            css(items, 'width', "".concat(_this.openSize, "px"));
+            css(activeItems, 'width', "".concat(_this.closeSize, "px"));
+          });
+        });
+      }
+    }
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -10236,6 +10320,7 @@
     Tree: tree,
     Addimage: addimage,
     Acclist: acclist,
+    Scrollbar: scrollbar,
     Worklists: worklists
   });
 
