@@ -23,6 +23,16 @@ mixin edit_btn(params={})
           span.text!=title
         span.add
           span.hidden 추가
+  if className === 'mui_active'
+    .edit_btn.delete.btn_only.mini
+      button(type="button") 
+        span.add 
+          span.hidden 삭제
+  if className === 'mui_active on'
+    .edit_btn.delete.btn_only.mini
+      button(type="button") 
+        span.add 
+          span.hidden 삭제
     block
     
 

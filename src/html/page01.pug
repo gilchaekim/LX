@@ -30,13 +30,11 @@ block content
     .edit_contents 
       .sec.main_title(mui-addcontent="type:'title'")
         +edit_btn({title:"메인타이틀1", className:"mui_active on"})
-        +edit_btn({className:"delete"})
         p.text 빅데이터 플랫폼에 오신것을 환영합니다
         +move_btn()
       .sec.sub_title(mui-addcontent="type:'sub_title'")
         +edit_btn({title:"서브타이틀", className:"mui_active"})
         p.text 빅데이터 플랫폼에 오신것을 환영합니다.
-        +edit_btn({className:"delete"})
         +move_btn()
       .sec.sub_gotolink
         +edit_btn({title:"바로가기버튼설정", className:"mui_active"})
@@ -44,10 +42,8 @@ block content
             a(href="") 머머 바로가기
             a(href="") 머머 바로가기
             a(href="") 머머 바로가기
-        +edit_btn({className:"delete"})
         +move_btn()
       .sec.main_menu
-        +edit_btn({className:"delete"})
         +edit_btn({title:"메인메뉴", className:"mui_active"})
         <!-- 컬러 타입 color_type1 ~ 12  -->
         .main_list(mui-acclist="active:1;").color_type8
@@ -213,7 +209,6 @@ block content
         +move_btn()
       .sec.sub_menu
         +edit_btn({title:"서브메뉴", className:"mui_active"})
-        +edit_btn({className:"delete"})
         .notice_wrap
           .notice
             p.title 공지사항
@@ -252,7 +247,6 @@ block content
         +edit_btn({title:"로고", type:"file"})
       .sec.copy
         +edit_btn({title:"푸터 내용 입력", className:"mui_active"})
-        +edit_btn({className:"delete"})
         .footer
           p.text (우)54994 전라북도 전주시 완산구 노송광장로 10 | 대표전화 : 063-222-1000 | 팩스 : 063-281-5000
           p.copyright Copyright © 2023 Jeonjy City. All Rights Reserved.
