@@ -274,14 +274,59 @@ button, label {
           height: auto;
         } 
       }
+      .goto_link{
+        padding: 40px 0;
+        .icon{
+          width: 40px;
+        }
+        .text{
+          font-size: 18px;
+          margin-top: 5px;
+        }
+      }
+      .notice_wrap{
+        padding: 15px 20px;
+      }
     }
     .edit_contents {
+      overflow-x: hidden;
       .bg{
         width: 100%;
       }
       @include respondTo("tablet"){
         margin: 0;
         padding: 50px 20px;
+        .blocks{
+          display: block;
+          width: auto;
+          height: auto;
+          & ~ .blocks{
+            margin-left: 0;
+            margin-top: 10px;
+          }
+        }
+        .grid_blocks {
+          .grid {
+            min-height: 0;
+          }
+          &.main {
+            padding-bottom: 30px;
+            .title01{
+              p.text {
+                font-size: 40px;
+              }
+            }
+            .title02{
+              margin-top: 10px;
+              p.text {
+                font-size: 18px;
+              }
+            }
+            .search, .quick_service{
+              display: none;
+            }
+          }
+        }
       }
     }
     .tnb{
@@ -991,7 +1036,7 @@ button, label {
           }
         }
         .title02{
-          height: 76px;
+          min-height: 76px;
           margin-top: 20px;
           p.text {
             font-family: 'Noto Sans';
@@ -1163,6 +1208,12 @@ button, label {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .icon{
+        width: 60px;
+        img{
+          width: 100%;
+        }
+      }
       .text {
         margin-top: 10px;
         color: #fff;
