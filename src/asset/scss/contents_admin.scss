@@ -751,6 +751,17 @@ button, label {
           }
         }  
       }
+      &.icon_black{
+        .list{
+          @for $i from 1 to 6{
+            &:nth-child(#{$i}) {
+              .ico{
+                background-image:  url($url_common+"ico_main0#{$i}_2.svg");
+              }
+            }
+          }
+        }
+      }
 
       .list {
         padding: 30px 10px 30px 78px;
@@ -797,24 +808,14 @@ button, label {
           top: 32px;
           left: 32px;
         }
-        // &:nth-child(1) {
-        //   background: #29B6F6;
-        // }
-        // &:nth-child(2) {
-        //   background: #03A9F4;
-        // }
-        // &:nth-child(3) {
-        //   background: #039BE5;
-        // }
-        // &:nth-child(4) {
-        //   background: #0288D1;
-        // }
-        // &:nth-child(5) {
-        //   background: #0277BD;
-        // }
-        // &:nth-child(6) {
-        //   background: #01579B;
-        // }
+        @for $i from 1 to 6{
+          &:nth-child(#{$i}) {
+            .ico{
+              background-image:  url($url_common+"ico_main0#{$i}.svg");
+            }
+          }
+        }
+        
       }
       .title {
         color: #fff;
@@ -1822,6 +1823,15 @@ button, label {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  &.type_black{
+    background: rgba(0, 0, 0,  .9);
+    input {
+      color: #fff;
+    }
+    .btn_sec button{
+      background-image: url($url_common+"ico_search_white.svg") !important;
+    }
+  }
   input {
     border: 0 none;
     height: 50px;
@@ -1830,7 +1840,6 @@ button, label {
     background-color: transparent;
   }
   .btn_sec button{
-    content: '';
     display: block;
     width: 26px !important;
     height: 26px !important;
