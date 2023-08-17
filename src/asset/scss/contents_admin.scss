@@ -18,6 +18,18 @@ button, label {
 	src: url(./font/notoSans/eot/NotoSansKR-Bold-Hestia.eot);
 	src: url(./font/notoSans/eot/NotoSansKR-Bold-Hestia.eot?#iefix) format("embedded-opentype"), url(./font/notoSans/woff/NotoSansKR-Bold-Hestia.woff) format("woff");
 }
+@keyframes mouse-scroll-hor{
+  0%{
+    left:10%;
+    opacity:1
+  }
+  80%{
+    opacity:1
+  }100%{
+    left:70%;
+    opacity:0
+  }
+}
 .align_center{
   text-align: center;
 }
@@ -297,6 +309,9 @@ button, label {
         overflow-x: hidden;
         margin: 0;
         padding: 50px 20px;
+        .swiper-slide{
+          width: 100% !important;
+        }
         .blocks{
           display: block;
           width: auto;
@@ -1006,12 +1021,43 @@ button, label {
       border: 1px solid #fff;
       border-radius:70px 0 0 0;
       padding: 110px 160px;
-      overflow: auto;
+      overflow: hidden;
       white-space: nowrap;
       position: relative;
-      .contents_inner{
-        
+      .scroll_ico{
+        width: 47px;
+        height: 30px;
+        border-radius: 15px;
+        border: 2px solid #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        left: 40px;
+        z-index: 100;
+        opacity: .8;
+        &::after {
+          content: '';
+          width: 14px;
+          height: 10px;
+          background: url($url_common+"arrow.svg") repeat-x left center;
+          position: absolute;right: -22px;
+          top: 50%;
+          margin-top: -5px;
+        }
+        i{
+          position: absolute;
+          width: 6px;
+          height: 4px;
+          background-color: #fff;
+          border-radius: 2px;
+          top: 50%;
+          margin-top: -2px;
+          left: 10px;
+          animation:mouse-scroll-hor 1s infinite
+        }
       }
+      
+      
       .grid {
         display: flex;
         position: relative;

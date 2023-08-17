@@ -46,10 +46,12 @@ block content
                 a(href="") 고객지원
 
       .edit_contents
+        .scroll_ico 
+          i 
         .bg(style="width:2338px")
           .pc(style="background:url(/admin/images/bg_ex02.png) no-repeat center top / 100% 100%")
         .swiper-wrapper
-          .swiper-slide
+          .swiper-slide(style="width:5000px")
             .sec.blocks
               .grid_blocks.main
                 .grid.title01
@@ -117,57 +119,57 @@ block content
 
 
 
-          .sec.blocks
-            .grid_blocks.sub
-              .grid.ver2
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex2.png", alt="")
-              .grid.ver1
-                .grid_in
-                  a.goto_link(href="", style="background:rgba(45, 53, 155, 0.9)")
-                    span.icon 
-                      img(src="/admin/images/ico_ex5.png", alt="")
-                    span.text 데이터 공간
-                .grid_in
-                  a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
-                    span.icon 
-                      img(src="/admin/images/ico_ex4.png", alt="")
-                    span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
-          .sec.blocks
-            .grid_blocks.sub
-              //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
-              .grid.ver1
-                .notice_wrap
-                  .notice
-                    p.title 공지사항
-                    ul
-                      li 
-                        a 
-                          span.text 공지사항입니다. 공지사항입니다. 공지사항입니다. 공지사항입니다. 
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
-                      li 
-                        a 
-                          span.text 공지사항입니다.
-                          span.date 2021-12-31
-              .grid.ver1
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex3.png", alt="")
-                  a(href="").link
-                    span.play
-              .grid.ver1
-                .movie_photo
-                  .preview 
-                    img(src="/admin/images/img_ex3.png", alt="")
+            .sec.blocks
+              .grid_blocks.sub
+                .grid.ver2
+                  .movie_photo
+                    .preview 
+                      img(src="/admin/images/img_ex2.png", alt="")
+                .grid.ver1
+                  .grid_in
+                    a.goto_link(href="", style="background:rgba(45, 53, 155, 0.9)")
+                      span.icon 
+                        img(src="/admin/images/ico_ex5.png", alt="")
+                      span.text 데이터 공간
+                  .grid_in
+                    a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
+                      span.icon 
+                        img(src="/admin/images/ico_ex4.png", alt="")
+                      span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+            .sec.blocks
+              .grid_blocks.sub
+                //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
+                .grid.ver1
+                  .notice_wrap
+                    .notice
+                      p.title 공지사항
+                      ul
+                        li 
+                          a 
+                            span.text 공지사항입니다. 공지사항입니다. 공지사항입니다. 공지사항입니다. 
+                            span.date 2021-12-31
+                        li 
+                          a 
+                            span.text 공지사항입니다.
+                            span.date 2021-12-31
+                        li 
+                          a 
+                            span.text 공지사항입니다.
+                            span.date 2021-12-31
+                        li 
+                          a 
+                            span.text 공지사항입니다.
+                            span.date 2021-12-31
+                .grid.ver1
+                  .movie_photo
+                    .preview 
+                      img(src="/admin/images/img_ex3.png", alt="")
+                    a(href="").link
+                      span.play
+                .grid.ver1
+                  .movie_photo
+                    .preview 
+                      img(src="/admin/images/img_ex3.png", alt="")
 
     .edit_footer(style="background:#aaa")
       .sec.logo(mui-addimage="target:.edit_btn;")

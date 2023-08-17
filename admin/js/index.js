@@ -10152,8 +10152,8 @@
       animation: [true],
       openSize: null,
       closeSize: null,
-      openText: "열기",
-      closeText: "닫기",
+      blocks: ' .blocks',
+      slide: " .swiper-wrapper > .swiper-slide",
       clsOpen: 'mui_active',
       toggle: ' .ctrl',
       transition: 'ease',
@@ -10167,8 +10167,7 @@
       }
     },
     connected: function connected() {
-      // new Swiper(slider, data);
-      console.dir(Swiper);
+      this.setSize();
       this.Swiper = new Swiper(this.target, {
         mousewheel: true,
         direction: "horizontal",
@@ -10176,42 +10175,12 @@
         freeMode: true
       });
     },
-    events: [{
-      name: 'click',
-      delegate: function delegate() {
-        return "".concat(this.targets, " ").concat(this.$props.toggle);
-      },
-      handler: function handler(e) {
-        e.preventDefault();
-        console.log(index(this.toggles, e.current));
-        this.toggle(index(this.toggles, e.current));
-      }
-    }],
     methods: {
-      toggle: function toggle(item, animate) {
-        var _this = this;
-        var items = [this.items[getIndex(item, this.items)]];
-        var activeItems = filter(this.items, ".".concat(this.clsOpen));
-        this.closeSize = toFloat(css(items, 'paddingLeft')) + toFloat(css(items, 'paddingRight')) + width(items);
-        this.openSize = width(this.$el) - this.closeSize * (this.items.length - 1);
-
-        // css(items, 'width', `${itemWidth}px`)
-        // css(activeItems, 'width', `${minWidth}px`)
-        // addClass(items, this.clsOpen);
-        // removeClass(activeItems, this.clsOpen);
-        if (!this.multiple && !includes(activeItems, items[0])) {
-          items = items.concat(activeItems);
-        }
-
-        // console.log(items);
-        items.forEach(function (el) {
-          return _this.toggleElement(el, !hasClass(el, _this.clsOpen), function (el, show) {
-            toggleClass(el, _this.clsOpen, show);
-            // return toggleAccordion(this)(el, show)
-            css(items, 'width', "".concat(_this.openSize, "px"));
-            css(activeItems, 'width', "".concat(_this.closeSize, "px"));
-          });
-        });
+      setSize: function setSize() {
+        var itemsWidth = $$(this.blocks).reduce(function (size, element) {
+          return size + width(element) + toFloat(css(element, 'marginLeft'));
+        }, 0);
+        css($$1(this.slide), 'width', "".concat(itemsWidth, "px"));
       }
     }
   };

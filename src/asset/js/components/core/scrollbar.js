@@ -26,8 +26,8 @@ export default {
         animation: [true],
         openSize:null,
         closeSize:null,
-        openText:"열기",
-        closeText:"닫기",
+        blocks : ' .blocks',
+        slide:" .swiper-wrapper > .swiper-slide",
         clsOpen: 'mui_active',
         toggle: ' .ctrl',
         transition: 'ease',
@@ -41,8 +41,7 @@ export default {
         },
     },
     connected() {
-        // new Swiper(slider, data);
-        console.dir(Swiper);
+        this.setSize()
         this.Swiper= new Swiper(this.target, {
             mousewheel: true,
             direction:"horizontal",
@@ -51,50 +50,13 @@ export default {
         });
     },
 
-    events: [
-
-        {
-
-            name: 'click',
-
-            delegate() {
-                return `${this.targets} ${this.$props.toggle}`;
-            },
-
-            handler(e) {
-                e.preventDefault();
-                console.log(index(this.toggles, e.current));
-                this.toggle(index(this.toggles, e.current));
-            }
-
-        }
-
-    ],
-
     methods: {
 
-        toggle(item, animate) {
-            
-            let items = [this.items[getIndex(item, this.items)]];
-            const activeItems = filter(this.items, `.${this.clsOpen}`);
-            this.closeSize = toFloat(css(items, 'paddingLeft')) + toFloat(css(items, 'paddingRight')) + width(items);
-            this.openSize = width(this.$el) - (this.closeSize * (this.items.length -1))
-            
-            // css(items, 'width', `${itemWidth}px`)
-            // css(activeItems, 'width', `${minWidth}px`)
-            // addClass(items, this.clsOpen);
-            // removeClass(activeItems, this.clsOpen);
-            if (!this.multiple && !includes(activeItems, items[0])) {
-                items = items.concat(activeItems);
-            }
-            
-            // console.log(items);
-            items.forEach(el => this.toggleElement(el, !hasClass(el, this.clsOpen), (el, show) => {
-                toggleClass(el, this.clsOpen, show);
-                // return toggleAccordion(this)(el, show)
-                css(items, 'width', `${this.openSize}px`);
-                css(activeItems, 'width', `${this.closeSize}px`);
-            }));
+        setSize() {
+            let itemsWidth = $$(this.blocks).reduce((size, element) => {
+                return size + width(element) + toFloat(css(element, 'marginLeft'));
+            }, 0);
+            css($(this.slide), 'width', `${itemsWidth}px`)
         }
 
     }
