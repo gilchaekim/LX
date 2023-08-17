@@ -1035,6 +1035,9 @@ button, label {
         left: 40px;
         z-index: 100;
         opacity: .8;
+        @include respondTo("tablet"){
+          display: none;
+        }
         &::after {
           content: '';
           width: 14px;

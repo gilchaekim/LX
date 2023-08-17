@@ -3013,6 +3013,11 @@ button, label {
   z-index: 100;
   opacity: 0.8;
 }
+@media (max-width: 1199px) {
+  .edit_ground.horizontal_type .edit_contents .scroll_ico {
+    display: none;
+  }
+}
 .edit_ground.horizontal_type .edit_contents .scroll_ico::after {
   content: "";
   width: 14px;
