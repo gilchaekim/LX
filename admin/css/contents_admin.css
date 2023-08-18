@@ -1643,6 +1643,13 @@ html.mui_modal_page {
 .edit_btn.vertical {
   writing-mode: vertical-lr;
 }
+.edit_btn.vertical.mui_active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .edit_btn.vertical .add {
   margin-left: 0;
   margin-top: 10px;
@@ -1650,6 +1657,7 @@ html.mui_modal_page {
 .edit_btn.mui_active {
   border: 1px dashed #a3a3a3;
   background: none;
+  z-index: 2;
 }
 .edit_btn.mui_active button, .edit_btn.mui_active .file_add, .edit_btn.mui_active label {
   position: absolute;
@@ -2222,6 +2230,9 @@ button, label {
   #contant_main .horizontal_type .notice_wrap {
     padding: 15px 20px;
   }
+}
+#contant_main .horizontal_type .edit_contents {
+  overflow: hidden;
 }
 #contant_main .horizontal_type .edit_contents .bg {
   width: 100%;
@@ -2969,6 +2980,16 @@ button, label {
   line-height: 18px;
   color: #A3A3A3;
 }
+.edit_ground.horizontal_type .tnb .menu > button.on::after, .edit_ground.horizontal_type .tnb .menu > button:focus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
+}
 .edit_ground.horizontal_type .tnb .delete.btn_only {
   border: 0 none;
   background: none;
@@ -2997,7 +3018,7 @@ button, label {
   border: 1px solid #fff;
   border-radius: 70px 0 0 0;
   padding: 110px 160px;
-  overflow: hidden;
+  overflow: auto;
   white-space: nowrap;
   position: relative;
 }
@@ -3470,6 +3491,16 @@ button, label {
   vertical-align: top;
   align-items: center;
   justify-content: center;
+}
+.edit_ground .edit_header .tnb .menu > button.on::after, .edit_ground .edit_header .tnb .menu > button:focus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
 }
 .edit_ground .edit_container {
   display: flex;

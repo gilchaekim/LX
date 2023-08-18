@@ -301,7 +301,7 @@ button, label {
       }
     }
     .edit_contents {
-      
+      overflow: hidden;
       .bg{
         width: 100%;
       }
@@ -989,6 +989,18 @@ button, label {
           height: 18px;
           line-height: 18px;
           color: #A3A3A3;
+          &.on, &:focus{
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border: 2px solid #436AEB;
+            }
+          }
         }
       } 
       .delete.btn_only{
@@ -1021,7 +1033,7 @@ button, label {
       border: 1px solid #fff;
       border-radius:70px 0 0 0;
       padding: 110px 160px;
-      overflow: hidden;
+      overflow: auto;
       white-space: nowrap;
       position: relative;
       .scroll_ico{
@@ -1511,6 +1523,18 @@ button, label {
           vertical-align: top;
           align-items: center;
           justify-content: center;
+          &.on, &:focus{
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border: 2px solid #436AEB;
+            }
+          }
         }
       }
       

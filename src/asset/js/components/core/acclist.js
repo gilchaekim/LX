@@ -52,7 +52,6 @@ export default {
                 
                 const active = this.active !== false && items[Number(this.active)]
                     || !this.collapsible && items[0];
-                console.log(active);
 
                 if (active) {
                     this.toggle(active, false);

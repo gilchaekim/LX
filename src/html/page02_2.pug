@@ -5,7 +5,7 @@ block prepend top
   - pageTitle = "메인 페이지 관리";
 block content
   p.edit_type 가로형
-  .edit_ground.horizontal_type(mui-scrollbar="")
+  .edit_ground.horizontal_type
     .edit_container
       .sec.tnb 
         .menu.search_button
@@ -23,66 +23,67 @@ block content
           +edit_btn({title:"메인메뉴"})
 
       .edit_contents 
-        .contents_inner
-          .sec.blocks
-            +move_btn({className:"hor"})
-            +edit_btn({className:"big delete"})
-            .grid_blocks.main
-              .grid.title01
-                +edit_btn({title:"메인 타이틀"})
+        .swiper-wrapper
+          .swiper-slide
+            .sec.blocks
+              +move_btn({className:"hor"})
+              +edit_btn({className:"big delete"})
+              .grid_blocks.main
+                .grid.title01
+                  +edit_btn({title:"메인 타이틀"})
 
-              .grid.title02
-                +edit_btn({title:"서브 타이틀"})
-              .grid.search
-                +edit_btn({title:"검색"})
-              .grid.quick_service
-                +edit_btn({title:"자주 찾는 서비스"})
+                .grid.title02
+                  +edit_btn({title:"서브 타이틀"})
+                .grid.search
+                  +edit_btn({title:"검색"})
+                .grid.quick_service
+                  +edit_btn({title:"자주 찾는 서비스"})
 
-          .sec.blocks
-            +move_btn({className:"hor"})
-            +edit_btn({className:"big delete"})
-            .grid_blocks.sub
-              .grid.ver1
-                .grid_in
+            .sec.blocks
+              +move_btn({className:"hor"})
+              +edit_btn({className:"big delete"})
+              .grid_blocks.sub
+                .grid.ver1
+                  .grid_in
+                    +edit_btn({title:"이미지"})
+                  .grid_in
+                    +edit_btn({title:"이미지"})
+                .grid.ver1
+                  .grid_in
+                    +edit_btn({title:"이미지"})
+                  .grid_in
+                    +edit_btn({title:"이미지"})
+                .grid.ver1
+                  +edit_btn({title:"동영상"})
+
+            .sec.blocks
+              +move_btn({className:"hor"})
+              +edit_btn({className:"big delete"})
+              .grid_blocks.sub
+                //- +edit_btn({className:"big delete"})
+                .grid.ver2
+                  +edit_btn({title:"이미지 & 동영상"})
+                .grid.ver1
+                  .grid_in
+                    +edit_btn({title:"바로가기"})
+                  .grid_in
+                    +edit_btn({title:"바로가기"})
+            .sec.blocks
+              +move_btn({className:"hor"})
+              +edit_btn({className:"big delete"})
+              .grid_blocks.sub
+                //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
+                .grid.ver1
+                  +edit_btn({title:"공지사항"})
+                .grid.ver1
                   +edit_btn({title:"이미지"})
-                .grid_in
+                .grid.ver1
                   +edit_btn({title:"이미지"})
-              .grid.ver1
-                .grid_in
-                  +edit_btn({title:"이미지"})
-                .grid_in
-                  +edit_btn({title:"이미지"})
-              .grid.ver1
-                +edit_btn({title:"동영상"})
-
-          .sec.blocks
-            +move_btn({className:"hor"})
-            +edit_btn({className:"big delete"})
-            .grid_blocks.sub
-              //- +edit_btn({className:"big delete"})
-              .grid.ver2
-                +edit_btn({title:"이미지 & 동영상"})
-              .grid.ver1
-                .grid_in
-                  +edit_btn({title:"바로가기"})
-                .grid_in
-                  +edit_btn({title:"바로가기"})
-          .sec.blocks
-            +move_btn({className:"hor"})
-            +edit_btn({className:"big delete"})
-            .grid_blocks.sub
-              //- +edit_btn({className:"big delete", cla/ssName:"mui_active"})
-              .grid.ver1
-                +edit_btn({title:"공지사항"})
-              .grid.ver1
-                +edit_btn({title:"이미지"})
-              .grid.ver1
-                +edit_btn({title:"이미지"})
 
 
-                
-          .sec.blocks
-            +edit_btn()
+                  
+            .sec.blocks
+              +edit_btn()
 
     .edit_footer 
       .sec.logo(mui-addimage="target:.edit_btn;")
