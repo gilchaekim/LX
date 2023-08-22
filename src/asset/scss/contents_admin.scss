@@ -302,6 +302,7 @@ button, label {
     }
     .edit_contents {
       overflow: hidden;
+
       .bg{
         width: 100%;
       }
@@ -542,6 +543,9 @@ button, label {
 .edit_ground {
   background: #e9e9e9;
   position: relative;
+  &.on{
+    border: 2px solid #436AEB;
+  }
   .bg{
     position: absolute;
     top: 0;
@@ -814,6 +818,21 @@ button, label {
           width: 690px;
           display: none;
         }
+        button.ico{
+          z-index: 999;
+          &.on, &:focus{
+            &::after{
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border: 2px solid #436AEB;
+            }
+          }
+        }
         .ico{
           width: 40px;
           height: 40px;
@@ -1029,6 +1048,7 @@ button, label {
       }
     }
     .edit_contents {
+      
       margin-top: 40px;
       border: 1px solid #fff;
       border-radius:70px 0 0 0;
@@ -1036,6 +1056,9 @@ button, label {
       overflow: auto;
       white-space: nowrap;
       position: relative;
+      &.on{
+        border: 2px solid #436AEB;
+      }
       .scroll_ico{
         width: 47px;
         height: 30px;

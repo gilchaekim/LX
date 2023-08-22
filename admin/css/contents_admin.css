@@ -2448,6 +2448,9 @@ button, label {
   background: #e9e9e9;
   position: relative;
 }
+.edit_ground.on {
+  border: 2px solid #436AEB;
+}
 .edit_ground .bg {
   position: absolute;
   top: 0;
@@ -2806,6 +2809,19 @@ button, label {
   width: 690px;
   display: none;
 }
+.edit_ground.fit .main_list .list button.ico {
+  z-index: 999;
+}
+.edit_ground.fit .main_list .list button.ico.on::after, .edit_ground.fit .main_list .list button.ico:focus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #436AEB;
+}
 .edit_ground.fit .main_list .list .ico {
   width: 40px;
   height: 40px;
@@ -3021,6 +3037,9 @@ button, label {
   overflow: auto;
   white-space: nowrap;
   position: relative;
+}
+.edit_ground.horizontal_type .edit_contents.on {
+  border: 2px solid #436AEB;
 }
 .edit_ground.horizontal_type .edit_contents .scroll_ico {
   width: 47px;
