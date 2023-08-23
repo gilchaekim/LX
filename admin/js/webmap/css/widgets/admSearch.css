@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.administrativeDistrictSearch_type  {
+	font-size : 13px !important;
+	padding-left :0px !important;
+}
+
+#administrativeDistrictSearch_location{
+	top: 15px !important;
+}
+#location{
+	top: 15px;
+}

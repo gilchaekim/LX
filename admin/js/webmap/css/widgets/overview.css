@@ -1,0 +1,3 @@
+.ol-overviewmap:not(.ol-collapsed){
+	background : unset;
+}

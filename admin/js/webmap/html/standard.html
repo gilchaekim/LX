@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!--sampleFrame-->
+	<div class="sampleFrame">
+		<!--cont-->
+		<div class="cont">
+			<!--tocArea-->
+			<div class="tocArea">
+				<div id="toc" class="active">
+					<!-- toc 1뎁스-->
+					<div class="toc dep1 tocWidget">
+						<div class="inner">
+							<!--head-->
+							<div class="head">
+								<strong class="titToc" title="웹앱 명">웹맵 명</strong>
+								<div class="btnGroup">
+									<button type="button" class="btnTocHide">
+										<span class="hidden">숨기기</span>
+									</button>
+								</div>
+							</div>
+							<!--//head-->
+							<!--cont-->
+							<div class="cont cScroll">
+								<div class="inner" id="tocWidget"></div>
+							</div>
+							<!--//cont-->
+						</div>
+					</div>
+					<!--// toc 1뎁스-->
+					<!-- toc 2뎁스-->
+					<div class="toc dep2 popupWidget" id="layerDetailDiv">
+						<div class="inner">
+							<!--head-->
+							<div class="head">
+								<div class="titBox">
+									<strong class="titToc" id="layerTile"></strong>
+									<button type="button" class="btnTip" id="lyrDetailBtn">
+										<span class="hidden">팁</span><span>!</span>
+									</button>
+								</div>
+								<div class="btnGroup">
+									<button type="button" class="btnTocHide">
+										<span class="hidden">숨기기</span>
+									</button>
+									<button type="button" class="btnTocClose">
+										<span class="hidden">숨기기</span>
+									</button>
+								</div>
+							</div>
+							<!--//head-->
+							<!--cont-->
+							<div class="cont cScroll">
+								<div id="layerDetailWidget"></div>
+							</div>
+							<!--//cont-->
+						</div>
+					</div>
+					<!--// toc 2뎁스-->
+				</div>
+			</div>
+			<!--//tocArea-->
+			<!--contentArea-->
+			<div class="contentArea">
+				<div id="map"></div>
+				<div class="toolGroup">
+					<ul>
+						<li>
+							<button type="button" class="tool">
+								<img src="../images/common/ico-in-add-hover.png" /> <span>출력</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="tool">
+								<img src="../images/common/ico-in-add-hover.png" /> <span>출력</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="tool">
+								<img src="../images/common/ico-in-add-hover.png" /> <span>출력</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="tool">
+								<img src="../images/common/ico-in-add-hover.png" /> <span>출력</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="tool">
+								<img src="../images/common/ico-in-add-hover.png" /> <span>출력</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<div id="widget">
+					<div class="flex">
+						<div class="group active">
+							<ul class="dep1">
+								<li class="homeWidget" id="homeControlWidget"></li>
+								<li class="basemapWidget">
+									<button type="button" class="tool">
+										<span>배경지도33</span>
+									</button>
+									<ul class="dep2">
+										<li>
+											<button type="button" class="tool type01">
+												<span>기본지도</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type02">
+												<span>영상지도</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type03">
+												<span>영어지도</span>
+											</button>
+										</li>
+									</ul>
+								</li>
+								<li class="divideWidget">
+									<button type="button" class="tool">
+										<span>분할지도</span>
+									</button>
+									<ul class="dep2">
+										<li>
+											<button type="button" class="tool type01">
+												<span>2분할</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type02">
+												<span>3분할가로</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type03">
+												<span>3분할세로</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type04">
+												<span>4분할</span>
+											</button>
+										</li>
+									</ul>
+								</li>
+								<li class="drawWidget" id="drawControlWidget">
+									<button type="button" class="tool">
+										<span>그리기</span>
+									</button>
+									<ul class="dep2">
+										<li>
+											<button type="button" class="tool type01">
+												<span>포인트</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type02">
+												<span>텍스트</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type03">
+												<span>라인</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type04">
+												<span>자유형</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type05">
+												<span>폴리곤</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type06">
+												<span>사각형</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type07">
+												<span>원형</span>
+											</button>
+										</li>
+									</ul>
+								</li>
+								<li class="measureWidget">
+									<button type="button" class="tool">
+										<span>측정</span>
+									</button>
+									<ul class="dep2">
+										<li>
+											<button type="button" class="tool type01">
+												<span>거리</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type02">
+												<span>면적</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type03">
+												<span>지점</span>
+											</button>
+										</li>
+									</ul>
+								</li>
+								<li class="resetWidget">
+									<button type="button" class="tool">
+										<span>초기화</span>
+									</button>
+								</li>
+								<li class="printWidget">
+									<button type="button" class="tool">
+										<span>출력</span>
+									</button>
+									<ul class="dep2">
+										<li>
+											<button type="button" class="tool type01">
+												<span>JPG</span>
+											</button>
+										</li>
+										<li>
+											<button type="button" class="tool type02">
+												<span>PDF</span>
+											</button>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="btnGroup">
+								<button type="button" class="btnLeft" disabled>
+									<span class="hidden">이전</span>
+								</button>
+								<button type="button" class="btnRight">
+									<span class="hidden">다음</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!--zoom-->
+					<div class="zoomWidget">
+						<button type="button" class="btnZoom in">
+							<span class="hidden">확대</span>
+						</button>
+						<div class="sliderArea">
+							<div class="slideBar mapStyle"></div>
+							<div class="tooltip">
+								<ul>
+									<li>읍면동</li>
+									<li>시군구</li>
+									<li>시도</li>
+								</ul>
+							</div>
+						</div>
+						<button type="button" class="btnZoom out">
+							<span class="hidden">축소</span>
+						</button>
+					</div>
+					<!--//zoom-->
+				</div>
+				<div class="widgetFlex">
+					<div id="location"></div>
+					<div id="userMenu">
+						<!--searchArea-->
+						<div class="searchArea" id="searchAreaWidget"></div>
+						<div class="userInfo">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--//contentArea-->
+		</div>
+
+	</div>
+	<!--//sampleFrame-->
+</body>
+<script id="sample_script"></script>
+
+</html>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+/*배경지도 위젯 css*/
+
+#widget .dep1 > li .basemap_tool,
+.divideMap_basemap .basemap_tool
+{
+	min-height: 67px;
+	background-repeat: no-repeat;
+	background-position: center 10px;
+    color: #555;
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_tool ,
+.divideMap_basemap> .basemap_tool
+{
+	background-image: url("../../images/toolbar/ico-tool-maptype.png");
+}
+#widget .dep1 > li.basemapWidget:hover > .basemap_tool,
+.divideMap_basemap:hover > .basemap_tool
+ {
+	background-image: url("../../images/toolbar/ico-tool-maptype-active.png");
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_toolbox,
+.divideMap_basemap> .basemap_toolbox
+{
+    word-break: keep-all;
+    flex-direction: row;
+    border-radius: 3px;
+    transition: .2s;
+    background: #fff;
+    box-shadow: 0.6px 0.8px 4px 0 rgb(0 0 0 / 35%);
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox .basemap_basemapArea li,
+.divideMap_basemap > .basemap_toolbox .basemap_basemapArea li
+{
+    color: #555;
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapGroup{
+	margin : 5px;
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup button,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapGroup button{
+	margin: 0 3.5px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #eee;
+    color: #555;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup button.basemap_active,
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup button:hover,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapGroup button.basemap_active,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapGroup button:hover{
+	background-color: #436aeb;
+    color: white;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup button.basemap_active:hover,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapGroup button.basemap_active:hover
+{
+    color: #eee;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapGroup button>span,
+.divideMap_basemap  > .basemap_toolbox>.basemap_basemapGroup button>span
+{
+    padding: 2px;
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea
+{
+	border : 0.5px solid #eee;
+	border-radius : 5px;
+	margin : 5px;
+    background-color: #e1e3ea;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer, 
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer
+{
+    min-height: 67px;
+	padding: 0 3.5px;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer >img,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer >img
+{
+	border : 1px solid #eee;
+	width : 40px;
+	height : 30px;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer >span,
+.divideMap_basemap> .basemap_toolbox>.basemap_basemapArea button.basemap_layer >span
+{
+    padding-top: 6px;
+}
+
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer:hover>img,
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer.basemap_active>img,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer:hover>img,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer.basemap_active>img
+{
+	border : 1px solid #436aeb;
+}
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer:hover>span,
+#widget .dep1 > li.basemapWidget > .basemap_toolbox>.basemap_basemapArea button.basemap_layer.basemap_active>span,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer:hover>span,
+.divideMap_basemap > .basemap_toolbox>.basemap_basemapArea button.basemap_layer.basemap_active>span
+{
+    color: #436aeb;
+}
+
+
+.basemap_basemapArea .basemap_layer.basemap_active select{
+    font-size: 10px;
+    width: 100%;
+    padding-left: 2px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: 10px 6px;
+    -webkit-appearance: none;
+    padding-right: 2px;
+    margin-top: 3px;
+}

@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+#odf-measure-overlay{
+  font-weight : bold;
+  text-shadow : -1px 0 #eee, -1px 0 #eee, -1px 0 #eee, -1px 0 #eee;
+}

@@ -1,0 +1,138 @@
+#sharePopup .cont .termsProgress {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#sharePopup .termsProgress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#sharePopup .cont .termsProgress > div {
+    flex: 1;
+    text-align: center;
+    font-size: 17px;
+    padding: 0;
+    border: 0;
+}
+#sharePopup .termsProgress > div {
+    height: 56px;
+    line-height: 56px;
+    padding: 0 63px;
+    border-radius: 4px;
+    color: #333;
+    font-size: 25px;
+    font-family: 'Pretendard';
+    font-weight: normal;
+    border: 1px solid #e9e9e9;
+    box-sizing: border-box;
+}
+
+#sharePopup .termsProgress > div.active {
+    color: #fff;
+    background: #ff7200;
+}
+#sharePopup .termsProgress span {
+    width: 62px;
+    background: url(../images/share/ico-term-progress.png) no-repeat center;
+}
+#sharePopup .optionArea {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    margin-bottom: 40px;
+    background: #fafafa;
+}
+#sharePopup .optionArea .label {
+    margin-right: 30px;
+    font-size: 18px;
+    color: #555;
+    font-family: 'Pretendard Bold';
+}
+#sharePopup .searchArea input[type="text"] {
+    width: 100%;
+}
+#sharePopup .searchArea .inputBox {
+    flex: 1;
+    margin-right: 12px;
+}
+#sharePopup .table.cScroll {
+    border-bottom: 1px solid #e9e9e9;
+}
+#sharePopup .addShareArea {
+    display: flex;
+    justify-content: space-between;
+}
+#sharePopup .addShareArea .table table thead tr th.tit {
+    background: #e4edff;
+}
+#sharePopup .cont .table table th, .popup .cont .table table td {
+    font-size: 16px;
+}
+#sharePopup .table table thead tr:first-child th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+#sharePopup .table table thead tr th {
+    font-family: 'Pretendard Bold';
+}
+#sharePopup .table table th {
+    background: #f9f9f9;
+    font-family: 'Pretendard Bold';
+}
+#sharePopup .table table th, .table table td {
+    height: 30px;
+    color: #555;
+    border-bottom: 1pxsolid #e9e9e9;
+    padding: 8px;
+    font-size: 16px;
+}
+#sharePopup .termCont {
+    display: none;
+}
+#sharePopup .termCont.active {
+    display: block;
+}
+#sharePopup .cont .inner {
+    width: auto;
+    padding: 30px;
+    max-height: 650px !important;
+}
+#sharePopup .cont .shareImg {
+    border: 1px solid #e9e9e9;
+    padding: 30px;
+    text-align: center;
+}
+#sharePopup .addShareArea .success {
+    padding: 70px 0;
+    text-align: center;
+    flex: 1;
+    border: 1px solid #e9e9e9;
+}
+#sharePopup .addShareArea .success strong {
+    display: block;
+    padding-top: 30px;
+    font-family: 'Pretendard';
+    font-size: 16px;
+    font-weight: normal;
+}
+#sharePopup #i.ico.ct {
+    margin: 0;
+}
+#sharePopup i.ico.ico-remove2 {
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/share/ico-in-remove.png);
+}
+#sharePopup .cont .btn {
+    font-size: 16px;
+}
+
+#sharePopup .btn.normal {
+    border: 0;
+    color: #333;
+}
+#sharePopup .btn.white:hover {
+    background: #fff;
+    color: #555;
+    border: 1px solid #e9e9e9;

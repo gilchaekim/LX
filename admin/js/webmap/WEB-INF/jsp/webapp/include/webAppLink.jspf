@@ -1,0 +1,180 @@
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<script>
+const contextPath = "${contextPath}" // ex) /smt
+	window.app = {};
+	let app = window.app;
+	let userMapId = "${mapId}";
+	let map;
+	let	API_SMT= "${API_SMT}";
+	let	API_MAP= "${API_MAP}";
+	let	API_ANALS= "${API_ANALS}";
+	let	API_SPATIAL= "${API_SPATIAL}";
+	let	API_COORD= "${API_COORD}";
+	let API_LAYERGROUP= "${API_LAYERGROUP}";
+	let	API_GEOCODING= "${API_GEOCODING}";
+	let	API_WORKFLOW= "${API_WORKFLOW}";
+	let crtfckey="${crtfckey}"
+	let viewMode = "${viewMode}";
+	let tocMaxNum = "${tocMaxNum}";
+	let environmentType = "${environmentType}";
+	let inscdNm ="${inscdNm}"
+	let userNm ="${userNm}"
+	let inscd ="${inscd}"
+	let userId = "${userId}" //"lxuser"
+	let userSeCode ="${userSeCode}"
+	let mainProjection = "${mainProjection}"
+	let kakaoAppKey = "${kakaoAppKey}"
+	let webmapToolbarTemplate = "${webmapToolbarTemplate}"
+	let limsBaseUrl  = "${limsBaseUrl}"
+	let limsBaseAuthKey  = "${limsBaseAuthKey}"
+	let limsAirUrl   = "${limsAirUrl}"
+	let limsAirAuthKey   = "${limsAirAuthKey}"
+	let lsmdType = "${lsmdType}"
+	let lsmdBaseUrl = "${lsmdBaseUrl}"
+	let lsmdBaseAuthKey = "${lsmdBaseAuthKey}"
+	let lsmdAirUrl = "${lsmdAirUrl}"
+	let lsmdAirAuthKey = "${lsmdAirAuthKey}"
+	
+</script>
+
+<!-- css -->
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/lib/jquery-ui.css">
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/lib/colorpicker/colorpicker.css">
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/toc.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widget.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/common.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/common_custom.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widget_custom.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/map.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/webapp_custom.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/js/odf/odf.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/js/oui/oui.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/share.css"/>
+
+<!-- widget css -->
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/modal.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/toc.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/spatialAnalysis.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/addressSearch.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/admSearch.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/conditionFilter.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/basemap.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/divideMap.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/scaleControl.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/bookmark.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/draw.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/measure.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/layerSearch.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/popup.css"/>
+
+
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/grid.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widgets/overview.css"/>
+
+<!-- libs -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/jquery-ui.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/vue/vue.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/colorpicker/colorpicker.js"></script>
+<script type="text/javascript"  src="<c:out value="${contextPath}" />/lib/sortable.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/html2canvas/html2canvas.js"></script>
+
+<!-- amchart -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/core.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/charts.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/animated.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/forceDirected.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/frozen.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/amcharts4/wordCloud.js"></script>
+<%-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoAppKey}"></script> --%>
+
+<!-- type script -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/odf/odf.min.js" ></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/oui.min.js" ></script>
+ 
+<!-- 공통 common js -->
+<script type="text/javascript" src='<c:url value="/js/cmm/cmmn.js"/>'></script>
+
+<!-- odf -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/core/map.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/core/draw.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/core/drawLayer.js"></script>
+
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/customAlert.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/util.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/client.js"></script>
+
+<script type="text/javascript" src='<c:url value="/js/sketchpicker/vue-color.js"/>'></script>
+
+<!-- api �� -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/layer.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/usermap.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/ntice.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/geofile.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/cmmn.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/api.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/webmap.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/webapp.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/overlap.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/api/landInfo.js"></script>
+
+
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/ui.js" defer></script>
+
+<!-- server -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/server/file.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/server/webmap.js"></script>
+
+<!-- data -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/data.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/data.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/data.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/data.js"></script>
+
+<!-- process -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/process.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/process.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/process.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/process.js"></script>
+
+<!-- vue -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/detailInfoTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/shareInfoTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/newWebMapModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/webMapDetailModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/overlapListModalVue.js" defer></script>
+
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/widgetTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/themaTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/sectionTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/mainTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/layoutTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/contentsTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/webMapSearchModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/webLyrModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/leftMenuVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/widgetListVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/newWebAppViewVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/detailSettingVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/components/alarmButton.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/components/alarmModal.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/sampleFrameVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/spatialAnalysisWidgetModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/landInfoWidgetModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/mainTabModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/themaTabModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/webAppSearchModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/newWebAppModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/webAppChartModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/detailInfoTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/shareInfoTab.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webapp/components/webAppDetailModalVue.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/webmap/components/drawStyleModalVue.js" defer></script>
+
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/share/cntnts.js"></script>
+
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/uiCustom.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/uiCustom.js" defer></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/api.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/oui/widget.js"></script>
+

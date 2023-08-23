@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* line 945, scss/common.scss */
+
+#bookMarkControlWidget_top .bookMarkControl_bookMarkControlContent , #bookmarkDiv .bookMarkControl_bookMarkControlContent{
+	top : 52px !important;
+	left : 23px !important;
+	
+}
+#bookMarkControlWidget_top .bookMarkControl_bookmarkNmSpan , #bookmarkDiv .bookMarkControl_bookmarkNmSpan{
+	top: 21px !important;
+	
+}
+#bookMarkControlWidget_top{
+	position : absolute;
+}
+#bookMarkControlWidget_top .bookMarkControl_bookmarkDeleteSpan , #bookmarkDiv .bookMarkControl_bookmarkDeleteSpan{
+    top: 8px !important;
+}
+#bookMarkControlWidget_top .bookMarkControl_addBookMarkSpan , #bookmarkDiv .bookMarkControl_addBookMarkSpan{
+	top : 10px !important;
+} 
+.bookMarkControl_rowDiv {
+  	padding: 10px 10px 10px 10px;
+}
+
+.bookMarkControl_bookMarkInput{
+    width: 200px !important;
+    margin-right: 6px !important;;
+    margin-bottom:5px;
+}
+.bookMarkControl_addBtn{
+	/* background-color: #2F5597; */
+}
+.bookMarkControl_bookMarkControlContent{
+	width: 266px;	
+	position: absolute;
+    right: 65px;
+}
+.bookMarkControl_addBookMarkSpan{
+	font-family: "Pretendard";
+	font-size: 15px;
+	position: absolute;
+    top: -17px;
+}
+.bookMarkControl_bookmarkDeleteSpan{
+	font-size: 15px;
+	position: absolute;
+    top: -17px;
+}
+.bookMarkControl_addBtn{
+	/* width: 63px; */
+}
+.bookMarkControl_bookmarkDeleteBtn{
+	/* width: 63px; */
+}
+#widget .dep1 > li span {
+	font-family: 'Pretendard';
+    display: block;
+    padding-top: 30px;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+.bookMarkControl_bookmarkNmSpan{
+	color: #333;
+    margin-left: 10px;
+    position: absolute;
+    top: -5px;
+}
+
+.bookMarkControl_bookmarkBtn{
+	margin-right: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Pretendard";
+    color: #5d484894;
+    border-width: 0px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #dbd5dc;
+}

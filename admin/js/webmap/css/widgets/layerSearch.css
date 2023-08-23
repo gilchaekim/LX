@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.layerSearch_layerType5{
+	background-image: url(../../images/ico/ico-layer-group.png);
+}
+.layerSearch_layerListBox {
+    max-height: 549px;
+}
+.layerSearch_sortSelect {
+  width: 160px;
+  height: 30px;
+  float: right;
+}
+
+.layerSearch_sortDt {
+  width: 100%;
+}
+.layerSearch_noCont {
+  min-width: 70%;
+}
+

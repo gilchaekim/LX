@@ -1,0 +1,741 @@
+/* webapp 전용 css 설정. */
+.areaTxt {
+    font-size: 25px;
+    display: block;
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
+
+.areaTxt.text {
+    width: 100%;
+}
+
+#widget .zoomWidget {
+    margin-top: 375px;
+}
+
+#scaleWidget {
+    position: absolute !important;
+    right: 80px;
+    bottom: 20px;
+    text-align: right;
+}
+
+#mousePositionControlWidget {
+    position: absolute !important;
+    right: 240px;
+    bottom: 20px;
+    text-align: right;
+}
+
+#fullScreenControlWidget_header {
+    background-image: url(../images/toolbar/ico-tool-print.png);
+    min-height: 67px;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+}
+
+#timeSliderControlWidget_content {}
+
+.overViewMapControlWidgetOption {
+    position: absolute;
+    top: 78%;
+    width: 211px;
+}
+
+.timeSliderControlWidget_header {
+    position: absolute;
+    width: 28%;
+    right: 139px;
+}
+
+.timeSliderControlWidget_top {
+    top: 53px;
+    position: absolute;
+    width: 28%;
+    left: 1px;
+}
+
+.timeSliderControl_timeSliderControlContent {
+    background-color: white;
+}
+
+#featureAttributeFormWidget {
+    top: 53px;
+    position: absolute;
+    width: 28%;
+    left: 1px;
+}
+
+#featureAttributeFormWidget_top {
+    top: 53px;
+    position: absolute;
+    width: 28%;
+    left: 1px;
+}
+
+
+
+/*
+#optionTable{
+    z-index: 1 !important;
+     position: absolute !important; /
+    top: 50% !important; 
+    width: 100% !important;
+}*/
+
+#optionTable .head .btnGroup {
+    display: flex !important;
+    align-items: center !important;
+    margin-right: 112px !important;
+}
+
+.grid_headerGrp {
+    width: 100% !important;
+}
+
+.grid_secondBtnGrp {
+    margin-right: 25px;
+}
+
+#optionTable .head .btnGroup {
+    margin-right: 22px !important;
+}
+
+#featureAttributeFormWidgetDiv .popup {
+    width: 370px !important;
+    position: absolute !important;
+    margin-top: 7px;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0px;
+}
+#featureAttributeFormWidgetDiv .searchLoading{
+	z-index: 1000;
+	width: 370px;
+	height: 536px;
+	top: 7px;
+	left: 1px;
+}
+	
+.webMapUserInfo_btn {
+    background: url(../images/widget/사용자정보.png);
+}
+
+.webMapUserInfo_btn:hover {
+    background: url(../images/widget/사용자정보hover.png);
+}
+
+.webMapShare_btn {
+    background-image: url(../images/widget/공유.png);
+}
+
+.webMapShare_btn:hover {
+    background-image: url(../images/widget/공유hover.png);
+}
+
+.webMapSave_btn {
+    background-image: url(../images/widget/헤더저장.png);
+}
+
+.webMapSave_btn:hover {
+    background-image: url(../images/widget/헤더저장hover.png);
+}
+
+.webMapInfo_btn {
+    background-image: url(../images/widget/기본정보.png);
+}
+
+.webMapInfo_btn:hover {
+    background-image: url(../images/widget/기본정보hover.png);
+}
+
+#widget_header .widgetBtn:hover {
+    background-color: #2f5597;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+#widget_header .webMapSave_content .dep2 {
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    box-shadow: 0.5px 0.9px 4px 0 rgba(0, 0, 0, 0.27);
+    border-radius: 3px;
+    background-color: #fff;
+    word-break: keep-all;
+    transition: .4s;
+    align-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50px;
+    margin-top: 6px;
+    height: 120px;
+    padding: 5px;
+    margin-left: -4px;
+}
+
+.widget_header_ul {
+    margin-right: 55px;
+}
+
+#webMapUserInfoWidget_Icon .userPop .inner {
+    padding: 10px 12px;
+}
+
+#webMapUserInfoWidget_Icon .userPop ul li:last-of-type {
+    margin-bottom: 0;
+}
+
+#webMapUserInfoWidget_Icon .userPop ul li {
+    position: relative;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 13px;
+    font-family: "Pretendard";
+    font-weight: normal;
+    margin-left: 0px;
+}
+
+#webMapUserInfoWidget_Icon .userPop .name span {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#webMapUserInfoWidget_Icon .userPop ul {
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+}
+
+#webMapUserInfoWidget_Icon .userPop ul li>a {
+    display: flex;
+    align-items: center;
+}
+
+#webMapUserInfoWidget_Icon .userPop {
+    position: absolute;
+    margin-top: 68px;
+    margin-left: -23px;
+    transform: translateY(-50%);
+    z-index: 100;
+    min-width: 100px;
+    word-break: keep-all;
+    background: #333;
+    border-radius: 3px;
+    box-shadow: 0.5px 0.9px 4px 0 rgba(0, 0, 0, 0.27);
+}
+
+/* #webMapUserInfoWidget_Icon .userPop::before {
+    z-index: 1000;
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    display: block;
+    content: '';
+    border-left: 5px solid #333;
+    transform: rotate(-45deg) translateY(-50%);
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    border-bottom: 5px solid transparent;
+} */
+
+#webMapUserInfoWidget_Icon .userPop .position {
+    display: block;
+    color: #ffffff;
+    opacity: .4;
+    font-family: "Pretendard";
+    font-size: 12px;
+}
+
+#webMapUserInfoWidget_Icon .userPop .name {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Pretendard Bold";
+    font-weight: normal;
+}
+
+#webMapUserInfoWidget_Icon .userPop i.ico.myPage {
+    background-image: url(../images/common/ico-user-mypage.png);
+}
+
+#webMapUserInfoWidget_Icon .userPop i.ico {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+}
+
+#webMapUserInfoWidget_Icon .userPop i.ico.logout {
+    background-image: url(../images/common/ico-user-logout.png);
+}
+
+#webMapUserInfoWidget_Icon .userPop i.ico {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+}
+
+#webMapUserInfoWidget_Icon .userPop ul li .new {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    z-index: 10;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    padding: 0;
+    border-radius: 50px;
+    margin-right: 4px;
+    font-size: 10px;
+    text-align: center;
+    background: #f85959;
+}
+
+
+#widget_header .webMapSave_content .dep2 li {
+    margin-top: 5px;
+    margin-left: 0px;
+}
+
+#widget_header .webMapSave_content .dep2 button {
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: top;
+    background-position-y: 5px;
+}
+
+#widget_header .webMapSave_content .dep2 span {
+    display: block;
+    margin-top: 30px;
+}
+
+.webMapSave_content .dep2 .type01 {
+    background-image: url(../images/header/ico-save-01.png);
+}
+
+.webMapSave_content .dep2 .type01:hover {
+    background-image: url(../images/header/ico-save-01-active.png);
+}
+
+.webMapSave_content .dep2 .type02 {
+    background-image: url(../images/header/ico-save-02.png);
+}
+
+.webMapSave_content .dep2 .type02:hover {
+    background-image: url(../images/header/ico-save-02-active.png);
+}
+
+#widget_header .headerTxt {
+    margin-top: 31px;
+}
+
+#widget_header button {
+    width: 50px;
+    height: 50px;
+}
+
+#widget_header .widgetBtn {
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position-y: 5px;
+}
+
+.webMapUserInfo_content .new {
+    position: relative;
+    right: 6px;
+    top: -15px;
+    z-index: 10;
+    height: 14px;
+    line-height: 11px;
+    padding: 0 2px;
+    font-size: 10px;
+    color: #fff;
+    font-family: "Pretendard Bold";
+    border-radius: 3px;
+    background: #f85959;
+}
+
+.webMapUserInfo_span {
+    position: relative;
+    right: -4px;
+}
+
+.sampleFrame .toolGroup .topWidget span {
+    display: none;
+}
+
+.sampleFrame .toolGroup .topWidget button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    /*     margin-left: -12px; */
+}
+
+.sampleFrame .toolGroup .spatialAnalysisWidget button {
+    background-image: url(/smt/images/widget/공간분석.png);
+}
+
+.sampleFrame .toolGroup .spatialAnalysisWidget button:hover {
+    background-image: url(/smt/images/widget/공간분석hover.png);
+}
+
+.sampleFrame .toolGroup .topWidget .fullScreenControl_fullScreenBtn {
+    background-image: url(../images/widget/전체화면.png);
+}
+
+.sampleFrame .toolGroup .topWidget .fullScreenControl_fullScreenBtn:hover {
+    background-image: url(../images/widget/전체화면hover.png);
+    background-color: #2f5597;
+}
+
+.sampleFrame .toolGroup .topWidget .printControl_printBtn:hover {
+    background-image: url(../images/widget/인쇄.png);
+    background-color: #2f5597;
+}
+
+.sampleFrame .toolGroup .topWidget .printControl_printBtn:hover {
+    background-image: url(../images/widget/인쇄hover.png);
+    background-color: #2f5597;
+}
+
+.sampleFrame .toolGroup .topWidget .overViewMapControl_openBtn {
+    background-image: url(../images/widget/오버뷰.png);
+}
+
+.sampleFrame .toolGroup .topWidget .overViewMapControl_openBtn:hover {
+    background-color: #2f5597;
+    background-image: url(../images/widget/오버뷰hover.png);
+}
+
+.sampleFrame .toolGroup .topWidget .rotationControl_rotateBtn {
+    background-image: url(../images/widget/나침반.png);
+}
+
+.sampleFrame .toolGroup .topWidget .rotationControl_rotateBtn:hover {
+    background-color: #2f5597;
+    background-image: url(../images/widget/나침반hover.png);
+}
+
+/*저장*/
+.sampleFrame .toolGroup .topWidget .downloadControl_toolBtn {
+    background-image: url(../images/widget/저장.png);
+}
+
+.sampleFrame .toolGroup .topWidget .downloadControl_toolBtn:hover {
+    background-image: url(../images/widget/저장hover.png);
+    background-color: #2f5597;
+}
+
+/*OUI 클릭 add map smt에서 제어*/
+.sampleFrame .toolGroup ul li.rotationControlWidget>.tool {
+    background-image: url(../images/widget/피쳐속성폼.png);
+}
+
+.sampleFrame .toolGroup ul li.rotationControlWidget>.tool:hover {
+    background-image: url(../images/widget/피쳐속성폼hover.png);
+}
+
+.sampleFrame .toolGroup ul li.timeSliderControlWidget>.tool {
+    background-image: url(../images/widget/타임슬라이더.png);
+}
+
+.sampleFrame .toolGroup ul li.timeSliderControlWidget>.tool:hover {
+    background-image: url(../images/widget/타임슬라이더hover.png);
+}
+
+.sampleFrame .toolGroup ul li.bookMarkControlWidget>.tool {
+    background-image: url(../images/widget/북마크.png);
+}
+
+.sampleFrame .toolGroup ul li.bookMarkControlWidget>.tool:hover {
+    background-image: url(../images/widget/북마크hover.png);
+}
+
+.sampleFrame .toolGroup ul li.featureAttributeFormWidget>.tool {
+    background-image: url(../images/widget/피쳐속성폼.png);
+}
+
+.sampleFrame .toolGroup ul li.featureAttributeFormWidget>.tool.active {
+    background-image: url(../images/widget/피쳐속성폼hover.png);
+    background-color: #2f5597;
+}
+
+.sampleFrame .toolGroup ul li.featureAttributeFormWidget>.tool:hover {
+    background-image: url(../images/widget/피쳐속성폼hover.png);
+}
+
+.sampleFrame .toolGroup ul li.swiperControlWidget>.tool {
+    background-image: url(../images/widget/스와이프.png);
+}
+
+.sampleFrame .toolGroup ul li.swiperControlWidget>.tool:hover {
+    background-image: url(../images/widget/스와이프hover.png);
+}
+
+.widgetBox.off {
+    background: #e9e9e9;
+}
+
+.widgetBox .flex button.btnWidgetView.off {
+    background-image: url(../images/widget/ico-widget-in-hide.png);
+}
+
+.widgetBox .flex button.btnWidgetView.off:hover {
+    background-image: url(../images/widget/ico-widget-in-show.png);
+}
+
+.analysisSet .table {
+    max-height: 378px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tocArea {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.style02 .userInfo .alarmPop {
+    left: 0;
+    right: 0;
+}
+
+.style04 .userInfo .alarmPop {
+    left: 0;
+    right: 0;
+}
+
+.style03 .widget_header_ul {
+    margin-right: 3px;
+}
+
+.style04 .widget_header_ul {
+    margin-right: 3px;
+}
+
+#spatialAnalysisWidgetModal .input.analysisOpt {
+    width: 160px;
+    margin-left: 15px;
+}
+
+#spatialAnalysisWidgetModal .btn.analysisOpt {
+    width: 55px;
+    height: 40px;
+    margin-left: 5px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #8faadc;
+}
+
+#spatialAnalysisWidgetModal .selectbox.analysisOpt {
+    width: 128px;
+}
+
+#optionTable {
+    min-width: 376px;
+}
+
+#app {
+    width: 100%;
+}
+
+#mainTabModalVue {
+    z-index: 20;
+}
+
+/* line 2424, scss/common.scss */
+.articleArea .articleList .context.active {
+    opacity: 1;
+}
+
+/* line 2426, scss/common.scss */
+.articleArea .articleList .context.active .title {
+    color: #555;
+}
+
+/* line 2427, scss/common.scss */
+.articleArea .articleList .context.active .desc {
+    color: #333;
+}
+
+.articleArea .articleList {
+    width: 100%;
+    height: 100%;
+    background: #f6f9fe;
+}
+
+.layerTabActive {
+    margin-bottom: -8px;
+}
+
+.tabContWrap.type04 .tabCont {
+    padding-top: 20px;
+}
+
+.sampleFrame.themeType01.style02 .basemap_toolbox,
+.sampleFrame.themeType01.style04 .basemap_toolbox,
+.sampleFrame.themeType04.style02 .basemap_toolbox,
+.sampleFrame.themeType01.style02 .divideMap_toolbox,
+.sampleFrame.themeType01.style04 .divideMap_toolbox,
+.sampleFrame.themeType04.style02 .divideMap_toolbox {
+    left: 100%;
+    margin-left: 10px;
+    right: auto;
+}
+
+.swiperControlWidget_top {
+    position: absolute;
+    top: 59px;
+    left: 20px;
+}
+
+#detailSetting .widgetBox .widget {
+    color: #2f5597;
+}
+
+#downloadControlWidget_top .downloadControl_downloadPngBtn,
+#downloadControlWidget_top .downloadControl_downloadPDFBtn {
+    background-position: top;
+    background-position-y: 5px;
+    background-size: 19px;
+    background-image: url(../images/widget/저장.png);
+}
+
+#downloadControlWidget_top .downloadControl_downloadPngBtn:hover,
+#downloadControlWidget_top .downloadControl_downloadPDFBtn:hover {
+    background-image: url(../images/widget/저장hover.png);
+    background-color: #2f5597;
+}
+
+#downloadControlWidget_top .downloadControl_pngBtnSpan,
+#downloadControlWidget_top .downloadControl_PDFBtnSpan {
+    margin-top: 21px;
+    display: block;
+}
+
+#webAppSearchModal .titSec strong,
+#webMapSearchModal .titSec strong {
+    position: relative;
+    font-size: 18px;
+    color: #2e2e2e;
+    text-indent: 10px;
+    font-family: "Pretendard Bold";
+    letter-spacing: -1px;
+    padding-left: 10px;
+}
+
+#webAppSearchModal .titSec strong:before,
+#webMapSearchModal .titSec strong:before {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 3px;
+    height: 14px;
+    background: #d6d6d6;
+    display: block;
+    content: '';
+}
+
+.tui-popup-wrapper.te-popup-add-image.tui-editor-popup,
+.tui-popup-wrapper.te-popup-add-link.tui-editor-popup {
+    width: 405px;
+    left: 250px;
+}
+
+#mapDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 1 1;
+    overflow: hidden;
+}
+
+#top_widget_div li>button span,
+#top_widget_div li>div:nth-child(1)>button span {
+    position: fixed;
+    line-height: 27px;
+    padding: 0 5px;
+    display: none;
+    background: #fff;
+    border-radius: 5px;
+    color: #555;
+    border: 1px solid #eef1f8;
+    font-size: 14px;
+    margin-top: 78px;
+    font-weight: normal;
+    text-indent: initial;
+    width: auto;
+    height: 27px;
+    visibility: visible;
+}
+
+#top_widget_div li>button:hover span,
+#top_widget_div li>div:nth-child(1)>button:hover span {
+    display: block;
+    z-index: 10;
+}
+
+#webAppChartModal {
+    width: 351px !important;
+}
+
+#webAppChartModal .chart_contentDiv {
+    border: 0;
+}
+
+#webAppChartModal .chart_titleInput,
+#webAppChartModal .chart_typeSelectBox,
+#webAppChartModal .chart_category,
+#webAppChartModal .chart_fieldSelectBox {
+    width: 301px;
+    margin-left: 15px;
+}
+
+#webAppChartModal .chart_titleSpan,
+#webAppChartModal .chart_typeSpan,
+#webAppChartModal .chart_categorySelectSpan,
+#webAppChartModal .chart_fieldSpan {
+    margin-left: 15px;
+}
+
+#top_widget_div .downloadControl_downloadGrpDiv {
+    display: block;
+    padding: 0;
+    background: no-repeat;
+}
+
+#top_widget_div .downloadControl_downloadGrpDiv {}
+
+#top_widget_div .downloadControl_downloadPDFBtn {
+    margin-top: 5px
+}
+.tui-popup-wrapper.te-popup-add-table{
+	left:100px !important;
+}

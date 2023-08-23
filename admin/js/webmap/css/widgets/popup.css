@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* 속성팝업 위젯 */
+#popup .popup .head.blue {
+    background: linear-gradient(to right, #2F5597, #8FAADC);
+}
+#popup .popup .head .popup-titPop {
+    margin-left: 20px;
+    line-height: 46px;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Pretendard";
+    font-weight: normal;
+}
+#popup .popup.poi .head .popup-comboBox {
+	max-width: 290px;
+    display: inline-block;
+}
+#popup .popup.poi .head .btnGroup .popup-btn-minmax{
+	background-size: 30px;
+    margin-right: 0px;
+}
+#popup .popup.poi .head .btnGroup .popup-btn-closed{
+	background-size: 20px;
+}
+#popup .section.type02 .titSec{
+	margin-bottom: 10px;
+}
+#popup  .table table tbody tr th{
+	font-size: 16px;
+    font-family: 'Pretendard Bold';
+}
+#popup .table table tbody tr td{
+	font-size: 15px;	
+    font-family: 'Pretendard';
+    color: #686868;
+    background: #fff;
+    font-size: 15px;
+}
+#popup .txt-center{
+	border-top: 1px solid #cbcbcb;
+    border-bottom: 1px solid #cbcbcb;
+}
+#popup .comboList{
+	left: 0;
+    top: 40px;
+    width: auto;
+    padding: 5px 0;
+    min-width: 100px;
+    border: 1px solid #2f5597;
+    border-radius: 0;
+    max-width: 289px;
+}
+#popup .comboList li {
+    font-size: 20px;
+    color: #333;
+}
+#popup .comboList li span {
+    display: block;
+    cursor: pointer;
+    padding: 0 10px;
+    word-break: keep-all;
+    font-size: 16px;
+    font-family: 'Pretendard';
+}
+#popup .section.type02 .titSec strong{
+	max-width: 330px;
+}
