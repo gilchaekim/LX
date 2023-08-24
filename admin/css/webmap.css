@@ -72,7 +72,7 @@
   display: block;
   width: 44px;
   height: 24px;
-  background: url("../js/webmap/images/popup/arrow.png") no-repeat center;
+  background: url("../images/popup/arrow.png") no-repeat center;
   bottom: -24px;
   position: absolute;
   left: 50%;
@@ -120,7 +120,7 @@
   width: 36px;
   color: transparent;
   font-size: 0;
-  background: rgb(47, 85, 151) url("../js/webmap/images/popup/ico_write.png") no-repeat center;
+  background: rgb(47, 85, 151) url("../images/popup/ico_write.png") no-repeat center;
 }
 .mui_form_field .btns button.search {
   background: rgb(47, 85, 151);
@@ -128,7 +128,7 @@
 .mui_form_field .btns button.search span {
   display: inline-flex;
   padding-right: 28px;
-  background: url("../js/webmap/images/popup/ico_search.png") no-repeat right center;
+  background: url("../images/popup/ico_search.png") no-repeat right center;
   line-height: 36px;
 }
 
@@ -185,10 +185,10 @@
   margin-left: 20px;
 }
 .movie_pop .movie_list .list .btns button.link {
-  background: url("../js/webmap/images/popup/ico_link.png") no-repeat right center;
+  background: url("../images/popup/ico_link.png") no-repeat right center;
 }
 .movie_pop .movie_list .list .btns button.delete {
-  background: url("../js/webmap/images/popup/ico_x.png") no-repeat right center;
+  background: url("../images/popup/ico_x.png") no-repeat right center;
 }
 .movie_pop .btn_wrap {
   text-align: center;
