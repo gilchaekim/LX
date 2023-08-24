@@ -1,0 +1,2062 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웹맵</title>
+
+<script>
+const contextPath = "/smt" // ex) /smt
+	window.app = {};
+	let webmapWidgetList = 'homeControlWidget,basemapWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,limsControlWidget,lsmdControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,overlapWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
+	let app = window.app;
+	let userMapId = "";
+	let map;
+	let	API_SMT= "/smt/apigw/smt";
+	let	API_MAP= "/smt/apigw/map";
+	let	API_ANALS= "/smt/apigw/analysis";
+	let	API_SPATIAL= "/smt/apigw/publish";
+	let	API_COORD= "/smt/apigw/coord";
+	let API_LAYERGROUP= "/smt/apigw/lyrgroup";
+	let	API_GEOCODING= "/smt/apigw/addrgeo";
+	let	API_WORKFLOW= "/smt/apigw/workflow";
+	let crtfckey="tmiKPqf1niMu5rq1VcG49XKIYmhwDJEh";
+	let filePath="Q:/platform/geocoding/download";
+	let viewMode = "webmap";
+	let tocMaxNum = "9999";
+	let environmentType = "dev";
+	let inscdNm =""
+	let userNm ="국토플"
+	let inscd ="0000000"
+	let userId = "lxuser4"  //"lxuser""lxuser4"
+	let administzoneCode = "41480"  //"lxuser""lxuser4" 
+	let userSeCode ="7"
+	let mainProjection = "EPSG:5186"
+	let kakaoAppKey = "5456dfc95d74ec1074a0a6d3a70203dc"
+	let webmapToolbarTemplate = "lxp"
+	let limsBaseUrl  = "http://openapi.nsdi.go.kr/nsdi/map/LandInfoBaseMapITRF2000BlueService"
+	let limsBaseAuthKey  = "bce6dea6d2676d7ce90f98"
+	let limsAirUrl   = "http://openapi.nsdi.go.kr/nsdi/map/LandInfoBaseMapITRF2000Service"
+	let limsAirAuthKey   = "b789bc2189859867db0e6c"
+	let lsmdType = "api"
+	let lsmdBaseUrl = "http://openapi.nsdi.go.kr/nsdi/map/LandInfoBaseMapITRF2000BlueService"
+	let lsmdBaseAuthKey = "bce6dea6d2676d7ce90f98"
+	let lsmdAirUrl = "http://openapi.nsdi.go.kr/nsdi/map/LandInfoBaseMapITRF2000Service"
+	let lsmdAirAuthKey = "b789bc2189859867db0e6c"
+</script>
+
+<!-- css -->
+<link rel="stylesheet" href="/smt/lib/jquery-ui.css">
+<link rel="stylesheet" href="/smt/lib/colorpicker/colorpicker.css">
+<link rel="stylesheet" href="/smt/css/widget.css"/>
+<link rel="stylesheet" href="/smt/css/common.css"/>
+<link rel="stylesheet" href="/smt/css/common_custom.css"/>
+<link rel="stylesheet" href="/smt/css/widget_custom.css"/>
+<link rel="stylesheet" href="/smt/css/map.css"/>
+<link rel="stylesheet" href="/smt/js/odf/odf.css"/>
+<link rel="stylesheet" href="/smt/js/oui/oui.css"/>
+
+<!-- widget css -->
+<link rel="stylesheet" href="/smt/css/widgets/modal.css"/>
+
+<link rel="stylesheet" href="/smt/css/widgets/toc.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/spatialAnalysis.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/addressSearch.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/admSearch.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/conditionFilter.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/basemap.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/divideMap.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/scaleControl.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/draw.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/measure.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/layerSearch.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/bookmark.css"/>
+<link rel="stylesheet" href="/smt/css/widgets/popup.css"/>
+
+<link rel="stylesheet" href="/smt/css/widgets/login.css"/>
+
+
+<!-- SMT CSS -->
+<link rel="stylesheet" href="/smt/css/widgets/grid.css"/>
+
+<!-- libs -->
+<script type="text/javascript" src="/smt/lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/smt/lib/jquery-ui.js"></script>
+<script type="text/javascript" src="/smt/lib/lodash.js"></script>
+<script type="text/javascript" src="/smt/lib/vue/vue.js"></script>
+
+<script type="text/javascript" src="/smt/lib/colorpicker/colorpicker.js"></script>
+<script type="text/javascript" src="/smt/lib/html2canvas/html2canvas.js"></script>
+<!-- amchart -->
+<script type="text/javascript" src="/smt/lib/amcharts4/core.js"></script>
+<script type="text/javascript" src="/smt/lib/amcharts4/charts.js"></script>
+<script type="text/javascript" src="/smt/lib/amcharts4/animated.js"></script>
+<script type="text/javascript" src="/smt/lib/amcharts4/forceDirected.js"></script>
+<script type="text/javascript" src="/smt/lib/amcharts4/frozen.js"></script>
+<script type="text/javascript" src="/smt/lib/amcharts4/wordCloud.js"></script>
+
+
+<!-- Sheet JS -->
+<script type="text/javascript" src="/smt/js/sheetjs/shim.min.js"></script>
+<script type="text/javascript" src="/smt/js/sheetjs/xlsx.full.min.js"></script>
+
+<!-- ê³µíµ common js -->
+<script type="text/javascript" src='/smt/js/cmm/cmmn.js'></script>
+
+<!-- type script -->
+<script type="text/javascript" src="/smt/js/odf/odf.min.js" defer></script>
+<script type="text/javascript" src="/smt/js/oui/oui.min.js"></script>
+
+<script type="text/javascript" src="/smt/js/cmm/customAlert.js"></script>
+<script type="text/javascript" src="/smt/js/util.js"></script>
+<script type="text/javascript" src="/smt/js/oui/client.js"></script>
+
+<script type="text/javascript" src='/smt/js/sketchpicker/vue-color.js'></script>
+
+<!-- api -->
+<script type="text/javascript" src="/smt/js/cmm/api/layer.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/usermap.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/ntice.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/geofile.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/cmmn.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/api.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/webmap.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/overlap.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/api/landInfo.js"></script>
+
+<!-- server -->
+<script type="text/javascript" src="/smt/js/cmm/server/file.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/server/webmap.js"></script>
+
+<!-- data -->
+<script type="text/javascript" src="/smt/js/webmap/data.js"></script>
+<script type="text/javascript" src="/smt/js/cmm/data.js"></script>
+<script type="text/javascript" src="/smt/js/oui/data.js"></script>
+
+<script type="text/javascript" src="/smt/js/webmap/map/mapInit.js" defer></script>
+
+<!-- process -->
+<script type="text/javascript" src="/smt/js/cmm/process.js"></script>
+<script type="text/javascript" src="/smt/js/oui/process.js"></script>
+<script type="text/javascript" src="/smt/js/webmap/process.js"></script>
+<script type="text/javascript" src="/smt/js/webmap/ui.js" defer></script>
+<!-- components -->
+<script type="text/javascript" src="/smt/js/webmap/components/detailInfoTab.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/shareInfoTab.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/newWebMapModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/webMapSearchModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/overlapListModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/webLyrModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/webMapDetailModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/drawStyleModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/calculateFieldModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/components/analysisProgressModalVue.js" defer></script>
+<script type="text/javascript" src="/smt/js/cmm/components/alarmButton.js" defer></script>
+<script type="text/javascript" src="/smt/js/cmm/components/alarmModal.js" defer></script>
+<script type="text/javascript" src="/smt/js/cmm/components/alarmVue.js" defer></script>
+
+<script type="text/javascript" src="/smt/js/cmm/uiCustom.js" defer></script>
+<script type="text/javascript" src="/smt/js/oui/uiCustom.js" defer></script>
+
+<script type="text/javascript" src="/smt/js/oui/api.js"></script>
+<script type="text/javascript" src="/smt/js/oui/widget.js"></script>
+<script type="text/javascript" src="/smt/js/webmap/map/toolbar.js" defer></script>
+
+<script type="text/javascript" src="/smt/js/webmap/v2/sectionNumbering.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/v2/searchGeoPoint.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/v2/calculateField.js" defer></script>
+<script type="text/javascript" src="/smt/js/webmap/v2/cvgWidgetVue.js" defer></script>
+</head>
+<body>
+	<!--wrap-->
+	<div id="wrap" class="webmap">
+		<!--header-->
+		
+    <script>
+    	//분석
+        function clickAnalysis(userId, obj) {
+    		console.log('haha');
+            let _check = app.util.checkLogin(userId);
+            if (!_check) {
+                return;
+            }
+    		$('#analysis > .toc.dep1').css('display','block');
+    		$('#btnTocHide_anal').css('display','block');
+    		$('#analysis > .toc.dep2').draggable({'disabled':true}).css({'width':'', 'height' :'100%', 'left' : '', 'top' : ''});
+    		
+    		
+            if ($(obj).closest('.analysis').hasClass('active')) {
+        		if ( $('#analysis').hasClass('analysisPopWidget')) {
+        			$('#analysis').removeClass('analysisPopWidget')
+        			$('#toc').removeClass('active')
+        		} else {
+                	$('#analysis').removeClass('active')
+        		}
+            } else {
+                $('#analysis').toggleClass('active')
+                $('#toc').removeClass('active')
+            }
+        };
+        //저장
+        function clickSave(userId, obj){
+        	  let _check = app.util.checkLogin(userId);
+              if (!_check) {
+                  return;
+              }
+       		$(obj).closest('li').toggleClass('active').siblings('li').removeClass('active');
+    		$(obj).closest('.group').siblings('.group').find('li').removeClass('active');  
+        }
+        //공유
+        function clickShare(userId, obj){
+        	let _check = app.util.checkLogin(userId);
+            if (!_check) {
+                return;
+            }
+        }
+    </script>
+    <header id="header">
+    	<input type="hidden" id="loginUserId" value="lxuser4">
+        <!--upper-->
+        <div class="group upper">
+            <a href="" title="LX">
+                <h1 class="logo">
+                    <img src="/smt/images/common/logo-main.png" alt="로고" />
+                </h1>
+            </a>
+            <div class="menu">
+                <ul class="dep1">
+                    <li class="webMap">
+                        <button type="button" class="tool">
+                            <span>웹맵</span>
+                        </button>
+                        <ul class="dep2">
+                            <li>
+                                <button type="button" class="tool type01" id="newWebMapModalBtn">
+                                    <span>새&nbsp;웹맵</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="tool type02" id="webMapSearchModalBtn">
+                                    <span>검색</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="tocToggle">
+                        <button type="button" class="tool">
+                            <span>레이어</span>
+                        </button>
+                    </li>
+                    <li class="analysis">
+                        <button type="button" class="tool" onclick="clickAnalysis('lxuser4', this)">
+                            <span>공간분석</span>
+                        </button>
+                    </li>
+                    <li class="geocoding" style="display:none">
+                        <button type="button" class="tool">
+                            <span>지오코딩</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- [확인필요] 추후에 주석 풀기 -->
+        <!--  <div class="user">
+        <button type="button" class="btnUser" >
+            <span>사용자</span>
+            <span class="new">0</span>
+        </button>
+        <div class="userPop" style="display:none;">
+            <div class="inner">
+                <strong class="position">최고관리자</strong>
+                <b class="name">송은희<span>님</span></b>
+                <ul>
+                    <li>
+                        <a href="#" title="알림"><i class="ico alarm"></i>
+                            <span class="new">0</span>
+                            <span>알림</span></a>
+                    </li>
+                    <li>
+                        <a href="#" title="mypage"><i class="ico myPage"></i><span>마이페이지</span></a>
+                    </li>
+                    <li>
+                        <a href="#" title="logout"><i class="ico logout"></i><span>로그아웃</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+        <!--//upper-->
+        <!--lower-->
+        <div class="group lower">
+            <div class="menu">
+                <ul class="dep1">
+                    <!-- [확인필요] 추후에 주석 풀기 -->
+                    <!--   <li class="share">
+                    <button type="button" class="tool" onclick="clickShare('lxuser4', this)">
+                        <span>공유</span>
+                    </button>
+                </li> -->
+                    <li class="save" onclick="clickSave('lxuser4', this)">
+                        <button type="button" class="tool">
+                            <span>저장</span>
+                        </button>
+                        <ul class="dep2">
+                            <li>
+                                <button type="button" class="tool type01" id="mapSaveBtn">
+                                    <span>저장</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="tool type02" id="mapDefferSaveBtn">
+                                    <span>다른이름<br />으로저장</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="info">
+                        <button type="button" class="tool" id="webMapDetailModalBtn">
+                            <span>기본정보</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--//lower-->
+		<!--//header-->
+		<!--TOC-->
+		
+    <div id="toc">
+        <!-- toc 1뎁스-->
+        <div class="toc dep1 tocWidget">
+            <div class="inner">
+                <!--head-->
+                <div class="head">
+                    <strong class="titToc" id="tocNm">새 지도</strong>
+                    <div class="btnGroup">
+                        <button type="button" class="btnTocHide"><span class="hidden">숨기기</span></button>
+                    </div>
+                </div>
+                <!--//head-->
+                <!--cont-->
+                <div class="cont cScroll">
+                    <div class="inner" id="tocWidget">
+                    </div>
+                </div>
+                <!--//cont-->
+            </div>
+        </div>
+        <!--// toc 1뎁스-->
+        <!-- toc 2뎁스-->
+        <div class="toc dep2 popupWidget" id="layerDetailDiv">
+            <div class="inner">
+                <!--head-->
+                <div class="head">
+                    <div class="titBox">
+                        <strong class="titToc" id="layerTile"></strong>
+                        <button type="button" class="btnTip" id="lyrDetailBtn"><span
+                                class="hidden">팁</span><span>!</span></button>
+                    </div>
+                    <div class="btnGroup">
+                        <button type="button" class="btnTocHide" id="btnTocHide_toc"><span
+                                class="hidden">숨기기</span></button>
+                        <button type="button" class="btnTocClose" id="btnTocClose_toc"><span
+                                class="hidden">닫기</span></button>
+                    </div>
+                </div>
+                <!--//head-->
+                <!--cont-->
+                <div class="cont cScroll">
+                    <div id="layerDetailWidget"></div>
+                    <!--//cont-->
+                </div>
+            </div>
+            <!--// toc 2뎁스-->
+        </div>
+    </div>
+		<!--//TOC-->
+		<!--TOC-->
+		
+	<style>
+	
+		#spatialAnalysisWidget::-webkit-scrollbar {
+		    width: 0px;  
+		}
+		
+		#spatialAnalysisWidget::-webkit-scrollbar-thumb {
+		    background: #2F5597; /* 스크롤바 색상 */
+		    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+		}
+		
+		#spatialAnalysisWidget::-webkit-scrollbar-track {
+		    background: #2F5597;  /*스크롤바 뒷 배경 색상*/
+		}
+		
+		#spatialAnalysisWidget{
+			max-height:100%;
+			overflow-y:auto;
+			scrollbar-width: none;
+			scrollbar-arrow-color: #2F5597;
+			scrollbar-3dlight-color: #2F5597;
+			scrollbar-darkshadow-color: #2F5597;
+			scrollbar-face-color: #2F5597;
+			scrollbar-hightlight-color: #2F5597;
+			scrollbar-shadow-color: #2F5597;
+			scrollbar-track-color: #2F5597;
+			
+		}
+		
+	</style>
+<div id="analysis">
+	<!-- toc 1뎁스-->
+    <div class="toc dep1">
+        <div class="inner">
+            <!--head-->
+            <div class="head">
+                <strong class="titToc">공간분석</strong>
+                <div class="btnGroup">
+                    <button type="button" class="btnTocHide"><span class="hidden">숨기기</span></button>
+                </div>
+            </div>
+            <!--//head-->
+            <!--cont-->
+            <div id="spatialAnalysisWidget">
+                
+            </div>
+            <!--//cont-->
+        </div>
+    </div>
+    <!--// toc 1뎁스-->
+    <!-- toc 2뎁스-->
+    <div class="toc dep2 popupWidget" id="spatialAnalysisDetailDiv">
+       <div class="inner">
+           <!--head-->
+           <div class="head">
+               <div class="titBox">
+                   <strong class="titToc" id="selectedAnalysisName"></strong>
+               </div>
+               <div class="btnGroup">
+                   <button type="button" class="btnTocHide" id="btnTocHide_anal"><span class="hidden">숨기기</span></button>
+                   <button type="button" class="btnTocClose" id="btnTocClose_anal"><span class="hidden">닫기</span></button>
+               </div>
+           </div>
+           <!--//head-->
+           <!--cont-->
+           <div class="cont cScroll" >
+              	<div id="spatialAnalysisDetailWidget"></div>
+           <!--//cont-->
+       	</div>
+   	</div>
+    <!--// toc 2뎁스-->
+    	
+   	</div>
+</div>
+		<!--//TOC-->
+
+		<!--mapContainer-->
+		<div class="mapContainer">
+			<!--mapArea-->
+			<div class="mapArea">
+				<!--map-->
+				<div id="map"></div>
+				<!--//map-->
+				<div id="userMenu">
+					<!--searchArea-->
+					<div id="searchAreaWidget"></div>
+                    <div id="loginWidget">
+            			<button type="button" class="loginWidgetBtn login_btn widgetBtn" id="loginWidgetBtn">
+							<span class="hidden">로그인</span>
+						</button>
+                    </div>
+					<!--//searchArea-->
+					<div class="userInfo">
+						
+
+<!--alarm-->
+<div class="alarm" id="alarm">
+	
+	<!-- alarmButton -->
+	
+<alarm-button inline-template ref="alarmButton">
+	<div class="btnAlarmDiv">
+	<button type="button" class="btnAlarm" @click="alarmModalShowAndHide()">
+	    <span class="hidden">알림</span>
+	    <template v-if="data.alarmData">
+	    	<span class="new type02">{{ data.alarmData.pageInfo.totalCount }}</span>
+	    </template>
+	    <template v-else>
+	    	<span class="new type02">0</span>
+	    </template>
+	</button>
+	<div class="alarmLoading"></div>
+	</div>
+</alarm-button>
+    <!--alarmPop-->
+    
+<alarm-modal inline-template ref="alarmModal">
+	<div class="alarmPop" style="display:none">
+   		<button type="button" class="btnPopClose" @click="close()"><span class="hidden">닫기</span></button>
+	   <!--head-->
+	   	<div class="head">
+			<strong class="titPop">알림</strong>
+	   	</div>
+	   	<!--//head-->
+	   	<!--cont-->
+	   	<div class="cont">
+			<div class="cScroll" @scroll="infinityScroll" style="height:400px;">
+				<div class="inner">
+					<div class="alarmList">
+						<!--dayBox-->
+							<template v-if="data.alarmData.today.todayAlarmArray">
+								<div class="dayBox">
+									<div class="date today"><!-- 다른날일시 today 제거 -->
+										<p>{{data.alarmData.today.date}} <span>(오늘)</span></p>
+									</div>
+									<template v-for="item in data.alarmData.today.todayAlarmArray">
+										<div class="log">
+											<div class="btnGroup">
+												<template v-if="item.opertClCode === 'MPD013'">
+													<button type="button" class="btnLogAdd" @click="setGrid(item.opertNtcnId, item.lyrNm, item.opertProcessSeCode, item.opertCn)"><span class="hidden">추가</span></button>
+				                                </template>
+				                                <template v-else>
+				                                	<button type="button" class="btnLogAdd" @click="setToc(item.opertNtcnSn, item.lyrNm)"><span class="hidden">추가</span></button>
+				                                </template>
+				                                <button type="button" class="btnLogRemove" @click="deleteAlarm(item.opertNtcnId)"><span class="hidden">삭제</span></button>
+				                            </div>
+				                            <template v-if="item.opertClCode !== 'MPD015'">
+					                            <div class="inner">
+					                                <p>
+					                                    <strong>{{item.opertClSeCode == null ?  "지오코딩" : item.opertClSeCodeNm }} {{item.opertProcessSeCode == 5 ? "완료" : "실패"}}</strong>
+					                                    <i class="newAlarm"><span class="hidden">새글</span></i>
+					                                </p>
+					                                <span>{{item.lyrNm}}</span>
+					                            </div>
+				                            </template>
+				                            <template v-else>
+					                            <div class="inner">
+					                                <p>
+					                                    <strong>{{item.lyrNm}}</strong>
+					                                    <i class="newAlarm"><span class="hidden">새글</span></i>
+					                                </p>
+					                                <span>{{item.userId}}</span>
+					                            </div>
+				                            </template>
+				                       	 </div>
+			                   		</template>
+								</div>
+							</template>
+							<template v-for="etc in data.alarmData.etcDay">
+								<div class="dayBox">
+									<div class="date"><!-- 다른날일시 today 제거 -->
+										<p>{{etc.date}} <span></span></p>
+									</div>
+									<template v-for="item in etc.alarm">
+										<div class="log">
+											<div class="btnGroup">
+												<template v-if="item.opertClCode === 'MPD013'">
+													<button type="button" class="btnLogAdd" @click="setGrid(item.opertNtcnId, item.lyrNm, item.opertProcessSeCode, item.opertCn)"><span class="hidden">추가</span></button>
+				                                </template>
+				                                <template v-else>
+				                                	<button type="button" class="btnLogAdd" @click="setToc(item.opertNtcnSn, item.opertNtcnId, item.lyrNm)"><span class="hidden">추가</span></button>
+				                                </template>
+				                                <button type="button" class="btnLogRemove" @click="deleteAlarm(item.opertNtcnId)"><span class="hidden">삭제</span></button>
+				                            </div>
+				                            <template v-if="item.opertClCode !== 'MPD015'">
+					                            <div class="inner">
+					                                <p>
+					                                   <strong>{{item.opertClSeCode == null ?  "지오코딩" : item.opertClSeCodeNm }} {{item.opertProcessSeCode == 5 ? "완료" : "실패"}}</strong>
+					                                </p>
+					                                <span>{{item.lyrNm}}</span>
+					                            </div>
+				                            </template>
+				                            <template v-else>
+					                            <div class="inner">
+					                                <p>
+					                                    <strong>{{item.lyrNm}}</strong>
+					                                </p>
+					                                <span>{{item.userId}}</span>
+					                            </div>
+				                            </template>
+				                       	 </div>
+			                   		</template>
+								</div>
+							</template>
+	                   <!--//dayBox-->
+	               </div>
+	           </div>
+	       </div>
+	   </div>
+	   <!--//cont-->
+	</div>
+</alarm-modal>
+    <!--alarmPop-->
+</div>
+<!--//alarm-->
+					</div>
+				</div>
+				<!--widget-->
+				<div id="widget">
+					<div class="flex">
+						<div class="group active" id="webmapToolGroup1">
+							<ul class="dep1">
+							
+							</ul>
+ 							<div class="btnGroup">
+                				<button type="button" class="btnLeft" disabled=""><span class="hidden">이전1122</span></button>
+                				<button type="button" class="btnRight"><span class="hidden">다음</span></button>
+            				</div> 
+						</div>
+						<div class="group" id="webmapToolGroup2">
+							<ul class="dep1">
+								
+							</ul>
+ 							<div class="btnGroup">
+				               	<button type="button" class="btnLeft"><span class="hidden">이전</span></button>
+				               	<button type="button" class="btnRight"><span class="hidden">다음</span></button>
+            				</div>
+						</div>
+						<div class="group" id="webmapToolGroup3">
+							<ul class="dep1">
+								
+							</ul>
+ 							<div class="btnGroup">
+				               	<button type="button" class="btnLeft"><span class="hidden">이전</span></button>
+				               	<button type="button" class="btnRight"><span class="hidden">다음</span></button>
+            				</div>
+						</div>
+						<div class="group" id="webmapToolGroup4">
+							<ul class="dep1">
+								
+							</ul>
+ 							<div class="btnGroup">
+				               	<button type="button" class="btnLeft"><span class="hidden">이전</span></button>
+				               	<button type="button" class="btnRight"><span class="hidden">다음</span></button>
+            				</div>
+						</div>
+						<div class="group" id="webmapToolGroup5">
+							<ul class="dep1">
+								
+							</ul>
+ 							<div class="btnGroup">
+				               	<button type="button" class="btnLeft"><span class="hidden">이전</span></button>
+				               	<button type="button" class="btnRight" disabled=""><span class="hidden">다음</span></button>
+            				</div>
+						</div>
+					</div>
+
+					<!--zoom-->
+					<div class="zoomWidget" id="zoomWidget">
+						<button type="button" class="btnZoom in" id="btnZoomIn">
+							<span class="hidden">확대</span>
+						</button>
+						<div class="sliderArea">
+							<div class="slideBar mapStyle"></div>
+						</div>
+						<button type="button" class="btnZoom out" id="btnZoomOut">
+							<span class="hidden">축소</span>
+						</button>
+					</div>
+					<div class="tooltip">
+								<ul>
+									<li>읍면동</li>
+									<li>시군구</li>
+									<li>시도</li>
+								</ul>
+					</div>
+					<!--//zoom-->
+				</div>
+				<div id="swiperDiv"></div>
+				<div id="bookmarkDiv"></div>
+				<!--//widget-->
+
+
+				<!--location-->
+				<div class="location" id="location">
+					<!-- <span>경기도</span>
+                    <span>안양시 동안구</span>
+                    <span>평촌동</span> -->
+				</div>
+				<!--//location-->
+				<div class="location" style="
+				position: absolute;
+    			right: 625px;
+    			top: 67px;
+				height: 38px;
+				display: flex;
+				background-color: #fff;
+				box-shadow: 0.5px 0.9px 4px 0 rgba(0, 0, 0, 0.27);
+				border-radius: 3px;
+				width: 0px;
+				">
+					
+					<div class="cont" >
+						<div class="inner" style="padding: 10px; background-color: white; border-radius: 3px; width: 527px; display:none;" id="cvgWidget1">
+							<div class="tabContWrap type03">
+								<div class="tabNav">
+									<ul class="tabList cvgMenu01">
+										<li data-menu-id="cvg_01" class="">인덱스</li>
+										<li data-menu-id="cvg_02"class="">행정구역</li>
+										<li data-menu-id="cvg_03"class="">도형</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="tabContWrap type03" style="margin-top:10px; display: none;" id="cvg_01">
+								<div class="tabNav">
+									<ul class="tabList cvgMenu02">
+										<li data-menu-id="1" class="">1:1,000</li>
+										<li data-menu-id="2" class="">1:5,000</li>
+										<li data-menu-id="3" class="">1:25,000</li>
+										<li data-menu-id="4" class="">1:50,000</li>
+										<li data-menu-id="5" class="">1:250,000</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 데이터 조회해오는 js 는 oui꺼 못쓰고 회원가입시 지역선택 함수 참조해서 써야할듯-->
+							<div class="selectAdministrativeDistrict_frame spatialAnalysis_flex" style="margin-top:10px; display: none;" id="cvg_02">
+								<select id="customCtpv" class="ctpv spatialAnalysis_selectAdministrativeDistrict_select  spatialAnalysis_hasTooltip" data-required="false" data-name="시군구 선택">
+									<option value="">시도 선택</option></select>
+								</select>
+								<select id="customSgg" class="sgg spatialAnalysis_selectAdministrativeDistrict_select  spatialAnalysis_hasTooltip" data-required="false" data-name="읍면동 선택">
+									<option value="">시군구 선택</option>
+								</select>
+								<select id="customEmd" class="emd spatialAnalysis_selectAdministrativeDistrict_select  spatialAnalysis_hasTooltip" data-required="false" data-name="리 선택">
+									<option value="">읍면동 선택</option></select>
+							</div>
+
+							<div class="tabContWrap type03" style="margin-top:10px; display: none;" id="cvg_03">
+								<div class="tabNav cvgMenu03">
+									<ul class="tabList">
+										<li data-menu-id="1" class="">점</li>
+										<li data-menu-id="2" class="">선</li>
+										<li data-menu-id="3" class="">사각형</li>
+										<li data-menu-id="4" class="">원</li>
+										<li data-menu-id="5" class="">버퍼</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="location" style="
+				position: absolute;
+    			right: 230px;
+    			top: 190px;
+				height: 38px;
+				display: flex;
+				background: #fff;
+				box-shadow: 0.5px 0.9px 4px 0 rgba(0, 0, 0, 0.27);
+				border-radius: 3px;
+				width : 0px;
+				">
+				<div class="layerSearch_layerMenu" id="cvgWidget2" style="display: none;">
+					<style>
+						.convergenceWidget2 dd {
+							background-color: #fff !important;
+						}
+						.convergenceWidget2 {
+							width: 150px !important;
+						}
+						.border-top-radius-3{
+							border-radius: 3px 3px 0px 0px !important;
+						}
+						.border-bottom-radius-3{
+							border-radius: 0px 0px 3px 3px !important;
+						}
+
+						.convergenceWidget2 > dd > span {
+							font-size: 14px;
+						}
+						.convergenceWidget2 .active{
+							background-color: #2f5597 !important;
+							color : #fff;
+						}
+					</style>
+
+					<dl class="layerSearch_filter convergenceWidget2">
+						<input type="hidden" id="cvgSrchPolygon" value=""/>
+						<!-- <dt>필터</dt> -->
+						<dd class="border-top-radius-3" data-cvg-type-code="01" >
+							<span>공공측량</span>
+						</dd>
+						<dd class=""  data-cvg-type-code="02" >
+							<span>수치지도</span>
+						</dd>
+						<dd class=""  data-cvg-type-code="03" >
+							<span>항공사진</span>
+						</dd>
+						<dd class=""  data-cvg-type-code="04" >
+							<span>DEM</span>
+						</dd>
+						<dd class="border-bottom-radius-3"  data-cvg-type-code="05" >
+							<span>사용자 레이어</span>
+						</dd>
+					</dl>
+				</div>
+				</div>
+				<div class="location"  style="
+				position: absolute;
+    			right: 238px;
+    			top: 190px;
+				height: 38px;
+				display: flex;
+				background: #fff;
+				box-shadow: 0.5px 0.9px 4px 0 rgba(0, 0, 0, 0.27);
+				border-radius: 3px;
+				">
+					<div class="cont" id="cvgWidget3" style="display: none;">
+						<div class="inner cScroll" style="max-height: 650px; padding: 20px; background-color: white; border-radius: 3px;">
+							<section class="section type02">
+								<div class="titSec" style="margin-bottom: 20px;">
+									<strong><span id="cvgTitleNm"></span> 목록</strong>
+									<button class="modal_close" style="right: 5px; position:absolute; background-color: #2f5597;"><span> × </span></button>
+								</div>
+								
+								<div class="tabContWrap type03">
+									<div class="tabNav">
+										<ul class="tabList"></ul>
+									</div>
+									<div class="tabCont active">
+										<div class="table txt-center cScroll" style="height: 232px;">
+											<table>
+												<caption>레이어 목록</caption>
+												<colgroup>
+													<col style="width: 50px;">
+													<col style="width: 225px;">
+													<col style="width: 50px;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">선택</th>
+														<th scope="col">레이어 명</th>
+														<th scope="col">비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><input type="checkbox" name="test"/></td>
+														<td>구멍여러개</td>
+														<td><div class="icoBox"><i class="ico ico-plane"></i></div></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" name="test"/></td>
+														<td>wgs84정보로하기</td>
+														<td><div class="icoBox"><i class="ico ico-dot"></i></div></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" name="test"/></td>
+														<td>레이어 별칭</td>
+														<td><div class="icoBox"><i class="ico ico-dot"></i></div></td>
+													</tr>
+													<tr>
+														<td><input type="checkbox" name="test"/></td>
+														<td>레이어 별칭</td>
+														<td><div class="icoBox"><i class="ico ico-dot"></i></div></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+
+									<div class="btnArea" style="margin-top: 20px;">
+										<button type="button" class="btn" style="width: 100%;justify-content: center; background-color: #2f5597;"><span>데이터 병합</span></button></div>
+								</div>
+								</section>
+						</div>
+					</div>
+				</div>
+
+				<div id="analysLegendWidget">
+					<div class="analysLegend_displayDiv">
+						<div class="analysLegend_colorDiv">
+							<div class="analysLegend_style_div"></div>
+							<div class="analysLegend_data_div"></div>
+						</div>
+					</div>
+				</div>
+
+				<!--scaleWidget-->
+				<div id="scaleWidget">
+					
+				</div>
+				<!--//scaleWidget-->
+                <div class="mousePosition-srs-select-div">
+            		<select class="mousePosition-srs-select">
+            			<option value="3857">EPSG:3857</option><option value="4004">EPSG:4004</option><option value="4019">EPSG:4019</option><option value="4326" selected>EPSG:4326</option><option value="5173">EPSG:5173</option><option value="5174">EPSG:5174</option><option value="5175">EPSG:5175</option><option value="5176">EPSG:5176</option><option value="5177">EPSG:5177</option><option value="5178">EPSG:5178</option><option value="5179">EPSG:5179</option><option value="5180">EPSG:5180</option><option value="5181">EPSG:5181</option><option value="5182">EPSG:5182</option><option value="5183">EPSG:5183</option><option value="5184">EPSG:5184</option><option value="5185">EPSG:5185</option><option value="5186">EPSG:5186</option><option value="5187">EPSG:5187</option><option value="5188">EPSG:5188</option>
+            		</select>
+            	</div>
+                <div class="mousePositionControlWidget" id="mousePositionControlWidget">
+                	<div class="mousePosition-srs-select-div">
+                		<select> 
+                			<option>test</option>
+                		</select>
+                	</div>
+                </div>
+				<div id="swiperBorderDiv">
+				<button type="button" class="btnResize"><span class="hidden">영역조절</span></button>
+				</div>
+			</div>
+			<!--//mapArea-->
+			
+<div id="optionTable" class="gridWidget active" style="display:none;">
+	<div class="inner">
+	    <!--head-->
+	    <div class="head">
+	        <strong class="titOpTable">속성 테이블</strong>
+	        <div class="btnGroup">
+	        	<button type="button" class="btn scale up" style="display: flex;"><span class="hidden">확대</span></button>
+                        <button type="button" class="btn scale down" style="display: none;"><span class="hidden">축소</span></button>
+	            <button type="button" class="btnOpTableHide"><span class="hidden">숨기기</span></button>
+	            <button type="button" class="btnOpTableClose"><span class="hidden">닫기</span></button>
+	        </div>
+	    </div>
+	    <!--//head-->
+	    <!--cont-->
+	    <div class="cont" id="gridWidget">
+	    </div> 
+	    <!--//cont-->
+	</div>
+</div>
+<!--//optionTable-->
+		</div>
+		<!--//mapContainer-->
+	</div>
+	<!--//wrap-->
+
+
+	<!--modal 새 웹맵 -->
+	
+<div class="popup newLayer" style="display:none; width:900px;" v-bind:style="styleObj" id="newWebMapModal">
+    <!--head-->
+    <div class="head blue">
+        <strong class="titPop">새 웹맵</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide()" ><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!--//head-->
+    <!--cont-->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+            <!--table-->
+            <div class="table">
+                <table>
+                    <caption>상세정보</caption>
+                    <colgroup>
+                        <col style="width:200px;"/>
+                        <col style="width:auto;"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row"><span class="redDot"></span>제목<span class="colorType red">*</span></th>
+                        <td><input type="text" ref="mapTitleInput" style="width:100%;"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><span class="redDot"></span>설명</th>
+                        <td><textarea ref="mapCnTextarea" style="width:100%;height:66px;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">썸네일</th>
+                        <td>
+                            <div class="innerMap">
+                                <div class="imgArea">
+                                	<img alt="썸네일" ref="thumImg" v-bind:style="thumImg.styleObj" width="210" height="140" style="display:none;"/>
+                                    <div class="noImg" v-bind:style="noImgDiv.styleObj">
+                                        <p>등록된 미리보기가 없습니다.</p>
+                                    </div>
+                                    <button type="button" class="btnEdit img" @click="editBoxShowAndHide"><span class="hidden">수정</span></button>
+                                    <div class="editBox img" v-bind:class="{active : editBox.classObj.active}">
+                                    	<input type="file" ref="imgRealUploadBtn" accept="image/*" @change="imgToDataURL" style="display:none;"/>
+                                        <button type="button" 
+                                        	class="btn" 
+                                        	v-bind:class="{'black' : uploadBtn.classObj.black, 'grey2' : uploadBtn.classObj.grey2}" 
+                                        	@click="imgUpload"  
+                                        	@mouseover="uploadBtnMouseOver" 
+                                        	@mouseleave="uploadBtnMouseLeave">
+                                        	<span>업로드</span>
+                                       	</button>
+                                        <button type="button"
+                                       	 	class="btn" 
+                                       	 	v-bind:class="{'black' : currentDisplayBtn.classObj.black, 'grey2' : currentDisplayBtn.classObj.grey2}" 
+                                       	 	@click="imgCurrentDisplay" 
+                                       	 	@mouseover="currentDisplayBtnMouseOver" 
+                                       	 	@mouseleave="currentDisplayBtnMouseLeave">
+                                       	 	<span>현재화면</span>
+                                    	</button>
+                                        <button type="button" 
+                                        	class="btn" 
+                                        	v-bind:class="{'black' : deleteBtn.classObj.black, 'grey2' : deleteBtn.classObj.grey2}" 
+                                        	@click="imgDelete" 
+                                        	@mouseover="deleteBtnMouseOver" 
+                                        	@mouseleave="deleteBtnMouseLeave">
+                                        	<span>삭제</span>
+                                       	</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--//table-->
+            <div class="btnArea flexRight" style="margin-top:20px;">
+                <button type="button" @click="save" class="btn blue lg newMap"><span>저&nbsp;&nbsp;&nbsp;장</span></button>
+            </div>
+        </div>
+    </div>
+    <!--//cont-->
+</div>
+
+
+	<!--//modal-->
+
+	<!-- modal 웹맵 검색 -->
+	
+
+<div class="popup" style="width:1000px; display:none" v-bind:style="styleObj" id="webMapSearchModal">
+    <!--head-->
+    <div class="head blue">
+        <strong class="titPop">웹맵 검색</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!--//head-->
+    <!--cont-->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+            <!--tabContWrap-->
+            <div class="tabContWrap type04">
+                <!--tabNav-->
+                <div class="tabNav" v-if="!checkWebapp">
+                    <ul class="tabList">
+                        <li @click="tabShow('all')"  v-bind:class="{active :tabBtn.classObj.all}">전체</li>
+                        <li @click="tabShow('user')" v-bind:class="{active :tabBtn.classObj.user}">내 웹맵</li>
+                        <li @click="tabShow('share')" v-bind:class="{active :tabBtn.classObj.share}">공유 웹맵</li>
+                    </ul>
+                </div>
+                <div class="titSec" v-if="checkWebapp"><strong>내 웹맵</strong></div>
+       
+                <!--//tabNav-->
+                <!--tabCont-->
+                <div class="tabCont t10 active">
+                    <!--resultArea-->
+                    <div class="resultArea">
+                        <dl>
+                            <dt><strong>전체 <span class="blue">{{data.webmapList.pageInfo.totalUserMapCount}}</span>건</strong></dt>
+                            <dd><strong>전체공유 <span class="blue">{{data.webmapList.pageInfo.fullShareUserMapCount}}</span>건</strong></dd>
+                            <dd><strong>부분공유 <span class="blue">{{data.webmapList.pageInfo.partialShareUserMapCount}}</span>건</strong></dd>
+                            <dd><strong>비공유 <span class="blue">{{data.webmapList.pageInfo.noneShareUserMapCount}}</span>건</strong></dd>
+                        </dl>
+                        <!--searchArea-->
+                        <div class="searchArea">
+                            <div class="inputBox">
+                                <input id="mapSearchKeyword" type="text" style="width:370px;" @keyup.enter="searchKeyword()"/>
+                                <button type="button" class="btn black" @click="searchKeyword()"><span class="hidden">검색</span></button>
+                            </div>
+                        </div>
+                        <!--//searchArea-->
+                    </div>
+                    <!--//resultArea-->
+                    <!--cardList-->
+                    
+                    <div class="cardList">
+ 	 	 		    <!--card-->
+                        <div class="card"  v-for ="(item,index) in data.webmapList.list">
+                            <button type="button" class="btnCardClose" v-if="tab =='user'" @click="remove(index)"><span class="hidden">닫기</span></button>
+                           <template v-if="item.imageFileData">
+                            <div class="imgArea">
+                                <img @click="detail(index)" style="height:100%;" v-bind:src="item.imageFileData" alt="지도"/>
+                            </div>
+                           </template>
+                        	<template v-else>
+	                         		<img alt="레이어 이미지22222" style="display:none;" width="210" height="140"/>
+		                           	<div @click="detail(index)" class="noImg" style="height:293.02px;">
+	                                       <p>등록된 미리보기가 없습니다.</p>
+	                                  </div>
+	                        </template> 
+                           
+                           
+                            <div class="txtArea">
+                                <button type="button" class="btnCardShare"><span class="hidden">공유</span></button>
+                                <div class="inner">
+                                    <strong class="titCard">{{item.userMapSj}}</strong>
+                                    <ul class="info">
+                                        <li class="green" v-text="shareText(item.usePblonsipSeCode)"></li>
+                                        <li>{{item.registDt}}</li>
+                                        <li>{{item.registerId}}</li>
+                                    </ul>
+                                    <p class="desc">{{item.userMapCn}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//cardList-->
+                    <!--pagination-->
+                    <div class="pagination" v-if="data.webmapList.list.length !=0">
+<!-- 					<div class="pagination"> -->
+                        <button type="button" class="btnPagi first" @click="pagination(1)"><span class="hidden">맨 앞으로</span></button>
+                        <button type="button" class="btnPagi prev" @click="pagination(data.paginationInfo.webmapList.prevPageNo)"><span class="hidden">이전</span></button>
+                        <a href="#" v-for="page in data.paginationInfo.webmapList.pages" @click = "pagination(page)" v-bind:class="{active : activePage(page)}">
+							{{page}}
+						</a>
+                        <button type="button" class="btnPagi next" @click="pagination(data.paginationInfo.webmapList.nextPageNo)"><span class="hidden">다음</span></button>
+                        <button type="button" class="btnPagi last" @click="pagination(data.paginationInfo.webmapList.totalPageCount)" ><span class="hidden">맨 뒤로</span></button>
+                    </div>
+                    <!--//pagination-->
+                </div>
+                <!--//tabCont-->
+                <!--tabCont-->
+                <div class="tabCont t10"></div>
+                <!--//tabCont-->
+                <!--tabCont-->
+                <div class="tabCont t10"></div>
+                <!--//tabCont-->
+            </div>
+            <!--//tabContWrap-->
+        </div>
+    </div>
+    <!--//cont-->
+
+</div>
+<!--//popup-->
+	<!-- //modal -->
+
+	<!-- modal 중첩영상 리스트 -->
+	
+
+<div class="popup" style="width:700px; display:none" v-bind:style="styleObj" id="overlapListModal">
+    <!--head-->
+    <div class="head blue">
+        <strong class="titPop">중첩 영상</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!--//head-->
+    <!--cont-->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+            <!--tabContWrap-->
+            <div class="tabContWrap type04">
+				<div class="tabNav">
+					<ul class="tabList">
+					<li id="dronTab" class="active">드론영상</li> 
+					<li id="userUploadTab" class="">사용자 업로드</li> 
+					</ul>
+				</div>
+                <!--tabCont-->
+                <div class="tabCont t10 active">
+                
+                	<div class="inner">
+	                	<div class="secInner">
+			                <div class="fileSelect">
+			                	<select name="yyyyMMSel" id="yyyyMMSel" style="width:200px;">
+								</select>
+							</div>
+							<div class="fileSelect">	
+								<select name="ctpvSel" id="ctpvSel" style="width:100px;">
+								</select>
+								<select name="sggSel" id="sggSel" style="width:100px;">
+								</select>
+								<select name="emdSel" id="emdSel" style="width:100px;">
+								</select>
+								<button class="drawControl_droneBoxBtn" id="drawControl_droneBoxBtn" @click="controlBox()">사각형</button>
+								<button type="button" @click="init()" class="layerSearch_btnSearch undefined" value="검색">
+								<div id="imgView"></div>
+								
+		                	</div>
+	                	</div> 
+	                	
+	                </div> 	
+                    <div class="table innerTable cScroll hover txt-center overlapTable">
+                        <table>
+                            <caption>중첩 영상 목록</caption>
+                            <colgroup>
+                                <col style="width:50px;">
+                                <col style="width:auto;">
+                                <col style="width:150;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+<!--                                         <div class="checkbox">
+                                            <input type="checkbox" id="all" value="all" @click="checkedAll($event)">
+                                            <label for="all"></label>
+                                        </div> -->
+                                    </th>
+                                    <th scope="col">파일명</th>
+                                    <th scope="col">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<tr class="overlap">
+                                    <td colspan="3">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width:50px;">
+                                                <col style="width:auto;">
+                                                <col style="width:150;">
+                                            </colgroup>
+                                            <tbody id="droneList">
+                                                
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--//table-->
+                    <!--pagination-->
+                    <div class="pagination">
+                      <button type="button" class="btnPagi first" id="first_page"><span class="hidden">맨 앞으로</span></button>
+                      <button type="button" class="btnPagi prev" id="prev_page"><span class="hidden">이전</span></button>
+                      <div id="pagesNum"></div> 
+                      <button type="button" class="btnPagi next" id="next_page"><span class="hidden">다음</span></button>
+                      <button type="button" class="btnPagi last" id="last_page"><span class="hidden">맨 뒤로</span></button>
+                  </div>
+                    <!--//pagination-->
+                    
+                    <div class="resultArea" style="margin-top:8px;">
+                        <dl>
+                            <dt><strong><span>선택한 중첩 영상 순서</span></strong></dt>
+                        </dl>
+                    </div>
+                    
+                    <div class="table innerTable cScroll hover txt-center overlapOrderTable">
+                        <table>
+                            <caption>선택한 중첩 영상 목록</caption>
+                            <colgroup>
+                                <col style="width:50px;">
+                                <col style="width:50px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody id="overlapOrder-tbody">                              
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--//table-->                    
+                    
+<!-- 	    			<div class="toc_btnArea" style="justify-content: center;">
+						<button class="toc_btnAddGroup" @click = "setting()" >설정</button>
+					</div> -->
+                    
+                </div>
+                <!--//tabCont-->
+                <!--tabCont-->
+                <div class="tabCont t10"></div>
+                <!--//tabCont-->
+                <!--tabCont-->
+                <div class="tabCont t10"></div>
+                <!--//tabCont-->
+            </div>
+            <!--//tabContWrap-->
+        </div>
+    </div>
+    <!--//cont-->
+
+</div>
+<!--//popup-->
+	<!-- //modal -->
+
+	<!-- 레이어 상세보기 -->
+	
+
+	<div class="popup" style="display:none;width:900px;" v-bind:style="styleObj" id="webLyrModal">
+		<!--head-->
+		<div class="head">
+			<strong class="titPop">레이어 상세정보</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide()"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="inner cScroll" style="max-height:650px;">
+				<!--section-->
+				<section class="section type02">
+					<div class="titSec">
+						<strong>기본정보</strong>
+					</div>
+					<div class="table">
+						<table>
+							<caption>기본정보</caption>
+							<colgroup>
+								<col style="width:140px;">
+								<col style="width:270px;">
+								<col style="width:140px;">
+								<col style="width:auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">레이어 명칭</th>
+									<td>{{data.webLyr.lyrNm}}</td>
+									<td id="webLayerModalTd" rowspan="2" colspan="2" style="border-left:1px solid #e9e9e9;">
+										<div class="innerMap">
+											<div class="imgArea">
+												<template v-if="data.webLyr.base64">
+													<img id="lyrThumnail" v-bind:src="data.webLyr.base64" alt="레이어 이미지11111">
+												</template>
+												<template v-else>
+													<img id="lyrThumnail" alt="레이어 이미지22222" style="display:none;" width="210" height="140" />
+													<div class="noImg" id="lyrThumnailNoImg">
+														<p>등록된 미리보기가 없습니다.</p>
+													</div>
+												</template>
+												<template v-if="util.checkAuthority(data.webLyr.registerId)">
+													<button type="button" class="btnEdit img" @click="thumnailToggle()"><span
+															class="hidden">수정</span></button>
+													<div class="editButton editBox img" v-bind:class="{active :editBox.classObj.thumnail}">
+														<button @click="imgUpload" type="button" class="btn grey2" @mouseover="mouseover"
+															@mouseleave="mouseleve">
+															<span>업로드</span></button>
+														<input type="file" id="lyrThumnailUploadBtn" accept="image/*" @change="imgToDataURL"
+															style="display:none;" />
+														<button type="button" class="btn grey2" @click="imgCurrentDisplay()" @mouseover="mouseover"
+															@mouseleave="mouseleve"><span>현재화면</span></button>
+														<button type="button" class="btn grey2" @click="imgDelete()" @mouseover="mouseover"
+															@mouseleave="mouseleve"><span>삭제</span></button>
+
+														<button type="button" style="margin-top:7px;" class="btn grey2" @click="imgApply()"
+															@mouseover="mouseover" @mouseleave="mouseleve"><span>적용</span></button>
+														<button type="button" style="margin-top:7px;" class="btn grey2" @click="imgRecall()"
+															@mouseover="mouseover" @mouseleave="mouseleve"><span>되돌리기</span></button>
+													</div>
+												</template>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<th scope="row">레이어 타입</th>
+									<td v-text="lyrTySeCodeText(data.webLyr.lyrTySeCode)"></td>
+								</tr>
+								<tr v-show="userMapId && layerGroupSn">
+									<th scope="row">레이어 별칭</th>
+									<td>
+										<div class="pos-r">
+											<span>{{data.webLyr.lyrNcm}}</span>
+											<template v-if="util.checkAuthority(data.webLyr.registerId)">
+												<button type="button" class="btnEdit txt" @click="modifyShow('ncm')"><span
+														class="hidden">수정</span></button>
+												<div class="editBox textarea" v-bind:class="{active :editBox.classObj.ncm}">
+													<textarea id="lyrNcmEdit" style="width:152px;height: 32px;margin-left: -3px;"></textarea>
+													<button type="button" class="btn black" @click="modifyLyrNcm()"><span>적용</span></button>
+													<button type="button" class="btn grey2" @click="modifyHide('ncm')"><span>취소</span></button>
+												</div>
+											</template>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">상세설명</th>
+									<td colspan="3">
+										<div class="pos-r">
+											<span>
+												{{data.webLyr.lyrDc}}
+											</span>
+											<template v-if="util.checkAuthority(data.webLyr.registerId)">
+												<button type="button" class="btnEdit txt" @click="modifyShow('modify')"><span
+														class="hidden">수정</span></button>
+												<div class="editBox textarea" v-bind:class="{active :editBox.classObj.modify}">
+													<textarea id="lyrDcEdit" style="width: 543px;height: 45px;margin-left: -3px;"></textarea>
+													<button type="button" class="btn black" @click="modifyLyrDc()"><span>적용</span></button>
+													<button type="button" class="btn grey2" @click="modifyHide('modify')"><span>취소</span></button>
+												</div>
+											</template>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">공유 범위</th>
+									<!--                              (usePblonsipSeCode){ // 1(전체공유),5(부분공유),9(비공유)) -->
+									<td v-text="shareText(data.webLyr.usePblonsipSeCode)"></td>
+									<th scope="row">생성 일자</th>
+									<td>{{data.webLyr.registDt}}</td>
+								</tr>
+								<tr>
+									<th scope="row">데이터 건수</th>
+									<td>0건</td>
+									<th scope="row">다운로드</th>
+									<td>
+										<div class="tagList download">
+											<a>
+												<span class="tag green" @click="download('shape')">SHP</span>
+											</a>
+											<a>
+												<span class="tag blue" @click="download('csv')">CSV</span>
+											</a>
+											<a>
+												<span class="tag peacock" @click="download('geojson')">GeoJSON</span>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+				<!--//section-->
+				<template v-if="util.checkAuthority(data.webLyr.registerId)">
+					<!--section-->
+					<section class="section type02">
+						<div class="titSec">
+							<strong>공유현황</strong>
+						</div>
+						<!--tabContWrap-->
+						<div class="tabContWrap type03">
+							<!--tabNav-->
+							<div class="tabNav">
+								<ul class="tabList">
+									<li @click="tabShow('all')" v-bind:class="{active :tabBtn.classObj.all}">전체 <span class="leng">(<span
+												class="red" v-text=shareCnt('shareList')></span>건)</span></li>
+									<li @click="tabShow('insts')" v-bind:class="{active :tabBtn.classObj.insts}">기관 <span
+											class="leng">(<span class="red" v-text=shareCnt('instList')></span>건)</span></li>
+									<li @click="tabShow('users')" v-bind:class="{active :tabBtn.classObj.users}">사용자 <span
+											class="leng">(<span class="red" v-text=shareCnt('userList')></span>건)</span></li>
+								</ul>
+							</div>
+							<!--//tabNav-->
+							<!--tabCont-->
+							<div class="tabCont active">
+								<!--table-->
+								<div class="table txt-center cScroll" style="height:335px;">
+									<table>
+										<caption>공유현황</caption>
+										<colgroup>
+											<col style="width:120px;">
+											<col style="width:auto;">
+											<col style="width:160px;">
+											<col style="width:210px;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">구분</th>
+												<th scope="col">기관/주소록 명</th>
+												<th scope="col">이름</th>
+												<th scope="col">공유 시작일자</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="(item,index) in shareList">
+												<td>{{item.pblonsipScopeSeCodeNm}}</td>
+												<td>{{item.orgnNm}}</td>
+												<td>{{item.userNm}}</td>
+												<td>{{item.registDt}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!--//table-->
+							</div>
+							<!--//tabCont-->
+							<!--tabCont-->
+							<div class="tabCont"></div>
+							<!--//tabCont-->
+						</div>
+						<!--//tabContWrap-->
+					</section>
+					<!--//section-->
+				</template>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+	<!--//popup-->
+
+	<!-- modal 웹맵 상세 -->
+	
+<div class="popup" style="width:900px; display:none" v-bind:style="styleObj" id="webMapDetailModal">
+    <!--head-->
+    <div class="head">
+        <strong class="titPop">웹맵 상세정보</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide()"><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!--//head-->
+    <!--cont-->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+
+            <!--tabContWrap-->
+            <div class="tabContWrap type04">
+                <!--tabNav-->
+                <div class="tabNav type01">
+                    <ul class="tabList">
+                        <li v-bind:class="{'active' : detailInfoTab.classObj.active}" @click="tabShow('detail')">상세정보</li>
+                        <li v-bind:class="{'active' : shareInfoTab.classObj.active}" @click="tabShow('share')">공유현황</li>
+                    </ul>
+                </div>
+                <!--//tabNav-->
+                <!--상세정보 탭-->
+                
+<detail-info-tab inline-template ref="detailInfo"
+	v-if="data.webmapView.userMapInfo">
+<div class="tabCont" v-bind:class="{'active' : classObj.active}">
+	<!--section-->
+	<section class="section type02">
+		<!--table-->
+		<div class="table">
+			<table>
+				<caption>기본정보</caption>
+				<colgroup>
+					<col style="width: 140px;" />
+					<col style="width: 270px;" />
+					<col style="width: auto;" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<td colspan="3">
+							<div class="pos-r">
+								<span class="titTable">{{data.webmapView.userMapInfo.userMapSj}}</span>
+								<template v-if="util.checkAuthority(data.webmapView.userMapInfo.registerId)">
+									<button type="button" class="btnEdit txt" @click="editBoxShow('mapSj')">
+										<span class="hidden">수정</span>
+									</button>
+									<div class="editBox input">
+										<input type="text" style="width: 150px;" id="userMapSjEditBox"/>
+										<button type="button" class="btn black"
+											@click="updateUserMapSj">
+											<span>적용</span>
+										</button>
+										<button type="button" class="btn grey2" @click="editBoxHide">
+											<span>취소</span>
+										</button>
+									</div>
+								</template>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">공유 범위</th>
+						<td>{{data.webmapView.userMapInfo.usePblonsipSeCode === "1" ?
+							"전체공유" : data.webmapView.userMapInfo.usePblonsipSeCode === "5" ?
+							"부분공유" : "비공유"}}</td>
+						<td rowspan="3" style="border-left: 1px solid #e9e9e9;">
+							<div class="innerMap">
+								<div class="imgArea">
+									<template v-if="data.webmapView.userMapInfo.imageFileData">
+									<img v-bind:src="data.webmapView.userMapInfo.imageFileData"
+										alt="썸네일" id="webMapDetailThum" width="210" height="140" /> </template>
+									<template v-else> <img alt="썸네일" src=""
+										id="webMapDetailThum" style="display: none;" width="210"
+										height="140" />
+									<div class="noImg">
+										<p>등록된 미리보기가 없습니다.</p>
+									</div>
+									</template>
+									<template v-if="util.checkAuthority(data.webmapView.userMapInfo.registerId)">
+										<button type="button" class="btnEdit img" @click="editBoxShow()">
+											<span class="hidden">수정</span>
+										</button>
+										<div class="editBox img" style="flex-wrap: wrap;">
+											<input type="file" ref="imgRealUploadBtn" accept="image/*"
+												@change="imgToDataURL" style="display: none;" />
+											<button type="button" class="btn grey2" @click="imgUpload"
+												@mouseover="mouseover" @mouseleave="mouseleave">
+												<span>업로드</span>
+											</button>
+											<button type="button" class="btn grey2"
+												@click="imgCurrentDisplay" @mouseover="mouseover"
+												@mouseleave="mouseleave">
+												<span>현재화면</span>
+											</button>
+											<button type="button" class="btn grey2" @click="imgDelete"
+												@mouseover="mouseover" @mouseleave="mouseleave">
+												<span>삭제</span>
+											</button>
+											<button type="button" style="margin-top: 7px;"
+												class="btn grey2 " @click="imgApply" @mouseover="mouseover"
+												@mouseleave="mouseleave">
+												<span>적용</span>
+											</button>
+											<button type="button" style="margin-top: 7px;"
+												class="btn grey2" @click="imgRevert" @mouseover="mouseover"
+												@mouseleave="mouseleave">
+												<span>되돌리기</span>
+											</button>
+										</div>
+									</template>
+
+								</div>
+								<!-- <button type="button" class="btn blue sm"><span>지도 서비스로 보기</span><i class="ico rt ico-link2"></i></button> -->
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">최종수정일자</th>
+						<td>{{data.webmapView.userMapInfo.updtDt}}</td>
+					</tr>
+					<tr>
+						<th scope="row">등록 일시</th>
+						<td>{{data.webmapView.userMapInfo.registDt}}</td>
+					</tr>
+					<tr>
+						<th scope="row">상세설명</th>
+						<td colspan="2">
+							<div class="pos-r">
+								<span>{{data.webmapView.userMapInfo.userMapCn}}</span>
+								<template v-if="util.checkAuthority(data.webmapView.userMapInfo.registerId)">
+									<button type="button" class="btnEdit txt" @click="editBoxShow('userMapCn')">
+										<span class="hidden">수정</span>
+									</button>
+									<div class="editBox textarea">
+										<textarea style="width: 543px; height: 45px;" id="userMapCnEditBox"></textarea>
+										<button type="button" class="btn black"
+											@click="updateUserMapCn">
+											<span>적용</span>
+										</button>
+										<button type="button" class="btn grey2" @click="editBoxHide">
+											<span>취소</span>
+										</button>
+									</div>
+								</template>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--//table-->
+	</section>
+	<!--//section-->
+	<!--section-->
+	<section class="section type02">
+	<div class="titSec" style=" margin-bottom: -8px; ">
+		<strong>레이어 목록</strong>
+	</div>
+		<!--tabContWrap-->
+		<div class="tabContWrap type03">
+			<!--tabNav-->
+			<div class="tabNav">
+				<ul class="tabList">
+<!-- 					<li class="active">레이어 목록</li> -->
+<!-- 					<li>탭2</li> -->
+				</ul>
+			</div>
+			<!--//tabNav-->
+			<!--tabCont-->
+			<div class="tabCont active">
+				<!--table-->
+				<div class="table txt-center cScroll" style="height: 232px;">
+					<table>
+						<caption>레이어 목록</caption>
+						<colgroup>
+							<col style="width: 108px;" />
+							<col style="width: 155px;" />
+							<col style="width: 170px;" />
+							<col style="width: 170px;" />
+							<col style="width: auto;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">구분</th>
+								<th scope="col">레이어형태</th>
+								<th scope="col">레이어 명</th>
+								<th scope="col">레이어별칭</th>
+								<th scope="col">생성일/공유일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for ="(item,index) in data.webmapView.lyrList">
+								<td v-text="shareText(item.usePblonsipSeCode)">공유 레이어</td>
+								<td>
+									<div class="icoBox">
+										<!--  dot, line, plane -->
+										<template v-if="item.lyrTySeCode=='0'">
+											<i class="ico ico-plane"><span class="hidden">타일(Tif업로드)</span></i>
+										</template>
+										<template v-if="item.lyrTySeCode=='1'">
+											<i class="ico ico-dot"><span class="hidden">포인트</span></i>
+										</template>
+										<template v-if="item.lyrTySeCode=='2'">
+											<i class="ico ico-line"><span class="hidden">라인</span></i>
+										</template>
+										<template v-if="item.lyrTySeCode=='3'">
+											<i class="ico ico-plane"><span class="hidden">폴리곤</span></i>
+										</template>
+										<template v-if="item.lyrTySeCode=='4'">
+											<i class="ico ico-dot"><span class="hidden">GeoTIFF(포인트보간분석)</span></i>
+										</template>
+									</div>
+								</td>
+								<td>{{item.lyrNm}}</td>
+								<td>레이어 별칭</td>
+								<td>{{item.registDt}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--//table-->
+			</div>
+			<!--//tabCont-->
+			<!--tabCont-->
+			<div class="tabCont"></div>
+			<!--//tabCont-->
+		</div>
+		<!--//tabContWrap-->
+	</section>
+	<!--//section-->
+</div>
+<!--//tabCont--> </detail-info-tab>
+                <!--공유현황 탭-->
+                
+<share-info-tab inline-template ref="shareInfo"
+	v-if="data.webmapView.shareList">
+<div class="tabCont" v-bind:class="{'active' : classObj.active}">
+	<!--section-->
+	<section class="section type02">
+		<div class="titSec">
+			<strong>공유 현황</strong>
+		</div>
+		<!--tabContWrap-->
+		<div class="tabContWrap type03">
+			<!--tabNav-->
+			<div class="tabNav">
+				<ul class="tabList">
+					<li v-bind:class="{active :tabBtn.classObj.all}"
+						@click="tabShow('all')">전체 <span class="leng">(<span
+							class="red">{{data.webmapView.shareList.totalUserMapShareCount}}</span>건)
+					</span>
+					</li>
+					<li v-bind:class="{active :tabBtn.classObj.insts}"
+						@click="tabShow('insts')">기관 <span class="leng">(<span
+							class="red">{{data.webmapView.shareList.userMapShareInstCount}}</span>건)
+					</span>
+					</li>
+					<li v-bind:class="{active :tabBtn.classObj.users}"
+						@click="tabShow('users')">사용자 <span class="leng">(<span
+							class="red">{{data.webmapView.shareList.userMapShareUserCount}}</span>건)
+					</span>
+					</li>
+				</ul>
+			</div>
+			<!--//tabNav-->
+			<!--tabCont-->
+			<div class="tabCont active">
+				<!--table-->
+				<div class="table txt-center cScroll" style="height: 341px;">
+					<table>
+						<caption>공유 현황</caption>
+						<colgroup>
+							<col style="width: 120px;" />
+							<col style="width: auto;" />
+							<col style="width: 150px;" />
+							<col style="width: 225px;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">구분</th>
+								<th scope="col">기관</th>
+								<th scope="col">이름</th>
+								<th scope="col">공유 시작일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(item,index) in data.webmapView.shareList.list">
+								<td v-text="pblonsipScopeSeCode(item.pblonsipScopeSeCode)"></td>
+								<td>{{item.orgnNm}}</td>
+								<td>{{item.userNm}}</td>
+								<td>{{item.registDt}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--//table-->
+			</div>
+
+			<!--//tabCont-->
+		</div>
+		<!--//tabContWrap-->
+	</section>
+	<!--//section-->
+</div>
+</share-info-tab>
+            </div>
+            <!--//tabContWrap-->
+        </div>
+    </div>
+    <!--//cont-->
+
+</div>
+<!--//popup-->
+	<!-- //modal -->
+	
+	<!-- 그리기 스타일 modal -->
+	
+
+ 
+ 
+  <div id="draw-sketch-app" style="position:absolute;z-index:999;display:none;">
+    <div class="color-wrapper" :style="{'background-color': typeof colors === 'object' ? colors.hex8 : colors}" v-bind:value="colorChange(colors)">
+       <sketch-picker v-model="colors"/>
+    </div>
+  </div>
+  
+<div class="popup" style="width:400px; display:none; top:20%; left:60%;" v-bind:style="styleObj" id="drawStyleModal">
+    <!--head-->
+    <div class="head blue">
+        <strong class="titPop">스타일 설정</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!--//head-->
+    <!--cont-->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+			<div class="drawStyle-background-div" v-show="['polygon','box','circle','point'].includes(data.featureType)">
+				<span style="font-size:17px;">채우기</span>
+				<br/>
+				<input type="checkbox" id="drawStyle-fill-checkbox" style="margin:15px 0px 15px 0px;" @click="opacityCheck"/>
+				<label for ="drawStyle-background-checkbox">채우기 없음</label>
+				<br/>
+				<div style="height:30px;font-size:15px;display:inline-block">색</div>
+				<div class="drawStyle-box-wrapper">
+				<div id="drawStyle-fillColor-box" @click="fillColorClick" v-bind:style="fillColorStyleObj" ></div>
+				</div>
+				<br/>
+				<span style="font-size:15px;">투명도</span>
+				<div id="drawStyle-fill-opacity-bar" style="display: inline-block;"></div>
+				<div style="display: inline-block;margin-left:15px;">
+					<input type="number" style="height:30px;width:43px;"id="drawStyle-fill-opacity-percent" :value="data.fillOpacity" @keyup="inputOpacity" /> %
+				</div>
+			</div>
+			<div class="drawStyle-line-div" style="margin-top:20px;" v-show="['polygon','box','circle','point','lineString','curve'].includes(data.featureType)">
+				<span style="font-size:17px;">선</span>
+				<br/>
+				<input type="checkbox" id="drawStyle-line-checkbox" style="margin:15px 0px 15px 0px;" @click="opacityCheck"/>
+				<label for ="drawStyle-line-checkbox">선 없음</label>
+				<br/>
+				<div style="height:30px;font-size:15px;display:inline-block">색</div>
+				<div class="drawStyle-box-wrapper">
+				<div id="drawStyle-lineColor-box" @click="lineColorClick" v-bind:style="lineColorStyleObj" ></div>
+				</div>
+				<br/>
+				<span style="font-size:15px;">투명도</span>
+				<div id="drawStyle-line-opacity-bar" style="display: inline-block;"></div>
+				<div style="display: inline-block;margin-left:15px;">
+					<input type="number" style="height:30px;width:43px;"id="drawStyle-line-opacity-percent" :value="data.lineOpacity" @keyup="inputOpacity" /> %
+				</div>
+			</div>
+			<div class="drawStyle-background-div" v-show="['text'].includes(data.featureType)">
+				<span style="font-size:17px;">글꼴</span>
+				<br/>
+				<div class="drawStyle-text-selectdiv">
+					<select id="drawStyle-text-fontSelect" :value="data.textFont" @change="changeFont">
+						<option value="Roboto">Roboto</option>
+						<option value="Arial">Arial</option>
+						<option value="sans-serif">sans-serif</option>
+					</select>
+					<input type="number" id="drawStyle-text-sizeInput" maxlength="2" :value="data.textSize" @keyup="inputSize"/>
+				</div>
+				<div class="drawStyle-text-bold">
+				<span style="font-size:17px">글꼴 굵기</span>
+				<button class="drawStyle-text-boldBtn" @click="applyTextStyle('bold',$event)"><span style="font-weight:bold ">가</span></button>
+				<button class="drawStyle-text-boldBtn" @click="applyTextStyle('italic',$event)"><span style="font-style: italic;">가</span></button>
+				<button class="drawStyle-text-boldBtn" @click="applyTextStyle('normal',$event)"><span>가</span></button>
+				</div>
+				<div style="height:30px;font-size:17px;display:inline-block;margin-top:60px;">글꼴 색</div>
+				<div class="drawStyle-box-wrapper">
+				<div id="drawStyle-textColor-box" @click="textColorClick" v-bind:style="textColorStyleObj" ></div>
+				</div>
+			</div>	
+			<div class="layerUpload_btnArea">
+				<input type="button" class="layerUpload_btnUploadFileLayer" value="취소" @click="hide" style="margin-right:20px;background:#d6d6d6;">
+				<input type="button" class="layerUpload_btnUploadFileLayer" value="설정" @click="applyOption" style="margin-right:90px;">
+			</div>
+        </div>
+    </div>
+    <!--//cont-->
+
+</div>
+<script type="text/javascript">
+	
+	 
+
+</script>
+<!--//popup-->	
+	<!-- //modal -->
+	
+	<!-- modal 필드 계산 -->
+	
+<div class="popup" style="width:500px; display:none" v-bind:style="styleObj" id="calculateFieldModal">
+    <!-- head -->
+    <div class="head">
+        <strong class="titPop">필드 계산</strong>
+        <div class="btnGroup">
+            <button type="button" class="btnPopClose" @click="hide()"><span class="hidden">팝업 닫기</span></button>
+        </div>
+    </div>
+    <!-- //head --> 
+    <!-- cont -->
+    <div class="cont">
+        <div class="inner cScroll" style="max-height:650px;">
+            <div class="table">
+            		<table>
+                    <colgroup>
+                        <col style="width:50%;"/>
+                        <col style="width:30%;"/>
+                        <col style="width:auto;"/>
+                    </colgroup>
+            			<thead>
+	                    <tr>
+	                        <th scope="row"><span class="redDot"></span>필드</th>
+	                        <th scope="row"><span class="redDot"></span>단위</th>
+	                        <th scope="row"><span class="redDot"></span>삭제</th>
+	                    </tr>
+            			</thead>
+            			<tbody id="calculateFields">     				
+            			</tbody>
+            		</table>
+            </div>
+			<div class="btnArea flexRight" style="margin-top:20px;">
+			    <button type="button" @click="addCalculateField" class="btn green lg newMap"><span>추가</span></button>
+                <button type="button" @click="saveCalculateField" class="btn blue lg newMap"><span>적용</span></button>
+            </div>            
+        </div>
+    </div>
+    <!-- //cont -->
+
+</div>
+<!-- //popup -->
+	<!-- //modal -->
+	
+	<!-- modal 필드 계산 -->
+	
+<div id="analysisProgressModal" style="display:none;">
+	<div id="dimmed" style="display:none;"></div>
+	<div class="loadingBox" style="display:none;">
+		<div class="loadingArea">
+			<div class="quater">
+	 
+			</div>
+		</div>
+		<strong>{{progressLoaded}}/100</strong>
+	</div>
+</div>
+	<!-- //modal -->
+		
+</body>
+	<script src="/smt/js/crpyto/jsencrypt.min.js"></script>
+	<script type="text/javascript">
+	let layerId = "";
+	 $("input").attr("title","input"); //openwax..
+	 $("textarea").attr("title","title"); //openwax..
+	 $('title').text(webmapToolbarTemplate == 'lxp' ? '웹맵' : '기본지도');
+		if(!window.location.port && webmapToolbarTemplate != 'lxp'){
+			let scriptElement = document.createElement('script');
+			scriptElement.setAttribute('type', 'text/javascript');
+			scriptElement.setAttribute('src', `//dapi.kakao.com/v2/maps/sdk.js?appkey=5456dfc95d74ec1074a0a6d3a70203dc` );
+			document.head.appendChild(scriptElement, document.head.lastChild);
+			let scriptElement2 = document.createElement('script');
+				scriptElement2.setAttribute('charset', 'UTF-8');
+				if(location.protocol.includes('https')){
+					scriptElement2.setAttribute('src', 'https://t1.daumcdn.net/mapjsapi/js/main/4.4.3/kakao.js');
+				}
+				else{
+					scriptElement2.setAttribute('src', 'http://t1.daumcdn.net/mapjsapi/js/main/4.4.3/kakao.js');
+				}
+				document.head.appendChild(scriptElement2, document.head.lastChild);
+		}
+		if(environmentType == 'dev' && webmapWidgetList.includes('roadView')){
+			let scriptElement = document.createElement('script');
+			scriptElement.setAttribute('type', 'text/javascript');
+			scriptElement.setAttribute('src', `//dapi.kakao.com/v2/maps/sdk.js?appkey=5456dfc95d74ec1074a0a6d3a70203dc` );
+			document.head.appendChild(scriptElement, document.head.lastChild);
+			let scriptElement2 = document.createElement('script');
+				scriptElement2.setAttribute('charset', 'UTF-8');
+				if(location.protocol.includes('https')){
+					scriptElement2.setAttribute('src', 'https://t1.daumcdn.net/mapjsapi/js/main/4.4.3/kakao.js');
+				}
+				else{
+					scriptElement2.setAttribute('src', 'http://t1.daumcdn.net/mapjsapi/js/main/4.4.3/kakao.js');
+				}
+				document.head.appendChild(scriptElement2, document.head.lastChild);
+		}
+	//웹맵 상세보기
+	if(userMapId){
+		app.cmm.data.mode = "webmap-detail";
+		let param= {};
+		param.userMapId  = userMapId
+		param.userId  = userId;
+		app.webmap.process.webMapDetail(param);
+	}
+	//웹맵 기본보기
+	else{
+		app.cmm.data.mode = "webmap-view";
+		//다른 이름으로 저장 안보이게.
+		$("#mapDefferSaveBtn").hide();
+		//레이어 미리보기
+		if(layerId){
+			layerId = layerId.substring(1,layerId.length-1);
+			layerId = layerId.split(', ');
+			layerId.forEach((item,index)=>{
+				app.webmap.process.preview(item);
+			})
+		}
+	}
+	if(viewMode == 'mapGale'){
+		app.webmap.data.viewMode = 'view';
+		//맵갤러리에서 사용하지 않을 메뉴 숨기기 (저장, 공유, 알림, 웹맵, 분석)
+		this.document.querySelector('#header .webMap').style.display = 'none'; //웹앱
+		this.document.querySelector('#header .analysis').style.display = 'none'; //공간분석
+		this.document.querySelector('#header .save').style.display = 'none'; //저장
+		//this.document.querySelector('#header .share').style.display = 'none'; //공유 [확인필요] 공유 추후에 주석 풀기
+		this.document.querySelector('.btnAlarm').style.display = 'none';
+	}
+	
+	/* 로그인 회원가입, 비밀번호찾기 메뉴이동 */
+	function mapLoginMenu(menu){
+		menu === 'join' ? $("#mapLoginForm").attr("action", "/portal/join/getStplatView.do") : $("#mapLoginForm").attr("action", "/portal/login/getAcntSearchView.do");
+		$("#mapLoginForm").submit();
+	}
+	
+	/* 로그인 */
+	function getLogin() {
+		// ======= 비밀번호 암호화 전송 관련 코드 [START] ======= //
+		var publicKeyContent = `-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAr01jP1aU0bbAs5ZX/ABU
++QNnFdV7Me6doKZQz5pHhTSZVNtUufj5+dXA7HsgNOMJMTvLin96chXKc9DZ/4rZ
+CBFDwCUs8gYeqy7wepzpPWxBP12eJTOYkPE/SJVuh6/tu51wfeRbGv9iAfX2oeO3
+NePwDpKjT3X/iv3d1MOAKoXYURAfd7ePaK1yOtVhUw/Ssqe0X5e9BILLCIhPYSwO
+3Zi/8IqQqfivN54HF0cN72tWE6OeBzY1DYA8avgIBDRRDQqBu902vfzSD+rmmgr8
+oADK89q7PiTqm0f6kay23VcPIUuyAr6Lz/MsdLmZAyFoaBJC7NsK9HXhlxgPEFID
+R8L47U/aaGws+SirwK54yuk32Q+whOCVnyfTQUzDfpBB2KvtprnYK0Rf54BvtK9f
+H5djh32jrfSeaiu1HXRYiSRvd2c+CxdyCoKynM8nTj8/uKFfyksBkJ0rPG1TdBK5
+K5Y/iynFr/XzFtHB9KAeuptsKQkzkIOoCwS2mhByd1ZTawV9iyzO7DzfAYRYLkDs
+yTkimZnEfgs3mWc1nvcw8IVyFxHIYS7XTi+aIP5PfCgppHy+6OfqfbTiL/fuYTAs
++cjQIFSwggJKe2dFDPoDytJRM98VhWPM2LcInLr+v9Cv5r0DybRVLQZQzdgLyQMG
+2PEdJRVFkB2AlfXq8Re29kECAwEAAQ==
+-----END PUBLIC KEY-----`;
+		var encrypt = new JSEncrypt();
+		encrypt.setPublicKey(publicKeyContent);
+		var encodedString = encrypt.encrypt($("#userPw").val());
+		$("#userPasswordEncpt").val(encodedString);
+		// ======= 비밀번호 암호화 전송 관련 코드 [END] ======= //
+		$("#mapLoginForm").attr("action", "/portal/login/getLogin.do");
+		$("input[name=returnUrl]").val(window.location.pathname);
+		$("#mapLoginForm").submit();
+	};
+	//
+    </script>
+		
+</html>
