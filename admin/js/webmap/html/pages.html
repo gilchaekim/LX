@@ -1995,6 +1995,11 @@
 	<div class="test_btn_list">
 		<button data-layer="tooltip_layer">튤팁</button>
 		<button data-layer="movie_pop_layer">중첩 영상</button>
+		<button data-layer="select_widget_layer">위젯 선택(상단)</button>
+		<button data-layer="data_setting_layer">부동산정보 설정</button>
+		<button data-layer="lx_login_layer">로그인</button>
+		<button data-layer="setting_style_layer">스타일 설정</button>
+		<button data-layer="measurement_layer">측정</button>
 	</div>
 
 	<!-- 튤팁 -->
@@ -2173,7 +2178,7 @@
 
 
 	<!-- 중첩 영상 -->
-	<div class="popup movie_pop movie_pop_layer" style="width:370px; display:" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop movie_pop_layer" style="width:370px; display:none" v-bind:style="styleObj" id="overlapListModal">
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">중첩 영상</strong>
@@ -2358,11 +2363,566 @@
 
 	</div>
 
+	<!-- 위젯 선택(상단)-->
+	<div class="popup movie_pop select_widget_layer" style="width:535px; display:none">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">위젯 선택(상단)</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<section class="section type02">
+				<div class="select_widget">
+					<div class="group">
+						<div class="titSec"><strong>제어</strong></div>
+						<div class="mui_checkbox_group">
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054Id1">
+								<label for="chk841054Id1">
+									<span class="ico">
+										<img src="../images/widget/북마크.png" alt="">
+										<img src="../images/widget/북마크active.png" alt="">
+									</span>
+									<span class="text">북마크</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054Id2">
+								<label for="chk841054Id2">
+									<span class="ico">
+										<img src="../images/widget/오버뷰.png" alt="">
+										<img src="../images/widget/오버뷰active.png" alt="">
+									</span>
+									<span class="text">오버뷰</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054Id3">
+								<label for="chk841054Id3">
+									<span class="ico">
+										<img src="../images/widget/스와이프.png" alt="">
+										<img src="../images/widget/스와이프active.png" alt="">
+									</span>
+									<span class="text">스와이프</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054Id4">
+								<label for="chk841054Id4">
+									<span class="ico">
+										<img src="../images/widget/타임슬라이더.png" alt="">
+										<img src="../images/widget/타임슬라이더active.png" alt="">
+									</span>
+									<span class="text">타임 슬라이드</span>
+								</label>
+							</span>
+						</div>
+					</div>
+					<div class="group">
+						<div class="titSec"><strong>검색</strong></div>
+						<div class="mui_checkbox_group">
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054I1">
+								<label for="chk841054I1">
+									<span class="ico">
+										<img src="../images/widget/검색.png" alt="">
+										<img src="../images/widget/검색active.png" alt="">
+									</span>
+									<span class="text">주소검색</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054I2">
+								<label for="chk841054I2">
+									<span class="ico">
+										<img src="../images/widget/행정경계표시.png" alt="">
+										<img src="../images/widget/행정경계표시active.png" alt="">
+									</span>
+									<span class="text">행정경계 표시</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054I3">
+								<label for="chk841054I3">
+									<span class="ico">
+										<img src="../images/widget/부동산정보.png" alt="">
+										<img src="../images/widget/부동산정보active.png" alt="">
+									</span>
+									<span class="text">부동산정보</span>
+								</label>
+							</span>
+						</div>
+					</div>
+					<div class="group">
+						<div class="titSec"><strong>저장</strong></div>
+						<div class="mui_checkbox_group">
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk8410541">
+								<label for="chk8410541">
+									<span class="ico">
+										<img src="../images/widget/저장.png" alt="">
+										<img src="../images/widget/저장active.png" alt="">
+									</span>
+									<span class="text">저장</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk8410542">
+								<label for="chk8410542">
+									<span class="ico">
+										<img src="../images/widget/인쇄.png" alt="">
+										<img src="../images/widget/인쇄active.png" alt="">
+									</span>
+									<span class="text">인쇄</span>
+								</label>
+							</span>
+						</div>
+					</div>
+					<div class="group">
+						<div class="titSec"><strong>편집</strong></div>
+						<div class="mui_checkbox_group">
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841051">
+								<label for="chk841051">
+									<span class="ico">
+										<img src="../images/widget/속성테이블.png" alt="">
+										<img src="../images/widget/속성테이블active.png" alt="">
+									</span>
+									<span class="text">속성테이블</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841052">
+								<label for="chk841052">
+									<span class="ico">
+										<img src="../images/widget/피쳐속성폼.png" alt="">
+										<img src="../images/widget/피쳐속성폼active.png" alt="">
+									</span>
+									<span class="text">피쳐속성 폼</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841053">
+								<label for="chk841053">
+									<span class="ico">
+										<img src="../images/widget/지도toc.png" alt="">
+										<img src="../images/widget/지도tocactive.png" alt="">
+									</span>
+									<span class="text">지도TOC</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk841054">
+								<label for="chk841054">
+									<span class="ico">
+										<img src="../images/widget/레이어style.png" alt="">
+										<img src="../images/widget/레이어styleactive.png" alt="">
+									</span>
+									<span class="text">레이어 Style</span>
+								</label>
+							</span>
+						</div>
+					</div>
+					<div class="group">
+						<div class="titSec"><strong>데이터</strong></div>
+						<div class="mui_checkbox_group">
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk84101">
+								<label for="chk84101">
+									<span class="ico">
+										<img src="../images/widget/데이터추가.png" alt="">
+										<img src="../images/widget/데이터추가active.png" alt="">
+									</span>
+									<span class="text">데이터추가</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk84102">
+								<label for="chk84102">
+									<span class="ico">
+										<img src="../images/widget/지오코딩.png" alt="">
+										<img src="../images/widget/지오코딩active.png" alt="">
+									</span>
+									<span class="text">지오코딩</span>
+								</label>
+							</span>
+							<span class="mui_checkbox">
+								<input type="checkbox" id="chk84103">
+								<label for="chk84103">
+									<span class="ico">
+										<img src="../images/widget/중첩영상.png" alt="">
+										<img src="../images/widget/중첩영상active.png" alt="">
+									</span>
+									<span class="text">중첩영상</span>
+								</label>
+							</span>
+						</div>
+					</div>
+					<div class="btn_sec">
+						<button type="button" class="btn black2 lg newMap"><span>취소</span></button>
+						<button type="button" class="btn blue lg newMap"><span>저장</span></button>
+					</div>
+				</div>
+				
+			</section>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+
+	<!-- 부동산정보 설정 -->
+	<div class="popup movie_pop data_setting_layer" style="width:348px; display:none" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">부동산정보 설정</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="inner cScroll" style="max-height:650px;">
+				<div class="section">
+					<div class="mui_form_field">
+						<span class="form_body select">
+							<p class="label">항목</p>
+							<select name="" id="">
+								<option value="">세움터</option>
+							</select>
+					</div>
+					<div class="table_sec">
+						<div class="table txt-center data_table ">
+							<table>
+								<caption>중첩 영상 목록</caption>
+								<colgroup>
+									<col style="width:50px;">
+									<col style="width:auto;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">
+											<div class="checkbox">
+												<input type="checkbox" id="all2" value="all" @click="checkedAll($event)">
+												<label for="all2"></label>
+											</div>
+										</th>
+										<th scope="col" class="txt-left">
+											세부항목
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" id="all13" value="all" @click="checkedAll($event)">
+												<label for="all13"></label>
+											</div>
+										</td>
+										<td class="txt-left">
+											건출물 용도
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" id="all131" value="all" @click="checkedAll($event)">
+												<label for="all131"></label>
+											</div>
+										</td>
+										<td class="txt-left">
+											건출물 용도
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" id="all132" value="all" @click="checkedAll($event)">
+												<label for="all132"></label>
+											</div>
+										</td>
+										<td class="txt-left">
+											건출물 용도
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="btn_sec_mini">
+					<button type="button" class="btn black2 lg newMap"><span>초기화</span></button>
+					<button type="button" class="btn orange2 lg newMap"><span>설정</span></button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+	<!-- 로그인 -->
+	<div class="popup movie_pop lx_login_layer" style="width:393px; display:none" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">로그인</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="login">
+				<p class="logo">
+					<img src="../images/widget/logo.png" alt="">
+				</p>
+				<span class="input">
+					<input type="text" placeholder="ID 입력">
+				</span>
+				<span class="input">
+					<input type="password" placeholder="비밀번호 입력">
+				</span>
+				<div class="link">
+					<a href="">회원가입</a>
+					<a href="">아이디 찾기</a>
+					<a href="">비밀번호 찾기</a>
+				</div>
+				<div class="btn_sec">
+					<button type="button" class="btn"><span>로그인</span></button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+
+	<!-- 스타일 설정 -->
+	<div class="popup movie_pop setting_style_layer" style="width:500px; display: none">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">스타일 설정</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="color_set">
+				<section class="section type02">
+					<div class="select_widget">
+						<div class="group">
+							<div class="titSec"><strong>제어</strong></div>
+							<div class="setstyle">
+								<div class="chk_group">
+									<div class="chk">
+										<input type="radio" name="cxsdf" id="ck1">
+										<label for="ck1">채우기</label>
+									</div>
+									<div class="chk">
+										<input type="radio" name="cxsdf" id="ck2">
+										<label for="ck2">채우기 없음</label>
+									</div>
+								</div>
+								<div class="color_pick_opacity">
+									<div class="color_pick">
+										<label for="pick_colorsdf">색상</label>
+										<input type="color" value="#555555" id="pick_colorsdf">
+									</div>
+									<div class="opacity_pick">
+										<span class="range">
+											<input type="range" name="" min="0" max="100">
+										</span>
+										<span class="inpu">
+											<input type="text">
+											<span class="text">%</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="group">
+							<div class="titSec"><strong>선</strong></div>
+							<div class="setstyle">
+								<div class="chk_group">
+									<div class="chk">
+										<input type="radio" name="cxsdf1" id="ck11">
+										<label for="ck11">실선</label>
+									</div>
+									<div class="chk">
+										<input type="radio" name="cxsdf1" id="ck21">
+										<label for="ck21">선 없음</label>
+									</div>
+								</div>
+								<div class="color_pick_opacity">
+									<div class="color_pick">
+										<label for="pick_colorsdf">색상</label>
+										<input type="color" value="#555555" id="pick_colorsdf">
+									</div>
+									<div class="opacity_pick">
+										<span class="range">
+											<input type="range" name="" min="0" max="100">
+										</span>
+										<span class="inpu">
+											<input type="text">
+											<span class="text">%</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+				<div class="btn_sec">
+					<button type="button" class="btn black2 lg newMap"><span>취소</span></button>
+					<button type="button" class="btn blue lg newMap"><span>설정</span></button>
+				</div>
+			</div>
+			<div class="font_set">
+				<section class="section type02">
+					<div class="select_widget">
+						<div class="group">
+							<div class="titSec"><strong>글꼴</strong></div>
+							<div class="font_settiing">
+								<div class="select">
+									<select name="" id="">
+										<option value="">글꼴크기</option>
+									</select>
+									<select name="" id="">
+										<option value="">글꼴선택</option>
+									</select>
+								</div>
+								<div class="select_type">
+									<p class="label">글꼴굵기</p>
+									<div class="inset">
+										<button class="bold">가</button>
+										<button class="italic">가</button>
+										<button class="underline">가</button>
+									</div>
+								</div>
+								<div class="select_type">
+									<p class="label">글꼴색</p>
+									<input type="color" name="" id="">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+				<div class="btn_sec">
+					<button type="button" class="btn black2 lg newMap"><span>취소</span></button>
+					<button type="button" class="btn blue lg newMap"><span>설정</span></button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+	<!-- 측정 -->
+	<div class="popup movie_pop measurement_layer" style="width:500px; display: block">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">측정</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="measurement_cont">
+				<p class="addr1">
+					<span class="title">도로명 주소</span>
+					<span class="text">부산 남구 이기대공원로 11(용호동)</span>
+				</p>
+				<p class="addr2">
+					<span class="title">지번</span>
+					<span class="text">부산 남구 이기대공원로 11(용호동)</span>
+				</p>
+				<div class="select">
+					<select name="" id="">
+						<option value="">좌표계 선택</option>
+					</select>
+				</div>
+				<div class="table_group">
+					<p class="title">
+						현재 좌표계
+						<span class="num">32424</span>
+					</p>
+					<div class="table type02">
+						<table>
+							<caption>기본정보</caption>
+							<colgroup>
+								<col style="width: 178px;">
+								<col style="width: auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">경도</th>
+									<td class="txt-center">132.3123123123123</td>
+								</tr>
+								<tr>
+									<th scope="row">위도</th>
+									<td class="txt-center">132.3123123123123</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="table_group">
+					<p class="title">
+						변경 좌표계
+						<span class="num">32424</span>
+					</p>
+					<div class="table type02">
+						<table>
+							<caption>기본정보</caption>
+							<colgroup>
+								<col style="width: 178px;">
+								<col style="width: auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">경도</th>
+									<td class="txt-center">132.3123123123123</td>
+								</tr>
+								<tr>
+									<th scope="row">위도</th>
+									<td class="txt-center">132.3123123123123</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+
+
+	
+
+
+
 	<script>
 		$(function(){
 			$('.test_btn_list button').on('click', function(){
 				var url = $(this).data('layer');
 				$(`.${url}`).show()
+			})
+			$('.btnPopClose').on('click', function(){
+				$(this).closest('.popup').hide();
 			})
 		})
 	</script>

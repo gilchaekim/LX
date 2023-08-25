@@ -1,4 +1,5 @@
-#alertDimmed, #alertPopBox {
+#alertDimmed,
+#alertPopBox {
   display: none !important;
 }
 
@@ -147,7 +148,8 @@
   width: 1px;
   background: rgb(217, 217, 217);
 }
-.data_table th, .data_table td {
+.data_table th,
+.data_table td {
   padding: 16px 0 17px;
 }
 
@@ -202,5 +204,312 @@
   font-size: 16px;
   color: #fff;
   border-radius: 4px;
+}
+
+.btn.orange2 {
+  background-color: #ff4b00;
+}
+
+.cScroll .mui_form_field,
+.cScroll .table_sec {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn_sec {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+.btn_sec_mini {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select_widget {
+  padding: 20px;
+}
+.select_widget .mui_checkbox_group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.select_widget .mui_checkbox_group .mui_checkbox {
+  position: relative;
+}
+.select_widget .mui_checkbox_group .mui_checkbox input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.select_widget .mui_checkbox_group .mui_checkbox input:checked + label {
+  border-color: rgb(67, 106, 235);
+}
+.select_widget .mui_checkbox_group .mui_checkbox input:checked + label .ico img:nth-child(1) {
+  display: none;
+}
+.select_widget .mui_checkbox_group .mui_checkbox input:checked + label .ico img:nth-child(2) {
+  display: inline;
+}
+.select_widget .mui_checkbox_group .mui_checkbox label {
+  border: 1px solid rgb(233, 233, 233);
+  width: 55px;
+  height: 71px;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 0 5px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 10px;
+}
+.select_widget .mui_checkbox_group .mui_checkbox label .ico {
+  height: 26px;
+  display: block;
+}
+.select_widget .mui_checkbox_group .mui_checkbox label .ico img:nth-child(2) {
+  display: none;
+}
+.select_widget .mui_checkbox_group .mui_checkbox label .text {
+  display: block;
+  margin-top: 6px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 12px;
+}
+.select_widget .group ~ .group {
+  margin-top: 20px;
+}
+
+.login {
+  padding: 40px 20px;
+}
+.login .logo {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.login .input {
+  display: block;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+  padding-left: 66px;
+  background: url("../images/widget/ico_pw.png") no-repeat 12px center;
+}
+.login .input:nth-child(2) {
+  background: url("../images/widget/ico_id.png") no-repeat 12px center;
+}
+.login .input input {
+  border: 0 none;
+  height: 40px;
+  width: 100%;
+  outline: 0;
+  padding: 0;
+}
+.login .input input::placeholder {
+  color: #e9e9e9;
+}
+.login .input ~ .input {
+  margin-top: 10px;
+}
+.login .link {
+  text-align: center;
+  margin-top: 20px;
+}
+.login .link a {
+  display: inline-flex;
+  font-family: "Pretendard Bold";
+  color: #333;
+  font-size: 12px;
+  position: relative;
+}
+.login .link a ~ a {
+  margin-left: 10px;
+  padding-left: 11px;
+}
+.login .link a ~ a::after {
+  content: "";
+  display: block;
+  width: 1px;
+  background: #333;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  bottom: 2px;
+}
+.login .btn_sec {
+  margin-top: 20px;
+  padding-bottom: 0;
+}
+.login .btn_sec .btn {
+  background: #436aeb;
+  width: 114px;
+  height: 45px;
+  justify-content: center;
+}
+
+.setstyle {
+  padding-top: 12px;
+}
+.setstyle .chk_group {
+  display: flex;
+}
+.setstyle .chk_group .chk {
+  width: 140px;
+}
+.setstyle .chk {
+  display: flex;
+  align-items: center;
+}
+.setstyle .chk input {
+  margin: 0;
+}
+.setstyle .chk label {
+  display: inline-block;
+  border: 0 none;
+  width: auto;
+  margin-left: 10px;
+}
+.setstyle input[type=range] {
+  height: 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.setstyle input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: rgb(67, 106, 235);
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.color_pick_opacity {
+  display: flex;
+  margin-top: 12px;
+  gap: 0 40px;
+}
+.color_pick_opacity .color_pick {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.color_pick_opacity .color_pick label {
+  white-space: nowrap;
+}
+.color_pick_opacity .opacity_pick {
+  display: flex;
+  width: 100%;
+}
+.color_pick_opacity .opacity_pick .range {
+  width: 100%;
+  padding-right: 10px;
+}
+.color_pick_opacity .opacity_pick .inpu {
+  white-space: nowrap;
+}
+.color_pick_opacity .opacity_pick .inpu .text {
+  margin-left: 10px;
+}
+.color_pick_opacity .opacity_pick .inpu input {
+  width: 50px;
+  height: 27px;
+}
+
+.measurement_cont {
+  padding: 40px 24px;
+}
+.measurement_cont p.addr1,
+.measurement_cont p.addr2 {
+  font-size: 18px;
+  color: #2e2e2e;
+}
+.measurement_cont p.addr1 span.title,
+.measurement_cont p.addr2 span.title {
+  display: inline-flex;
+  width: 110px;
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 13px;
+}
+.measurement_cont p.addr1 span.title::after,
+.measurement_cont p.addr2 span.title::after {
+  content: "";
+  display: block;
+  width: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #8faadc;
+}
+.measurement_cont p.addr2 {
+  margin-top: 10px;
+}
+.measurement_cont p.addr2 span.title::after {
+  background: #ff4b00;
+}
+.measurement_cont .select {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.measurement_cont .select select {
+  width: 100%;
+}
+.measurement_cont .table_group {
+  margin-top: 10px;
+}
+.measurement_cont .table_group .title {
+  font-family: "Pretendard Bold";
+  font-size: 14px;
+  color: #555;
+  padding-bottom: 10px;
+}
+.measurement_cont .table_group .title .num {
+  margin-left: 20px;
+  font-family: "Pretendard";
+}
+
+.font_settiing {
+  padding-top: 10px;
+}
+.font_settiing .select {
+  display: flex;
+  gap: 10px;
+}
+.font_settiing .select select {
+  flex: 1;
+  height: 27px;
+}
+.font_settiing .select_type {
+  margin-top: 20px;
+  display: flex;
+}
+.font_settiing .select_type .label {
+  font-family: "Pretendard Bold";
+  font-size: 16px;
+  width: 80px;
+}
+.font_settiing .select_type button {
+  font-size: 16px;
+}
+.font_settiing .select_type button ~ button {
+  margin-left: 20px;
+}
+.font_settiing .select_type button.bold {
+  font-family: "Pretendard Bold";
+}
+.font_settiing .select_type button.underline {
+  text-decoration: underline;
+}
+.font_settiing .select_type button.italic {
+  font-style: italic;
+}
+
+.select_widget_layer .btn_sec {
+  margin-top: 24px;
+  padding-bottom: 20px;
 }
 /*# sourceMappingURL=webmap.css.map */
