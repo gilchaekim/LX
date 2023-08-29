@@ -9,7 +9,12 @@
 	<script>
 		const contextPath = "/smt" // ex) /smt
 		window.app = {};
-		let webmapWidgetList = 'homeControlWidget,basemapWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,limsControlWidget,lsmdControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,overlapWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
+		// let webmapWidgetList = 'homeControlWidget,basemapWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,limsControlWidget,lsmdControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,overlapWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
+		let webmapWidgetList = 'basemapWidget,overlapWidget,limsControlWidget,lsmdControlWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
+
+
+
+
 		let app = window.app;
 		let userMapId = "";
 		let map;
@@ -464,22 +469,33 @@
 			<!--mapArea-->
 			<div class="mapArea">
 				<!--map-->
-				<div id="map"></div>
+				<div id="map" style="background: #aaa;"></div>
 				<!--//map-->
 				<div id="userMenu">
 					<!--searchArea-->
 					<div id="searchAreaWidget"></div>
-					<div id="loginWidget">
-						<button type="button" class="loginWidgetBtn login_btn widgetBtn" id="loginWidgetBtn">
-							<span class="hidden">로그인</span>
-						</button>
-					</div>
 					<!--//searchArea-->
 					<div class="userInfo">
+						<div class="top_widgets">
+							<button type="button" class="current_pos">
+								<span class="hidden">현재위치</span>
+							</button>
+						</div>
 
+						<div class="top_widgets">
+							<button type="button" class="go_home">
+								<span class="hidden">홈</span>
+							</button>
+						</div>
+
+						<div id="loginWidget" class="top_widgets login_widget">
+							<button type="button" class="loginWidgetBtn login_btn widgetBtn" id="loginWidgetBtn">
+								<span class="hidden">로그인</span>
+							</button>
+						</div>
 
 						<!--alarm-->
-						<div class="alarm" id="alarm">
+						<div class="top_widgets alarm" id="alarm">
 
 							<!-- alarmButton -->
 
@@ -614,13 +630,26 @@
 				</div>
 				<!--widget-->
 				<div id="widget">
+					<button type="button" class="widget_toggle mui_active">
+						<span>열기/닫기</span>
+					</button>
 					<div class="flex">
 						<div class="group active" id="webmapToolGroup1">
 							<ul class="dep1">
-
+								<li class="basemapWidget">
+									<button type="button" class="basemap_tool" id="basemap_widget"><span>Static</span></button>
+									<div class="lsmdControl_lsmdLayerListDiv">
+										<button class="lsmdControl_lsmdBaseBtn " id="lsmdControlBaseBtn">
+											<span class="lsmdControl_lsmdBaseBtnSpan">일반용</span>
+										</button>
+										<button class="lsmdControl_lsmdAirBtn " id="lsmdControlAirBtn">
+											<span class="lsmdControl_lsmdAirBtnSpan">항공용</span>
+										</button>
+									</div>
+								</li>
 							</ul>
 							<div class="btnGroup">
-								<button type="button" class="btnLeft" disabled=""><span class="hidden">이전1122</span></button>
+								<button type="button" class="btnLeft" disabled=""><span class="hidden">이전</span></button>
 								<button type="button" class="btnRight"><span class="hidden">다음</span></button>
 							</div>
 						</div>
@@ -2828,7 +2857,7 @@
 	</div>
 
 	<!-- 측정 -->
-	<div class="popup movie_pop measurement_layer" style="width:500px; display: block">
+	<div class="popup movie_pop measurement_layer" style="width:500px; display: none">
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">측정</strong>

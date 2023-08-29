@@ -98,6 +98,7 @@
 		else if(value == 'cvgControlWidget'){
 		}
 		else{
+			console.log(value);
 			app.oui[value]().build();
 		}
 	})

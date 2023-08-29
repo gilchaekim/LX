@@ -503,7 +503,7 @@ app.widget = app.widget || {};
 					target: document.querySelector(_target)
 				});
 				widget.homeControlWidget.addTo(map);
-				document.getElementsByClassName('homeControl_moveHomeSpan')[0].innerText = '홈111'
+				document.getElementsByClassName('homeControl_moveHomeSpan')[0].innerText = '홈'
 			},
 			remove: function () {
 				widget.homeControlWidget.remove()

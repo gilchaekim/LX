@@ -438,7 +438,7 @@ app = window.app || {};
 				app.oui[e]().setTarget(target).build()
 			}else if (['analysisSumryWidget','analysisLcWidget','analysisPttrnWidget','analysisProximityWidget','analysisManageWidget','analysisCoordWidget','tocPopupWidget','layerStyleControlWidget','overlapWidget','landInfoWidget','cvgControlWidget'].includes(e)){
 			}else if (e != 'homeControlWidget') {
-				app.oui[e]().build()
+				// app.oui[e]().build()
 			} else {
 				let viewInfo = {};
 				if (app.webapp.data.webAppOptions.mapTmplatTyCode == 'SES' || app.webapp.data.webAppOptions.mapTmplatTyCode == 'JOR') {
