@@ -111,12 +111,13 @@
 .mui_form_field .btns {
   display: flex;
   justify-content: space-between;
+  gap: 6px;
 }
 .mui_form_field .btns button {
   height: 36px;
   color: #fff;
   border-radius: 4px;
-  width: 241px;
+  width: 206px;
 }
 .mui_form_field .btns button.write {
   width: 36px;
@@ -132,6 +133,12 @@
   padding-right: 28px;
   background: url("../js/webmap/images/popup/ico_search.png") no-repeat right center;
   line-height: 36px;
+}
+.mui_form_field .btns button.refresh {
+  width: 36px;
+  color: transparent;
+  font-size: 0;
+  background: rgb(47, 85, 151) url("../js/webmap/images/popup/ico_refresh.png") no-repeat center;
 }
 
 .data_table .txt {
@@ -154,6 +161,9 @@
   padding: 16px 0 17px;
 }
 
+.movie_pop .tabContWrap.type01 .tabCont {
+  padding: 0 12px;
+}
 .movie_pop .mui_form_field {
   padding: 20px 12px;
 }
@@ -163,7 +173,6 @@
 }
 .movie_pop .movie_list {
   margin-top: 24px;
-  padding: 0 12px;
 }
 .movie_pop .movie_list > .title {
   font-size: 16px;
@@ -905,6 +914,9 @@
   top: 15px;
   z-index: 10;
 }
+#widget .flex {
+  width: 100%;
+}
 #widget .widget_toggle {
   width: 100%;
   display: block;
@@ -935,6 +947,7 @@
   display: block;
   visibility: visible;
   right: 0;
+  left: 0;
   top: 0;
   opacity: 1;
 }
@@ -954,10 +967,10 @@
   opacity: 0.3;
 }
 #widget .group .btnGroup button.btnLeft {
-  background-image: url("../images/common/btn-widget-up.png");
+  background-image: url("../js/webmap/images/common/btn-widget-up.png");
 }
 #widget .group .btnGroup button.btnRight {
-  background-image: url("../images/common/btn-widget-down.png");
+  background-image: url("../js/webmap/images/common/btn-widget-down.png");
 }
 #widget .dep1 {
   border-radius: 4px;
@@ -973,11 +986,16 @@
   border-radius: 4px 4px 0 0;
 }
 #widget .dep1 > li span {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
   padding-top: 26px;
+  height: 50px;
   letter-spacing: -1px;
   line-height: 10px;
-  font-size: 8px;
+  font-size: 10px;
+  box-sizing: border-box;
 }
 #widget .dep1 > li:last-of-type {
   border-bottom: 0;
@@ -988,38 +1006,38 @@
   background-position: center 10px;
 }
 #widget .dep1 > li.basemapWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-maptype.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-maptype.png");
 }
 #widget .dep1 > li.basemapWidget.active > .tool, #widget .dep1 > li.basemapWidget:hover > .tool {
-  background-image: url("../images/toolbar/ico-tool-maptype-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-maptype-active.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool:hover {
   color: #2f5597;
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type01 {
-  background-image: url("../images/toolbar/ico-maptype-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-01.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type01:hover, #widget .dep1 > li.basemapWidget .dep2 .tool.type01.active {
-  background-image: url("../images/toolbar/ico-maptype-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-01-active.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type02 {
-  background-image: url("../images/toolbar/ico-maptype-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-02.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type02:hover, #widget .dep1 > li.basemapWidget .dep2 .tool.type02.active {
-  background-image: url("../images/toolbar/ico-maptype-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-02-active.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type03 {
-  background-image: url("../images/toolbar/ico-maptype-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-03.png");
 }
 #widget .dep1 > li.basemapWidget .dep2 .tool.type03:hover, #widget .dep1 > li.basemapWidget .dep2 .tool.type03.active {
-  background-image: url("../images/toolbar/ico-maptype-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-maptype-03-active.png");
 }
 #widget .dep1 > li.divideWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-divide.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-divide.png");
   background-position: center 12px;
 }
 #widget .dep1 > li.divideWidget.active > .tool, #widget .dep1 > li.divideWidget:hover > .tool {
-  background-image: url("../images/toolbar/ico-tool-divide-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-divide-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 > div {
   position: relative;
@@ -1042,214 +1060,214 @@
   transition: 0.4s;
 }
 #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type01 {
-  background-image: url("../images/toolbar/ico-divide-01-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01-01.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type01.active, #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type01:hover {
-  background-image: url("../images/toolbar/ico-divide-01-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01-01-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type02 {
-  background-image: url("../images/toolbar/ico-divide-01-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01-02.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type02.active, #widget .dep1 > li.divideWidget .dep2 .divide2 .dep3 > .tool.type02:hover {
-  background-image: url("../images/toolbar/ico-divide-01-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01-02-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type01 {
-  background-image: url("../images/toolbar/ico-divide-02-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-01.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type01.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type01:hover {
-  background-image: url("../images/toolbar/ico-divide-02-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-01-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type02 {
-  background-image: url("../images/toolbar/ico-divide-02-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-02.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type02.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type02:hover {
-  background-image: url("../images/toolbar/ico-divide-02-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-02-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type03 {
-  background-image: url("../images/toolbar/ico-divide-02-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-03.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type03.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type03:hover {
-  background-image: url("../images/toolbar/ico-divide-02-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-03-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type04 {
-  background-image: url("../images/toolbar/ico-divide-02-04.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-04.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type04.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type04:hover {
-  background-image: url("../images/toolbar/ico-divide-02-04-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-04-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type05 {
-  background-image: url("../images/toolbar/ico-divide-02-05.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-05.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type05.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type05:hover {
-  background-image: url("../images/toolbar/ico-divide-02-05-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-05-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type06 {
-  background-image: url("../images/toolbar/ico-divide-02-06.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-06.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type06.active, #widget .dep1 > li.divideWidget .dep2 .divide3 .dep3 > .tool.type06:hover {
-  background-image: url("../images/toolbar/ico-divide-02-06-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-06-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type01 {
-  background-image: url("../images/toolbar/ico-divide-03-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-01.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type01.active, #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type01:hover {
-  background-image: url("../images/toolbar/ico-divide-03-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-01-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type02 {
-  background-image: url("../images/toolbar/ico-divide-03-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-02.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type02.active, #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type02:hover {
-  background-image: url("../images/toolbar/ico-divide-03-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-02-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type03 {
-  background-image: url("../images/toolbar/ico-divide-03-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-03.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type03.active, #widget .dep1 > li.divideWidget .dep2 .divide4 .dep3 > .tool.type03:hover {
-  background-image: url("../images/toolbar/ico-divide-03-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-03-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool {
   background-position: center 18px;
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type01 {
-  background-image: url("../images/toolbar/ico-divide-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type01:hover, #widget .dep1 > li.divideWidget .dep2 .tool.type01.active {
-  background-image: url("../images/toolbar/ico-divide-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-01-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type02 {
-  background-image: url("../images/toolbar/ico-divide-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type02:hover, #widget .dep1 > li.divideWidget .dep2 .tool.type02.active {
-  background-image: url("../images/toolbar/ico-divide-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-02-active.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type03 {
-  background-image: url("../images/toolbar/ico-divide-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03.png");
 }
 #widget .dep1 > li.divideWidget .dep2 .tool.type03:hover, #widget .dep1 > li.divideWidget .dep2 .tool.type03.active {
-  background-image: url("../images/toolbar/ico-divide-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-divide-03-active.png");
 }
 #widget .dep1 > li.drawWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-draw.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-draw.png");
 }
 #widget .dep1 > li.drawWidget.active > .tool, #widget .dep1 > li.drawWidget:hover > .tool {
-  background-image: url("../images/toolbar/ico-tool-draw-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-draw-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool {
   background-position: center 15px;
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type01 {
-  background-image: url("../images/toolbar/ico-draw-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-01.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type01:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type01.active {
-  background-image: url("../images/toolbar/ico-draw-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-01-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type02 {
-  background-image: url("../images/toolbar/ico-draw-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-02.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type02:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type02.active {
-  background-image: url("../images/toolbar/ico-draw-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-02-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type03 {
-  background-image: url("../images/toolbar/ico-draw-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-03.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type03:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type03.active {
-  background-image: url("../images/toolbar/ico-draw-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-03-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type04 {
-  background-image: url("../images/toolbar/ico-draw-04.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-04.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type04:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type04.active {
-  background-image: url("../images/toolbar/ico-draw-04-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-04-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type05 {
-  background-image: url("../images/toolbar/ico-draw-05.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-05.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type05:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type05.active {
-  background-image: url("../images/toolbar/ico-draw-05-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-05-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type06 {
-  background-image: url("../images/toolbar/ico-draw-06.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-06.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type06:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type06.active {
-  background-image: url("../images/toolbar/ico-draw-06-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-06-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type07 {
-  background-image: url("../images/toolbar/ico-draw-07.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-07.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type07:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type07.active {
-  background-image: url("../images/toolbar/ico-draw-07-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-07-active.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type08 {
-  background-image: url("../images/toolbar/ico-draw-08.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-08.png");
 }
 #widget .dep1 > li.drawWidget .dep2 .tool.type08:hover, #widget .dep1 > li.drawWidget .dep2 .tool.type08.active {
-  background-image: url("../images/toolbar/ico-draw-08-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-draw-08-active.png");
 }
 #widget .dep1 > li.measureWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-measure.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-measure.png");
   background-position: center 18px;
 }
 #widget .dep1 > li.measureWidget.active > .tool, #widget .dep1 > li.measureWidget:hover > .tool {
-  background-image: url("../images/toolbar/ico-tool-measure-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-measure-active.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool {
   background-position: center 13px;
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type01 {
-  background-image: url("../images/toolbar/ico-measure-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-01.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type01:hover, #widget .dep1 > li.measureWidget .dep2 .tool.type01.active {
-  background-image: url("../images/toolbar/ico-measure-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-01-active.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type02 {
-  background-image: url("../images/toolbar/ico-measure-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-02.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type02:hover, #widget .dep1 > li.measureWidget .dep2 .tool.type02.active {
-  background-image: url("../images/toolbar/ico-measure-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-02-active.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type03 {
-  background-image: url("../images/toolbar/ico-measure-03.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-03.png");
   background-position: center 20px;
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type03:hover, #widget .dep1 > li.measureWidget .dep2 .tool.type03.active {
-  background-image: url("../images/toolbar/ico-measure-03-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-03-active.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type04 {
-  background-image: url("../images/toolbar/ico-measure-04.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-04.png");
 }
 #widget .dep1 > li.measureWidget .dep2 .tool.type04:hover, #widget .dep1 > li.measureWidget .dep2 .tool.type04.active {
-  background-image: url("../images/toolbar/ico-measure-04-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-measure-04-active.png");
 }
 #widget .dep1 > li.resetWidget:after {
   display: none;
 }
 #widget .dep1 > li.resetWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-reset.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-reset.png");
 }
 #widget .dep1 > li.resetWidget:active, #widget .dep1 > li.resetWidget:hover {
   background-color: #2f5597;
 }
 #widget .dep1 > li.resetWidget:active > .tool, #widget .dep1 > li.resetWidget:hover > .tool {
   color: #fff;
-  background-image: url("../images/toolbar/ico-tool-reset-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-reset-active.png");
 }
 #widget .dep1 > li.printWidget > .tool {
-  background-image: url("../images/toolbar/ico-tool-print.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-print.png");
 }
 #widget .dep1 > li.printWidget.active > .tool, #widget .dep1 > li.printWidget:hover > .tool {
-  background-image: url("../images/toolbar/ico-tool-print-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-print-active.png");
 }
 #widget .dep1 > li.printWidget .dep2 .tool.type01 {
-  background-image: url("../images/toolbar/ico-print-01.png");
+  background-image: url("../js/webmap/images/toolbar/ico-print-01.png");
 }
 #widget .dep1 > li.printWidget .dep2 .tool.type01:hover, #widget .dep1 > li.printWidget .dep2 .tool.type01.active {
-  background-image: url("../images/toolbar/ico-print-01-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-print-01-active.png");
 }
 #widget .dep1 > li.printWidget .dep2 .tool.type02 {
-  background-image: url("../images/toolbar/ico-print-02.png");
+  background-image: url("../js/webmap/images/toolbar/ico-print-02.png");
 }
 #widget .dep1 > li.printWidget .dep2 .tool.type02:hover, #widget .dep1 > li.printWidget .dep2 .tool.type02.active {
-  background-image: url("../images/toolbar/ico-print-02-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-print-02-active.png");
 }
 #widget .dep1 > li.active {
   background-color: #2f5597;
@@ -1299,7 +1317,7 @@
   color: #2f5597;
 }
 #widget .zoomWidget {
-  width: 58px;
+  width: 100%;
   margin-top: 500px;
   display: flex;
   flex-direction: column;
@@ -1308,6 +1326,9 @@
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
   align-items: center;
 }
+#widget .zoomWidget .zoomControl_zoomControlContent {
+  width: 100%;
+}
 #widget .zoomWidget .btnZoom {
   width: 100%;
   height: 37px;
@@ -1315,10 +1336,10 @@
   background-repeat: no-repeat;
 }
 #widget .zoomWidget .btnZoom.in {
-  background-image: url("../images/toolbar/ico-zoom-in.png");
+  background-image: url("../js/webmap/images/toolbar/ico-zoom-in.png");
 }
 #widget .zoomWidget .btnZoom.out {
-  background-image: url("../images/toolbar/ico-zoom-out.png");
+  background-image: url("../js/webmap/images/toolbar/ico-zoom-out.png");
 }
 #widget .zoomWidget .sliderArea {
   position: relative;
@@ -1327,7 +1348,7 @@
   padding: 10px 0;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
-  background: url("../images/toolbar/bg-slide.png") no-repeat center;
+  background: url("../js/webmap/images/toolbar/bg-slide.png") no-repeat center;
 }
 #widget .zoomWidget .sliderArea .slideBar {
   width: 6px;
@@ -1394,19 +1415,6 @@
   border-top: 3px solid transparent;
 }
 
-/* line 104, scss/widget.scss */
-#widget .dep1 > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn {
-  height: 67px;
-  background-repeat: no-repeat;
-  background-position: center 10px;
-  width: 50px;
-  background-image: url("../images/toolbar/ico-tool-reset.png");
-}
-#widget .dep1 > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn:hover {
-  background-image: url("../images/toolbar/ico-tool-reset-active.png");
-  background-image: url("../images/toolbar/ico-tool-reset-active.png");
-}
-
 .fullScreenControlWidget .fullScreenControl_fullScreenBtn {
   height: 67px;
   background-repeat: no-repeat;
@@ -1452,27 +1460,40 @@
 }
 
 #widget .dep1 {
+  /* line 104, scss/widget.scss */
   border-radius: 3px;
 }
-#widget .dep1 > li.homeWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn {
-  background-image: url("../images/widget/홈.png");
-}
-#widget .dep1 button {
-  height: 50px;
+#widget .dep1 > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn {
   background-repeat: no-repeat;
   background-position: center 10px;
+  background-image: url("../js/webmap/images/toolbar/ico-tool-reset.png");
+}
+#widget .dep1 > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn:hover {
+  background-image: url("../js/webmap/images/toolbar/ico-tool-reset-active.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-reset-active.png");
+}
+#widget .dep1 button {
+  display: block !important;
+  height: auto;
+  min-height: 0 !important;
+  background-repeat: no-repeat;
+  background-position: center 7px;
+  background-size: 18px;
   width: 100%;
   box-sizing: border-box;
 }
-#widget .dep1 #basemapWidget button {
-  height: 30px;
+#widget .dep1 button:hover {
+  background-color: #305698;
+  color: #fff;
+}
+#widget .dep1 button span {
+  word-break: keep-all;
 }
 #widget .dep1 > li.homeWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn:hover {
-  /*background-image: url("../images/toolbar/ico-home-01-active.png");*/
-  background-image: url("../images/widget/홈hover.png");
+  background-image: url("../js/webmap/images/widget/홈hover.png");
 }
 #widget .dep1 .rotationControl_rotateSpan {
-  background-image: url("../images/widget/나침반.png");
+  background-image: url("../js/webmap/images/widget/나침반.png");
   height: 34px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1483,41 +1504,127 @@
   margin-left: 7px;
 }
 #widget .dep1 .rotationControl_rotateSpan:hover {
-  background-image: url("../images/widget/나침반hover.png");
+  background-image: url("../js/webmap/images/widget/나침반hover.png");
 }
 #widget .dep1 .moveControl_preBtn {
-  background-image: url("../images/widget/이동이전.png");
+  background-image: url("../js/webmap/images/widget/이동이전.png");
   width: 23px;
   background-repeat: no-repeat;
   background-position: center 10px;
 }
 #widget .dep1 .moveControl_preBtn:hover {
-  background-image: url("../images/widget/이동이전hover.png");
+  background-image: url("../js/webmap/images/widget/이동이전hover.png");
   color: #fff;
 }
 #widget .dep1 .moveControl_nextBtn {
-  background-image: url("../images/widget/이동이후.png");
+  background-image: url("../js/webmap/images/widget/이동이후.png");
   width: 23px;
   background-repeat: no-repeat;
   background-position: center 10px;
 }
 #widget .dep1 .moveControl_nextBtn:hover {
-  background-image: url("../images/widget/이동이후hover.png");
+  background-image: url("../js/webmap/images/widget/이동이후hover.png");
   color: #fff;
 }
 #widget .dep1 > li.pnuGetterWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn, #widget .dep1 > li.estateWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn {
-  background-image: url("../images/toolbar/ico-tool-pnu.png");
+  background-image: url("../js/webmap/images/toolbar/ico-tool-pnu.png");
   height: 67px;
   background-repeat: no-repeat;
   background-position: center 10px;
   width: 47px;
 }
 #widget .dep1 > li.pnuGetterWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn:hover, #widget .dep1 > li.estateWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn:hover {
-  background-image: url("../images/toolbar/ico-tool-pnu-active.png");
-  /* 	background-image: url("../images/toolbar/ico-pnu-01-active.png"); */
+  background-image: url("../js/webmap/images/toolbar/ico-tool-pnu-active.png");
+  /* 	background-image: url($url_common+"toolbar/ico-pnu-01-active.png"); */
 }
 #widget .dep1 > li.pnuGetterWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn > .pnuGetter_searchSpan, #widget .dep1 > li.estateWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn > .pnuGetter_searchSpan {
   font-size: 12px;
+}
+#widget .dep1 > li.overlapWidget button {
+  background-image: url("../js/webmap/images/widget/중첩영상2.png");
+}
+#widget .dep1 > li.overlapWidget button {
+  background-image: url("../js/webmap/images/widget/중첩영상2.png");
+}
+#widget .dep1 > li .innder_deps {
+  position: relative;
+}
+#widget .dep1 > li .innder_deps .deps_lv2 {
+  position: absolute;
+  top: 0;
+  right: 44px;
+  display: flex;
+  background: #fff;
+  border-radius: 4px;
+}
+#widget .dep1 > li .innder_deps .deps_lv2 button {
+  width: 42px;
+  height: 50px;
+  border-right: 1px solid #EEE;
+}
+#widget .dep1 > li button.ico_type1 {
+  background-image: url("../js/webmap/images/widget/국토정보기본도.png");
+}
+#widget .dep1 > li button.ico_type2 {
+  background-image: url("../js/webmap/images/widget/연속지적도.png");
+}
+#widget .dep1 > li button.drawControl_toolBtn {
+  background-image: url("../js/webmap/images/widget/그리기.png");
+}
+#widget .dep1 > li button.measureControl_toolBtn {
+  background-image: url("../js/webmap/images/widget/측정.png");
+  background-position: center 14px;
+}
+#widget .dep1 > li button.ico_bookmark {
+  background-image: url("../js/webmap/images/widget/북마크.png");
+}
+#widget .dep1 > li button.printControl_printBtn {
+  background-image: url("../js/webmap/images/toolbar/ico-tool-print.png");
+}
+#widget .dep1 > li button.downloadControl_toolBtn {
+  background-image: url("../js/webmap/images/widget/저장.png");
+}
+#widget .dep1 > li button.fullScreenControl_fullScreenBtn {
+  background-image: url("../js/webmap/images/widget/전체화면.png");
+}
+#widget .dep1 > li button.swiper_widget_btn {
+  background-image: url("../js/webmap/images/widget/전체화면.png");
+}
+#widget .dep1 > li button.data_add_widget_btn {
+  background-image: url("../js/webmap/images/widget/전체화면.png");
+}
+#widget .dep1 > li button.geoCoding_widget_btn {
+  background-image: url("../js/webmap/images/widget/전체화면.png");
+}
+#widget .dep1 > li button.toc_popup_widget_btn {
+  background-image: url("../js/webmap/images/widget/전체화면.png");
+}
+#widget .dep1 > li button.layer_detail_pop_btn {
+  background-image: url("../js/webmap/images/widget/레이어style.png");
+}
+#widget .dep1 > li button.analysisSumryWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.analysisLcWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.analysisPttrnWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.analysisProximityWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.analysisManageWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.analysisCoordWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.landInfoWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
+}
+#widget .dep1 > li button.cvgControlWidget_onoffBtn {
+  background-image: url("../js/webmap/images/widget/데이터요약분석.png");
 }
 
 /* line 110, scss/widget.scss */
@@ -2039,15 +2146,6 @@
   bottom: 0px;
   width: 100%;
   margin-bottom: 35px;
-}
-
-/*북마크위젯 */
-#widget .dep1 .bookMarkWidget #bookMarkBtn {
-  background-image: url(../images/widget/북마크.png);
-}
-#widget .dep1 .bookMarkWidget #bookMarkBtn:hover {
-  background-image: url(../images/widget/북마크hover.png);
-  color: #fff;
 }
 
 #bookmarkDiv {

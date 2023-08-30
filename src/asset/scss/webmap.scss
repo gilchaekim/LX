@@ -112,12 +112,12 @@ $url_common: "../js/webmap/images/";
   .btns {
     display: flex;
     justify-content: space-between;
+    gap: 6px;
     button {
       height: 36px;
       color: #fff;
       border-radius: 4px;
-      width: 241px;
-      // flex: auto;
+      width: 206px;
       &.write {
         width: 36px;
         color: transparent;
@@ -134,6 +134,13 @@ $url_common: "../js/webmap/images/";
             center;
           line-height: 36px;
         }
+      }
+      &.refresh {
+        width: 36px;
+        color: transparent;
+        font-size: 0;
+        background: rgba(47, 85, 151, 1)
+          url($url_common + "popup/ico_refresh.png") no-repeat center;
       }
     }
   }
@@ -161,6 +168,9 @@ $url_common: "../js/webmap/images/";
 }
 
 .movie_pop {
+  .tabContWrap.type01 .tabCont{
+    padding: 0 12px;
+  }
   .mui_form_field {
     padding: 20px 12px;
   }
@@ -170,7 +180,6 @@ $url_common: "../js/webmap/images/";
   }
   .movie_list {
     margin-top: 24px;
-    padding: 0 12px;
     & > .title {
       font-size: 16px;
       color: #000;
@@ -984,6 +993,9 @@ $url_common: "../js/webmap/images/";
   right: 15px;
   top: 15px;
   z-index: 10;
+  .flex{
+    width: 100%;
+  }
   .widget_toggle{
     width: 100%;
     display: block;
@@ -1018,6 +1030,7 @@ $url_common: "../js/webmap/images/";
       display: block;
       visibility: visible;
       right: 0;
+      left: 0;
       top: 0;
       opacity: 1;
     }
@@ -1039,11 +1052,11 @@ $url_common: "../js/webmap/images/";
         }
 
         &.btnLeft {
-          background-image: url("../images/common/btn-widget-up.png");
+          background-image: url($url_common+"common/btn-widget-up.png");
         }
 
         &.btnRight {
-          background-image: url("../images/common/btn-widget-down.png");
+          background-image: url($url_common+"common/btn-widget-down.png");
         }
       }
     }
@@ -1063,11 +1076,16 @@ $url_common: "../js/webmap/images/";
       }
 
       span {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: top;
         padding-top: 26px;
+        height: 50px;
         letter-spacing: -1px;
         line-height: 10px;
-        font-size: 8px;
+        font-size: 10px;
+        box-sizing: border-box;
       }
 
       &:last-of-type {
@@ -1082,11 +1100,11 @@ $url_common: "../js/webmap/images/";
 
       &.basemapWidget {
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-maptype.png");
+          background-image: url($url_common+"toolbar/ico-tool-maptype.png");
         }
 
         &.active > .tool, &:hover > .tool {
-          background-image: url("../images/toolbar/ico-tool-maptype-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-maptype-active.png");
         }
 
         .dep2 .tool {
@@ -1095,26 +1113,26 @@ $url_common: "../js/webmap/images/";
           }
 
           &.type01 {
-            background-image: url("../images/toolbar/ico-maptype-01.png");
+            background-image: url($url_common+"toolbar/ico-maptype-01.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-maptype-01-active.png");
+              background-image: url($url_common+"toolbar/ico-maptype-01-active.png");
             }
           }
 
           &.type02 {
-            background-image: url("../images/toolbar/ico-maptype-02.png");
+            background-image: url($url_common+"toolbar/ico-maptype-02.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-maptype-02-active.png");
+              background-image: url($url_common+"toolbar/ico-maptype-02-active.png");
             }
           }
 
           &.type03 {
-            background-image: url("../images/toolbar/ico-maptype-03.png");
+            background-image: url($url_common+"toolbar/ico-maptype-03.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-maptype-03-active.png");
+              background-image: url($url_common+"toolbar/ico-maptype-03-active.png");
             }
           }
         }
@@ -1122,12 +1140,12 @@ $url_common: "../js/webmap/images/";
 
       &.divideWidget {
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-divide.png");
+          background-image: url($url_common+"toolbar/ico-tool-divide.png");
           background-position: center 12px;
         }
 
         &.active > .tool, &:hover > .tool {
-          background-image: url("../images/toolbar/ico-tool-divide-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-divide-active.png");
         }
 
         .dep2 {
@@ -1156,94 +1174,94 @@ $url_common: "../js/webmap/images/";
 
           .divide2 .dep3 > .tool {
             &.type01 {
-              background-image: url("../images/toolbar/ico-divide-01-01.png");
+              background-image: url($url_common+"toolbar/ico-divide-01-01.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-01-01-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-01-01-active.png");
               }
             }
 
             &.type02 {
-              background-image: url("../images/toolbar/ico-divide-01-02.png");
+              background-image: url($url_common+"toolbar/ico-divide-01-02.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-01-02-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-01-02-active.png");
               }
             }
           }
 
           .divide3 .dep3 > .tool {
             &.type01 {
-              background-image: url("../images/toolbar/ico-divide-02-01.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-01.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-01-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-01-active.png");
               }
             }
 
             &.type02 {
-              background-image: url("../images/toolbar/ico-divide-02-02.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-02.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-02-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-02-active.png");
               }
             }
 
             &.type03 {
-              background-image: url("../images/toolbar/ico-divide-02-03.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-03.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-03-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-03-active.png");
               }
             }
 
             &.type04 {
-              background-image: url("../images/toolbar/ico-divide-02-04.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-04.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-04-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-04-active.png");
               }
             }
 
             &.type05 {
-              background-image: url("../images/toolbar/ico-divide-02-05.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-05.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-05-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-05-active.png");
               }
             }
 
             &.type06 {
-              background-image: url("../images/toolbar/ico-divide-02-06.png");
+              background-image: url($url_common+"toolbar/ico-divide-02-06.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-02-06-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-06-active.png");
               }
             }
           }
 
           .divide4 .dep3 > .tool {
             &.type01 {
-              background-image: url("../images/toolbar/ico-divide-03-01.png");
+              background-image: url($url_common+"toolbar/ico-divide-03-01.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-03-01-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-03-01-active.png");
               }
             }
 
             &.type02 {
-              background-image: url("../images/toolbar/ico-divide-03-02.png");
+              background-image: url($url_common+"toolbar/ico-divide-03-02.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-03-02-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-03-02-active.png");
               }
             }
 
             &.type03 {
-              background-image: url("../images/toolbar/ico-divide-03-03.png");
+              background-image: url($url_common+"toolbar/ico-divide-03-03.png");
 
               &.active, &:hover {
-                background-image: url("../images/toolbar/ico-divide-03-03-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-03-03-active.png");
               }
             }
           }
@@ -1252,26 +1270,26 @@ $url_common: "../js/webmap/images/";
             background-position: center 18px;
 
             &.type01 {
-              background-image: url("../images/toolbar/ico-divide-01.png");
+              background-image: url($url_common+"toolbar/ico-divide-01.png");
 
               &:hover, &.active {
-                background-image: url("../images/toolbar/ico-divide-01-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-01-active.png");
               }
             }
 
             &.type02 {
-              background-image: url("../images/toolbar/ico-divide-02.png");
+              background-image: url($url_common+"toolbar/ico-divide-02.png");
 
               &:hover, &.active {
-                background-image: url("../images/toolbar/ico-divide-02-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-02-active.png");
               }
             }
 
             &.type03 {
-              background-image: url("../images/toolbar/ico-divide-03.png");
+              background-image: url($url_common+"toolbar/ico-divide-03.png");
 
               &:hover, &.active {
-                background-image: url("../images/toolbar/ico-divide-03-active.png");
+                background-image: url($url_common+"toolbar/ico-divide-03-active.png");
               }
             }
           }
@@ -1280,77 +1298,77 @@ $url_common: "../js/webmap/images/";
 
       &.drawWidget {
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-draw.png");
+          background-image: url($url_common+"toolbar/ico-tool-draw.png");
         }
 
         &.active > .tool, &:hover > .tool {
-          background-image: url("../images/toolbar/ico-tool-draw-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-draw-active.png");
         }
 
         .dep2 .tool {
           background-position: center 15px;
 
           &.type01 {
-            background-image: url("../images/toolbar/ico-draw-01.png");
+            background-image: url($url_common+"toolbar/ico-draw-01.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-01-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-01-active.png");
             }
           }
 
           &.type02 {
-            background-image: url("../images/toolbar/ico-draw-02.png");
+            background-image: url($url_common+"toolbar/ico-draw-02.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-02-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-02-active.png");
             }
           }
 
           &.type03 {
-            background-image: url("../images/toolbar/ico-draw-03.png");
+            background-image: url($url_common+"toolbar/ico-draw-03.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-03-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-03-active.png");
             }
           }
 
           &.type04 {
-            background-image: url("../images/toolbar/ico-draw-04.png");
+            background-image: url($url_common+"toolbar/ico-draw-04.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-04-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-04-active.png");
             }
           }
 
           &.type05 {
-            background-image: url("../images/toolbar/ico-draw-05.png");
+            background-image: url($url_common+"toolbar/ico-draw-05.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-05-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-05-active.png");
             }
           }
 
           &.type06 {
-            background-image: url("../images/toolbar/ico-draw-06.png");
+            background-image: url($url_common+"toolbar/ico-draw-06.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-06-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-06-active.png");
             }
           }
 
           &.type07 {
-            background-image: url("../images/toolbar/ico-draw-07.png");
+            background-image: url($url_common+"toolbar/ico-draw-07.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-07-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-07-active.png");
             }
           }
 
           &.type08 {
-            background-image: url("../images/toolbar/ico-draw-08.png");
+            background-image: url($url_common+"toolbar/ico-draw-08.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-draw-08-active.png");
+              background-image: url($url_common+"toolbar/ico-draw-08-active.png");
             }
           }
         }
@@ -1358,47 +1376,47 @@ $url_common: "../js/webmap/images/";
 
       &.measureWidget {
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-measure.png");
+          background-image: url($url_common+"toolbar/ico-tool-measure.png");
           background-position: center 18px;
         }
 
         &.active > .tool, &:hover > .tool {
-          background-image: url("../images/toolbar/ico-tool-measure-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-measure-active.png");
         }
 
         .dep2 .tool {
           background-position: center 13px;
 
           &.type01 {
-            background-image: url("../images/toolbar/ico-measure-01.png");
+            background-image: url($url_common+"toolbar/ico-measure-01.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-measure-01-active.png");
+              background-image: url($url_common+"toolbar/ico-measure-01-active.png");
             }
           }
 
           &.type02 {
-            background-image: url("../images/toolbar/ico-measure-02.png");
+            background-image: url($url_common+"toolbar/ico-measure-02.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-measure-02-active.png");
+              background-image: url($url_common+"toolbar/ico-measure-02-active.png");
             }
           }
 
           &.type03 {
-            background-image: url("../images/toolbar/ico-measure-03.png");
+            background-image: url($url_common+"toolbar/ico-measure-03.png");
             background-position: center 20px;
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-measure-03-active.png");
+              background-image: url($url_common+"toolbar/ico-measure-03-active.png");
             }
           }
 
           &.type04 {
-            background-image: url("../images/toolbar/ico-measure-04.png");
+            background-image: url($url_common+"toolbar/ico-measure-04.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-measure-04-active.png");
+              background-image: url($url_common+"toolbar/ico-measure-04-active.png");
             }
           }
         }
@@ -1410,7 +1428,7 @@ $url_common: "../js/webmap/images/";
         }
 
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-reset.png");
+          background-image: url($url_common+"toolbar/ico-tool-reset.png");
         }
 
         &:active, &:hover {
@@ -1419,33 +1437,33 @@ $url_common: "../js/webmap/images/";
 
         &:active > .tool, &:hover > .tool {
           color: #fff;
-          background-image: url("../images/toolbar/ico-tool-reset-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-reset-active.png");
         }
       }
 
       &.printWidget {
         > .tool {
-          background-image: url("../images/toolbar/ico-tool-print.png");
+          background-image: url($url_common+"toolbar/ico-tool-print.png");
         }
 
         &.active > .tool, &:hover > .tool {
-          background-image: url("../images/toolbar/ico-tool-print-active.png");
+          background-image: url($url_common+"toolbar/ico-tool-print-active.png");
         }
 
         .dep2 .tool {
           &.type01 {
-            background-image: url("../images/toolbar/ico-print-01.png");
+            background-image: url($url_common+"toolbar/ico-print-01.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-print-01-active.png");
+              background-image: url($url_common+"toolbar/ico-print-01-active.png");
             }
           }
 
           &.type02 {
-            background-image: url("../images/toolbar/ico-print-02.png");
+            background-image: url($url_common+"toolbar/ico-print-02.png");
 
             &:hover, &.active {
-              background-image: url("../images/toolbar/ico-print-02-active.png");
+              background-image: url($url_common+"toolbar/ico-print-02-active.png");
             }
           }
         }
@@ -1511,7 +1529,7 @@ $url_common: "../js/webmap/images/";
   }
 
   .zoomWidget {
-    width: 58px;
+    width: 100%;
     margin-top: 500px;
     display: flex;
     flex-direction: column;
@@ -1519,7 +1537,9 @@ $url_common: "../js/webmap/images/";
     border-radius: 4px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
     align-items: center;
-
+    .zoomControl_zoomControlContent{
+      width: 100%;
+    }
     .btnZoom {
       width: 100%;
       height: 37px;
@@ -1527,11 +1547,11 @@ $url_common: "../js/webmap/images/";
       background-repeat: no-repeat;
 
       &.in {
-        background-image: url("../images/toolbar/ico-zoom-in.png");
+        background-image: url($url_common+"toolbar/ico-zoom-in.png");
       }
 
       &.out {
-        background-image: url("../images/toolbar/ico-zoom-out.png");
+        background-image: url($url_common+"toolbar/ico-zoom-out.png");
       }
     }
 
@@ -1542,7 +1562,7 @@ $url_common: "../js/webmap/images/";
       padding: 10px 0;
       border-top: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
-      background: url("../images/toolbar/bg-slide.png") no-repeat center;
+      background: url($url_common+"toolbar/bg-slide.png") no-repeat center;
 
       .slideBar {
         width: 6px;
@@ -1621,20 +1641,7 @@ $url_common: "../js/webmap/images/";
   }
 }
 
-/* line 104, scss/widget.scss */
 
-#widget .dep1 > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn {
-  height: 67px;
-  background-repeat: no-repeat;
-  background-position: center 10px;
-  width: 50px;
-  background-image: url("../images/toolbar/ico-tool-reset.png");
-
-  &:hover {
-    background-image: url("../images/toolbar/ico-tool-reset-active.png");
-    background-image: url("../images/toolbar/ico-tool-reset-active.png");
-  }
-}
 
 .fullScreenControlWidget .fullScreenControl_fullScreenBtn {
   height: 67px;
@@ -1683,29 +1690,42 @@ $url_common: "../js/webmap/images/";
 }
 
 #widget .dep1 {
-  > li.homeWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn {
-    background-image: url("../images/widget/홈.png");
-  }
+  /* line 104, scss/widget.scss */
 
-  button {
-    height: 50px;
+  & > li.resetWidget > .clearControl_clearControlContent > .clearControl_clearBtn {
     background-repeat: no-repeat;
     background-position: center 10px;
+    background-image: url($url_common+"toolbar/ico-tool-reset.png");
+    &:hover {
+      background-image: url($url_common+"toolbar/ico-tool-reset-active.png");
+      background-image: url($url_common+"toolbar/ico-tool-reset-active.png");
+    }
+  }
+  button {
+    display: block !important;
+    height: auto;
+    min-height: 0 !important;
+    background-repeat: no-repeat;
+    background-position: center 7px;
+    background-size: 18px;
     width: 100%;
     box-sizing: border-box;
+    &:hover {
+      background-color: #305698;
+      color: #fff;
+    }
+    span {
+      word-break: keep-all;
+    }
   }
 
-  #basemapWidget button {
-    height: 30px;
-  }
 
-  > li.homeWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn:hover {
-    /*background-image: url("../images/toolbar/ico-home-01-active.png");*/
-    background-image: url("../images/widget/홈hover.png");
+  & > li.homeWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn:hover {
+    background-image: url($url_common+"widget/홈hover.png");
   }
 
   .rotationControl_rotateSpan {
-    background-image: url("../images/widget/나침반.png");
+    background-image: url($url_common+"widget/나침반.png");
     height: 34px;
     background-repeat: no-repeat;
     background-position: center;
@@ -1716,30 +1736,30 @@ $url_common: "../js/webmap/images/";
     margin-left: 7px;
 
     &:hover {
-      background-image: url("../images/widget/나침반hover.png");
+      background-image: url($url_common+"widget/나침반hover.png");
     }
   }
 
   .moveControl_preBtn {
-    background-image: url("../images/widget/이동이전.png");
+    background-image: url($url_common+"widget/이동이전.png");
     width: 23px;
     background-repeat: no-repeat;
     background-position: center 10px;
 
     &:hover {
-      background-image: url("../images/widget/이동이전hover.png");
+      background-image: url($url_common+"widget/이동이전hover.png");
       color: #fff;
     }
   }
 
   .moveControl_nextBtn {
-    background-image: url("../images/widget/이동이후.png");
+    background-image: url($url_common+"widget/이동이후.png");
     width: 23px;
     background-repeat: no-repeat;
     background-position: center 10px;
 
     &:hover {
-      background-image: url("../images/widget/이동이후hover.png");
+      background-image: url($url_common+"widget/이동이후hover.png");
       color: #fff;
     }
   }
@@ -1747,21 +1767,123 @@ $url_common: "../js/webmap/images/";
   > li {
     &.pnuGetterWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn, &.estateWidget > .pnuGetter_PNUGetterContent > .pnuGetter_searchBtn {
       &:hover {
-        background-image: url("../images/toolbar/ico-tool-pnu-active.png");
+        background-image: url($url_common+"toolbar/ico-tool-pnu-active.png");
 
-        /* 	background-image: url("../images/toolbar/ico-pnu-01-active.png"); */
+        /* 	background-image: url($url_common+"toolbar/ico-pnu-01-active.png"); */
       }
 
       > .pnuGetter_searchSpan {
         font-size: 12px;
       }
 
-      background-image: url("../images/toolbar/ico-tool-pnu.png");
+      background-image: url($url_common+"toolbar/ico-tool-pnu.png");
       height: 67px;
       background-repeat: no-repeat;
       background-position: center 10px;
       width: 47px;
     }
+    &.overlapWidget button{
+      background-image: url($url_common+"widget/중첩영상2.png");
+    }
+    &.overlapWidget button{
+      background-image: url($url_common+"widget/중첩영상2.png");
+    }
+    .innder_deps{
+      position: relative;
+      .deps_lv2{
+        position: absolute;
+        top: 0;
+        right: 44px;
+        display: flex;
+        background: #fff;
+        border-radius: 4px;
+        button {
+          width: 42px;
+          height: 50px;
+          border-right: 1px solid #EEE;
+          &:not(:last-child) {
+
+          }
+        }
+      }
+    }
+    button {
+      &.ico_type1 {
+        background-image: url($url_common+"widget/국토정보기본도.png");
+      }
+      &.ico_type2 {
+        background-image: url($url_common+"widget/연속지적도.png");
+      }
+      &.drawControl_toolBtn {
+        background-image: url($url_common+"widget/그리기.png");
+      }
+      &.measureControl_toolBtn {
+        background-image: url($url_common+"widget/측정.png");
+        background-position: center 14px;
+      }
+      &.ico_bookmark {
+        background-image: url($url_common+"widget/북마크.png");
+      }
+      &.printControl_printBtn {
+        background-image: url($url_common+"toolbar/ico-tool-print.png");
+      }
+      &.downloadControl_toolBtn {
+        background-image: url($url_common+"widget/저장.png");
+      }
+      &.fullScreenControl_fullScreenBtn {
+        background-image: url($url_common+"widget/전체화면.png");
+      }
+      &.swiper_widget_btn {
+        background-image: url($url_common+"widget/전체화면.png");
+      }
+      &.data_add_widget_btn {
+        background-image: url($url_common+"widget/전체화면.png");
+      }
+      &.geoCoding_widget_btn {
+        background-image: url($url_common+"widget/전체화면.png");
+      }
+      &.toc_popup_widget_btn {
+        background-image: url($url_common+"widget/전체화면.png");
+      }
+      &.layer_detail_pop_btn {
+        background-image: url($url_common+"widget/레이어style.png");
+      }
+      &.analysisSumryWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.analysisLcWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.analysisPttrnWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.analysisProximityWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.analysisManageWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.analysisCoordWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.landInfoWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.cvgControlWidget_onoffBtn {
+        background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+
+    
   }
 
   border-radius: 3px;
@@ -2344,17 +2466,6 @@ $url_common: "../js/webmap/images/";
   bottom: 0px;
   width: 100%;
   margin-bottom: 35px;
-}
-
-/*북마크위젯 */
-
-#widget .dep1 .bookMarkWidget #bookMarkBtn {
-  background-image: url(../images/widget/북마크.png);
-
-  &:hover {
-    background-image: url(../images/widget/북마크hover.png);
-    color: #fff;
-  }
 }
 
 #bookmarkDiv {

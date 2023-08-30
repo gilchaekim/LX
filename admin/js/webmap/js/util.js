@@ -670,7 +670,7 @@ app = window.app || {};
 				break;
 			case "bookmarkControlWidget":
 				result = `<li class="bookMarkWidget" id="bookMarkControlWidget">
-									<button id="bookMarkBtn">
+									<button id="bookMarkBtn" class="ico_bookmark">
 										<span>북마크</span>
 									</button>
 								</li>`
@@ -680,62 +680,60 @@ app = window.app || {};
 				break;
 			case "swiperControlWidget":
 				result = `<li class="swiperWidget" id="swiperWidget">
-					<button id="swiperBtn">
+					<button id="swiperBtn" class="swiper_widget_btn">
 						<span>스와이프</span>
 					</button>
 				</li>`
 				break;
 			case "dataAddWidget":
 				result = `<li class="dataAddWidget" id="dataAddWidget" >
-					<button id="dataAddBtn">
+					<button id="dataAddBtn" class="data_add_widget_btn">
 						<span>데이터<br/>추가</span>
 					</button>
 				</li>`
 				break;
 			case "geoCodingWidget":
 				result = `<li class="geoCodingWidget" id="geoCodingWidget" >
-					<button id="geoCodingBtn">
+					<button id="geoCodingBtn" class="geoCoding_widget_btn">
 						<span>지오코딩</span>
 					</button>
 				</li>`
 				break;
 			case "tocPopupWidget":
 				result = `<li class="tocPopupWidget" id="tocPopupWidget" >
-					<button id="tocPopupBtn">
+					<button id="tocPopupBtn" class="toc_popup_widget_btn">
 						<span>TOC</span>
 					</button>
 				</li>`
 				break;
 			case "layerStyleControlWidget":
 				result = `<li class="layerStyleControlWidget" id="layerStyleControlWidget" >
-					<button id="layerStyleBtn" class="toc_btnLayerDetail_pop">
+					<button id="layerStyleBtn" class="layer_detail_pop_btn">
 						<span>레이어<br/>스타일</span>
 					</button>
 				</li>`
 				break;
 			case "analysisSumryWidget":
 				result = `<li class="analysisSumryWidget analysisWidgetClass" id="analysisSumryWidget" >
-					<div class="analysisSumryWidgetContent">
-						<button class="analysisSumryWidget_onoffBtn">
-							<span class="analysisSumryWidget_onoffBtnSpan">데이터<br/>요약 정보</span>
+					<button class="analysisSumryWidget_onoffBtn">
+						<span class="analysisSumryWidget_onoffBtnSpan">데이터<br/>요약 정보</span>
+					</button>
+					<div class="analysisSegListDiv">
+						<button class="analysisSumryWidget_agBtn" id="analysisSumryWidget_sumry_ag">
+							<span class="analysisSumryWidget_agBtnSpan">포인트집계</span>
 						</button>
-						<div class="analysisSegListDiv">
-							<button class="analysisSumryWidget_agBtn" id="analysisSumryWidget_sumry_ag">
-								<span class="analysisSumryWidget_agBtnSpan">포인트집계</span>
-							</button>
-							<button class="analysisSumryWidget_joinBtn" id="analysisSumryWidget_sumry_join">
-								<span class="analysisSumryWidget_joinBtnSpan">조인피처</span>
-							</button>
-							<button class="analysisSumryWidget_nrbyBtn" id="analysisSumryWidget_sumry_nrby">
-								<span class="analysisSumryWidget_nrbyBtnSpan">주변요약</span>
-							</button>
-							<button class="analysisSumryWidget_rangeBtn" id="analysisSumryWidget_sumry_range">
-								<span class="analysisSumryWidget_rangeBtnSpan">범위내요약</span>
-							</button>
-							<button class="analysisSumryWidget_centerBtn" id="analysisSumryWidget_sumry_center">
-								<span class="analysisSumryWidget_centerBtnSpan">중심 및</br>분산요약</span>
-							</button>
-						</div>
+						<button class="analysisSumryWidget_joinBtn" id="analysisSumryWidget_sumry_join">
+							<span class="analysisSumryWidget_joinBtnSpan">조인피처</span>
+						</button>
+						<button class="analysisSumryWidget_nrbyBtn" id="analysisSumryWidget_sumry_nrby">
+							<span class="analysisSumryWidget_nrbyBtnSpan">주변요약</span>
+						</button>
+						<button class="analysisSumryWidget_rangeBtn" id="analysisSumryWidget_sumry_range">
+							<span class="analysisSumryWidget_rangeBtnSpan">범위내요약</span>
+						</button>
+						<button class="analysisSumryWidget_centerBtn" id="analysisSumryWidget_sumry_center">
+							<span class="analysisSumryWidget_centerBtnSpan">중심 및</br>분산요약</span>
+						</button>
 					</div>
 				</li>`
 				break;
@@ -816,7 +814,6 @@ app = window.app || {};
 				break;
 			case "analysisManageWidget":
 				result = `<li class="analysisManageWidget analysisWidgetClass" id="analysisManageWidget" >
-					<div class="analysisManageWidgetContent">
 						<button class="analysisManageWidget_onoffBtn">
 							<span class="analysisManageWidget_onoffBtnSpan">데이터<br/>관리 분석</span>
 						</button>
@@ -852,7 +849,6 @@ app = window.app || {};
 								<span class="analysisManageWidget_ltBtnSpan">길이 계산</span>
 							</button>
 						</div>
-					</div>
 				</li>`
 				break;
 			case "analysisCoordWidget":
@@ -1064,42 +1060,40 @@ app = window.app || {};
 				break;
 			case "analysisManageWidget":
 				result = `<li class="analysisManageWidget analysisWidgetClass" id="analysisManageWidget" >
-					<div class="analysisManageWidgetContent">
-						<button class="analysisManageWidget_onoffBtn">
-							<span class="analysisManageWidget_onoffBtnSpan">데이터<br/>관리 분석</span>
+					<button class="analysisManageWidget_onoffBtn">
+						<span class="analysisManageWidget_onoffBtnSpan">데이터<br/>관리 분석</span>
+					</button>
+					<div class="analysisSegListDiv">
+						<button class="analysisManageWidget_dsslveBtn" id="analysisManageWidget_manage_dsslve">
+							<span class="analysisManageWidget_dsslveBtnSpan">경계 디졸브</span>
 						</button>
-						<div class="analysisSegListDiv">
-							<button class="analysisManageWidget_dsslveBtn" id="analysisManageWidget_manage_dsslve">
-								<span class="analysisManageWidget_dsslveBtnSpan">경계 디졸브</span>
-							</button>
-							<button class="analysisManageWidget_extrcBtn" id="analysisManageWidget_manage_extrc">
-								<span class="analysisManageWidget_extrcBtnSpan">데이터 추출</span>
-							</button>
-							<button class="analysisManageWidget_dvsionBtn" id="analysisManageWidget_manage_dvsion">
-								<span class="analysisManageWidget_dvsionBtnSpan">공간 분할<br/>생성</span>
-							</button>
-							<button class="analysisManageWidget_mergeBtn" id="analysisManageWidget_manage_merge">
-								<span class="analysisManageWidget_mergeBtnSpan">레이어 병합</span>
-							</button>
-							<button class="analysisManageWidget_eraseBtn" id="analysisManageWidget_manage_erase">
-								<span class="analysisManageWidget_eraseBtnSpan">레이어 중첩</br>(지우기)</span>
-							</button>
-							<button class="analysisManageWidget_intsctBtn" id="analysisManageWidget_manage_intsct">
-								<span class="analysisManageWidget_intsctBtnSpan">레이어 중첩</br>(교차)</span>
-							</button>
-							<button class="analysisManageWidget_unionBtn" id="analysisManageWidget_manage_union">
-								<span class="analysisManageWidget_unionBtnSpan">레이어 중첩</br>(유니온)</span>
-							</button>
-							<button class="analysisManageWidget_clusteringBtn" id="analysisManageWidget_manage_clustering">
-								<span class="analysisManageWidget_clusteringBtnSpan">클러스터링</span>
-							</button>
-							<button class="analysisManageWidget_arBtn" id="analysisManageWidget_manage_ar">
-								<span class="analysisManageWidget_arBtnSpan">면적 계산</span>
-							</button>
-							<button class="analysisManageWidget_ltBtn" id="analysisManageWidget_manage_lt">
-								<span class="analysisManageWidget_ltBtnSpan">길이 계산</span>
-							</button>
-						</div>
+						<button class="analysisManageWidget_extrcBtn" id="analysisManageWidget_manage_extrc">
+							<span class="analysisManageWidget_extrcBtnSpan">데이터 추출</span>
+						</button>
+						<button class="analysisManageWidget_dvsionBtn" id="analysisManageWidget_manage_dvsion">
+							<span class="analysisManageWidget_dvsionBtnSpan">공간 분할<br/>생성</span>
+						</button>
+						<button class="analysisManageWidget_mergeBtn" id="analysisManageWidget_manage_merge">
+							<span class="analysisManageWidget_mergeBtnSpan">레이어 병합</span>
+						</button>
+						<button class="analysisManageWidget_eraseBtn" id="analysisManageWidget_manage_erase">
+							<span class="analysisManageWidget_eraseBtnSpan">레이어 중첩</br>(지우기)</span>
+						</button>
+						<button class="analysisManageWidget_intsctBtn" id="analysisManageWidget_manage_intsct">
+							<span class="analysisManageWidget_intsctBtnSpan">레이어 중첩</br>(교차)</span>
+						</button>
+						<button class="analysisManageWidget_unionBtn" id="analysisManageWidget_manage_union">
+							<span class="analysisManageWidget_unionBtnSpan">레이어 중첩</br>(유니온)</span>
+						</button>
+						<button class="analysisManageWidget_clusteringBtn" id="analysisManageWidget_manage_clustering">
+							<span class="analysisManageWidget_clusteringBtnSpan">클러스터링</span>
+						</button>
+						<button class="analysisManageWidget_arBtn" id="analysisManageWidget_manage_ar">
+							<span class="analysisManageWidget_arBtnSpan">면적 계산</span>
+						</button>
+						<button class="analysisManageWidget_ltBtn" id="analysisManageWidget_manage_lt">
+							<span class="analysisManageWidget_ltBtnSpan">길이 계산</span>
+						</button>
 					</div>
 				</li>`
 				break;
