@@ -1,5 +1,5 @@
-// $url_common: "../js/webmap/images/";
-$url_common: '../images/';
+$url_common: "../js/webmap/images/";
+// $url_common: '../images/';
 
 #alertDimmed,
 #alertPopBox {
@@ -1709,7 +1709,7 @@ $url_common: '../images/';
     background-repeat: no-repeat;
     background-position: center 7px;
     background-size: 18px;
-    width: 100%;
+    width: 100% !important;
     box-sizing: border-box;
     &:hover {
       background-color: #305698;
@@ -1835,16 +1835,16 @@ $url_common: '../images/';
         background-image: url($url_common+"widget/전체화면.png");
       }
       &.swiper_widget_btn {
-        background-image: url($url_common+"widget/전체화면.png");
+        background-image: url($url_common+"widget/스와이프.png");
       }
       &.data_add_widget_btn {
-        background-image: url($url_common+"widget/전체화면.png");
+        background-image: url($url_common+"widget/데이터추가.png");
       }
       &.geoCoding_widget_btn {
-        background-image: url($url_common+"widget/전체화면.png");
+        background-image: url($url_common+"widget/지오코딩2.png");
       }
       &.toc_popup_widget_btn {
-        background-image: url($url_common+"widget/전체화면.png");
+        background-image: url($url_common+"widget/지도toc2.png");
       }
       &.layer_detail_pop_btn {
         background-image: url($url_common+"widget/레이어style.png");
@@ -1865,10 +1865,10 @@ $url_common: '../images/';
         background-image: url($url_common+"widget/데이터요약분석.png");
       }
       &.analysisCoordWidget_onoffBtn {
-        background-image: url($url_common+"widget/데이터요약분석.png");
+        background-image: url($url_common+"widget/좌표변환.png");
       }
       &.landInfoWidget_onoffBtn {
-        background-image: url($url_common+"widget/데이터요약분석.png");
+        background-image: url($url_common+"widget/부동산정보.png");
       }
       &.cvgControlWidget_onoffBtn {
         background-image: url($url_common+"widget/데이터요약분석.png");
@@ -1897,13 +1897,13 @@ $url_common: '../images/';
 /*그리기 도구 위젯*/
 
 .drawControl_toolBtn {
-  background-image: url(../images/toolbar/ico-tool-draw.png);
+  background-image: url($url_common + "toolbar/ico-tool-draw.png");
   min-height: 67px;
   background-repeat: no-repeat;
   background-position: center 10px;
 
   &:hover {
-    background-image: url(../images/toolbar/ico-tool-draw-active.png);
+    background-image: url($url_common + "toolbar/ico-tool-draw-active.png");
   }
 }
 
@@ -1940,79 +1940,79 @@ $url_common: '../images/';
 }
 
 .drawControl_pointBtn {
-  background-image: url(../images/toolbar/ico-draw-01.png);
+  background-image: url($url_common + "toolbar/ico-draw-01.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-01-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-01-active.png");
   }
 }
 
 .drawControl_polygonBtn {
-  background-image: url(../images/toolbar/ico-draw-05.png);
+  background-image: url($url_common + "toolbar/ico-draw-05.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-05-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-05-active.png");
   }
 }
 
 .drawControl_boxBtn {
-  background-image: url(../images/toolbar/ico-draw-06.png);
+  background-image: url($url_common + "toolbar/ico-draw-06.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-06-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-06-active.png");
   }
 }
 
 .drawControl_lineBtn {
-  background-image: url(../images/toolbar/ico-draw-03.png);
+  background-image: url($url_common + "toolbar/ico-draw-03.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-03-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-03-active.png");
   }
 }
 
 .drawControl_textBtn {
-  background-image: url(../images/toolbar/ico-draw-02.png);
+  background-image: url($url_common + "toolbar/ico-draw-02.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-02-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-02-active.png");
   }
 }
 
 .drawControl_curveBtn {
-  background-image: url(../images/toolbar/ico-draw-04.png);
+  background-image: url($url_common + "toolbar/ico-draw-04.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-04-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-04-active.png");
   }
 }
 
 .drawControl_circleBtn {
-  background-image: url(../images/toolbar/ico-draw-07.png);
+  background-image: url($url_common + "toolbar/ico-draw-07.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-07-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-07-active.png");
   }
 }
 
 .drawControl_bufferBtn {
-  background-image: url(../images/toolbar/ico-draw-08.png);
+  background-image: url($url_common + "toolbar/ico-draw-08.png");
 
   &:hover {
-    background-image: url(../images/toolbar/ico-draw-08-active.png);
+    background-image: url($url_common + "toolbar/ico-draw-08-active.png");
   }
 }
 
 /*측정 위젯*/
 
 .measureControl_toolBtn {
-  background-image: url(../images/toolbar/ico-tool-measure.png);
+  background-image: url($url_common + "toolbar/ico-tool-measure.png");
   min-height: 67px;
   background-repeat: no-repeat;
   background-position: center 10px;
 
   &:hover {
-    background-image: url(../images/toolbar/ico-tool-measure-active.png);
+    background-image: url($url_common + "toolbar/ico-tool-measure-active.png");
   }
 }
 
@@ -2060,72 +2060,72 @@ $url_common: '../images/';
 }
 
 .measureControl_areaBtn {
-  background-image: url(../images/toolbar/ico-measure-02.png);
+  background-image: url($url_common + "toolbar/ico-measure-02.png");
   background-position: center 10px;
 }
 
 .measureControl_distanceBtn {
-  background-image: url(../images/toolbar/ico-measure-01.png);
+  background-image: url($url_common + "toolbar/ico-measure-01.png");
   background-position: center 10px;
 }
 
 .measureControl_circleBtn {
   background-position: center 10px;
-  background-image: url(../images/toolbar/ico-measure-04.png);
+  background-image: url($url_common + "toolbar/ico-measure-04.png");
 }
 
 .measureControl_spotBtn {
-  background-image: url(../images/toolbar/ico-measure-03.png);
+  background-image: url($url_common + "toolbar/ico-measure-03.png");
   background-position: center 20px;
 }
 
 .measureControl_areaBtn:hover {
-  background-image: url(../images/toolbar/ico-measure-02-active.png);
+  background-image: url($url_common + "toolbar/ico-measure-02-active.png");
 }
 
 .measureControl_distanceBtn:hover {
-  background-image: url(../images/toolbar/ico-measure-01-active.png);
+  background-image: url($url_common + "toolbar/ico-measure-01-active.png");
 }
 
 .measureControl_circleBtn:hover {
-  background-image: url(../images/toolbar/ico-measure-04-active.png);
+  background-image: url($url_common + "toolbar/ico-measure-04-active.png");
 }
 
 .measureControl_spotBtn:hover {
-  background-image: url(../images/toolbar/ico-measure-03-active.png);
+  background-image: url($url_common + "toolbar/ico-measure-03-active.png");
 }
 
 /*출력 위젯*/
 
 .printControl_printBtn {
-  background-image: url(../images/toolbar/ico-tool-print.png);
+  background-image: url($url_common + "toolbar/ico-tool-print.png");
   min-height: 41px;
   background-repeat: no-repeat;
   background-position: center 10px;
 }
 
 .webmap .printControl_printBtn:hover {
-  background-image: url(../images/toolbar/ico-tool-print-active.png);
+  background-image: url($url_common + "toolbar/ico-tool-print-active.png");
 }
 
 /*다운로드 위젯  */
 
 .downloadControl_toolBtn, .downloadControl_downloadPngBtn, .downloadControl_downloadPDFBtn {
-  background-image: url(../images/widget/저장.png);
+  background-image: url($url_common + "widget/저장.png");
   min-height: 41px;
   background-repeat: no-repeat;
   background-position: center 10px;
 }
 
 .ddownloadControl_toolBtn:hover {
-  background-image: url(../images/widget/저장hover.png);
+  background-image: url($url_common + "widget/저장hover.png");
   min-height: 41px;
   background-repeat: no-repeat;
   background-position: center 10px;
 }
 
 .downloadControl_downloadPngBtn:hover, .downloadControl_downloadPDFBtn:hover {
-  background-image: url(../images/widget/저장active.png);
+  background-image: url($url_common + "widget/저장active.png");
 }
 
 .downloadControl_downloadGrpDiv {
@@ -2148,13 +2148,13 @@ $url_common: '../images/';
 /*cctv 위젯*/
 
 .cctvControl_cctvBtn {
-  background-image: url(../images/widget/icon_cctv.png);
+  background-image: url($url_common + "widget/icon_cctv.png");
   min-height: 41px;
   background-repeat: no-repeat;
   background-position: center 10px;
 
   &:hover {
-    background-image: url(../images/widget/icon_cctv_ffffff.png);
+    background-image: url($url_common + "widget/icon_cctv_ffffff.png");
     color: #fff;
   }
 }
@@ -2178,21 +2178,21 @@ $url_common: '../images/';
 
 .cctvControl_exBtn {
   width: 45px;
-  background-image: url(../images/widget/icon_road_highway.png);
+  background-image: url($url_common + "widget/icon_road_highway.png");
   background-position: center 10px;
   background-repeat: no-repeat;
 }
 
 .cctvControl_itsBtn {
   width: 45px;
-  background-image: url(../images/widget/icon_road_route.png);
+  background-image: url($url_common + "widget/icon_road_route.png");
   background-position: center 10px;
   background-repeat: no-repeat;
 }
 
 .cctvControl_clearBtn {
   width: 45px;
-  background-image: url(../images/widget/cctvclear.png);
+  background-image: url($url_common + "widget/cctvclear.png");
   background-position: center 8px;
   background-repeat: no-repeat;
 }
@@ -2200,7 +2200,7 @@ $url_common: '../images/';
 .cctvControl_headerCloseBtn {
   width: 20px;
   height: 20px;
-  background: url(../images/popup/ico-pop-close.png) no-repeat center;
+  background: url($url_common + "popup/ico-pop-close.png") no-repeat center;
   margin-right: 10px;
 }
 
@@ -2226,13 +2226,13 @@ $url_common: '../images/';
 }
 
 #swiperBtn {
-  background-image: url(../images/widget/스와이프.png);
+  background-image: url($url_common + "widget/스와이프.png");
   min-height: 41px;
   background-repeat: no-repeat;
   background-position: center 10px;
 
   &:hover {
-    background-image: url(../images/widget/스와이프hover.png);
+    background-image: url($url_common + "widget/스와이프hover.png");
     color: #fff;
   }
 }
@@ -2271,7 +2271,7 @@ $url_common: '../images/';
   width: 20px;
   height: 42px;
   border-radius: 5px;
-  background: #fff url(../images/ico/ico-resize.png) no-repeat center;
+  background: #fff url($url_common + "ico/ico-resize.png") no-repeat center;
   border: 1px solid #2f5597;
   box-sizing: border-box;
 }
@@ -2428,7 +2428,7 @@ $url_common: '../images/';
   margin-left: 174px;
   width: 10px;
   height: 10px;
-  background: url(../images/toc/ico-toc-close.png) no-repeat center;
+  background: url($url_common + "toc/ico-toc-close.png") no-repeat center;
 
   span {
     display: none;
@@ -2504,10 +2504,10 @@ $url_common: '../images/';
 /* 국토정보기본도 */
 
 .limsControlWidget .limsControl_onoffBtn {
-  background-image: url(../images/widget/국토정보기본도.png);
+  background-image: url($url_common + "widget/국토정보기본도.png");
 
   &:hover {
-    background-image: url(../images/widget/국토정보기본도_on.png);
+    background-image: url($url_common + "widget/국토정보기본도_on.png");
     color: #fff;
   }
 }
@@ -2540,33 +2540,33 @@ $url_common: '../images/';
 
 .lsmdControlWidget {
   .lsmdControl_onoffBtn {
-    background-image: url(../images/widget/연속지적도.png);
+    background-image: url($url_common + "widget/연속지적도.png");
 
     &:hover {
-      background-image: url(../images/widget/연속지적도_on.png);
+      background-image: url($url_common + "widget/연속지적도_on.png");
       color: #fff;
     }
   }
 
   .lsmdControl_lsmdBaseBtn {
-    background-image: url(../images/widget/일반지도.png);
+    background-image: url($url_common + "widget/일반지도.png");
   }
 }
 
 .limsControlWidget .limsControl_limsBaseBtn {
-  background-image: url(../images/widget/일반지도.png);
+  background-image: url($url_common + "widget/일반지도.png");
 }
 
 .lsmdControlWidget .lsmdControl_lsmdBaseBtn:hover, .limsControlWidget .limsControl_limsBaseBtn:hover {
-  background-image: url(../images/widget/일반지도_hover.png);
+  background-image: url($url_common + "widget/일반지도_hover.png");
 }
 
 .lsmdControlWidget .lsmdControl_lsmdAirBtn, .limsControlWidget .limsControl_limsAirBtn {
-  background-image: url(../images/widget/항공영상.png);
+  background-image: url($url_common + "widget/항공영상.png");
 }
 
 .lsmdControlWidget .lsmdControl_lsmdAirBtn:hover, .limsControlWidget .limsControl_limsAirBtn:hover {
-  background-image: url(../images/widget/항공영상_hover.png);
+  background-image: url($url_common + "widget/항공영상_hover.png");
 }
 
 .lsmdControl_lsmdLayerListDiv {
@@ -2586,7 +2586,7 @@ $url_common: '../images/';
 }
 
 #linkRoadView {
-  background-image: url(/smt/images/widget/로드뷰.png);
+  background-image: url("/smt/images/widget/로드뷰.png");
 }
 
 #chart_popup {
@@ -2629,10 +2629,10 @@ $url_common: '../images/';
 /* 데이터 요약분석위젯 */
 
 .analysisSumryWidget .analysisSumryWidget_onoffBtn {
-  background-image: url(../images/widget/국토정보기본도.png);
+  background-image: url($url_common + "widget/국토정보기본도.png");
 
   &:hover {
-    background-image: url(../images/widget/국토정보기본도_on.png);
+    background-image: url($url_common + "widget/국토정보기본도_on.png");
     color: #fff;
   }
 }
@@ -2662,20 +2662,20 @@ $url_common: '../images/';
 }
 
 .analysisSumryWidget .analysisSumryWidget_agBtn {
-  background-image: url(../images/widget/일반지도.png);
+  background-image: url($url_common + "widget/일반지도.png");
 
   &:hover {
-    background-image: url(../images/widget/일반지도_hover.png);
+    background-image: url($url_common + "widget/일반지도_hover.png");
   }
 }
 
 /* 부동산 위젯 */
 
 .landInfoWidget .landInfoWidget_onoffBtn {
-  background-image: url(../images/widget/국토정보기본도.png);
+  background-image: url($url_common + "widget/국토정보기본도.png");
 
   &:hover {
-    background-image: url(../images/widget/국토정보기본도_on.png);
+    background-image: url($url_common + "widget/국토정보기본도_on.png");
     color: #fff;
   }
 }
@@ -2705,7 +2705,7 @@ $url_common: '../images/';
 }
 
 .landInfoWidget .landInfoWidget_agBtn {
-  background-image: url(../images/widget/일반지도.png);
+  background-image: url($url_common + "widget/일반지도.png");
 }
 
 
