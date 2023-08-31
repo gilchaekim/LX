@@ -19,6 +19,7 @@ $url_common: '../images/';
     border-radius: 4px;
   }
 }
+
 .mui_link {
   display: flex;
   gap: 10px;
@@ -35,7 +36,7 @@ $url_common: '../images/';
     &.mui_active {
       background: rgba(47, 85, 151, 1);
       font-family: "Pretendard Bold";
-      color: #fff;
+      color: #ffffff;
     }
   }
 }
