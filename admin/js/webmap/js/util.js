@@ -165,6 +165,21 @@ app = window.app || {};
 
 		});
 	};
+
+	util.callAPI2 = (param) => {
+		param.url = `${param.url}`
+		return $.ajax({
+			url: param.url,
+			type: param.type,
+			data: param.data,
+			async: (param.async == undefined ? true : param.async),
+			error: function () {
+				callLoadingBar(false);
+				callAlert('error', '관리자에게 문의해주세요');
+			}
+
+		});
+	};
 	
 	util.callLxdtAPI = (param) => {
 		return $.ajax({
