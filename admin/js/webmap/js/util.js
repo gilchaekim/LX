@@ -898,6 +898,13 @@ app = window.app || {};
 					</div>
 				</li>`
 				break;
+			case "illgCnstWidget":
+				result = `<li class="illgCnstWidget" id="illgCnstWidget" >
+					<button id="illgCnst_onoffBtnSpan" class="illg_cnstWidget_btn">
+						<span>불법 건축물</span>
+					</button>
+				</li>`
+				break;		
 		}
 		return result;
 	}
