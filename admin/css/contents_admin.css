@@ -1171,7 +1171,7 @@ html.mui_modal_page {
   min-width: 600px;
 }
 .mui_modal .mui_size_large, [mui-modal] .mui_size_large {
-  min-width: 800px;
+  min-width: 1420px;
 }
 .mui_modal .mui_modal_dialog, [mui-modal] .mui_modal_dialog {
   margin: 0 auto;
@@ -1181,7 +1181,6 @@ html.mui_modal_page {
 }
 .mui_modal .mui_modal_body, [mui-modal] .mui_modal_body {
   background: #fff;
-  border-radius: 20px;
   overflow: hidden;
   position: relative;
   top: -20px;
@@ -1205,6 +1204,14 @@ html.mui_modal_page {
     background-size: 30px;
     right: 16px;
   }
+}
+.mui_modal .mui_modal_header p, [mui-modal] .mui_modal_header p {
+  height: 50px;
+  font-size: 20px;
+  color: #fff;
+  background: #222;
+  line-height: 50px;
+  padding-left: 20px;
 }
 .mui_modal.mui_open, [mui-modal].mui_open {
   opacity: 1;
@@ -2449,6 +2456,15 @@ button, label {
   position: relative;
 }
 .edit_ground.on {
+  overflow: visible;
+}
+.edit_ground.on::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border: 2px solid #436AEB;
 }
 .edit_ground .bg {
@@ -2773,6 +2789,9 @@ button, label {
 }
 .edit_ground.fit .main_list.icon_black .list:nth-child(5) .ico {
   background-image: url("../images/ico_main05_2.svg");
+}
+.edit_ground.fit .main_list.icon_black .list:nth-child(6) .ico {
+  background-image: url("../images/ico_main06_2.svg");
 }
 .edit_ground.fit .main_list .list {
   padding: 30px 10px 30px 78px;
@@ -4253,5 +4272,16 @@ button, label {
 .btnarea_new .al, .btnarea_new .ar {
   display: flex;
   gap: 10px;
+}
+
+.preview iframe {
+  width: 100%;
+  min-height: 700px;
+}
+.preview .mui_modal_close {
+  background: url("../images/ico_x2.png") no-repeat center !important;
+  top: 0 !important;
+  right: 0 !important;
+  height: 50px !important;
 }
 /*# sourceMappingURL=contents_admin.css.map */

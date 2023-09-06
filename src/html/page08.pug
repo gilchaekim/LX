@@ -1,0 +1,22 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+  - pageTitle = "메인 페이지 관리";
+block content
+
+
+  +modal({
+    id:"commonSearch",
+    title:"미리보기",
+    size:'large',
+    className:"preview"
+  })
+    .preview
+      iframe(src="/html/page01_1.html", frameborder="0") 
+  
+  script.
+    GCui.modal('#commonSearch').show()
+  
+
+  

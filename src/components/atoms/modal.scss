@@ -224,7 +224,7 @@ html.mui_modal_page{
             min-width: 600px;
         }
         &_large{
-            min-width: 800px;
+            min-width: 1420px;
         }
     }
     .mui_modal{
@@ -236,7 +236,6 @@ html.mui_modal_page{
         }
         &_body{
             background: #fff;
-            border-radius: 20px;
             overflow: hidden;
             position: relative;
             top: -20px;
@@ -257,6 +256,16 @@ html.mui_modal_page{
                     background-size: 30px;
                     right: 16px;
                 }
+            }
+        }
+        &_header {
+            p {
+                height: 50px;
+                font-size: 20px;
+                color: #fff;
+                background: #222;
+                line-height: 50px;
+                padding-left: 20px;
             }
         }
 

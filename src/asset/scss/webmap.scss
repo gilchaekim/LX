@@ -1,10 +1,10 @@
-// $url_common: "../js/webmap/images/";
-$url_common: '../images/';
+$url_common: "../js/webmap/images/";
+// $url_common: '../images/';
 
-// #alertDimmed,
-// #alertPopBox {
-//   display: none !important;
-// }
+#alertDimmed,
+#alertPopBox {
+  display: none !important;
+}
 .test_btn_list {
   position: absolute;
   top: 100px;
@@ -1872,6 +1872,9 @@ $url_common: '../images/';
       }
       &.cvgControlWidget_onoffBtn {
         background-image: url($url_common+"widget/데이터요약분석.png");
+      }
+      &.illg_cnstWidget_btn {
+        background-image: url($url_common+"widget/불법건축물.png");
       }
       
       
