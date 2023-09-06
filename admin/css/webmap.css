@@ -47,7 +47,8 @@
   overflow: visible;
   top: 200px;
   left: 100px;
-  padding: 20px 11px;
+  padding: 50px 11px 20px;
+  background: #fff;
 }
 .modal_tooltip .tabContWrap.type01 .tabCont {
   border: 0 none;
@@ -79,6 +80,16 @@
   position: absolute;
   left: 50%;
   margin-left: -22px;
+}
+.modal_tooltip .close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0;
+  color: transparent;
+  background: url("../js/webmap/images/popup/ico-card-close.png") no-repeat center;
 }
 
 .mui_form_field select {

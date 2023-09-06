@@ -47,7 +47,8 @@ $url_common: "../js/webmap/images/";
   overflow: visible;
   top: 200px;
   left: 100px;
-  padding: 20px 11px;
+  padding: 50px 11px 20px;
+  background: #fff;
   .tabContWrap.type01 {
     .tabCont {
       border: 0 none;
@@ -80,6 +81,16 @@ $url_common: "../js/webmap/images/";
     position: absolute;
     left: 50%;
     margin-left: -22px;
+  }
+  .close{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    color: transparent;
+    background: url($url_common+"popup/ico-card-close.png") no-repeat center;
   }
 }
 .mui_form_field {
