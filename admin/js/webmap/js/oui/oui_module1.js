@@ -4,11 +4,11 @@ var createToolbar = function(e, t, r) {
     console.dir(r);
     r.r(t),
     r.d(t, "DataAddWidget", (function() {
-        return daWgt
+        return DataAddWidget
     }
     )),
     r.d(t, "GeoCodingWidget", (function() {
-        return gcWgt
+        return GeoCodingWidget
     }
     )),
     r.d(t, "TOCWidget", (function() {
@@ -47523,7 +47523,7 @@ var createToolbar = function(e, t, r) {
     ;
     
     //데이터 추가위젯 function
-    var daWgt = l((function e(t) {
+    var DataAddWidget = l((function e(t) {
         var r = this;
         c(this, e);
         var n = Object(ho.g)("DataAddWidget", t);
@@ -47542,7 +47542,7 @@ var createToolbar = function(e, t, r) {
     ));
     
     //지오코딩 위젯 function
-    var gcWgt = l((function e(t) {
+    var GeoCodingWidget = l((function e(t) {
         var r = this;
         c(this, e);
         var n = Object(ho.g)("GeoCodingWidget", t);
