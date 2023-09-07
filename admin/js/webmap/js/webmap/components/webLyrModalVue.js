@@ -170,7 +170,7 @@ app.webmap.components = app.webmap.components || {};
 					const tempImg = document.createElement("img");
 					tempImg.src = canvas.toDataURL('image/png');
 					tempImg.onload = () => {
-						console.log("1");
+					//	console.log("1");
 						app.webmap.data.webLyr.base64 = app.util.imgResize(tempImg, 210, 140);
 						app.webmap.components.webLyrModalVue.$forceUpdate();
 					}

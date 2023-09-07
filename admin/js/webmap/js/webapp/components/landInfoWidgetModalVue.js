@@ -19,12 +19,13 @@ app.webapp.components = app.webapp.components || {};
 		}
 		, methods: {
 			show: function () {
-				this.onChangeCategory('build')
+				this.onChangeCategory()
 				$("#landInfoWidgetModal").show();
 			},
 			hide: function () {
 			},
 			onChangeCategory: function (evt) {
+				
 				this.checkedLandInfoList = [];
 				for (var key in app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList) {
 					let columnNm = key.substr(key.indexOf(evt+'Column_')+ (evt+'Column_').length);
@@ -32,7 +33,15 @@ app.webapp.components = app.webapp.components || {};
 						this.checkedLandInfoList.push(columnNm);
 					}
 				};
-				let _gubn = evt;
+				
+				let _gubn;
+				
+				if (evt) {
+					_gubn = evt.currentTarget.value;
+				} else {
+					_gubn = 'build';
+				}
+				
 				this.currentGubn = _gubn;
 				//변경될때마다 데이터 다시 뿌리기
 				this.landInfoList = getLandInfoList(_gubn); //테이블에 표출되는 분석목록
@@ -47,7 +56,7 @@ app.webapp.components = app.webapp.components || {};
 			},
 			checkedAll: function (evt) {
 				console.dir(evt);
-				if (this.currentGubn+"All" == $(evt.target).attr('id')) {
+				if (this.currentGubn == $(evt.target).attr('id')) {
 					let checkFlag = $(evt.target).is(':checked'); //true 전체선택, false 전체해제
 					var checkBoxList = $(evt.target).parents('.analysisTable').find('.analysis td input[type="checkbox"]');
 					for (var i = 0; i < checkBoxList.length; i++) {

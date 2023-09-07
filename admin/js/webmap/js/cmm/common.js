@@ -13,7 +13,7 @@
  		$(cmmForm).submit();
     }
  * */
-function createCmmForm(url) {
+function createCmmForm(url) { 
 	var cmmForm = document.createElement("form");
 	
 	initQueryArray.forEach(function(item, index){

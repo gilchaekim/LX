@@ -95,7 +95,6 @@
 
     });
 
-
     //    $('.btnUser, .btnAlarm').on({
     //        "click":function (){
     //            $(this).siblings().toggle();
@@ -181,14 +180,14 @@
     $('.btnLeft').on({
         "click": function () {
             widgetIdx--;
-            console.log(widgetIdx);
+            //console.log(widgetIdx);
             $(this).closest('.group').removeClass('active').closest('.flex').children('.group').eq(widgetIdx).addClass('active')
         }
     })
     $('.btnRight').on({
         "click": function () {
             widgetIdx++;
-            console.log(widgetIdx);
+            //console.log(widgetIdx);
             $(this).closest('.group').removeClass('active').closest('.flex').children('.group').eq(widgetIdx).addClass('active')
         }
     })

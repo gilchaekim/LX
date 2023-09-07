@@ -1,4 +1,4 @@
-app = window.app || {};
+app = window.app || {}; 
 app.webapp = app.webapp || {};
 app.webapp.components = app.webapp.components || {};
 ((app) => {

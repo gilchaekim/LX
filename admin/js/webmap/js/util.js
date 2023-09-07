@@ -165,21 +165,6 @@ app = window.app || {};
 
 		});
 	};
-
-	util.callAPI2 = (param) => {
-		param.url = `${param.url}`
-		return $.ajax({
-			url: param.url,
-			type: param.type,
-			data: param.data,
-			async: (param.async == undefined ? true : param.async),
-			error: function () {
-				callLoadingBar(false);
-				callAlert('error', '관리자에게 문의해주세요');
-			}
-
-		});
-	};
 	
 	util.callLxdtAPI = (param) => {
 		return $.ajax({
@@ -916,7 +901,7 @@ app = window.app || {};
 			case "illgCnstWidget":
 				result = `<li class="illgCnstWidget" id="illgCnstWidget" >
 					<button id="illgCnst_onoffBtnSpan" class="illg_cnstWidget_btn">
-						<span>불법 건축물</span>
+						<span id='illgCnstWidget_span'>불법 건축물</span>
 					</button>
 				</li>`
 				break;		

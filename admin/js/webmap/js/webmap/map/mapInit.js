@@ -60,7 +60,7 @@
 	webmapWidgetList.split(',').forEach((value,index)=>{
 		let html = app.util.ouiWebmapToolbarCreate(value);
 		let groupNum = Math.floor(index/6) + 1;
-		console.log(value + " : " +groupNum);
+		//console.log(value + " : " +groupNum);
 		$(`#webmapToolGroup${groupNum} ul`).append(html);
 
 		
@@ -97,8 +97,9 @@
 		}
 		else if(value == 'cvgControlWidget'){
 		}
+		else if(value == 'illgCnstWidget'){
+		}
 		else{
-			console.log(value);
 			app.oui[value]().build();
 		}
 	})

@@ -24,6 +24,7 @@ app.webapp.components = app.webapp.components || {};
 				app.webmap.components.webMapSearchModalVue.search(app.webmap.components.webMapSearchModalVue.$data.tab);
 			},
 			mapScopeInit : function(){
+				
 				if(!userMapId){
 					callAlert("select","지도를 먼저 선택해주세요.");
 					return;

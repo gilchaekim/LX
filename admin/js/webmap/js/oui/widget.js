@@ -1359,6 +1359,16 @@ app.widget = app.widget || {};
 								
 							}
 							
+							console.log("analysisType ::: " + analysisType);
+							
+							if(["extractPoint"].includes(analysisType)) {
+								
+								setTimeout(function(){
+									app.extractValuePoint.event.clickCmprLayer();
+								}, 1);
+								
+							}
+							
 							map.updateSize();
 						},
 						// 분석 실행 전 호출

@@ -13,7 +13,10 @@ app.webapp.components = app.webapp.components || {};
 			'thema-tab' : app.webapp.components.themaTab,
 			'widget-tab' : app.webapp.components.widgetTab,
 			'contents-tab' : app.webapp.components.contentsTab,
-			'main-tab' : app.webapp.components.mainTab
+			'main-tab' : app.webapp.components.mainTab,
+			'info-tab' : app.webapp.components.infoTab,
+			'data-tab' : app.webapp.components.dataTab,
+			'dept-tab' : app.webapp.components.deptTab
 		},
 		methods : {
 			hide : function(id) {
@@ -46,6 +49,21 @@ app.webapp.components = app.webapp.components || {};
 					case  "저널":
 						 result = "상세설정(저널형 템플릿)"
 					     break;
+					case  "스토리맵":
+						 result = "상세설정(스토리맵 투어 템플릿)"
+					     break;
+					case  "비교":
+						 result = "상세설정(비교 템플릿)"
+					     break;
+					case  "시간인식":
+						 result = "상세설정(시간인식 템플릿)"
+					     break;
+					case  "고도":
+						 result = "상세설정(고도 프로파일 템플릿)"
+					     break;
+					case  "부서":
+						 result = "상세설정(부서 데이터 관리 템플릿)"
+					     break;	 
 				}
 				return result;
 			}

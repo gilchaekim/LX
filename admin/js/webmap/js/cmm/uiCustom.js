@@ -7,6 +7,7 @@
 			$('.sampleFrame .toolGroup ul li.featureAttributeFormWidget > .tool').removeClass('active');
 		}
 	})
+
 	/* 툴바 1뎁스 버튼 클릭 */
 	$("#newWebMapModalBtn").on("click", function () {
 		callConfirm('새 웹맵', '기존내용을 저장하지않으면 작업중인 내용은 사라집니다. 계속 진행하시겠습니까?', () => {
@@ -247,7 +248,7 @@
 				//레이어스타일 popup이 열려있는경우
 				if ($('#toc > .toc.dep2').hasClass('active') && $('#layerStyle_layerSelect').length !== 0){
 					//$('#layerDetailDiv').css({'left':'10px','top':'0px'});
-					console.log($('#layerDetailDiv').css('left'));
+					//console.log($('#layerDetailDiv').css('left'));
 					
 					if ($('#toc .toc.dep1').find('.btnTocHide').css('display') == 'none') {
 						$('#layerDetailDiv').css({'left': 10,'top': 0 });
@@ -340,8 +341,8 @@
 		
 		let tocLeft = $('#toc').css('left');
 		let tocTop = $('#toc').css('top');
-		console.log(tocLeft);
-		console.log(tocTop);
+		//console.log(tocLeft);
+		//console.log(tocTop);
 		$('#layerDetailDiv').draggable().draggable('option','disabled',false).css({ 'width':0, 'height':600, 'left': 1020, 'top': 72 }).addClass('active');
 		if (loc) {
 			$('#layerDetailDiv').css({'left': `${loc[0]}` , 'top' : `${loc[1]}`});
@@ -487,43 +488,39 @@
 			return;
 		}
 		let html = 
-			`<div id="modal-loginWidget" class="modal_modal modal_open" style="top: 80px; left: 75%; width: 350px; height: auto; z-index: 99999999;">
+			`<div id="modal-loginWidget" class="modal_modal modal_open popup movie_pop lx_login_layer" style="width:393px;">
 				<div>
-					<div class="modal_head">
-						<span>로그인</span>
-						<button class="modal_close" onclick="$('#modal-loginWidget').remove();">
-							<span> × </span>
-						</button>
-					</div>
-					<div class="modal_content">
-						<form class="toc_groupAddForm" id="mapLoginForm" method="post">
-							<input type="hidden" name="returnUrl" value="">
-							<div class="toc_addGroupBox">
-								<table>
-									<tbody>
-										<tr>
-											<td>
-												<input type="text" placeholder="ID 입력" id="userId" name="userId" onkeyup="javascript:if(event.keyCode==32) {removeSpaceBar()}" class="toc_groupInput">
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="password" placeholder="비밀번호 입력" id="userPw" name="userPw" onkeyPress="javascript:if(event.keyCode==13) {getLogin()}" class="toc_groupInput">
-												<input type="hidden" id="userPasswordEncpt" name="userPasswordEncpt" />
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<div class="toc_validBox">
-									<a type="button" title="회원가입" onclick="mapLoginMenu('join');" style="cursor:pointer;">회원가입</a> 
-									<a type="button" title="아이디/비밀번호 찾기" onclick="mapLoginMenu('find');" style="cursor:pointer;">아이디/비밀번호 찾기</a> 
-								</div>
-								<div class="toc_btnArea">
-									<button class="toc_btnAddGroup" value="로그인" onclick="getLogin();">
-								</div>
+					<div class="head blue">
+						<strong class="titPop">로그인</strong>
+						<div class="btnGroup">
+							<button type="button" class="btnPopClose" onclick="$('#modal-loginWidget').remove();"><span class="hidden">팝업 닫기</span></button>
+						</div>
+					</div>			
+					<div class="cont">
+					<form class="toc_groupAddForm" id="mapLoginForm" method="post">
+					<input type="hidden" name="returnUrl" value="">
+						<div class="login">
+							<p class="logo">
+								<img src="../smt/images/widget/logo.png" alt="LX로고">
+							</p>
+							<span class="input">
+								<input type="text" placeholder="ID 입력" id="userId" name="userId" onkeyup="javascript:if(event.keyCode==32) {removeSpaceBar()}">
+							</span>
+							<span class="input">
+								<input type="password" placeholder="비밀번호 입력" id="userPw" name="userPw" onkeyPress="javascript:if(event.keyCode==13) {getLogin()}">
+								<input type="hidden" id="userPasswordEncpt" name="userPasswordEncpt" />
+							</span>
+							<div class="link">
+								<a href="#" onclick="mapLoginMenu('join');">회원가입</a>
+								<a href="#" onclick="mapLoginMenu('find');">아이디/비밀번호 찾기</a>
 							</div>
-						</form>
-					</div>
+							<div class="btn_sec">
+								<button type="button" class="btn" onclick="getLogin();"><span>로그인</span></button>
+							</div>
+						</div>
+					</form>	
+					</div>					
+
 				</div>
 			</div>`;
 		$('body').append(html);
@@ -534,7 +531,8 @@
 	
 	//중첩영상 위젯 button
 	$(document).on('click','#overlapBtn', function () {
-		app.webmap.components.overlapListModalVue.search();
+		app.webmap.components.overlapListModalVue.init();
+		app.webmap.components.overlapListModalVue.addrInit();
 	})
 	
 	//부동산  위젯 onOff
@@ -635,11 +633,11 @@
 			param.userId = 'lxuser';
 			
 			app.cmm.api.landInfo.list(param).then(function (result) {
-				if (result.contents.length == 0) {
+				if (result.contents.landInfo.length == 0) {
 					callAlertMessage('지점의 부동산정보가 없습니다.');
 				} else{
-					console.log(result.contents.length);
-					getLandInfo(result.contents, 'land', evt.coordinate);
+					//getLandInfo(result.contents, 'land', evt.coordinate);
+					getLandInfo1(result.contents, 'land', evt.coordinate);
 				}
 			});
 			
@@ -721,104 +719,183 @@
 		 $(`[data-id=${marker.id}]`).find('li').eq(0).trigger('click');
 	}
 	
+	
+	//부동산정보세팅
+	function getLandInfo1(apiDatas, gubn, coord) {
+		
+		//주소
+		let juso = apiDatas.landInfo[0].a2 + " " + apiDatas.landInfo[0].a5
+		
+		 //컬럼 데이터 설정
+		 let landList;
+		 if(['webmap-view','webmap-detail'].includes(app.cmm.data.mode)) { 
+			 landList = app.webmap.data.landInfoList;
+		 } else {
+			 landList = app.webapp.data.landInfoList.filter(v=> app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList[v.landGubn +"Column_"+v.landColumnId] == true)
+		 }
+		
+		let landHtml = "";
+		let buildHtml = "";
+		let buildLiHtml = "";	//건물 여러개인경우
+		
+		$.each( landList, function (idx,itm) {	//필지
+			if (itm.landGubn == 'land') {
+				let landInfo = apiDatas.landInfo[0];
+				let infoData = landInfo[itm.landColumnId] ?? '';
+				
+				landHtml +=
+				`<tr>
+					<th scope="row">${itm.landColumnName}</th>
+					<td class="txt-center">${infoData}</td>
+				</tr>`;
+					
+			}
+		})
+		
+		$.each( apiDatas.buildInfo, function(idx,itm) {	//건물
+			
+			buildLiHtml += `<a href="#" class="buildInfo-li" onclick="return false;">건물${idx+1}</a>`;
+			
+			buildHtml += `<tbody>` ;
+			$.each(landList.filter(v=> v.landGubn =='build'), function (dataIdx, dataItm) {
+				buildInfo =  itm;
+				let buildData = itm[dataItm.landColumnId] ?? '';
+				buildHtml += `
+					<tr>
+						<th scope="row">${dataItm.landColumnName}</th>
+						<td class="txt-center">${buildData}</td>
+					</tr>						
+				`;
+			});
+			buildHtml += `</tbody>` ;
+		})
+		
+		if (apiDatas.buildInfo.length == 0) buildHtml = '<tbody><tr><td colspan="2" class="txt-center">조회된 건물정보가 없습니다.</td></tr></tbody>'
+	
+		
+		//popup 표출
+		let popHtml = `	
+		<div class="popup modal_tooltip tooltip_layer" style="background-color:white; min-height:350px;max-height:350px; top:-400px; left:-183px" >
+			<div class="tab">
+				<div class="tabContWrap type01">
+					<div class="tabNav">
+						<ul class="tabList">
+							<li class="active landInfo-li land">필지정보</li>
+							<li class="landInfo-li build">건물정보</li>
+						</ul>
+					</div>
+					<div class="tabCont active">
+						<section class="section type02">
+							<div class="titSec div_juso"><strong>${juso}</strong></div>
+							<div class="table" style="max-height:220px">
+								<table >
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 125px;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+									${landHtml}
+									</tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+					<div class="tabCont">
+						<section class="section type02">
+							<div class="titSec div_juso"><strong>${juso}</strong></div>
+							<div class="mui_link">
+								${buildLiHtml}
+							</div>
+							<div class="table" style="max-height:180px">
+								<table>
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 125px;">
+										<col style="width: auto;">
+									</colgroup>
+									${buildHtml}
+								</table>
+							</div>
+						</section>
+					</div>
+				</div>
+	
+			</div>
+			<span class="arrow"></span>
+		</div>`;
+
+		 let popDiv = document.createElement('div');
+		 popDiv.innerHTML = popHtml;
+		 let marker = new odf.Marker({
+			    position : coord,
+			    style : {
+			      element : popDiv
+			    },
+			    rightClickDelete : true
+			  });
+		 marker.setMap(map);
+		 
+		 //레이어 표출
+		 let landFeature = odf.FeatureFactory.fromWKT(apiDatas.landInfo[0].geom);
+		 let landLayer = odf.LayerFactory.produce('geojson', {
+			 data: {
+				 type: "FeatureCollection",
+				 features: [{
+					 type: "Feature",
+					 geometry: {
+						 type: "Point",
+						 coordinates: [0, 0],
+					 }
+				 }]
+			 }
+		 });
+		 landLayer.addFeature(landFeature);
+		 landLayer.setMap(map);
+		 landLayer.setODFId(`odf-layer-draw_${marker.id}`);
+		 
+		 $(popDiv).find('.buildInfo-li:eq(0)').click();
+		 
+		 
+		
+	}
+	
+	
 	//부동산 탭버튼 클릭
 	$(document).on('click','.landInfo-li', function (evt) {
 		let markerli = evt.currentTarget;
-		$(markerli).closest('ul').next().nextAll().remove();
 		let gubn = $(markerli).hasClass('land') ? 'land' : 'build';
 		if (gubn == 'land') {
-			$(markerli).closest('ul').find('li').eq(0).css('background-color', 'red');
-			$(markerli).closest('ul').find('li').eq(1).css('background-color', 'white');
+			$(markerli).closest('ul').find('li').eq(0).addClass('active');
+			$(markerli).closest('ul').find('li').eq(1).removeClass('active');
+			$(markerli).closest('.tabContWrap').find('.tabCont').eq(0).addClass('active');
+			$(markerli).closest('.tabContWrap').find('.tabCont').eq(1).removeClass('active');
 		} else {
-			$(markerli).closest('ul').find('li').eq(0).css('background-color', 'white');
-			$(markerli).closest('ul').find('li').eq(1).css('background-color', 'red');
+			$(markerli).closest('ul').find('li').eq(0).removeClass('active');
+			$(markerli).closest('ul').find('li').eq(1).addClass('active');
+			$(markerli).closest('.tabContWrap').find('.tabCont').eq(1).addClass('active');
+			$(markerli).closest('.tabContWrap').find('.tabCont').eq(0).removeClass('active');
 		}
-		//지점주소
-		let jusoVal = $(markerli).closest('.odfMarker').find(`input[id*="juso"]`).val();
-		$(markerli).closest('div').append(`<br/><br/><strong class="landJuso" style="font-size:17px;">${jusoVal}</strong><br/>`);
-		
-		let landInfoList;
-		let applyList;
-		
-		if(['webmap-view','webmap-detail'].includes(app.cmm.data.mode)) { 
-			landInfoList = app.webmap.data.landInfoList;
-			applyList = Object.keys(app.webmap.data.landInfoCheckedList).filter(v => app.webmap.data.landInfoCheckedList[v] == true)
-		} else {
-			landInfoList = app.webapp.data.landInfoList;
-			applyList = Object.keys(app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList).filter(v => app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList[v] == true)
-		}
-		
-		//건물 여러개일 경우 탭 생성
-		let buildLen = $(markerli).closest('.odfMarker').find(`input[id*="buildLen"]`).val();
-		if (gubn == 'build') {
-			$(markerli).closest('.odfMarker').find('.inner').append(`<ul class="buildUl" style="font-size:14px;margin:3px;"></ul>`);
-			for ( var i=0; i < buildLen; i++) {
-				$(markerli).closest('.odfMarker').find('.buildUl').append(`<li style="background-color:white;display: inline-block; padding :3px;" class="buildInfo-li">건물${i+1}</li>`);
-			}
-			if (buildLen == 1) $(markerli).closest('.odfMarker').find('.buildUl').css('display','none');
-			$(markerli).closest('.odfMarker').find('.buildUl li').eq(0).trigger('click');
-		} else {
-			//컬럼 개수 체크
-			applyList = applyList.filter(v=> v.indexOf(gubn) !== -1);
-			let valueCnt = $(markerli).closest('.odfMarker').find(`input[id*="${gubn}"]`).length;
-			$(markerli).closest('.odfMarker').find(`input[id*="${gubn}"]`).each(function (index, item) {
-				if ( index == 0 ) $(markerli).closest('div').append(`<table style="margin:10px;font-size:17px;">`);
-				if ( index%2 == 0 ) $(markerli).closest('div').find('table').append(`<tr>`);
-				let columnNm = landInfoList.find(v=> item.id.indexOf(v.landColumnId) !== -1).landColumnName;
-				let itemVal = item.value == 'null' ? '없음' : item.value;
-				if ( applyList.includes(item.id.substr(item.id.indexOf(`${gubn}Column`)))) {
-					$(markerli).closest('div').find('table tr:last-child').append(`<th style="border:1px solid black;padding:3px;">${columnNm}</th>`);
-					$(markerli).closest('div').find('table tr:last-child').append(`<td style="border:1px solid black;padding:3px;">${itemVal}</td>`);
-				}
-			});
-			
-		}
-		
-		
-	})
+	})	
 	
 	
 	//건물 탭버튼 클릭
 	$(document).on('click','.buildInfo-li', function (evt) {
 		let buildli = evt.currentTarget;
-		let liIndex = $(buildli).index();
-		
-		$(buildli).closest('.odfMarker').find('.buildInfo-li').css('background-color','white');
-		$(buildli).css('background-color','gray');
-		
-		$(buildli).closest('ul').nextAll().remove();
-		
-		let landInfoList;
-		let applyList;
-		
-		if(['webmap-view','webmap-detail'].includes(app.cmm.data.mode)) { 
-			landInfoList = app.webmap.data.landInfoList;
-			applyList = Object.keys(app.webmap.data.landInfoCheckedList).filter(v => app.webmap.data.landInfoCheckedList[v] == true)
-		} else {
-			landInfoList = app.webapp.data.landInfoList;
-			applyList = Object.keys(app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList).filter(v => app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList[v] == true)
-		}
-		
-		applyList = applyList.filter(v=> v.indexOf('build') !== -1);
-		let valueCnt = $(buildli).closest('.odfMarker').find(`[data-tab=${liIndex}]`).length;
-		$(buildli).closest('.odfMarker').find(`[data-tab=${liIndex}]`).each(function (index, item) {
-			if ( index == 0 ) $(buildli).closest('div').append(`<table style="margin:10px;font-size:17px;">`);
-			if ( index%2 == 0 ) $(buildli).closest('div').find('table').append(`<tr>`);
-			let columnNm = landInfoList.find(v=> item.id.indexOf(v.landColumnId) !== -1).landColumnName;
-			let itemVal = item.value == 'null' ? '없음' : item.value;
-			let str = item.id.substr(item.id.indexOf(`buildColumn`));
-			str = str.substr(0,str.length-2);
-			if ( applyList.includes(str)) {
-				$(buildli).closest('div').find('table tr:last-child').append(`<th style="border:1px solid black;padding:3px;">${columnNm}</th>`);
-				$(buildli).closest('div').find('table tr:last-child').append(`<td style="border:1px solid black;padding:3px;">${itemVal}</td>`);
-			}
-		});
+		$(buildli).closest('div').find('.buildInfo-li').removeClass('mui_active');
+		$(buildli).addClass('mui_active');
+		let idx = $(buildli).closest('div').find('.buildInfo-li').index(this);
+		let tableNode = $(buildli).closest('div').next();
+		$(tableNode).find('tbody').css('display','none');
+		$(tableNode).find(`tbody:eq(${idx})`).css('display','');
+		//인덱스
+		//해당 tbody block 나머지 hidden 
 	});
 	
 	//부동산 삭제버튼
 	$(document).on('click','.landInfo_closeBtn', function (evt) {
 		let btn = evt.currentTarget;
-		console.log(btn.id);
+		//console.log(btn.id);
 		let markerId = btn.id.substr(0,btn.id.indexOf('_closeBtn'));
 		map.removeODFLayer(`odf-layer-draw_${markerId}`);
 		map.getMarker(`${markerId}`).removeMap();
@@ -828,7 +905,6 @@
 	//측정도구위젯 좌표계
 	$(document).on('change','.thisAddr-srs-select', function (evt) {
 		let thisSelect = evt.currentTarget;
-		//console.log(btn.value);
 		
 		let param = {};
 		param.posX = thisSelect.dataset.x
@@ -841,17 +917,39 @@
 			data: param,
 			type: 'POST'
 		}).then(function (result) {
-			console.log(result);
-			$(thisSelect).parent().find('.changeAddrDesc').html(`경도:${result.result.result.posX},위도:${result.result.result.posY}`);
-			$(thisSelect).parent().find('.changeCoordTag').html(`변경 좌표계 : ${thisSelect.value}`);
+			//console.log(result);
+			$(thisSelect).closest('.measurement_cont').find('.changeAddrDesc:eq(0)').html(`${result.result.result.posX}`);
+			$(thisSelect).closest('.measurement_cont').find('.changeAddrDesc:eq(1)').html(`${result.result.result.posY}`);
+			$(thisSelect).closest('.measurement_cont').find('.changeCoordTag').html(`${thisSelect.value}`);
 		});
 	});
+	
+	//측정도구 팝업 삭제버튼
+	$(document).on('click','.thisAddrCloseBtn', function (evt) {
+		
+		let btn = evt.currentTarget;
+		let featureId = $(btn).closest('.btnGroup').find('input:eq(0)').val();
+		let layerId = $(btn).closest('.btnGroup').find('input:eq(1)').val();
+		let layer = map.getODFLayerList().filter(v=> v.getODFId() == layerId);
+		let feature = layer[0].getFeatureById(featureId);
+		if (feature) layer[0].removeFeature(feature);
+		
+		let markerId = $(btn).closest('.odfMarker').data('id');
+		map.getMarker(`${markerId}`).removeMap();
+		//$('.btn-control-marker-deleteButton').css('display','none');	//삭제버튼 숨김처리
+	});
+	
+	
+	
 	if(['webmap-view','webmap-detail'].includes(app.cmm.data.mode)) { 
 	    odf.event.addListener(map,'contextmenu',(evt)=>{
 		  $('#odf-draw-styleBox').css('display', 'none');
 	    })
 	};
-	
+	//불법 건축물 button
+	$(document).on('click','#illgCnst_onoffBtnSpan', function () {
+		app.webmap.components.illgCnstModalVue.init();
+	})
 	opTbResize();
 
 })();

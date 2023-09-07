@@ -123,18 +123,28 @@ app.webapp = app.webapp || {};
 						},
 						topWidget: [],
 						bottomWidget: [],
-						landInfoCheckedList:{
-							'buildColumn_bldNm':true,
+						landInfoCheckedList: {
+							'buildColumn_bdMgtSn':true,
+							'buildColumn_bdtypCd':true,
 							'buildColumn_bsiZonNo':true,
-							'buildColumn_bldMnnm':true,
-							'buildColumn_bldSlno':true,
-							'landColumn_jimok':true,
-							'landColumn_parea':true,
-							'landColumn_ownerNm':true,
-							'landColumn_shrCnt':true,
-							'landColumn_movde':true,
-							'landColumn_grdNm':true,
-							'landColumn_jigaIlp':true,
+							'buildColumn_bulManBo':true,
+							'buildColumn_buldMnnm':true,
+							'buildColumn_buldSlno':true,
+							'buildColumn_buldNm':true,
+							'buildColumn_buldNmDc':true,
+							'buildColumn_groFloCo':true,
+							'buildColumn_undFloCo':true,
+							'buildColumn_mvmnDe':true,
+							'buildColumn_mvmnResn':true,
+							'buildColumn_ntfcDe':true,
+							'buildColumn_rnCd':true,
+							'buildColumn_sigCd':true,
+							'landColumn_jibun':true,
+							'landColumn_pnu':true,
+							'landColumn_a12':true,
+							'landColumn_a4':true,
+							'landColumn_a6':true,
+							'landColumn_a9':true,
 						}
 					},
 
@@ -204,18 +214,28 @@ app.webapp = app.webapp || {};
 						layerWidgetOption: {},
 						topWidget: [],
 						bottomWidget: [],
-						landInfoCheckedList:{
-							'buildColumn_bldNm':true,
+						landInfoCheckedList: {
+							'buildColumn_bdMgtSn':true,
+							'buildColumn_bdtypCd':true,
 							'buildColumn_bsiZonNo':true,
-							'buildColumn_bldMnnm':true,
-							'buildColumn_bldSlno':true,
-							'landColumn_jimok':true,
-							'landColumn_parea':true,
-							'landColumn_ownerNm':true,
-							'landColumn_shrCnt':true,
-							'landColumn_movde':true,
-							'landColumn_grdNm':true,
-							'landColumn_jigaIlp':true,
+							'buildColumn_bulManBo':true,
+							'buildColumn_buldMnnm':true,
+							'buildColumn_buldSlno':true,
+							'buildColumn_buldNm':true,
+							'buildColumn_buldNmDc':true,
+							'buildColumn_groFloCo':true,
+							'buildColumn_undFloCo':true,
+							'buildColumn_mvmnDe':true,
+							'buildColumn_mvmnResn':true,
+							'buildColumn_ntfcDe':true,
+							'buildColumn_rnCd':true,
+							'buildColumn_sigCd':true,
+							'landColumn_jibun':true,
+							'landColumn_pnu':true,
+							'landColumn_a12':true,
+							'landColumn_a4':true,
+							'landColumn_a6':true,
+							'landColumn_a9':true,
 						}
 					},
 				}
@@ -303,18 +323,28 @@ app.webapp = app.webapp || {};
 							popupSet: true, // 팝업설정
 							attributeGrid: true // 속성 그리드
 						},
-						landInfoCheckedList:{
-							'buildColumn_bldNm':true,
+						landInfoCheckedList: {
+							'buildColumn_bdMgtSn':true,
+							'buildColumn_bdtypCd':true,
 							'buildColumn_bsiZonNo':true,
-							'buildColumn_bldMnnm':true,
-							'buildColumn_bldSlno':true,
-							'landColumn_jimok':true,
-							'landColumn_parea':true,
-							'landColumn_ownerNm':true,
-							'landColumn_shrCnt':true,
-							'landColumn_movde':true,
-							'landColumn_grdNm':true,
-							'landColumn_jigaIlp':true,
+							'buildColumn_bulManBo':true,
+							'buildColumn_buldMnnm':true,
+							'buildColumn_buldSlno':true,
+							'buildColumn_buldNm':true,
+							'buildColumn_buldNmDc':true,
+							'buildColumn_groFloCo':true,
+							'buildColumn_undFloCo':true,
+							'buildColumn_mvmnDe':true,
+							'buildColumn_mvmnResn':true,
+							'buildColumn_ntfcDe':true,
+							'buildColumn_rnCd':true,
+							'buildColumn_sigCd':true,
+							'landColumn_jibun':true,
+							'landColumn_pnu':true,
+							'landColumn_a12':true,
+							'landColumn_a4':true,
+							'landColumn_a6':true,
+							'landColumn_a9':true,
 						}
 					},
 				}
@@ -496,7 +526,516 @@ app.webapp = app.webapp || {};
 						tabName: '메인',
 					}
 				}
+			},{
+				type: "STR",
+				tit: "스토리맵 투어 템플릿",
+				desc: "위치기반의 순차적인 이야기를 이미지, 텍스트를 통해 보여줄 수 있는 페이지 구성입니다.",
+				imgSrc: `${contextPath}/images/webapp/img-type-01.png`,
+				className: 'themeType01',// 퍼블이주는 css 이름 '.sampleFrame' 에
+				// addClass
+				detailSetting: {
+					mainTab: {
+						tabName: '메인',
+						webmap: {},
+						mapScope: {}
+					},
+					layoutTab: {
+						tabName: '레이아웃',
+						titSec: '스토리맵',
+						webappTmplatTyCode: 'STR',
+						type01: {
+							className: 'style01',// 퍼블이주는 css 이름
+							// '.sampleFrame' 에 addClass
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type02: {
+							className: 'style02',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+						type03: {
+							className: 'style03',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-03.png`,
+						},
+						type04: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-04.png`,
+						},
+
+					},
+					themaTab: {
+						per: "per", //저널형, 시리즈 맵일 경우만 사용.
+						panel: "",//패널 사이즈 클래스명
+						tabName: '테마',
+						theme: "theme01", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "편집한 웹앱의 정보를 표출합니다",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						},
+						section: {
+							fontColor: "#333",
+							backgroundColor: "2F5597"
+						}
+					},
+//					themaTab: {
+//						tabName: '테마',
+//						theme: "편집", // 테마 클래스명
+//						style: "",// 레이아웃 클래스명
+//						head: {
+//							title: "웹앱 타이틀",
+//							subTitle: "웹앱 서브타이틀",
+//							logoFileName: "",
+//							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+//							logoLink: "#",
+//							info: "편집한 웹앱의 정보를 표출합니다",
+//							backgroundColor: "#000000",
+//							fontColor: "#ffffff",
+//						},
+//						foot: {
+//							titleLogo: "",
+//							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+//							logoFileName: "",
+//							logoToDataURL: "",
+//							backgroundColor: "#f5f5f5",
+//							fontColor: "#9e9fae",
+//							useYn: true
+//						}
+//					},
+					sectionTab: {
+						tabName: '섹션',
+						mainTab: [
+							/*{
+								tabSn: 0,
+								tabName: "탭1",
+								tabText: "ssssssssssssssssssssss",
+								tabContent: {
+									contentType: 'map',
+									contentValue: {
+										userMapId: '',
+										userMapSj: '',
+										webmapInfo: '',
+										center: '',
+										zoom: ''
+									}
+								},
+								active: "active"
+							}*/
+						]
+					},
+
+				}
 			},
+			{
+				type: "CMPR",
+				tit: "비교 템플릿",
+				desc: "2개의 맵을 연결하여 비교하거나 각 맵을 개별적으로 탐색할 수 있는 페이지 구성입니다.",
+				imgSrc: `${contextPath}/images/webapp/img-type-01.png`,
+				className: 'themeType01',// 퍼블이주는 css 이름 '.sampleFrame' 에
+				// addClass
+				detailSetting: {
+					mainTab: {
+						tabName: '메인',
+						webmap: {},
+						mapScope: {}
+					},
+					layoutTab: {
+						tabName: '레이아웃',
+						titSec: '비교',
+						webappTmplatTyCode: 'CMPR',
+						type01: {
+							className: 'style01',// 퍼블이주는 css 이름
+							// '.sampleFrame' 에 addClass
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type02: {
+							className: 'style02',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+						type03: {
+							className: 'style03',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-03.png`,
+						},
+						type04: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-04.png`,
+						},
+
+					},
+					themaTab: {
+						tabName: '테마',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "편집한 웹앱의 정보를 표출합니다",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					widgetTab: {
+						tabName: '위젯',
+						toolbar: [], // 전체 툴바
+						toolbarWidget: [],
+						headerWidget: [],
+						layerWidget: [],
+						layerWidgetOption: {
+							layerSearch: true, // 레이어 검색
+							layerUpload: true, // 레이어 업로드
+							styleSet: true,// 스타일설정
+							popupSet: true, // 팝업설정
+							attributeGrid: true // 속성 그리드
+						},
+						topWidget: [],
+						bottomWidget: []
+					},
+
+				}
+			},
+			{
+				type: "TMRZ",
+				tit: "시간인식 템플릿",
+				desc: "타임 슬라이더를 활용하여 시간 경과에 따른 데이터의 변경을 시각화 할 수 있는 페이지 구성입니다.",
+				imgSrc: `${contextPath}/images/webapp/img-type-01.png`,
+				className: 'themeType01',// 퍼블이주는 css 이름 '.sampleFrame' 에
+				// addClass
+				detailSetting: {
+					mainTab: {
+						tabName: '메인',
+						webmap: {},
+						mapScope: {}
+					},
+					layoutTab: {
+						tabName: '레이아웃',
+						titSec: '시간인식',
+						webappTmplatTyCode: 'TMRZ',
+						type01: {
+							className: 'style01',// 퍼블이주는 css 이름
+							// '.sampleFrame' 에 addClass
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type02: {
+							className: 'style02',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+						type03: {
+							className: 'style03',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-03.png`,
+						},
+						type04: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-04.png`,
+						},
+						type05: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type06: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+
+					},
+					themaTab: {
+						tabName: '테마',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "편집한 웹앱의 정보를 표출합니다",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					widgetTab: {
+						tabName: '위젯',
+						toolbar: [], // 전체 툴바
+						toolbarWidget: [],
+						headerWidget: [],
+						layerWidget: [],
+						layerWidgetOption: {
+							layerSearch: true, // 레이어 검색
+							layerUpload: true, // 레이어 업로드
+							styleSet: true,// 스타일설정
+							popupSet: true, // 팝업설정
+							attributeGrid: true // 속성 그리드
+						},
+						topWidget: [],
+						bottomWidget: []
+					},
+
+				}
+			},
+			{
+				type: "ALT",
+				tit: "고도 프로파일 템플릿",
+				desc: "사용자가 선택한 피처 혹은 라인에 대한 고도(지형단면도)를 보여주는 페이지 구성입니다.",
+				imgSrc: `${contextPath}/images/webapp/img-type-01.png`,
+				className: 'themeType01',// 퍼블이주는 css 이름 '.sampleFrame' 에
+				// addClass
+				detailSetting: {
+					mainTab: {
+						tabName: '메인',
+						webmap: {},
+						mapScope: {}
+					},
+					layoutTab: {
+						tabName: '레이아웃',
+						titSec: '고도',
+						webappTmplatTyCode: 'ALT',
+						type01: {
+							className: 'style01',// 퍼블이주는 css 이름
+							// '.sampleFrame' 에 addClass
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type02: {
+							className: 'style02',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+						type03: {
+							className: 'style03',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-03.png`,
+						},
+						type04: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-04.png`,
+						},
+
+					},
+					themaTab: {
+						tabName: '테마',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "편집한 웹앱의 정보를 표출합니다",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					widgetTab: {
+						tabName: '위젯',
+						toolbar: [], // 전체 툴바
+						toolbarWidget: [],
+						headerWidget: [],
+						layerWidget: [],
+						layerWidgetOption: {
+							layerSearch: true, // 레이어 검색
+							layerUpload: true, // 레이어 업로드
+							styleSet: true,// 스타일설정
+							popupSet: true, // 팝업설정
+							attributeGrid: true // 속성 그리드
+						},
+						topWidget: [],
+						bottomWidget: []
+					},
+
+				}
+			},
+			{
+				type: "DPT",
+				tit: "부서 데이터 관리 템플릿",
+				desc: "특정 부서간 레이어 및 데이터를 공유할 수 있는 페이지 구성입니다.",
+				imgSrc: `${contextPath}/images/webapp/img-type-01.png`,
+				className: 'themeType01',// 퍼블이주는 css 이름 '.sampleFrame' 에
+				// addClass
+				detailSetting: {
+					mainTab: {
+						tabName: '메인',
+						webmap: {},
+						mapScope: {}
+					},
+					layoutTab: {
+						tabName: '레이아웃',
+						titSec: '부서',
+						webappTmplatTyCode: 'DPT',
+						type01: {
+							className: 'style01',// 퍼블이주는 css 이름
+							// '.sampleFrame' 에 addClass
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-01.png`,
+						},
+						type02: {
+							className: 'style02',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-02.png`,
+						},
+						type03: {
+							className: 'style03',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-03.png`,
+						},
+						type04: {
+							className: 'style04',
+							imgSrc: `${contextPath}/images/webapp/img-layout-01-04.png`,
+						},
+
+					},
+					themaTab: {
+						tabName: '테마',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "편집한 웹앱의 정보를 표출합니다",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					widgetTab: {
+						tabName: '위젯',
+						toolbar: [], // 전체 툴바
+						toolbarWidget: [],
+						headerWidget: [],
+						layerWidget: [],
+						layerWidgetOption: {
+							layerSearch: true, // 레이어 검색
+							layerUpload: true, // 레이어 업로드
+							styleSet: true,// 스타일설정
+							popupSet: true, // 팝업설정
+							attributeGrid: true // 속성 그리드
+						},
+						topWidget: [],
+						bottomWidget: []
+					},
+					infoTab: {
+						tabName: '정보창',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					dataTab: {
+						tabName: '데이터',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+					deptTab: {
+						tabName: '부서설정',
+						theme: "편집", // 테마 클래스명
+						style: "",// 레이아웃 클래스명
+						head: {
+							title: "웹앱 타이틀",
+							subTitle: "웹앱 서브타이틀",
+							logoFileName: "",
+							logoToDataURL: `${contextPath}/images/common/logo-main.png`,
+							logoLink: "#",
+							info: "",
+							backgroundColor: "#000000",
+							fontColor: "#ffffff",
+						},
+						foot: {
+							titleLogo: "",
+							desc: "COPYRIGHT(C) LX, ALL RIGHTS",
+							logoFileName: "",
+							logoToDataURL: "",
+							backgroundColor: "#f5f5f5",
+							fontColor: "#9e9fae",
+							useYn: true
+						}
+					},
+
+				}
+			},								
 		],
 
 		// db에저장할 데이터
@@ -815,76 +1354,137 @@ app.webapp = app.webapp || {};
 			'insert',           //편집모드 - 추가
 			'clear',            //필터초기화 & 선택초기화
 			'editMode'],
-		landInfoList: [
-			{
-				landColumnName: '지목'
-				, landColumnId: 'jimok'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '면적'
-				, landColumnId: 'parea'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '대장 소유'
-				, landColumnId: 'ownerNm'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '공유인 수'
-				, landColumnId: 'shrCnt'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '토지이동일자'
-				, landColumnId: 'movde'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '토지등급'
-				, landColumnId: 'grdNm'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '공시지가'
-				, landColumnId: 'jigaIlp'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '건물명'
-				, landColumnId: 'bldNm'
-				, landGubn: "build"
-			},
-			{
-				landColumnName: '기초구역번호'
-				, landColumnId: 'bsiZonNo'
-				, landGubn: "build"
-			},
-			{
-				landColumnName: '건물본번'
-				, landColumnId: 'bldMnnm'
-				, landGubn: "build"
-			},
-			{
-				landColumnName: '건물부번'
-				, landColumnId: 'bldSlno'
-				, landGubn: "build"
+			landInfoList: [
+				{
+					landColumnName: '지번'
+					, landColumnId: 'jibun'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '필지고유번호'
+					, landColumnId: 'pnu'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '지목'
+					, landColumnId: 'a12'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '대장구분명'
+					, landColumnId: 'a4'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '지번지목부호'
+					, landColumnId: 'a6'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '개별공시지가'
+					, landColumnId: 'a9'
+					, landGubn: "land"
+				},
+				{
+					landColumnName: '이전건물관리번호'
+					, landColumnId: 'bdMgtSn'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '건물용도코드'
+					, landColumnId: 'bdtypCd'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '기초구역번호'
+					, landColumnId: 'bsiZonNo'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '건물일련번호'
+					, landColumnId: 'bulManBo'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '건물본번'
+					, landColumnId: 'buldMnnm'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '건물부번'
+					, landColumnId: 'buldSlno'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '건물명'
+					, landColumnId: 'buldNm'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '상세건물명'
+					, landColumnId: 'buldNmDc'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '지상층수'
+					, landColumnId: 'groFloCo'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '지하층수'
+					, landColumnId: 'undFloCo'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '이동일자'
+					, landColumnId: 'mvmnDe'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '이동사유'
+					, landColumnId: 'mvmnResn'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '고시일자'
+					, landColumnId: 'ntfcDe'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '도로명코드'
+					, landColumnId: 'rnCd'
+					, landGubn: "build"
+				},
+				{
+					landColumnName: '시군구코드'
+					, landColumnId: 'sigCd'
+					, landGubn: "build"
+				},
+
+			],
+			landInfoCheckedList: {
+				'buildColumn_bdMgtSn':true,
+				'buildColumn_bdtypCd':true,
+				'buildColumn_bsiZonNo':true,
+				'buildColumn_bulManBo':true,
+				'buildColumn_buldMnnm':true,
+				'buildColumn_buldSlno':true,
+				'buildColumn_buldNm':true,
+				'buildColumn_buldNmDc':true,
+				'buildColumn_groFloCo':true,
+				'buildColumn_undFloCo':true,
+				'buildColumn_mvmnDe':true,
+				'buildColumn_mvmnResn':true,
+				'buildColumn_ntfcDe':true,
+				'buildColumn_rnCd':true,
+				'buildColumn_sigCd':true,
+				'landColumn_jibun':true,
+				'landColumn_pnu':true,
+				'landColumn_a12':true,
+				'landColumn_a4':true,
+				'landColumn_a6':true,
+				'landColumn_a9':true,
 			}
-		],
-		landInfoCheckedList: {
-			'buildColumn_bldNm':true,
-			'buildColumn_bsiZonNo':true,
-			'buildColumn_bldMnnm':true,
-			'buildColumn_bldSlno':true,
-			'landColumn_jimok':true,
-			'landColumn_parea':true,
-			'landColumn_ownerNm':true,
-			'landColumn_shrCnt':true,
-			'landColumn_movde':true,
-			'landColumn_grdNm':true,
-			'landColumn_jigaIlp':true,
-		}
 	};
 
 

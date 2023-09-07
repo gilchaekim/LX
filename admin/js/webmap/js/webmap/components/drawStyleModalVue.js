@@ -53,7 +53,7 @@ app.webmap.components = app.webmap.components || {};
 		methods: {
 			show: function (featId, featType) {
 				
-				$('input:checkbox[id^=drawStyle]').prop('checked',false);
+				$('input:radio[id^=drawStyle]').prop('checked',false);
 				
 				//featType 종류
 				//사각형 box, 점 point, 폴리곤 polygon, 선 lineString, 텍스트 text, 곡선 curve, 원 circle
@@ -78,7 +78,8 @@ app.webmap.components = app.webmap.components || {};
 				let opacity = parseInt(this.data.fillColor[3]*100);
 				this.data.fillOpacity = opacity;
 				
-				$("#drawStyle-fill-opacity-bar").slider({
+/*				
+				.slider({
 					change : function(evt,ui) {
 						app.webmap.components.drawStyleModalVue.data.fillOpacity = ui.value;
 						app.webmap.components.drawStyleModalVue.fillColorStyleObj['opacity'] = ui.value/100;
@@ -89,9 +90,9 @@ app.webmap.components = app.webmap.components || {};
 						}
 					},
 					value : opacity
-				});
+				});*/
 				
-				if (opacity == 0) $('#drawStyle-fill-checkbox').prop('checked', true);
+				opacity == 0 ? $('#drawStyle-fill-radio1').prop('checked', true) : $('#drawStyle-fill-radio0').prop('checked', true)
 				
 				//라인
 				this.data.lineColor = featType == 'point' ? feat.getStyle().getImage().getStroke().getColor() : feat.getStyle().getStroke().getColor();
@@ -101,7 +102,7 @@ app.webmap.components = app.webmap.components || {};
 				let lineOpacity = parseInt(this.data.lineColor[3]*100);
 				this.data.lineOpacity = lineOpacity;
 				
-				$("#drawStyle-line-opacity-bar").slider({
+/*				$("#drawStyle-line-opacity-bar").slider({
 					change : function(evt,ui) {
 						app.webmap.components.drawStyleModalVue.data.lineOpacity = ui.value;
 						app.webmap.components.drawStyleModalVue.lineColorStyleObj['opacity'] = ui.value/100;
@@ -112,9 +113,9 @@ app.webmap.components = app.webmap.components || {};
 						}
 					},
 					value : lineOpacity
-				});
+				});*/
 				
-				if (lineOpacity == 0) $('#drawStyle-line-checkbox').prop('checked', true);
+				lineOpacity == 0 ? $('#drawStyle-line-radio1').prop('checked', true) : $('#drawStyle-line-radio0').prop('checked', true)
 				
 				//text
 				this.data.textFont = this.data.textFontArr.find(v=> feat.getStyle().getText().getFont().indexOf(v) > -1);
@@ -164,9 +165,9 @@ app.webmap.components = app.webmap.components || {};
 			},
 			opacityCheck: function(evt) {
 				if (evt.target.id.indexOf('fill') > -1 ) {
-					$(evt.target).prop('checked') ? $("#drawStyle-fill-opacity-bar").slider('value', 0) : $("#drawStyle-fill-opacity-bar").slider('value', 100)
+					evt.target.id == 'drawStyle-fill-radio1' ? $("#drawStyle-fill-opacity-bar").val(0).change() : $("#drawStyle-fill-opacity-bar").val(100).change();
 				} else {
-					$(evt.target).prop('checked') ? $("#drawStyle-line-opacity-bar").slider('value', 0) : $("#drawStyle-line-opacity-bar").slider('value', 100)
+					evt.target.id == 'drawStyle-line-radio1' ? $("#drawStyle-line-opacity-bar").val(0).change() : $("#drawStyle-line-opacity-bar").val(100).change();
 				}
 
 			},
@@ -263,6 +264,30 @@ const drawSketchApp = new Vue({
 
 $(document).on('click', '#drawStyleModal', function(evt){
 	if (evt.target.id.indexOf('Color-box') == -1) $('#draw-sketch-app').css('display', 'none');
+});
+
+$(document).on('change', '#drawStyle-fill-opacity-bar', function(evt){
+	
+	app.webmap.components.drawStyleModalVue.data.fillOpacity = this.value;
+	app.webmap.components.drawStyleModalVue.fillColorStyleObj['opacity'] = this.value/100;
+	if (this.value == 0 ) {
+		$('#drawStyle-fill-radio1').prop('checked', true);
+	} else {
+		$('#drawStyle-fill-radio0').prop('checked', true);
+	}
+	
+})
+
+$(document).on('change', '#drawStyle-line-opacity-bar', function(evt){
+	
+	app.webmap.components.drawStyleModalVue.data.lineOpacity = this.value;
+	app.webmap.components.drawStyleModalVue.lineColorStyleObj['opacity'] = this.value/100;
+	if (this.value == 0 ) {
+		$('#drawStyle-line-radio1').prop('checked', true);
+	} else {
+		$('#drawStyle-line-radio0').prop('checked', true);
+	}
+	
 })
 
 

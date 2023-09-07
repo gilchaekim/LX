@@ -162,7 +162,7 @@ app.webmap.components = app.webmap.components || {};
 					param.tocs = tocListConvert;
 					// 공유정보 추가 필요.
 					app.cmm.api.webmap.process(param).then(function (result) {
-						console.log(result);
+					//	console.log(result);
 						userMapId = result.result;
 						callAlert('success', '저장이 완료되었습니다.');
 						app.webmap.components.newWebMapModalVue.hide();

@@ -96,7 +96,8 @@ app.webmap = app.webmap || {};
 		// 페이징
 		paginationInfo : { 
 			webmapList : { pageSize : 10 },// 하단에 보이는 페이지 개수,
-			overlapList : { pageSize : 10 }
+			overlapList : { pageSize : 10 },
+			illgCnstInfoTotalList : { pageSize : 5 }	
 						  
 		},
 		//웹레이어 상세 
@@ -132,51 +133,59 @@ app.webmap = app.webmap || {};
 		//중첩영상 목록
 		overlapLayerTotalList : {
 			list:{},
+			result:{},
 			pageInfo:{
 				totalCount:0
 			},
 		},
 		overlapOrderList:[]
 		,
+		illgCnstInfoTotalList : {
+			list:{},
+			result:{},
+			pageInfo:{
+				totalCount:0
+			},
+		},
 		landInfoList: [
 			{
+				landColumnName: '지번'
+				, landColumnId: 'jibun'
+				, landGubn: "land"
+			},
+			{
+				landColumnName: '필지고유번호'
+				, landColumnId: 'pnu'
+				, landGubn: "land"
+			},
+			{
 				landColumnName: '지목'
-				, landColumnId: 'jimok'
+				, landColumnId: 'a12'
 				, landGubn: "land"
 			},
 			{
-				landColumnName: '면적'
-				, landColumnId: 'parea'
+				landColumnName: '대장구분명'
+				, landColumnId: 'a4'
 				, landGubn: "land"
 			},
 			{
-				landColumnName: '대장 소유'
-				, landColumnId: 'ownerNm'
+				landColumnName: '지번지목부호'
+				, landColumnId: 'a6'
 				, landGubn: "land"
 			},
 			{
-				landColumnName: '공유인 수'
-				, landColumnId: 'shrCnt'
+				landColumnName: '개별공시지가'
+				, landColumnId: 'a9'
 				, landGubn: "land"
 			},
 			{
-				landColumnName: '토지이동일자'
-				, landColumnId: 'movde'
-				, landGubn: "land"
+				landColumnName: '이전건물관리번호'
+				, landColumnId: 'bdMgtSn'
+				, landGubn: "build"
 			},
 			{
-				landColumnName: '토지등급'
-				, landColumnId: 'grdNm'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '공시지가'
-				, landColumnId: 'jigaIlp'
-				, landGubn: "land"
-			},
-			{
-				landColumnName: '건물명'
-				, landColumnId: 'bldNm'
+				landColumnName: '건물용도코드'
+				, landColumnId: 'bdtypCd'
 				, landGubn: "build"
 			},
 			{
@@ -185,28 +194,89 @@ app.webmap = app.webmap || {};
 				, landGubn: "build"
 			},
 			{
+				landColumnName: '건물일련번호'
+				, landColumnId: 'bulManBo'
+				, landGubn: "build"
+			},
+			{
 				landColumnName: '건물본번'
-				, landColumnId: 'bldMnnm'
+				, landColumnId: 'buldMnnm'
 				, landGubn: "build"
 			},
 			{
 				landColumnName: '건물부번'
-				, landColumnId: 'bldSlno'
+				, landColumnId: 'buldSlno'
 				, landGubn: "build"
-			}
+			},
+			{
+				landColumnName: '건물명'
+				, landColumnId: 'buldNm'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '상세건물명'
+				, landColumnId: 'buldNmDc'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '지상층수'
+				, landColumnId: 'groFloCo'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '지하층수'
+				, landColumnId: 'undFloCo'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '이동일자'
+				, landColumnId: 'mvmnDe'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '이동사유'
+				, landColumnId: 'mvmnResn'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '고시일자'
+				, landColumnId: 'ntfcDe'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '도로명코드'
+				, landColumnId: 'rnCd'
+				, landGubn: "build"
+			},
+			{
+				landColumnName: '시군구코드'
+				, landColumnId: 'sigCd'
+				, landGubn: "build"
+			},
+
 		],
 		landInfoCheckedList: {
-			'buildColumn_bldNm':true,
+			'buildColumn_bdMgtSn':true,
+			'buildColumn_bdtypCd':true,
 			'buildColumn_bsiZonNo':true,
-			'buildColumn_bldMnnm':true,
-			'buildColumn_bldSlno':true,
-			'landColumn_jimok':true,
-			'landColumn_parea':true,
-			'landColumn_ownerNm':true,
-			'landColumn_shrCnt':true,
-			'landColumn_movde':true,
-			'landColumn_grdNm':true,
-			'landColumn_jigaIlp':true,
+			'buildColumn_bulManBo':true,
+			'buildColumn_buldMnnm':true,
+			'buildColumn_buldSlno':true,
+			'buildColumn_buldNm':true,
+			'buildColumn_buldNmDc':true,
+			'buildColumn_groFloCo':true,
+			'buildColumn_undFloCo':true,
+			'buildColumn_mvmnDe':true,
+			'buildColumn_mvmnResn':true,
+			'buildColumn_ntfcDe':true,
+			'buildColumn_rnCd':true,
+			'buildColumn_sigCd':true,
+			'landColumn_jibun':true,
+			'landColumn_pnu':true,
+			'landColumn_a12':true,
+			'landColumn_a4':true,
+			'landColumn_a6':true,
+			'landColumn_a9':true,
 		}
 	}
 

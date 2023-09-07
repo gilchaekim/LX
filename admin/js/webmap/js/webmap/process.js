@@ -150,11 +150,11 @@ app.webmap.process = app.webmap.process || {};
 				if (userMapInfo.userMapScopeValue) {
 					let userMapScopeValue = JSON.parse(userMapInfo.userMapScopeValue);
 					map.getView().setCenter([userMapScopeValue.mapCenter.x, userMapScopeValue.mapCenter.y]);
-					map.setZoom(userMapScopeValue.mapCenter.zoom);
+					map.setZoom(parseInt(userMapScopeValue.mapCenter.zoom));
 					let homeControlOption = {
 						center: [userMapScopeValue.mapCenter.x, userMapScopeValue.mapCenter.y],
-						zoom: userMapScopeValue.mapCenter.zoom,
-					}
+						zoom: parseInt(userMapScopeValue.mapCenter.zoom),
+					}  
 					app.oui.homeControlWidget().changeOption(homeControlOption);
 					app.oui.process.refineTocContentList(tocGroup)
 						.then(res => {

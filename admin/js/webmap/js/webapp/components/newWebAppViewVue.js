@@ -56,6 +56,16 @@ app.webapp.components = app.webapp.components || {};
 								$("#alarm").hide();
 								$("#widget_header").hide();
 								break;
+							case "스토리맵": //스토리맵 투어 템플릿
+								break;
+							case "비교": //비교 템플릿
+								break;
+							case "시간인식": //시간인식 템플릿
+								break;
+							case "고도": //고도 프로파일 템플릿
+								break;
+							case "부서": //부서 데이터 관리 템플릿
+								break;		
 						}
 
 					});
