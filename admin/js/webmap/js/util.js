@@ -634,6 +634,8 @@ app = window.app || {};
 				break;
 			case "basemapWidget":
 				result = `<li class="basemapWidget" id="basemapWidget"></li>`
+			case "mapWidget":
+				result = `<li class="basemapWidget" id="basemapWidget"></li>`
 				break;
 			case "divideMapWidget":
 				result = `<li class="divideWidget" id="divideMapWidget"></li>`
