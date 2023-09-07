@@ -1,5 +1,5 @@
 /**
- * @license
+ * @license 
  * Copyright (c) 2018 amCharts (Antanas Marcelionis, Martynas Majeris)
  *
  * This sofware is provided under multiple licenses. Please see below for
