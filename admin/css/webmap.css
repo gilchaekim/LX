@@ -2429,6 +2429,47 @@
   background: url("../images/widget/ico_add.png") no-repeat center;
 }
 
+.analys_legend_colors {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  background: #fff;
+  padding: 20px;
+  width: 447px;
+}
+.analys_legend_colors .title {
+  display: block;
+  font-size: 18px;
+  color: #2E2E2E;
+  padding-bottom: 10px;
+}
+.analys_legend_colors .inset_color {
+  display: flex;
+}
+.analys_legend_colors .inset_color > div {
+  flex: 1;
+}
+.analys_legend_colors .inset_color > div span {
+  display: block;
+  height: 40px;
+}
+.analys_legend_colors .inset_num {
+  margin-top: 6px;
+  display: flex;
+}
+.analys_legend_colors .inset_num.justify {
+  justify-content: space-between;
+}
+.analys_legend_colors .inset_num.justify > span {
+  flex: none;
+}
+.analys_legend_colors .inset_num > span {
+  font-size: 18px;
+  color: #2E2E2E;
+  flex: 1;
+  text-align: center;
+}
+
 #wrap #toc .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnAnalsLegend {
   background-image: url("../images/toc/ico-bookmark2-hover.png");
 }

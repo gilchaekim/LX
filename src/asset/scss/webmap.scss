@@ -2783,6 +2783,46 @@ $url_common: '../images/';
     background: url($url_common+"widget/ico_add.png") no-repeat center;
   }
 }
+.analys_legend_colors{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  background: #fff;
+  padding: 20px;
+  width: 447px;
+  .title{
+    display: block;
+    font-size: 18px;
+    color: #2E2E2E;
+    padding-bottom: 10px;
+  }
+  .inset_color {
+    display: flex;
+    & > div {
+      flex: 1;
+      span {
+        display: block;
+        height: 40px;
+      }
+    }
+  }
+  .inset_num{
+    margin-top: 6px;
+    display: flex;
+    &.justify {
+      justify-content: space-between;
+      & > span {
+        flex: none;
+      }
+    }
+    & > span {
+      font-size: 18px;
+      color: #2E2E2E;
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
 
 #wrap {
   #toc {
