@@ -100,6 +100,7 @@
 		else if(value == 'illgCnstWidget'){
 		}
 		else{
+			console.log(value);
 			app.oui[value]().build();
 		}
 	})

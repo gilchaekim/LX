@@ -7,10 +7,10 @@
 	<title>웹맵</title>
 
 	<script>
-		const contextPath = "/smt" // ex) /smt
+		const contextPath = "../" // ex) /smt
 		window.app = {};
 		// let webmapWidgetList = 'homeControlWidget,basemapWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,limsControlWidget,lsmdControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,overlapWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
-		let webmapWidgetList = 'basemapWidget,overlapWidget,limsControlWidget,lsmdControlWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
+		let webmapWidgetList = 'mapWidget,basemapWidget,overlapWidget,limsControlWidget,lsmdControlWidget,divideMapWidget,drawControlWidget,measureControlWidget,clearControlWidget,bookmarkControlWidget,printControlWidget,downloadControlWidget,fullScreenControlWidget,swiperControlWidget,dataAddWidget,geoCodingWidget,tocPopupWidget,layerStyleControlWidget,analysisSumryWidget,analysisLcWidget,analysisPttrnWidget,analysisProximityWidget,analysisManageWidget,analysisCoordWidget,landInfoWidget,mousePositionControlWidget,cvgControlWidget';
 
 
 
@@ -111,7 +111,17 @@
 	<script type="text/javascript" src="../js/sheetjs/xlsx.full.min.js"></script>
 
 	<!-- ê³µíµ common js -->
-	<script type="text/javascript" src='/smt/js/cmm/cmmn.js'></script>
+	<script type="text/javascript" src='../js/cmm/cmmn.js'></script>
+
+
+
+
+
+
+	<!-- 추가 -->
+	<script type="text/javascript" src="../js/oui/oui_module1.js"></script>
+
+
 
 	<!-- type script -->
 	<script type="text/javascript" src="../js/odf/odf.min.js" defer></script>
@@ -121,7 +131,7 @@
 	<script type="text/javascript" src="../js/util.js"></script>
 	<script type="text/javascript" src="../js/oui/client.js"></script>
 
-	<script type="text/javascript" src='/smt/js/sketchpicker/vue-color.js'></script>
+	<script type="text/javascript" src='../js/sketchpicker/vue-color.js'></script>
 
 	<!-- api -->
 	<script type="text/javascript" src="../js/cmm/api/layer.js"></script>

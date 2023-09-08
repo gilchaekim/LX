@@ -316,6 +316,18 @@ app.widget = app.widget || {};
 		};
 	}
 
+	// 신규 - 지도 위젯
+	_oui.mapWidget = () => {
+		return {
+			build: () => {
+				
+			},
+			remove: () => {
+				widget.basemapWidget.remove();
+			}
+		};
+	}
+
 	// 분할지도 위젯
 	_oui.divideMapWidget = () => {
 		return {
