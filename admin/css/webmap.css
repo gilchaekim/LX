@@ -2429,10 +2429,10 @@
   background: url("../images/widget/ico_add.png") no-repeat center;
 }
 
-#toc .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnAnalsLegend {
+#wrap #toc .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnAnalsLegend {
   background-image: url("../images/toc/ico-bookmark2-hover.png") no-repeat center;
 }
-#toc .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnAnalsLegend.off {
+#wrap #toc .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnAnalsLegend.off {
   background-image: url("../images/toc/ico-bookmark2.png") no-repeat center;
 }
 /*# sourceMappingURL=webmap.css.map */
