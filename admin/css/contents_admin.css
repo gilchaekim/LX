@@ -1992,6 +1992,50 @@ button, label {
   height: 30px;
 }
 
+.add_table .mui_radio_group {
+  padding-top: 0;
+}
+.add_table .lists {
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 8px;
+  position: relative;
+}
+.add_table .lists ~ .lists {
+  margin-top: 4px;
+}
+.add_table select {
+  width: 100%;
+}
+.add_table .delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  color: transparent;
+  background: url("../images/ico_close.svg") no-repeat center;
+  background-size: 100%;
+}
+.add_table .in_title {
+  margin-bottom: 4px;
+}
+.add_table .in_title ~ .in_title {
+  margin-top: 14px;
+}
+.add_table .btns {
+  margin-top: 12px;
+  text-align: center;
+}
+.add_table .btns button {
+  background: #436AEB;
+  color: #fff;
+  height: 36px;
+  width: 60px;
+  border-radius: 4px;
+}
+
 .admin-logo {
   margin-left: 0px;
   font-size: 16px;
@@ -2425,6 +2469,9 @@ button, label {
 .grid_box.grid_4x2 .grid {
   width: 25%;
   height: 300px;
+}
+.grid_box.grid_4x2 .grid .mui-slider, .grid_box.grid_4x2 .grid .slider {
+  height: 100%;
 }
 .grid_box.grid_1x3 .grid {
   width: 25%;
@@ -2893,6 +2940,9 @@ button, label {
   padding-left: 30px;
   font-size: 20px;
   color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .edit_ground.fit .main_list .text_list li a::after {
   content: "";
@@ -3105,8 +3155,9 @@ button, label {
 }
 .edit_ground.horizontal_type .edit_contents .grid_in {
   height: 100%;
-  flex: 1;
   position: relative;
+  flex: 1;
+  width: 50%;
 }
 .edit_ground.horizontal_type .edit_contents .grid_blocks {
   height: 100%;
@@ -3276,17 +3327,6 @@ button, label {
 .edit_ground.horizontal_type .notice_wrap a .date {
   opacity: 0.5;
   white-space: nowrap;
-}
-.edit_ground.horizontal_type .notice_wrap a::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10px;
-  left: 8px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #fff;
 }
 .edit_ground.horizontal_type .goto_link {
   font-family: "Noto Sans";

@@ -20,6 +20,7 @@ import {
     hasClass,
     removeClass,
     randomStr,
+    find,
 } from '../../util/index';
 import {cssPrefix} from 'GC-data'
 let swiperData = {}
@@ -74,10 +75,14 @@ export default {
             };
         }
         if(arrow){
-            append(this.$el, arrowTemplate);
+            const nextCls = `next_${randomStr(8)}`
+            const prevCls = `prev_${randomStr(8)}`
+            const arrows = append(this.$el, arrowTemplate);
+            addClass(find('.mui_button_next', arrows), nextCls)
+            addClass(find('.mui_button_prev', arrows), prevCls)
             swiperData.navigation = {
-                nextEl: ".mui_button_next",
-                prevEl: ".mui_button_prev",
+                nextEl: `.${nextCls}`,
+                prevEl: `.${prevCls}`,
             };
         }
         if(scrollbar){

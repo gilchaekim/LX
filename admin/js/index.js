@@ -9711,10 +9711,14 @@
         };
       }
       if (arrow) {
-        append(this.$el, arrowTemplate);
+        var nextCls = "next_".concat(randomStr(8));
+        var prevCls = "prev_".concat(randomStr(8));
+        var arrows = append(this.$el, arrowTemplate);
+        addClass(find('.mui_button_next', arrows), nextCls);
+        addClass(find('.mui_button_prev', arrows), prevCls);
         swiperData.navigation = {
-          nextEl: ".mui_button_next",
-          prevEl: ".mui_button_prev"
+          nextEl: ".".concat(nextCls),
+          prevEl: ".".concat(prevCls)
         };
       }
       if (scrollbar) {

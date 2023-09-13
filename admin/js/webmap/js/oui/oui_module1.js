@@ -108,6 +108,17 @@ var createToolbar = function(e, t, r) {
     r.d(t, "BasemapWidget", (function() {
         return BasemapWidget;
     })),
+
+
+
+
+    r.d(t, "mapWidgetNew", (function() {
+        return mapWidgetNew;
+    })),
+
+
+    
+    
     r.d(t, "CCTVControlWidget", (function() {
         return CCTVControlWidget;
     })),
@@ -219,23 +230,23 @@ var createToolbar = function(e, t, r) {
             throw new TypeError("Cannot call a class as a function")
     }
     var u = r(4)
-      , d = r.n(u)
-      , p = r(13)
-      , h = r.n(p)
-      , f = r(1)
-      , g = r.n(f)
-      , m = Object(f.createContext)({
-        contentList: [],
+    , d = r.n(u)
+    , p = r(13)
+    , h = r.n(p)
+    , f = r(1)
+    , g = r.n(f)
+    , m = Object(f.createContext)({
+    contentList: [],
         flatDataList: []
     })
-      , y = Object(f.createContext)({
+    , y = Object(f.createContext)({
         map: {}
     })
-      , b = r(44)
-      , v = r(75)
-      , A = r.n(v)
-      , E = r(0)
-      , w = function(e) {
+    , b = r(44)
+    , v = r(75)
+    , A = r.n(v)
+    , E = r(0)
+    , w = function(e) {
         var t, r = e.options, n = e.dispatch, i = e.children, o = e.closedCallback, a = r.id, s = void 0 === a ? "" : a, l = r.visibility, c = void 0 !== l && l, u = r.headerTitle, d = void 0 === u ? "" : u, p = r.width, g = void 0 === p ? 500 : p, m = r.backgroundControl, y = void 0 !== m && m, b = r.closeReset, v = void 0 === b || b, w = r.closeYn, C = void 0 === w || w, S = 0, O = 0, R = Object(f.useRef)(), j = void 0;
         Object(f.useMemo)((function() {
             y && c && ((j = document.createElement("div")).className = "modal-box-backgCtrl",
@@ -246,27 +257,27 @@ var createToolbar = function(e, t, r) {
         T += 20,
         T -= 100;
         var I = 52
-          , x = {
+        , x = {
             top: I += "px",
             left: T += "px",
             width: g,
             height: "auto"
         }
-          , k = function(e) {
+        , k = function(e) {
             return parseInt(e.style.left.replace("px", ""))
         }
-          , D = function(e) {
+        , D = function(e) {
             return parseInt(e.style.top.replace("px", ""))
         }
-          , N = function(e) {
+        , N = function(e) {
             var r = window.event ? window.event : e
-              , n = parseInt(r.clientX + S)
-              , i = parseInt(r.clientY + O);
+            , n = parseInt(r.clientX + S)
+            , i = parseInt(r.clientY + O);
             return t.style.left = n + "px",
             t.style.top = i + "px",
             !1
         }
-          , M = function() {
+        , M = function() {
             document.onmousemove = null,
             document.onmouseup = null
         };
@@ -331,11 +342,11 @@ var createToolbar = function(e, t, r) {
         });
         return "" != s ? h.a.createPortal(F, document.body) : Object(E.jsx)(E.Fragment, {})
     }
-      , C = r(35)
-      , S = r(25)
-      , O = r.n(S)
-      , R = r(7)
-      , j = function(e) {
+    , C = r(35)
+    , S = r(25)
+    , O = r.n(S)
+    , R = r(7)
+    , j = function(e) {
         var t, r = e.modal, n = Object(C.a)(), s = n.register, l = n.handleSubmit, c = n.setValue, u = n.formState.errors, p = (n.getValues,
         Object(f.useContext)(m)), h = p.options.alertList, g = void 0 === h ? null : h, y = Object(f.useState)(""), b = Object(a.a)(y, 2), v = b[0], A = b[1], w = function() {
             var e = Object(i.a)(d.a.mark((function e() {
@@ -464,13 +475,13 @@ var createToolbar = function(e, t, r) {
         };
         return r[t.type] ? r[t.type]() : Object(o.a)({}, e)
     }
-      , I = r(91)
-      , x = r.n(I)
-      , k = r(152)
-      , D = r.n(k)
-      , N = r(6)
-      , M = r.n(N)
-      , F = r(18);
+    , I = r(91)
+    , x = r.n(I)
+    , k = r(152)
+    , D = r.n(k)
+    , N = r(6)
+    , M = r.n(N)
+    , F = r(18);
     function L(e) {
         return L = "function" === typeof Symbol && "symbol" === typeof Symbol.iterator ? function(e) {
             return typeof e
@@ -34144,7 +34155,7 @@ var createToolbar = function(e, t, r) {
         }]),
         e
     }()
-      , Rf = l((function e(t) {
+    , Rf = l((function e(t) {
         var r = this
           , n = t.odf
           , s = t.target
@@ -41872,9 +41883,9 @@ var createToolbar = function(e, t, r) {
         }
     }
     ))
-      , Zm = Object(f.createContext)({})
-      , Vm = Object(f.createContext)({})
-      , Wm = function(e, t) {
+    , Zm = Object(f.createContext)({})
+    , Vm = Object(f.createContext)({})
+    , Wm = function(e, t) {
         switch (t.type) {
         case "CHANGE_CREATE_BOOL":
             return Object(o.a)(Object(o.a)({}, e), {}, {
@@ -41888,13 +41899,13 @@ var createToolbar = function(e, t, r) {
             return Object(o.a)({}, e)
         }
     }
-      , zm = function(e, t) {
+    , zm = function(e, t) {
         return t.type,
         Object(o.a)({}, e)
     }
-      , Ym = r(43)
-      , Jm = r.n(Ym)
-      , Hm = function e() {
+    , Ym = r(43)
+    , Jm = r.n(Ym)
+    , Hm = function e() {
         var t = Object(f.useContext)(Zm)
           , r = Object(f.useContext)(Vm)
           , n = Object(f.useContext)(y)
@@ -42161,8 +42172,7 @@ var createToolbar = function(e, t, r) {
     };
     Hm.removeHelpTooltip = function() {
         Hm.measureControl.removeHelpTooltip()
-    }
-    ;
+    };
     var Qm = Hm
       , Xm = function(e) {
         var t = e.options
@@ -49133,7 +49143,7 @@ var createToolbar = function(e, t, r) {
         }
     }
     ))
-      , BasemapWidget = l((function e(t) {
+    , BasemapWidget = l((function e(t) {
         var r = this
           , n = t.odf
           , i = t.target
@@ -49185,10 +49195,79 @@ var createToolbar = function(e, t, r) {
             sC.remove(n),
             p(!1)) : console.warn("addTo가 안된 widget입니다.")
         }
-    }
-    ))
-      , mC = Object(f.createContext)({})
-      , yC = function(e, t) {
+    }))
+
+
+
+
+    , mapWidgetNew = l((function e(t) {
+        var r = this
+          , n = t.odf
+          , i = t.target
+          , a = t.options
+          , s = void 0 === a ? {} : a
+          , l = t.api
+          , u = void 0 === l ? {} : l;
+        c(this, e);
+        var d = Object(ho.g)("mapWidgetNew", {
+            odf: n,
+            target: i,
+            options: s,
+            api: u
+        });
+        if (!d.isSuccess)
+            throw Error("[에러 위치: mapWidgetNew] " + d.message);
+        if (this.options = Object(o.a)({}, s),
+        this.api = Object(o.a)({}, u),
+        this.odf = n,
+        this.options.alertList = Object(ho.f)(this.options.alertList),
+        void 0 === this.options.useImage && (this.options.useImage = !1),
+        void 0 === this.options.toolboxPosition && (this.options.toolboxPosition = "left"),
+        "string" === typeof this.options.toolboxPosition && !R.D.includes(this.options.toolboxPosition))
+            throw new Error("toolboxPosition 값으로는 [".concat(R.D.toString(), "]만 허용됩니다."));
+        var p = function(e) {
+            var t = Object(E.jsx)(Ui.Provider, {
+                value: {
+                    odf: r.odf
+                },
+                children: Object(E.jsx)(y.Provider, {
+                    value: r.map,
+                    children: Object(E.jsx)(sC, {
+                        options: r.options,
+                        api: u
+                    })
+                })
+            });
+            e || (t = Object(E.jsx)(E.Fragment, {})),
+            h.a.render(t, i)
+        };
+        this.addTo = function(e) {
+            e ? (r.map = e,
+            p(!0)) : (r.map = e,
+            p(!1))
+        }
+        ,
+        this.remove = function() {
+            r.map ? (r.map = void 0,
+            sC.remove(n),
+            p(!1)) : console.warn("addTo가 안된 widget입니다.")
+        }
+    }))
+
+
+
+
+
+
+
+
+
+
+
+
+
+    , mC = Object(f.createContext)({})
+    , yC = function(e, t) {
         switch (t.type) {
         case "CHANGE_CREATE_BOOL":
             return Object(o.a)(Object(o.a)({}, e), {}, {

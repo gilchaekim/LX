@@ -95,19 +95,34 @@ block content
                         img(src="/admin/images/ico_ex5.png", alt="")
                       span.text 데이터 공간
                   .grid_in
-                    a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
-                      span.icon 
-                        img(src="/admin/images/ico_ex4.png", alt="")
-                      span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+                    //- a.goto_link(href="", style="background:rgba(255, 255, 255, 0.9)") 
+                    //-   span.icon 
+                    //-     img(src="/admin/images/ico_ex4.png", alt="")
+                    //-   span.text(style="color:rgba(67, 74, 162, 1)") 지도 서비스
+                    .slides_wrap(mui-slider="pagination:true;arrow:true;")
+                      .slider
+                        .swiper-wrapper
+                          .slide_list.swiper-slide
+                            .movie_photo
+                              .preview 
+                                img(src="/admin/images/img_ex3.png", alt="")
+                          .slide_list.swiper-slide
+                            .movie_photo
+                              .preview 
+                                img(src="/admin/images/img_ex3.png", alt="")
+                          .slide_list.swiper-slide
+                            .movie_photo
+                              .preview 
+                                img(src="/admin/images/img_ex3.png", alt="")
                 .grid.ver1
-                  +edit_btn({title:"동영상", className:"mui_active"})
+                  //- +edit_btn({title:"동영상", className:"mui_active"})
                   .slides_wrap(mui-slider="pagination:true;arrow:true;")
                     .slider
                       .swiper-wrapper
                         .slide_list.swiper-slide
                           .movie_photo
                             .preview 
-                              img(src="/admin/images/img_ex3.png", alt="")
+                              img(src="/admin/images/img_ex2.png", alt="")
                         .slide_list.swiper-slide
                           .movie_photo
                             .preview 

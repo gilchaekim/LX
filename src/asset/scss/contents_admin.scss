@@ -42,7 +42,53 @@ button, label {
     height: 30px;
   }
 }
+.add_table{
+  .mui_radio_group {
+    padding-top: 0;
+  }
+  .lists {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+    & ~ .lists {
+      margin-top: 4px;
+    }
+  }
+  select {
+    width: 100%;
+  }
+  .delete{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    color: transparent;
+    background: url($url_common+"ico_close.svg") no-repeat center;
+    background-size: 100%;
+  }
+  .in_title {
+    margin-bottom: 4px;
+    & ~ .in_title {
+      margin-top: 14px;
+    }
+  }
+  .btns{
+    margin-top: 12px;
+    text-align: center;
+    button {
+      background: #436AEB;
+      color: #fff;
+      height: 36px;
+      width: 60px;
+      border-radius: 4px;
 
+    }
+  }
+  
+}
 .admin-logo {
   margin-left: 0px;
   font-size: 16px;
@@ -509,6 +555,9 @@ button, label {
     .grid {
       width: 25%;
       height: 300px;
+      .mui-slider, .slider  {
+        height: 100%;
+      }
     }
   }
   &.grid_1x3{
@@ -887,6 +936,9 @@ button, label {
             padding-left: 30px;
             font-size: 20px;
             color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             &::after{
               content: '';
               display: block;
@@ -1112,8 +1164,9 @@ button, label {
       }
       .grid_in {
         height: 100%;
-        flex: 1;
         position: relative;
+        flex: 1;
+        width: 50%;
       }
       .grid_blocks {
         height: 100%;
@@ -1294,17 +1347,17 @@ button, label {
           opacity: .5;
           white-space: nowrap;
         }
-        &::after{
-          content: '';
-          display: block;
-          position: absolute;
-          top: 10px;
-          left: 8px;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: #fff;
-        }
+        // &::after{
+        //   content: '';
+        //   display: block;
+        //   position: absolute;
+        //   top: 10px;
+        //   left: 8px;
+        //   width: 4px;
+        //   height: 4px;
+        //   border-radius: 50%;
+        //   background: #fff;
+        // }
       }
     }
     .goto_link{

@@ -320,7 +320,7 @@ app.widget = app.widget || {};
 	_oui.mapWidget = () => {
 		return {
 			build: () => {
-				
+				console.log('sdfasdfasdfdasf')
 			},
 			remove: () => {
 				widget.basemapWidget.remove();

@@ -277,6 +277,48 @@ block content
       div.config_conts#toggle_box1
         p.title 제목
         +form()
+          +form_body({title:"이미지&동영상 선택"})
+            .add_table
+              .lists 
+                p.in_title 유형
+                +radioCheck({
+                  type:"radio",
+                  name:'chk503281',
+                  lists:[
+                    {label:'이미지',},
+                    {label:'동영상',},
+                  ]
+                })
+                p.in_title 파일명
+                select
+                  option 선택
+                p.in_title URL 
+                +input()
+                button(type="button").delete
+                  span 삭제
+              .lists 
+                p.in_title 유형
+                +radioCheck({
+                  type:"radio",
+                  name:'chk503281',
+                  lists:[
+                    {label:'이미지',},
+                    {label:'동영상',},
+                  ]
+                })
+                p.in_title 파일명
+                select
+                  option 선택
+                p.in_title URL 
+                +input()
+                button(type="button").delete
+                  span 삭제
+
+              .btns
+                button(type="button").btn_add
+                  span 추가
+                button(type="button").btn_submit
+                  span 등록
           +form_body({title:"메인베너 컬러"})
             .colors
               +radioCheck({
@@ -477,6 +519,10 @@ block content
               muiFormatter:"viewMaxLength:true;",
               maxlength:25
             })
+          +form_body({title:"URL"})
+            +input({
+              placeholder:"",
+            })
           +form_body({title:"푸터 내용"})
             +textarea({
               muiFormatter:"viewMaxLength:true;",
@@ -494,6 +540,7 @@ block content
                   {label:'오른 쪽'},
                 ]
               })
+
 
 
 
