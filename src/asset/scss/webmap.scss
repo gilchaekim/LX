@@ -1,3 +1,5 @@
+@import "common/mixins";
+
 $url_common: "../js/webmap/images/";
 // $url_common: '../images/';
 
@@ -2834,6 +2836,95 @@ $url_common: "../js/webmap/images/";
           background-image: url($url_common+"toc/ico-bookmark2.png");
         }
       }
+    }
+  }
+}
+
+// 모바일
+.addr_search {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  left: 20px;
+  input {
+    width: 100%;
+    padding-left: 54px;
+    padding-right: 40px;
+    background:#fff url($url_common+"widget/icom_menu.png") no-repeat 14px center ;
+    background-size: 20px;
+  }
+  .btn_sec {
+    position: absolute;
+    margin-top: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0;
+    
+    box-sizing: border-box;
+    button{
+      height: 100%;
+      span {
+        display: block;
+        width: 40px;
+        height: 100%;
+        background: url($url_common+"widget/icom_search.png") no-repeat left center;
+        background-size: 20px;
+        color: transparent;
+        font-size: 0;
+      }
+    }
+  }
+}
+.side_toolbar {
+  position: absolute;
+  &.bottom {  
+    bottom: 20px;
+  }
+  &.right {
+    right: 20px;
+  }
+  &.left {
+    left: 20px;
+  }
+  .add_btns {
+    button {
+      width: 44px;
+      height: 44px;
+      border-radius: 22px;
+      span {
+        color: transparent;
+        font-size: 0;
+      }
+      &.write {
+        background: #fff  url($url_common+"widget/icom_write.png") no-repeat center;
+        background-size: 26px;
+      } 
+    }
+  }
+}
+
+@include respondTo("tablet"){
+  #header, 
+  #widget, 
+  .userInfo, 
+  .odf_administrativeDistrictSearch_widget, 
+  #searchAreaWidget, 
+  .mousePosition-srs-select-div, 
+  #mousePositionControlWidget {
+    display: none !important;
+  }
+}
+@include respondTo("tablet"){
+  #scaleWidget {
+    right: 20px;
+    display: none;
+    &.mobile_only {
+      display: block;
+    }
+    .scaleControl_scaleBar,
+    .scaleControl_displayDiv {
+      width: 90px !important;
     }
   }
 }
