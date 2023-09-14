@@ -8,7 +8,10 @@
   position: absolute;
   top: 100px;
   left: 100px;
+  right: 0;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 8px;
 }
 .test_btn_list button {
@@ -17,6 +20,7 @@
   padding: 0 10px;
   color: #fff;
   border-radius: 4px;
+  white-space: nowrap;
 }
 
 .mui_link {
@@ -326,9 +330,19 @@
 .login {
   padding: 40px 20px;
 }
+@media (max-width: 1199px) {
+  .login {
+    padding-top: 56px;
+  }
+}
 .login .logo {
   text-align: center;
   padding-bottom: 20px;
+}
+@media (max-width: 1199px) {
+  .login .logo img {
+    width: 220px;
+  }
 }
 .login .input {
   display: block;
@@ -340,6 +354,18 @@
 .login .input:nth-child(2) {
   background: url("../js/webmap/images/widget/ico_id.png") no-repeat 12px center;
 }
+@media (max-width: 1199px) {
+  .login .input:nth-child(2) {
+    background: none;
+  }
+}
+@media (max-width: 1199px) {
+  .login .input {
+    background: none;
+    padding-left: 10px;
+    border-color: #e9e9e9;
+  }
+}
 .login .input input {
   border: 0 none;
   height: 40px;
@@ -349,6 +375,16 @@
 }
 .login .input input::placeholder {
   color: #e9e9e9;
+}
+@media (max-width: 1199px) {
+  .login .input input::placeholder {
+    color: #555;
+  }
+}
+@media (max-width: 1199px) {
+  .login .input input {
+    height: 50px;
+  }
 }
 .login .input ~ .input {
   margin-top: 10px;
@@ -378,6 +414,12 @@
   left: 0;
   bottom: 2px;
 }
+@media (max-width: 1199px) {
+  .login .link a {
+    font-size: 16px;
+    font-family: "Pretendard";
+  }
+}
 .login .btn_sec {
   margin-top: 20px;
   padding-bottom: 0;
@@ -387,6 +429,13 @@
   width: 114px;
   height: 45px;
   justify-content: center;
+}
+@media (max-width: 1199px) {
+  .login .btn_sec .btn {
+    width: 100%;
+    height: 54px;
+    font-size: 18px;
+  }
 }
 
 .setstyle {
@@ -2526,6 +2575,9 @@
 .side_toolbar.right {
   right: 20px;
 }
+.side_toolbar.right.bottom {
+  bottom: 100px;
+}
 .side_toolbar.left {
   left: 20px;
 }
@@ -2541,6 +2593,159 @@
 .side_toolbar .add_btns button.write {
   background: #fff url("../js/webmap/images/widget/icom_write.png") no-repeat center;
   background-size: 26px;
+}
+
+.btn_lists .list {
+  position: relative;
+}
+.btn_lists .list ~ .list {
+  margin-top: 4px;
+}
+.btn_lists .list.on .deps2 {
+  display: block;
+}
+.btn_lists .list .deps2 {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  right: 48px;
+  white-space: nowrap;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 13px;
+}
+.btn_lists .list .deps2 .inset {
+  max-width: 252px;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  border-left: 1px solid #EEEEEE;
+  border-right: 1px solid #EEEEEE;
+}
+.btn_lists .list .deps2 button {
+  display: inline-block;
+  vertical-align: top;
+  width: 63px;
+  height: 70px;
+  padding-top: 40px;
+  background-repeat: no-repeat;
+  background-position: center 9px;
+  font-size: 13px;
+}
+.btn_lists .list .deps2 button.ctr {
+  border-left: 0 none;
+  font-size: 0;
+  width: 15px;
+  background: url("../js/webmap/images/mobile/ico_arr.png") no-repeat center;
+  background-size: 6px;
+}
+.btn_lists .list .deps2 button.ctr.left {
+  transform: rotate(180deg);
+}
+.btn_lists .list .deps2 button.ctr[disabled] {
+  opacity: 0.4;
+}
+.btn_lists .list .deps2 button ~ button {
+  border-left: 1px solid #CBCED2;
+}
+.btn_lists .list .deps2 button:focus, .btn_lists .list .deps2 button.on {
+  color: #2F5597;
+}
+.btn_lists .list .deps2 button span {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.btn_lists .list .deps_map button {
+  position: relative;
+}
+.btn_lists .list .deps_map button .img {
+  display: block;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: url("../js/webmap/images/mobile/img_map1.png") no-repeat center;
+  background-size: 100%;
+}
+.btn_lists .list .deps_map button.btn2 .img {
+  background-image: url("../js/webmap/images/mobile/img_map2.png");
+}
+.btn_lists .list .deps_map button.btn3 .img {
+  background-image: url("../js/webmap/images/mobile/img_map3.png");
+}
+.btn_lists .list .deps_map button.btn4 .img {
+  background-image: url("../js/webmap/images/mobile/img_map4.png");
+}
+.btn_lists .list.list1.on .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool1_on.png");
+}
+.btn_lists .list.list1 .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool1.png");
+  background-size: 26px;
+}
+.btn_lists .list.list1 .deps2 .btn1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool1_1.png");
+  background-size: 30px;
+}
+.btn_lists .list.list1 .deps2 .btn1:focus, .btn_lists .list.list1 .deps2 .btn1.on {
+  background-image: url("../js/webmap/images/mobile/ico_tool1_1_on.png");
+}
+.btn_lists .list.list1 .deps2 .btn2 {
+  background-image: url("../js/webmap/images/mobile/ico_tool1_2.png");
+  background-size: 30px;
+}
+.btn_lists .list.list1 .deps2 .btn2:focus, .btn_lists .list.list1 .deps2 .btn2.on {
+  background-image: url("../js/webmap/images/mobile/ico_tool1_2_on.png");
+}
+.btn_lists .list.list2.on .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool2_on.png");
+}
+.btn_lists .list.list2 .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool2.png");
+  background-size: 26px;
+}
+.btn_lists .list.list2 .deps2 .btn1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool2_1.png");
+  background-size: 30px;
+}
+.btn_lists .list.list2 .deps2 .btn1:focus, .btn_lists .list.list2 .deps2 .btn1.on {
+  background-image: url("../js/webmap/images/mobile/ico_tool2_1_on.png");
+}
+.btn_lists .list.list2 .deps2 .btn2 {
+  background-image: url("../js/webmap/images/mobile/ico_tool2_2.png");
+  background-size: 30px;
+}
+.btn_lists .list.list2 .deps2 .btn2:focus, .btn_lists .list.list2 .deps2 .btn2.on {
+  background-image: url("../js/webmap/images/mobile/ico_tool2_2_on.png");
+}
+.btn_lists .list.list3.on .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool3_on.png");
+}
+.btn_lists .list.list3 .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool3.png");
+  background-size: 30px;
+}
+.btn_lists .list.list4.on .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool4_on.png");
+}
+.btn_lists .list.list4 .deps1 {
+  background-image: url("../js/webmap/images/mobile/ico_tool4.png");
+  background-size: 26px;
+}
+.btn_lists button {
+  display: flex;
+}
+.btn_lists button.deps1 {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (max-width: 1199px) {
@@ -2565,6 +2770,21 @@
   #scaleWidget .scaleControl_scaleBar,
   #scaleWidget .scaleControl_displayDiv {
     width: 90px !important;
+  }
+  .popup {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    background: #fff;
+  }
+  .popup .head {
+    background: #2F5597;
+  }
+  .popup .head .titPop {
+    line-height: 54px;
+    font-size: 18px;
   }
 }
 /*# sourceMappingURL=webmap.css.map */

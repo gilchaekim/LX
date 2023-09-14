@@ -11,7 +11,10 @@ $url_common: "../js/webmap/images/";
   position: absolute;
   top: 100px;
   left: 100px;
+  right: 0;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 8px;
   button {
     background-color: #000;
@@ -19,6 +22,7 @@ $url_common: "../js/webmap/images/";
     padding: 0 10px;
     color: #fff;
     border-radius: 4px;
+    white-space: nowrap;
   }
 }
 
@@ -349,9 +353,17 @@ $url_common: "../js/webmap/images/";
 
 .login {
   padding: 40px 20px;
+  @include respondTo("tablet"){
+    padding-top: 56px;
+  }
   .logo {
     text-align: center;
     padding-bottom: 20px;
+    img {
+      @include respondTo("tablet"){
+        width: 220px;
+      }
+    }
   }
   .input {
     display: block;
@@ -361,6 +373,14 @@ $url_common: "../js/webmap/images/";
     background: url($url_common + "widget/ico_pw.png") no-repeat 12px center;
     &:nth-child(2) {
       background: url($url_common + "widget/ico_id.png") no-repeat 12px center;
+      @include respondTo("tablet"){
+        background: none;
+      }
+    }
+    @include respondTo("tablet"){
+      background: none;
+      padding-left: 10px;
+      border-color: #e9e9e9;
     }
     input {
       border: 0 none;
@@ -370,6 +390,12 @@ $url_common: "../js/webmap/images/";
       padding: 0;
       &::placeholder {
         color: #e9e9e9;
+        @include respondTo("tablet"){
+          color: #555;
+        }
+      }
+      @include respondTo("tablet"){
+        height: 50px;
       }
     }
     & ~ .input {
@@ -399,6 +425,10 @@ $url_common: "../js/webmap/images/";
           bottom: 2px;
         }
       }
+      @include respondTo("tablet"){
+        font-size: 16px;
+        font-family: "Pretendard";
+      }
     }
   }
   .btn_sec {
@@ -409,6 +439,11 @@ $url_common: "../js/webmap/images/";
       width: 114px;
       height: 45px;
       justify-content: center;
+      @include respondTo("tablet"){
+        width: 100%;
+        height: 54px;
+        font-size: 18px;
+      }
     }
   }
 }
@@ -2883,6 +2918,9 @@ $url_common: "../js/webmap/images/";
   }
   &.right {
     right: 20px;
+    &.bottom {
+      bottom: 100px;
+    }
   }
   &.left {
     left: 20px;
@@ -2903,7 +2941,192 @@ $url_common: "../js/webmap/images/";
     }
   }
 }
+.btn_lists{
+  .list {
+    position: relative;
+    & ~ .list {
+      margin-top: 4px;
+    }
+    &.on {
+      .deps2 {
+        display: block;
+      }
+    }
+    .deps2 {
+      display: none;
+      position: absolute;
+      background: #fff;
+      top: 0;
+      right: 48px;
+      white-space: nowrap;
+      border-radius: 4px;
+      overflow: hidden;
+      font-size: 13px;
+      .inset{
+        max-width: 252px;
+        display: inline-block;
+        overflow: hidden;
+        font-size: 0;
+        border-left: 1px solid #EEEEEE;;
+        border-right: 1px solid #EEEEEE;;
+      }
+      button {
+        display: inline-block;
+        vertical-align: top;
+        width: 63px;
+        height: 70px;
+        padding-top: 40px;
+        background-repeat: no-repeat;
+        background-position: center 9px;
+        font-size: 13px;
+        &.ctr {
+          border-left: 0 none;
+          font-size: 0;
+          width: 15px;
+          background: url($url_common+"mobile/ico_arr.png") no-repeat center;
+          background-size: 6px;
+          
+          &.left {
+            transform:  rotate(180deg);
+          }
+          &[disabled] {
+            opacity: .4;
+          }
+        }
+        & ~ button {
+          border-left: 1px solid #CBCED2;
+        }
+        &:focus, &.on {
+          color: #2F5597;
+        }
+        span {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .deps_map {
+      button {
+        position: relative;
+        .img{
+          display: block;
+          height: 40px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: url($url_common+"mobile/img_map1.png") no-repeat center;
+          background-size: 100%;
+        }
+        &.btn2 {
+          .img {
+            background-image: url($url_common+"mobile/img_map2.png");
+          }
+        }
+        &.btn3 {
+          .img {
+            background-image: url($url_common+"mobile/img_map3.png");
+          }
+        }
+        &.btn4 {
+          .img {
+            background-image: url($url_common+"mobile/img_map4.png");
+          }
+        }
+      }
+    }
+    &.list1 {
+      &.on {
+        .deps1 {
+          background-image: url($url_common+"mobile/ico_tool1_on.png");
+        }
+      }
+      .deps1 {
+        background-image: url($url_common+"mobile/ico_tool1.png");
+        background-size: 26px;
+      }
+      .deps2 {
+        .btn1 {
+          background-image: url($url_common+"mobile/ico_tool1_1.png");
+          background-size: 30px;
+          &:focus, &.on {
+            background-image: url($url_common+"mobile/ico_tool1_1_on.png");
+          }
+        }
+        .btn2 {
+          background-image: url($url_common+"mobile/ico_tool1_2.png");
+          background-size: 30px;
+          &:focus, &.on {
+            background-image: url($url_common+"mobile/ico_tool1_2_on.png");
+          }
+        }
+      }
+    }
+    &.list2 {
+      &.on {
+        .deps1 {
+          background-image: url($url_common+"mobile/ico_tool2_on.png");
+        }
+      }
+      .deps1 {
+        background-image: url($url_common+"mobile/ico_tool2.png");
+        background-size: 26px;
 
+      }
+      .deps2 {
+        .btn1 {
+          background-image: url($url_common+"mobile/ico_tool2_1.png");
+          background-size: 30px;
+          &:focus, &.on {
+            background-image: url($url_common+"mobile/ico_tool2_1_on.png");
+          }
+        }
+        .btn2 {
+          background-image: url($url_common+"mobile/ico_tool2_2.png");
+          background-size: 30px;
+          &:focus, &.on {
+            background-image: url($url_common+"mobile/ico_tool2_2_on.png");
+          }
+        }
+      }
+    }
+    &.list3 {
+      &.on {
+        .deps1 {
+          background-image: url($url_common+"mobile/ico_tool3_on.png");
+        }
+      }
+      .deps1 {
+        background-image: url($url_common+"mobile/ico_tool3.png");
+        background-size: 30px;
+      }
+    }
+    &.list4 {
+      &.on {
+        .deps1 {
+          background-image: url($url_common+"mobile/ico_tool4_on.png");
+        }
+      }
+      .deps1 {
+        background-image: url($url_common+"mobile/ico_tool4.png");
+        background-size: 26px;
+      }
+    }
+  }
+  button {
+    display: flex;
+    &.deps1 {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background-color: #fff;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
 @include respondTo("tablet"){
   #header, 
   #widget, 
@@ -2925,6 +3148,22 @@ $url_common: "../js/webmap/images/";
     .scaleControl_scaleBar,
     .scaleControl_displayDiv {
       width: 90px !important;
+    }
+  }
+
+  .popup{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    background: #fff;
+    .head {
+      background: #2F5597;
+      .titPop{
+        line-height: 54px;
+        font-size: 18px;
+      }
     }
   }
 }

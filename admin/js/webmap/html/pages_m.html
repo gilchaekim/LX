@@ -2018,6 +2018,7 @@
 		<button data-layer="select_widget_layer">위젯 선택(상단)</button>
 		<button data-layer="data_setting_layer">부동산정보 설정</button>
 		<button data-layer="lx_login_layer">로그인</button>
+		<button data-layer="lx_login_layer_mobile">로그인 모바일</button>
 		<button data-layer="setting_style_layer">스타일 설정</button>
 		<button data-layer="measurement_layer">측정</button>
 	</div>
@@ -2948,6 +2949,44 @@
 
 
 	<!-- 모바일 -->
+
+
+	<!-- 로그인 -->
+	<div class="popup movie_pop lx_login_layer_mobile" style="display:" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">로그인</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="login">
+				<p class="logo">
+					<img src="../images/mobile/img_login.png" alt="">
+				</p>
+				<span class="input">
+					<input type="text" placeholder="ID 입력">
+				</span>
+				<span class="input">
+					<input type="password" placeholder="비밀번호 입력">
+				</span>
+				<div class="btn_sec">
+					<button type="button" class="btn"><span>ID 로그인</span></button>
+				</div>
+				<div class="link">
+					<a href="">아이디/비밀번호 찾기</a>
+					<a href="">회원가입</a>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+
 	<div class="addr_search">
 		<div class="mui_inputbtn">
 			<span class="mui_input">
@@ -2963,6 +3002,65 @@
 			<button type="button" class="write">
 				<span>쓰기</span>
 			</button>
+		</div>
+	</div>
+	<div class="side_toolbar right bottom">
+		<div class="btn_lists right_toolbar">
+			<div class="list list1">
+				<button type="button" class="deps1"></button>
+				<div class="deps2">
+					<button type="button" class="btn1">
+						<span>저장</span>
+					</button>
+					<button type="button" class="btn2">
+						<span>다른이름<br>으로 저장</span>
+					</button>
+				</div>
+			</div>
+			<div class="list list2">
+				<button type="button" class="deps1"></button>
+				<div class="deps2">
+					<button type="button" class="btn1">
+						<span>새웹맵</span>
+					</button>
+					<button type="button" class="btn2">
+						<span>검색</span>
+					</button>
+				</div>
+			</div>
+			<div class="list list3">
+				<button type="button" class="deps1"></button>
+				<div class="deps2 deps_map" style="display: ;">
+					<button type="button" class="ctr left">이전</button>
+					<div class="inset">
+						<button type="button" class="btn1">
+							<span class="img"></span>
+							<span class="text">일반<br>지도</span>
+						</button>
+						<button type="button" class="btn2">
+							<span class="img"></span>
+							<span class="text">위성<br>지도</span>
+						</button>
+						<button type="button" class="btn3">
+							<span class="img"></span>
+							<span class="text">국도정보<br>기본도</span>
+						</button>
+						<button type="button" class="btn4">
+							<span class="img"></span>
+							<span class="text">연속도</span>
+						</button>
+						<button type="button" class="btn4">
+							<span class="img"></span>
+							<span class="text">연속도</span>
+						</button>
+					</div>
+					<button type="button" class="ctr right">다음</button>
+				</div>
+			</div>
+			<div class="list list4">
+				<button type="button" class="deps1"></button>
+			</div>
+			
 		</div>
 	</div>
 	<div id="scaleWidget" class="mobile_only">
@@ -2995,6 +3093,51 @@
 				$(this).closest('.popup').hide();
 			})
 		})
+
+		$(function(){
+			$('.right_toolbar .deps1').on('click', function(e){
+				var $this = $(this);
+				var list = $this.parent();
+				var lists = list.siblings();
+				if(list.hasClass('on')) {
+					list.removeClass('on');	
+				}else{
+					lists.removeClass('on');
+					list.addClass('on');
+				}
+				e.preventDefault();
+				e.stopPropagation();
+			})
+			$(document).on('click', function(e){
+				var target = $(e.target);
+				var toolbarList = $('.right_toolbar .list')
+				if (!target.closest('.right_toolbar')[0] && toolbarList.hasClass('on')){
+					toolbarList.removeClass('on')
+				}
+			})
+			$('.ctr').on('click', function(){
+				var $this = $(this);
+				var box = $this.siblings('.inset');
+				var scrLeft = box.scrollLeft();
+				var boxWidth = box.width();
+				var size = 63;
+				var scrollWidth = box[0].scrollWidth;
+				var isNext = $this.hasClass('right');
+				// console.log(box.scrollLeft(10));
+				isNext ? size = size : size = size * -1; 
+				
+				box.scrollLeft(scrLeft+size)
+				if ( (box.scrollLeft() + boxWidth) === scrollWidth ) {
+					$('.ctr.right').attr('disabled', true);
+					$('.ctr.left').attr('disabled', false);
+				} else if(box.scrollLeft() === 0){
+					$('.ctr.right').attr('disabled', false);
+					$('.ctr.left').attr('disabled', true);
+				}
+				console.log();
+			})
+		})
+
 	</script>
 
 
