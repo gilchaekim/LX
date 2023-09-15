@@ -2748,6 +2748,99 @@
   background-position: center;
 }
 
+.add_layer {
+  border: 1px solid red;
+  padding: 12px 20px;
+}
+.add_layer > .add {
+  font-family: "Pretendard Bold";
+  font-size: 16px;
+  color: #436AEB;
+  padding-left: 16px;
+  background: url("../js/webmap/images/mobile/ico_search.png") no-repeat left center;
+  background-size: 13px;
+}
+.add_layer .layer_list {
+  margin-top: 12px;
+}
+.add_layer .layer_list .lists {
+  border: 1px solid #EEF1F8;
+  background: #fff;
+  padding: 20px 10px 10px;
+}
+.add_layer .layer_list .lists .title {
+  position: relative;
+  min-height: 20px;
+  padding-left: 29px;
+}
+.add_layer .layer_list .lists .title::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: #FF0000;
+  border: 1px solid #555353;
+  border-radius: 9px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -9px;
+}
+.add_layer .layer_list .lists .title .text {
+  line-height: 20px;
+  font-size: 16px;
+}
+.add_layer .layer_list .lists .title input[type=text] {
+  width: 100%;
+}
+.add_layer .layer_list .lists .btns {
+  margin-top: 13px;
+  display: flex;
+  justify-content: end;
+}
+.add_layer .layer_list .lists .btns button {
+  width: 35px;
+  height: 25px;
+}
+.add_layer .layer_list .lists .btns button.type1 {
+  background: url("../js/webmap/images/mobile/btn_layer1.png") no-repeat center;
+  background-size: 100%;
+}
+.add_layer .layer_list .lists .btns button:focus.type1, .add_layer .layer_list .lists .btns button.on.type1 {
+  background-image: url("../js/webmap/images/mobile/btn_layer1_on.png");
+}
+.add_layer .layer_list .lists .btns button.type2 {
+  background: url("../js/webmap/images/mobile/btn_layer2.png") no-repeat center;
+  background-size: 100%;
+}
+.add_layer .layer_list .lists .btns button:focus.type2, .add_layer .layer_list .lists .btns button.on.type2 {
+  background-image: url("../js/webmap/images/mobile/btn_layer2_on.png");
+}
+.add_layer .layer_list .lists .btns button.type3 {
+  background: url("../js/webmap/images/mobile/btn_layer3.png") no-repeat center;
+  background-size: 100%;
+}
+.add_layer .layer_list .lists .btns button:focus.type3, .add_layer .layer_list .lists .btns button.on.type3 {
+  background-image: url("../js/webmap/images/mobile/btn_layer3_on.png");
+}
+.add_layer .layer_list .lists .btns button.type4 {
+  background: url("../js/webmap/images/mobile/btn_layer4.png") no-repeat center;
+  background-size: 100%;
+}
+.add_layer .layer_list .lists .btns button:focus.type4, .add_layer .layer_list .lists .btns button.on.type4 {
+  background-image: url("../js/webmap/images/mobile/btn_layer4_on.png");
+}
+.add_layer .layer_list .lists .btns button.type5 {
+  background: url("../js/webmap/images/mobile/btn_layer5.png") no-repeat center;
+  background-size: 100%;
+}
+.add_layer .layer_list .lists .btns button:focus.type5, .add_layer .layer_list .lists .btns button.on.type5 {
+  background-image: url("../js/webmap/images/mobile/btn_layer5_on.png");
+}
+.add_layer .ctr_btn {
+  margin-top: 13px;
+}
+
 @media (max-width: 1199px) {
   #header,
   #widget,
@@ -2785,6 +2878,43 @@
   .popup .head .titPop {
     line-height: 54px;
     font-size: 18px;
+  }
+  .popup .head .titPop .profile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #DFE2E7 url("../js/webmap/images/mobile/img_ex.png") no-repeat center;
+    background-size: 100%;
+    border-radius: 15px;
+    vertical-align: -8px;
+    margin-right: 2px;
+  }
+  .popup .btn_alrm {
+    width: 40px;
+    height: 54px;
+    font-size: 0;
+    color: transparent;
+    background: url("../js/webmap/images/mobile/alrm.png") no-repeat center;
+    background-size: 18px;
+    position: absolute;
+    right: 50px;
+    top: 0;
+  }
+  .popup .btn_logout {
+    width: 70px;
+    height: 27px;
+    background: #fff;
+    border-radius: 4px;
+    color: #2F5597;
+    line-height: 27px;
+    font-size: 14px;
+    margin-left: 2px;
+  }
+  .popup.half {
+    background: #F6F9FE;
+  }
+  .popup.half .cont {
+    background: #F6F9FE;
   }
 }
 /*# sourceMappingURL=webmap.css.map */
