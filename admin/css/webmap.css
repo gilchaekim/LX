@@ -2749,7 +2749,6 @@
 }
 
 .add_layer {
-  border: 1px solid red;
   padding: 12px 20px;
 }
 .add_layer > .add {
@@ -2767,6 +2766,9 @@
   border: 1px solid #EEF1F8;
   background: #fff;
   padding: 20px 10px 10px;
+}
+.add_layer .layer_list .lists ~ .lists {
+  margin-top: 4px;
 }
 .add_layer .layer_list .lists .title {
   position: relative;
@@ -2839,6 +2841,242 @@
 }
 .add_layer .ctr_btn {
   margin-top: 13px;
+  display: flex;
+  justify-content: right;
+}
+.add_layer .ctr_btn .btn {
+  width: 84px;
+  justify-content: center;
+}
+.add_layer .ctr_btn .btn ~ .btn {
+  margin-left: 4px;
+}
+
+.lx_alrm .list li a {
+  display: block;
+  font-size: 16px;
+  padding: 16px 20px;
+  color: #333;
+}
+.lx_alrm .list li ~ li {
+  border-top: 1px solid #EEF1F8;
+}
+
+.data_table_m {
+  overflow: auto;
+}
+.data_table_m.type2 th {
+  height: 48px;
+}
+.data_table_m.type2 th span {
+  display: block;
+  line-height: 22px;
+  border-left: 1px solid #E9E9E9;
+}
+.data_table_m.type2 th:first-child span {
+  border-left: 0 none;
+}
+.data_table_m.type2 td {
+  height: 40px;
+}
+.data_table_m table {
+  min-width: 100%;
+  table-layout: fixed;
+}
+.data_table_m th {
+  height: 56px;
+  font-family: "Pretendard Bold";
+  color: #333;
+  font-size: 16px;
+  background: #F9F9F9;
+  border-top: 1px solid #E9E9E9;
+  border-bottom: 1px solid #E9E9E9;
+  text-align: center;
+}
+.data_table_m tbody tr {
+  border-bottom: 1px solid #E9E9E9;
+}
+.data_table_m td {
+  text-align: center;
+  height: 56px;
+  vertical-align: middle;
+}
+.data_table_m td input {
+  width: 100%;
+  height: 34px;
+}
+.data_table_m td .table_btn img {
+  width: 40px;
+}
+.data_table_m td .column_btn img {
+  width: 30px;
+}
+.data_table_m td p {
+  font-size: 16px;
+  position: relative;
+  color: #333;
+}
+.data_table_m td p.dot {
+  color: #878787;
+  padding-left: 9px;
+  display: inline-block;
+}
+.data_table_m td p.dot::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #878787;
+  border-radius: 2px;
+}
+
+.mui_inputbtn_search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.mui_inputbtn_search .mui_input, .mui_inputbtn_search .mui_select {
+  position: static;
+  width: 100%;
+}
+.mui_inputbtn_search .mui_input input, .mui_inputbtn_search .mui_select input {
+  width: 100%;
+}
+.mui_inputbtn_search .btn_sec {
+  margin-top: 0;
+  padding: 0 0 0 4px;
+}
+.mui_inputbtn_search.ico .mui_button:not(.mui_select) {
+  width: 42px;
+  height: 40px;
+  padding: 0;
+  font-size: 0;
+  color: transparent;
+}
+.mui_inputbtn_search.ico.search .mui_button:not(.mui_select) {
+  background: #333 url("../js/webmap/images/mobile/ico_seaech.png") no-repeat center;
+  background-size: 22px;
+  border-radius: 4px;
+}
+.mui_inputbtn_search .mui_button:not(.mui_select) {
+  width: auto;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 13px;
+  background: #5C627C;
+}
+.mui_inputbtn_search .mui_button:not(.mui_select) span {
+  white-space: nowrap;
+}
+.mui_inputbtn_search .mui_button:not(.mui_select)[disabled] {
+  background: var(--basic_color05);
+  color: var(--font_color03);
+}
+
+.search_layer_cont {
+  padding: 20px;
+}
+.search_layer_cont .mui_inputbtn_search {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid #BABFC7;
+}
+.search_layer_cont .sort_data {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  padding-bottom: 11px;
+}
+.search_layer_cont .sort_data em {
+  color: #436aeb;
+  font-style: normal;
+}
+
+.select_from .list {
+  display: flex;
+}
+.select_from .list dt {
+  width: 38px;
+  font-size: 16px;
+  color: #333;
+  line-height: 40px;
+}
+.select_from .list dd {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.select_from .list dd .deps1 {
+  height: 35px;
+  font-family: "Pretendard Bold";
+  font-size: 16px;
+  padding-left: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.select_from .list dd .deps1::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #C5C5C5;
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+.select_from .list dd .deps2 {
+  height: 25px;
+  font-size: 14px;
+  padding-left: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.select_from .list dd .deps {
+  height: 25px;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.select_from .list dd .toggle_cont {
+  top: 39px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 10px 15px;
+  background: #fff;
+  border: 1px solid #E9E9E9;
+  z-index: 1;
+  box-sizing: border-box;
+}
+.select_from .list dd .mui_select {
+  height: 40px;
+  border: 1px solid #E9E9E9;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+.select_from .list dd .mui_select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 22px;
+  height: 11px;
+  margin-top: -5px;
+  background: url("../js/webmap/images/mobile/ico_select.png") no-repeat center;
+  background-size: 22px;
+}
+.select_from .list ~ .list {
+  margin-top: 10px;
 }
 
 @media (max-width: 1199px) {
@@ -2850,6 +3088,13 @@
   .mousePosition-srs-select-div,
   #mousePositionControlWidget {
     display: none !important;
+  }
+  .btn.blue {
+    background: #2F5597;
+  }
+  .btn.grey {
+    background: #D7DADF;
+    color: #000;
   }
 }
 @media (max-width: 1199px) {
@@ -2870,6 +3115,7 @@
     right: 0;
     bottom: 0;
     width: 100% !important;
+    box-sizing: border-box;
     background: #fff;
   }
   .popup .head {
@@ -2888,6 +3134,15 @@
     border-radius: 15px;
     vertical-align: -8px;
     margin-right: 2px;
+  }
+  .popup .head .titPop .alrm {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url("../js/webmap/images/mobile/alrm.png") no-repeat center;
+    background-size: 100%;
+    vertical-align: -2px;
+    margin-right: 6px;
   }
   .popup .btn_alrm {
     width: 40px;
@@ -2910,8 +3165,19 @@
     font-size: 14px;
     margin-left: 2px;
   }
+  .popup .btn_login {
+    color: #fff;
+    padding-right: 12px;
+    background: url("../js/webmap/images/mobile/arr_r.png") no-repeat right center;
+    background-size: 6px;
+  }
+  .popup .cont {
+    height: calc(100% - 54px);
+    overflow: auto;
+  }
   .popup.half {
     background: #F6F9FE;
+    top: 30%;
   }
   .popup.half .cont {
     background: #F6F9FE;

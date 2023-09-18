@@ -3128,7 +3128,6 @@ $url_common: "../js/webmap/images/";
   }
 }
 .add_layer{
-  border: 1px solid red;
   padding: 12px 20px;
   & > .add {
     font-family: "Pretendard Bold";
@@ -3144,6 +3143,9 @@ $url_common: "../js/webmap/images/";
       border: 1px solid #EEF1F8;
       background: #fff;
       padding: 20px 10px 10px;
+      & ~ .lists {
+        margin-top: 4px;
+      }
       .title {
         position: relative;
         min-height: 20px;
@@ -3194,6 +3196,261 @@ $url_common: "../js/webmap/images/";
   }
   .ctr_btn {
     margin-top: 13px;
+    display: flex;
+    justify-content: right;
+    .btn {
+      width: 84px;
+      justify-content: center;
+      & ~ .btn {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+.lx_alrm{
+  .list {
+    li {
+      a {
+        display: block;
+        font-size: 16px;
+        padding: 16px 20px;
+        color: #333;
+      }
+      & ~ li {
+        border-top: 1px solid #EEF1F8;
+      }
+    }
+  }
+}
+
+.data_table_m{
+  overflow: auto;
+  &.type2 {
+    th {
+      height: 48px;
+      span {
+        display: block;
+        line-height: 22px;
+        border-left: 1px solid #E9E9E9;
+      }
+      &:first-child {
+        span {
+          border-left: 0 none;
+        }
+      }
+    }
+    td {
+      height: 40px;
+    }
+  }
+  table {
+    min-width: 100%;
+    table-layout: fixed;
+  }
+  th{
+    height: 56px;
+    font-family: "Pretendard Bold";
+    color: #333;
+    font-size: 16px;
+    background: #F9F9F9;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    text-align: center;
+  }
+  tbody tr {
+    border-bottom: 1px solid #E9E9E9;
+  }
+  td {
+    text-align: center;
+    height: 56px;
+    vertical-align: middle;
+    input {
+      width: 100%;
+      height: 34px;
+    }
+    .table_btn{
+      img {
+        width: 40px;
+      }
+    }
+    .column_btn{
+      img {
+        width: 30px;
+      }
+    }
+    p {
+      font-size: 16px;
+      position: relative;
+      color: #333;
+      
+      &.dot {
+        color: #878787;
+        padding-left: 9px;
+        display: inline-block;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: 0;
+          width: 4px;
+          height: 4px;
+          background: #878787;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}
+.mui_inputbtn_search{
+  position: relative;
+  display: flex;
+  align-items: center;
+  .mui_input, .mui_select{
+    position: static;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+  .btn_sec{
+    margin-top: 0;
+    padding: 0 0 0 4px;
+  }
+  &.ico {
+    .mui_button:not(.mui_select) {
+      width: 42px;
+      height: 40px;
+      padding: 0;
+      font-size: 0;
+      color: transparent;
+    }    
+    &.search {
+      .mui_button:not(.mui_select) {
+        background:#333 url($url_common+"mobile/ico_seaech.png") no-repeat center;
+        background-size: 22px;
+        border-radius: 4px;
+      }    
+    }
+  }
+  .mui_button:not(.mui_select) {
+    width: auto;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 13px;
+    background: #5C627C;
+    span{
+      white-space: nowrap;
+    }
+    &[disabled] {
+      background: $basic_color05;
+      color:$font_color03;
+    }
+  }
+}
+.search_layer_cont{
+  padding: 20px;
+  .mui_inputbtn_search{
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #BABFC7;
+  }
+  .sort_data{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    padding-bottom: 11px;
+    em {
+      color: #436aeb;
+      font-style: normal;
+    }
+  }
+}
+.select_from {
+  .list{
+    display: flex;
+    dt {
+      width: 38px;
+      font-size: 16px;
+      color: #333;
+      line-height: 40px;
+    }
+    dd{
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      .deps1{
+        height: 35px;
+        font-family: "Pretendard Bold";
+        font-size: 16px;
+        padding-left: 12px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::after {
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 2px;
+          background: #C5C5C5;
+          position: absolute;
+          top: 15px;
+          left: 0;
+        }
+      }
+
+      .deps2{
+        height: 25px;
+        font-size: 14px;
+        padding-left: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .deps{
+        height: 25px;
+        font-size: 14px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .toggle_cont{
+        top: 39px;
+        left: 0;
+        right: 0;
+        position: absolute;
+        padding: 10px 15px;
+        background: #fff;
+        border: 1px solid #E9E9E9;
+        z-index: 1;
+        box-sizing: border-box;
+        
+      }
+      .mui_select {
+        height: 40px;
+        border: 1px solid #E9E9E9;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          width: 22px;
+          height: 11px;
+          margin-top: -5px;
+          background: url($url_common+"mobile/ico_select.png") no-repeat center;
+          background-size: 22px;
+        }
+      }
+    }
+    & ~ .list {
+      margin-top: 10px;
+    }
   }
 }
 @include respondTo("tablet"){
@@ -3205,6 +3462,15 @@ $url_common: "../js/webmap/images/";
   .mousePosition-srs-select-div, 
   #mousePositionControlWidget {
     display: none !important;
+  }
+  .btn{
+    &.blue{
+      background: #2F5597;
+    }
+    &.grey{
+      background: #D7DADF;
+      color: #000;
+    }
   }
 }
 @include respondTo("tablet"){
@@ -3226,6 +3492,7 @@ $url_common: "../js/webmap/images/";
     right: 0;
     bottom: 0;
     width: 100% !important;
+    box-sizing: border-box;
     background: #fff;
     .head {
       background: #2F5597;
@@ -3241,6 +3508,15 @@ $url_common: "../js/webmap/images/";
           border-radius: 15px;
           vertical-align: -8px;
           margin-right: 2px;
+        }
+        .alrm {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          background:url($url_common+"mobile/alrm.png") no-repeat center;
+          background-size: 100%;
+          vertical-align: -2px;
+          margin-right: 6px;
         }
         
       }
@@ -3266,8 +3542,19 @@ $url_common: "../js/webmap/images/";
       font-size: 14px;
       margin-left: 2px;
     }
+    .btn_login{
+      color: #fff;
+      padding-right: 12px;
+      background: url($url_common+"mobile/arr_r.png") no-repeat right center;
+      background-size: 6px;
+    }
+    .cont{
+      height: calc(100% - 54px);
+      overflow: auto;
+    }
     &.half{
       background: #F6F9FE;
+      top: 30%;
       .cont {
         background: #F6F9FE;
       }

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<title>웹맵</title>
 
 	<script>
@@ -191,6 +191,7 @@
 	<script type="text/javascript" src="../js/webmap/v2/searchGeoPoint.js" defer></script>
 	<script type="text/javascript" src="../js/webmap/v2/calculateField.js" defer></script>
 	<script type="text/javascript" src="../js/webmap/v2/cvgWidgetVue.js" defer></script>
+	<script type="text/javascript" src="../js/webmap/index.js" defer></script>
 </head>
 
 <body>
@@ -2013,15 +2014,19 @@
 
 
 	<div class="test_btn_list">
-		<button data-layer="tooltip_layer">튤팁</button>
+		<!-- <button data-layer="tooltip_layer">튤팁</button>
 		<button data-layer="movie_pop_layer">중첩 영상</button>
 		<button data-layer="select_widget_layer">위젯 선택(상단)</button>
-		<button data-layer="data_setting_layer">부동산정보 설정</button>
-		<button data-layer="lx_login_layer">로그인</button>
-		<button data-layer="lx_login_layer_mobile">로그인 모바일</button>
-		<button data-layer="setting_style_layer">스타일 설정</button>
-		<button data-layer="measurement_layer">측정</button>
-		<button data-layer="lx_addlayer_mobile">모바일 - 레이어 추가</button>
+		<button data-layer="data_setting_layer">부동산정보 설정</button> -->
+		<!-- <button data-layer="lx_login_layer">로그인</button> -->
+		<button data-layer="lx_login_layer_mobile">로그인</button>
+		<!-- <button data-layer="setting_style_layer">스타일 설정</button>
+		<button data-layer="measurement_layer">측정</button> -->
+		<button data-layer="lx_addlayer_mobile">레이어 추가</button>
+		<button data-layer="lx_alrm">알림</button>
+		<button data-layer="lx_search_layer">레이어 검색</button>
+		<button data-layer="lx_column">컬럼 추가</button>
+		
 		
 	</div>
 
@@ -2992,14 +2997,17 @@
 
 
 	<!-- 레이어 추가 -->
-	<div class="popup movie_pop lx_addlayer_mobile half" style="display:" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop lx_addlayer_mobile half" style="display:none" v-bind:style="styleObj" id="overlapListModal">
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
 				<span class="profile"></span>
-				LXUSER01
+				<!-- LXUSER01
 				<button type="button" class="btn_logout">
 					<span>로그아웃</span>
+				</button> -->
+				<button type="button" class="btn_login">
+					<span>로그인하세요</span>
 				</button>
 			</strong>
 			<div class="alrm">
@@ -3042,7 +3050,7 @@
 							</button>
 						</div>
 						<div class="btns">
-							<button type="button" class="type1"></button>
+							<button type="button" class="type2"></button>
 							<button type="button" class="type3"></button>
 							<button type="button" class="type4"></button>
 							<button type="button" class="type5"></button>
@@ -3053,6 +3061,566 @@
 		</div>
 		<!--//cont-->
 	</div>
+
+	<!-- 알림 -->
+	<div class="popup alim_pop lx_alrm" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				<span class="alrm"></span>
+				알림
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="list">
+				<ul>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+					<li>
+						<a href="">2023-07-11 (오늘)</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+
+	<!-- 레이어 검색 -->
+	<div class="popup search_layer lx_search_layer" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				레이어 검색
+				
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="search_layer_cont">
+				<div class="select_from">
+					<dl class="list">
+						<dt>구분</dt>
+						<dd class="deps_list">
+							<button class="mui_select" type="button" mui-toggle="target:#toggle_box1;">
+								<p class="deps1">국가공간정보</p>
+							</button>
+          		<div id="toggle_box1" class="toggle_cont" hidden>
+								<p class="deps1">국가공간정보</p>
+								<p class="deps2">기본공간정보</p>
+								<p class="deps2">기본공간정보_제주</p>
+								<p class="deps2">기본공간정보_시흥</p>
+								<p class="deps1">사용자데이터</p>
+								<p class="deps1">공유데이터</p>
+								<p class="deps2">기본공간정보</p>
+								<p class="deps2">기본공간정보_제주</p>
+								<p class="deps2">기본공간정보_시흥</p>
+							</div>
+						</dd>
+					</dl>
+					<dl class="list">
+						<dt>필터</dt>
+						<dd class="filter">
+							<button class="mui_select" type="button" mui-toggle="target:#toggle_box2;">
+								<p class="deps">전체</p>
+							</button>
+          		<div id="toggle_box2" class="toggle_cont" hidden>
+								<p class="deps">필터1</p>
+								<p class="deps">필터2</p>
+								<p class="deps">필터3</p>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="mui_inputbtn_search ico search">
+					<span class="mui_input">
+						<input type="text" placeholder="레이어명으로 검색">
+					</span>
+					<div class="btn_sec">
+						<button class="mui_button search" type="button">
+							<span>검색</span>
+						</button>
+					</div>
+				</div>
+				<p class="sort_data">국가공간정보 에 관한 검색결과는 총 <em>0</em>건입니다.</p>
+				<div class="data_table_m">
+					<table style="width: 906px;">
+						<colgroup>
+							<col style="width: 64px;">
+							<col style="width: 132px;">
+							<col style="width: 257px;">
+							<col style="width: 213px;">
+							<col style="width: 80px;">
+							<col style="width: 80px;">
+							<col style="width: 80px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>
+									<span>종류</span>
+								</th>
+								<th>
+									<span>서비스</span>
+								</th>
+								<th>
+									<span>레이어명</span>
+								</th>
+								<th>
+									<span>레이어설명</span>
+								</th>
+								<th>
+									<span>추가</span>
+								</th>
+								<th>
+									<span>전환</span>
+								</th>
+								<th>
+									<span>삭제</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ico"><img src="../images/widget/ico/ico-layer-plane.png" alt=""></span>
+								</td>
+								<td>
+									<span class="ico"><img src="../images/widget/common/ico-WMS.png" alt=""></span>
+								</td>
+								<td>
+									<p>행정구역_ 읍면동 (법전동)_ 전체분</p>
+								</td>
+								<td>
+									<p>Ismd_adm_ sect_umd</p>
+									<p class="dot">등록일자 : 2023-05-11</p>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table1.png" alt="추가"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table2.png" alt="전환"></a>
+								</td>
+								<td>
+									<a href="" class="table_btn"><img src="../images/mobile/btn_table3.png" alt="삭제"></a>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+
+
+
+	<!-- 컬럼 레이어 -->
+	<div class="popup column_layer lx_column" style="display:" v-bind:style="styleObj" id="overlapListModal">
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				건축자산_ 기반시설_수원_5185
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="btn_area">
+
+			</div>
+			<div class="data_table_m type2">
+				<table style="width: 630px;">
+					<colgroup>
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+						<col style="width: 90px;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th><span>칼럼1</span></th>
+							<th><span>칼럼2</span></th>
+							<th><span>칼럼3</span></th>
+							<th><span>칼럼4</span></th>
+							<th><span>칼럼5</span></th>
+							<th><span>칼럼6</span></th>
+							<th><span>칼럼7</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<p>레코드</p>
+							</td>
+							<td>
+								<input type="text">
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col9.png" alt="">
+									</a>
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col8.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col7.png" alt="">
+									</a>
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col8.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col6.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<p>레코드</p>
+							</td>
+							<td>
+								<p>레코드</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>레코드</p>
+							</td>
+							<td>
+								<input type="text">
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col9.png" alt="">
+									</a>
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col8.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col7.png" alt="">
+									</a>
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col8.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<div class="btns">
+									<a href="" class="column_btn">
+										<img src="../images/mobile/btn_col6.png" alt="">
+									</a>
+								</div>
+							</td>
+							<td>
+								<p>레코드</p>
+							</td>
+							<td>
+								<p>레코드</p>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="paging_m">
+				
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<div class="addr_search">
