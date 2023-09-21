@@ -35,6 +35,8 @@ export default {
         controller:Boolean,
         scrollbar:Boolean,
         loop:Boolean,
+        lazy:Boolean,
+        preloadImages:Boolean,
     },
     data: {
         index:0,
@@ -43,6 +45,8 @@ export default {
         slider:'.slider',
         scrollbar:false,
         loop:true,
+        preloadImages:true,
+        lazy:true,
         paging:false,
         arrow:false,
         Swiper:null,

@@ -9669,7 +9669,9 @@
       paging: Boolean,
       controller: Boolean,
       scrollbar: Boolean,
-      loop: Boolean
+      loop: Boolean,
+      lazy: Boolean,
+      preloadImages: Boolean
     },
     data: {
       index: 0,
@@ -9678,6 +9680,8 @@
       slider: '.slider',
       scrollbar: false,
       loop: true,
+      preloadImages: true,
+      lazy: true,
       paging: false,
       arrow: false,
       Swiper: null,

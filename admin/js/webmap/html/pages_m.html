@@ -191,7 +191,7 @@
 	<script type="text/javascript" src="../js/webmap/v2/searchGeoPoint.js" defer></script>
 	<script type="text/javascript" src="../js/webmap/v2/calculateField.js" defer></script>
 	<script type="text/javascript" src="../js/webmap/v2/cvgWidgetVue.js" defer></script>
-	<script type="text/javascript" src="../js/webmap/index.js" defer></script>
+	<script type="text/javascript" src="../../index.js" defer></script>
 </head>
 
 <body>
@@ -1221,7 +1221,7 @@
 	<!-- modal 중첩영상 리스트 -->
 
 
-	<div class="popup" style="width:700px; display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup" style="width:700px; display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">중첩 영상</strong>
@@ -2026,6 +2026,9 @@
 		<button data-layer="lx_alrm">알림</button>
 		<button data-layer="lx_search_layer">레이어 검색</button>
 		<button data-layer="lx_column">컬럼 추가</button>
+		<button data-layer="lx_report">현장조사 보고서</button>
+		<button data-layer="lx_search_webmap">웹맵 검색</button>
+		<button data-layer="lx_newwebmap">새 웹맵</button>
 		
 		
 	</div>
@@ -2217,7 +2220,7 @@
 
 
 	<!-- 중첩 영상 -->
-	<div class="popup movie_pop movie_pop_layer" style="width:370px; display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop movie_pop_layer" style="width:370px; display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">중첩 영상</strong>
@@ -2616,7 +2619,7 @@
 
 
 	<!-- 부동산정보 설정 -->
-	<div class="popup movie_pop data_setting_layer" style="width:348px; display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop data_setting_layer" style="width:348px; display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">부동산정보 설정</strong>
@@ -2707,7 +2710,7 @@
 	</div>
 
 	<!-- 로그인 -->
-	<div class="popup movie_pop lx_login_layer" style="width:393px; display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop lx_login_layer" style="width:393px; display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">로그인</strong>
@@ -2959,7 +2962,7 @@
 
 
 	<!-- 로그인 -->
-	<div class="popup movie_pop lx_login_layer_mobile" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop lx_login_layer_mobile" style="display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -2997,7 +3000,7 @@
 
 
 	<!-- 레이어 추가 -->
-	<div class="popup movie_pop lx_addlayer_mobile half" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup movie_pop lx_addlayer_mobile half" style="display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -3063,7 +3066,7 @@
 	</div>
 
 	<!-- 알림 -->
-	<div class="popup alim_pop lx_alrm" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup alim_pop lx_alrm" style="display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -3146,7 +3149,7 @@
 	</div>
 
 	<!-- 레이어 검색 -->
-	<div class="popup search_layer lx_search_layer" style="display:none" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup search_layer lx_search_layer" style="display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -3447,7 +3450,7 @@
 
 
 	<!-- 컬럼 레이어 -->
-	<div class="popup column_layer lx_column" style="display:" v-bind:style="styleObj" id="overlapListModal">
+	<div class="popup column_layer lx_column" style="display:none" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -3461,7 +3464,36 @@
 		<!--cont-->
 		<div class="cont">
 			<div class="btn_area">
-
+				<span class="left">
+					<button type="button">
+						<span>
+							<img src="../images/mobile/btn_col4.png" alt="">
+						</span>
+					</button>
+					<button type="button">
+						<span>
+							<img src="../images/mobile/btn_col1.png" alt="">
+						</span>
+					</button>
+					<button type="button">
+						<span>
+							<img src="../images/mobile/btn_col2.png" alt="">
+						</span>
+					</button>
+					<button type="button">
+						<span>
+							<img src="../images/mobile/btn_col3.png" alt="">
+						</span>
+					</button>
+				</span>
+				<span class="right">
+					<span class="mui_checkbox"><input type="checkbox" id="checklistId1" checked="checked"><label for="checklistId1">편집모드</label></span>
+					<button type="button">
+						<span>
+							<img src="../images/mobile/btn_col5.png" alt="">
+						</span>
+					</button>
+				</span>
 			</div>
 			<div class="data_table_m type2">
 				<table style="width: 630px;">
@@ -3573,15 +3605,354 @@
 				</table>
 			</div>
 			<div class="paging_m">
-				
+				<a href="" class="first">처음</a>
+				<a href="" class="prev">이전</a>
+				<p class="current">page 1 of 1</p>
+				<a href="" class="next">다음</a>
+				<a href="" class="last">마지막</a>
 			</div>
 		</div>
 		<!--//cont-->
 	</div>
 
 
+	<!-- 현장조사 보고서 -->
+	<div class="popup column_layer lx_report" style="display:none;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				현장조사 보고서
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="report">
+				<div class="main_title">
+					<p class="title">측량 현장 보고서</p>
+					<div class="userdata">
+						<p class="addr">주소 : 서울 영등포구 당산로5</p>
+						<p class="name">작성자 : 홍길동</p>
+						<p class="date">2023-05-05</p>
+					</div>
+					<div class="img_sec"  mui-slider="lazy:true;preloadImages:true;arrow:true;">
+						<div class="slider">
+							<div class="swiper-wrapper">
+								<div class="lists swiper-slide">
+									<span class="img">
+										<img src="../images/mobile/img_ex2.png" alt="">
+									</span>
+									
+								</div>
+								<div class="lists swiper-slide">
+									<span class="img">
+										<img src="../images/mobile/img_ex2.png" alt="">
+									</span>
+								</div>
+								<div class="lists swiper-slide">
+									<span class="img">
+										<img src="../images/mobile/img_ex2.png" alt="">
+									</span>
+								</div>
+								<div class="lists swiper-slide">
+									<span class="img">
+										<img src="../images/mobile/img_ex2.png" alt="">
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sub_list">
+						<div class="lsits">
+							<p class="tite">소제목</p>
+							<p class="decs">The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld</p>
+						</div>
+						<div class="lsits">
+							<p class="tite">소제목</p>
+							<p class="decs">The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld</p>
+						</div>
+						<div class="lsits">
+							<p class="tite">소제목</p>
+							<p class="decs">The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld</p>
+						</div>
+						<div class="lsits">
+							<p class="tite">소제목</p>
+							<p class="decs">The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_fixed">
+				<div class="inset">
+					<button type="button" class="btn blue">
+						<span>수정</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+
+	<!--  웹맵 검색 -->
+	<div class="popup column_layer lx_search_webmap" style="display:none;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				웹맵 검색
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="search_webmap">
+				<div class="mui_radio_group button_type">
+					<span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1"><label for="btnTypeId1">전체</label></span>
+					<span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1"><label for="btnTypeId2">내 웹맵</label></span>
+					<span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1"><label for="btnTypeId3">공유 웹맵</label></span>
+				</div>
+				<div class="mui_inputbtn_search ico search">
+					<span class="mui_input">
+						<input type="text" placeholder="레이어명으로 검색">
+					</span>
+					<div class="btn_sec">
+						<button class="mui_button search" type="button">
+							<span>검색</span>
+						</button>
+					</div>
+				</div>
+				<div class="sort">
+					<span class="all">
+						<span>전체 <em>44</em>건</span>
+					</span>
+					<span class="detail">
+						<span>전체공유 <em>44</em>건</span>
+						<span>부분공유 <em>44</em>건</span>
+						<span>비공유 <em>44</em>건</span>
+					</span>
+				</div>
+				<div class="webmap_list">
+					<div class="lists">
+						<div class="img">
+							<div class="null">
+								<p>등록된 미리보기가 없습니다.</p>
+							</div>
+						</div>
+						<div class="data">
+							<p class="title">1234</p>
+							<p class="status">
+								<span class="type1">비공유</span>
+								<span class="type2">2023-05-22</span>
+								<span class="type3">mamager</span>
+							</p>
+							<p class="decs">12345</p>
+							<button type="button" class="download"></button>
+						</div>
+					</div>
+					<div class="lists">
+						<div class="img">
+							<div class="null">
+								<p>등록된 미리보기가 없습니다.</p>
+							</div>
+						</div>
+						<div class="data">
+							<p class="title">1234</p>
+							<p class="status">
+								<span class="type1">비공유</span>
+								<span class="type2">2023-05-22</span>
+								<span class="type3">mamager</span>
+							</p>
+							<p class="decs">12345</p>
+							<button type="button" class="download"></button>
+						</div>
+					</div>
+				</div>
+				<div class="paging_m">
+					<a href="" class="first">처음</a>
+					<a href="" class="prev">이전</a>
+					<p class="current">page 1 of 1</p>
+					<a href="" class="next">다음</a>
+					<a href="" class="last">마지막</a>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+
+	<!-- 새 웹맵 -->
+	<div class="popup column_layer lx_newwebmap half bg_white" style="display:none;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				새 웹맵
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="new_webmap">
+				<div class="form_m">
+					<div class="form_list">
+						<p class="title">제목<em class="requird">*</em></p>
+						<div class="form_cont">
+							<input type="text">
+						</div>
+					</div>
+					<div class="form_list">
+						<p class="title">설명</p>
+						<div class="form_cont">
+							<textarea name="" id="" cols="30" rows="10"></textarea>
+						</div>
+					</div>
+					<div class="form_list">
+						<p class="title">썸네일</p>
+						<div class="form_cont">
+							<div class="file">
+								<input type="text">
+								<button type="button" mui-toggle="target:#addList;">
+									<span>사진 업로드</span>
+								</button>
+								<div class="add_list" id="addList" hidden>
+									<p class="title">첨부하기</p>
+									<div class="add_file">
+										<input type="file" id="file1">
+										<label for="file1" class="type1">앨범</label>
+										<input type="file" id="file2">
+										<label for="file2" class="type2">카메라</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_fixed">
+				<div class="inset">
+					<button type="button" class="btn blue">
+						<span>저장</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
+	
 
 
+	<!-- 현장조사 보고서 등록 -->
+	<div class="popup column_layer lx_report_write" style="display:;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">
+				현장조사 보고서
+			</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="report_write">
+				<div class="mui_tabs custom_tab" mui-tab="">
+					<ul class="mui_tab_nav">
+						<li class="nav_list mui_active"><button type="button">레이어1</button></li>
+						<li class="nav_list"><button type="button">레이어2</button></li>
+						<li class="nav_list"><button type="button">레이어3</button></li>
+					</ul>
+					<div class="tab_contents">
+						<div class="tab_pane">
+							<div class="form_m">
+								<div class="form_list">
+									<div class="form_btns">
+										<button type="button" class="btn line">
+											<span>양식 불러오기</span>
+										</button>
+										<button type="button" class="btn line">
+											<span>양식 저장</span>
+										</button>
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_cont">
+										<input type="text" placeholder="보고서 제목을 입력해주세요.">
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_btns">
+										<button type="button" class="btn blue">
+											<span>피쳐 추가</span>
+										</button>
+										<button type="button" class="btn blue">
+											<span>사진 업로드</span>
+										</button>
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_cont">
+										<input type="text" placeholder="주소 입력해주세요">
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_cont">
+										<input type="text" placeholder="소제목을 입력해주세요.">
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_cont">
+										<textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력해주세요."></textarea>
+									</div>
+								</div>
+								<div class="form_list">
+									<p class="title">썸네일</p>
+									<div class="form_cont">
+										<div class="file">
+											<input type="text">
+											<button type="button" mui-toggle="target:#addList;">
+												<span>사진 업로드</span>
+											</button>
+											<div class="add_list" id="addList" hidden>
+												<p class="title">첨부하기</p>
+												<div class="add_file">
+													<input type="file" id="file1">
+													<label for="file1" class="type1">앨범</label>
+													<input type="file" id="file2">
+													<label for="file2" class="type2">카메라</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab_pane mui_active">
+							<div>22222</div>
+						</div>
+						<div class="tab_pane">
+							<div>33333</div>
+						</div>
+						<div class="tab_pane"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_fixed">
+				<div class="inset">
+					<button type="button" class="btn blue">
+						<span>수정</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+	</div>
 	
 
 
