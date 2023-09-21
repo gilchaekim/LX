@@ -3626,6 +3626,9 @@ $url_common: "../js/webmap/images/";
   }
 }
 .form_m{
+  & ~ .form_m{
+    margin-top: 20px;
+  }
   .form_list{
     & ~ .form_list {
       margin-top: 10px;
@@ -3646,6 +3649,7 @@ $url_common: "../js/webmap/images/";
   textarea {
     width: 100%;
     height: 120px;
+    display: block;
   }
   .file{
     display: flex;
@@ -3709,6 +3713,20 @@ $url_common: "../js/webmap/images/";
           background:  url($url_common+"mobile/ico_file1.png") no-repeat left 8px;
           background-size: 22px;
         }
+      }
+    }
+  }
+  .add_btns{
+    margin-top: 4px;
+    text-align: right;
+    button {
+      width: 44px;
+      height: 44px;
+      display: inline-block;
+      background:#fff url($url_common+"mobile/btn_plus.png") no-repeat center;
+      background-size: 100%;
+      &.remove {
+        background-image: url($url_common+"mobile/btn_minus.png");
       }
     }
   }
