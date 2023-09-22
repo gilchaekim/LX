@@ -405,6 +405,9 @@
     }
     return obj;
   }
+  function _readOnlyError(name) {
+    throw new TypeError("\"" + name + "\" is read-only");
+  }
   function _slicedToArray(arr, i) {
     return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
   }
@@ -10192,6 +10195,765 @@
     }
   };
 
+  var Position = {
+    props: {
+      pos: String,
+      offset: null,
+      flip: Boolean,
+      shift: Boolean,
+      inset: Boolean
+    },
+    data: {
+      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
+      offset: false,
+      flip: true,
+      shift: true,
+      inset: false
+    },
+    connected: function connected() {
+      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
+      var _this$pos = _slicedToArray(this.pos, 2);
+      this.dir = _this$pos[0];
+      this.align = _this$pos[1];
+      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
+    },
+    methods: {
+      positionAt: function positionAt$1(element, target, boundary) {
+        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
+        var placement = [this.flip && 'flip', this.shift && 'shift'];
+        var attach = {
+          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
+          target: [this.dir, this.align]
+        };
+        if (this.axis === 'y') {
+          for (var prop in attach) {
+            attach[prop].reverse();
+          }
+          offset.reverse();
+          placement.reverse();
+        }
+        var _scrollParents = scrollParents(element, /auto|scroll/),
+          _scrollParents2 = _slicedToArray(_scrollParents, 1),
+          scrollElement = _scrollParents2[0];
+        scrollElement.scrollTop;
+          scrollElement.scrollLeft;
+
+        // Ensure none positioned element does not generate scrollbars
+        var elDim = dimensions(element);
+        css(element, {
+          top: -elDim.height,
+          left: -elDim.width
+        });
+        return positionAt(element, target, {
+          attach: attach,
+          offset: offset,
+          boundary: boundary,
+          placement: placement,
+          viewportOffset: this.getViewportOffset(element)
+        });
+      },
+      getPositionOffset: function getPositionOffset(element) {
+        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
+      },
+      getShiftOffset: function getShiftOffset(element) {
+        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
+      },
+      getViewportOffset: function getViewportOffset(element) {
+        return toPx(css(element, '--mui-position-viewport-offset'));
+      }
+    }
+  };
+
+  var datepicker = {
+    mixins: [Position],
+    props: {
+      pickerButton: Boolean,
+      value: String
+    },
+    data: {
+      target: '> * input',
+      pcikerBtn: '>.mui_picker_btn',
+      dateBtn: '.mui_days button',
+      testValue: '',
+      testBtn: '>.testbtn',
+      pickerButton: false,
+      value: '',
+      offset: 20,
+      initialValue: '',
+      initialDate: null,
+      viewDate: null,
+      isActivePicker: false,
+      days: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+      daysMin: ['일', '월', '화', '수', '목', '금', '토'],
+      months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+      weekStart: 0,
+      //시작 요일
+      weeks: null,
+      bodys: null,
+      prevBtn: '.picker_header>.prev_btn',
+      nextBtn: '.picker_header>.next_btn',
+      $year: '.picker_header>.year_month>.current_year',
+      $month: '.picker_header>.year_month>.current_month',
+      datePattern: ['yyyy', 'mm', 'dd'],
+      format: 'yyyy.mm.dd',
+      // The start view date
+      startDate: null,
+      // The end view date
+      endDate: null,
+      // The initial date
+      date: null,
+      // Filter each date item (return `false` to disable a date item)
+      filter: null,
+      pickerHeader: '.picker_contents>.mui_calendar>.head',
+      pickerBody: '.picker_contents>.mui_calendar>.body',
+      activeClassName: 'mui_active',
+      disabledClassName: 'mui_disabled',
+      weeksClassName: 'mui_weeks',
+      daysClassName: 'mui_days',
+      todayClassName: 'mui_today',
+      selectedClassName: 'mui_selected',
+      template: "<div class=\"mui_datepicker_layer\">\n                <div class=\"inset\">\n                  <div class=\"picker_header\">\n                    <button type=\"button\" class=\"prev_btn\"><span class=\"text\"><span class=\"hidden\">\uC774\uC804 \uB2EC \uBCF4\uAE30</span></button>\n                    <span class=\"year_month\">\n                      <span class=\"current_year\"></span>\n                      <span class=\"current_month\"></span>\n                    </span>                  \n                    <button type=\"button\" class=\"next_btn\"><span class=\"text\"><span class=\"hidden\">\uB2E4\uC74C \uB2EC \uBCF4\uAE30</span></span></button>\n                  </div>\n                  <div class=\"picker_contents\">\n                    <table class=\"mui_calendar\">\n                      <thead class=\"head\"></thead>\n                      <tbody class=\"body\"></tbody>\n                    </table>\n                  </div>\n                </div>\n              </div>"
+    },
+    created: function created() {
+      this.calendar = append(document.body, this.template);
+    },
+    computed: {
+      prevBtn: function prevBtn(_ref) {
+        var prevBtn = _ref.prevBtn;
+        return $$1(prevBtn, this.calendar);
+      },
+      nextBtn: function nextBtn(_ref2) {
+        var nextBtn = _ref2.nextBtn;
+        return $$1(nextBtn, this.calendar);
+      },
+      $year: function $year(_ref3) {
+        var $year = _ref3.$year;
+        return $$1($year, this.calendar);
+      },
+      $month: function $month(_ref4) {
+        var $month = _ref4.$month;
+        return $$1($month, this.calendar);
+      },
+      target: function target(_ref5, $el) {
+        var target = _ref5.target;
+        return $$1(target, $el);
+      },
+      format: function format(_ref6) {
+        var format = _ref6.format;
+        return this.parseFormat(format);
+      }
+    },
+    connected: function connected() {
+      this.pickerButton;
+        var startDate = this.startDate,
+        endDate = this.endDate;
+        this.$el;
+      var initialValue = this.initialValue,
+        date = this.date;
+      initialValue = this.getValue();
+      date = this.parseDate(date || initialValue);
+      this.date = date;
+      this.viewDate = new Date(date);
+      this.initialDate = new Date(this.date);
+
+      // startDate, endDate  = range 형태의 켈린더일 경우 사용
+      if (startDate) {
+        this.parseDate(startDate), _readOnlyError("startDate");
+        if (date.getTime() < startDate.getTime()) {
+          date = new Date(startDate);
+        }
+        this.startDate = startDate;
+      }
+      if (endDate) {
+        this.parseDate(endDate), _readOnlyError("endDate");
+        if (startDate && endDate.getTime() < startDate.getTime()) {
+          _readOnlyError("endDate");
+        }
+        if (date.getTime() > endDate.getTime()) {
+          date = new Date(endDate);
+        }
+        this.endDate = endDate;
+      }
+    },
+    destory: function destory() {
+      console.log('destory');
+    },
+    events: [{
+      name: 'click',
+      delegate: function delegate() {
+        return this.$props.target;
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        this.renderPickerDate();
+      }
+    }, {
+      name: 'click',
+      el: document,
+      handler: function handler(e) {
+        var target = e.target;
+        var hidden = true;
+        var $el = this.$el,
+          calendar = this.calendar;
+        if (this.isActivePicker) {
+          while (target !== document) {
+            if (target === $el || target === calendar) {
+              hidden = false;
+              break;
+            }
+            target = target.parentNode;
+          }
+          if (hidden) {
+            this.closePickerDate();
+          }
+        }
+      }
+    }, {
+      name: 'click',
+      el: function el() {
+        return this.calendar;
+      },
+      delegate: function delegate() {
+        return this.$props.prevBtn;
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        var year = this.viewDate.getFullYear();
+        var month = this.viewDate.getMonth() - 1;
+        var day = this.viewDate.getDate();
+        this.viewDate = new Date(year, month, day);
+        this.renderPickerDate();
+      }
+    }, {
+      name: 'click',
+      el: function el() {
+        return this.calendar;
+      },
+      delegate: function delegate() {
+        return this.$props.nextBtn;
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        var year = this.viewDate.getFullYear();
+        var month = this.viewDate.getMonth() + 1;
+        var day = this.viewDate.getDate();
+        this.viewDate = new Date(year, month, day);
+        this.renderPickerDate();
+      }
+    }, {
+      name: 'click',
+      el: function el() {
+        return this.calendar;
+      },
+      delegate: function delegate() {
+        return "".concat(this.pickerBody, " ").concat(this.dateBtn);
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        var val = this.parseDate(data(e.current, 'date'));
+        this.setDate(val);
+        this.closePickerDate();
+      }
+    },
+    // 
+    {
+      name: 'keyup',
+      delegate: function delegate() {
+        return this.$props.target;
+      },
+      handler: function handler(e) {
+        var self = e.target;
+        var val = this.parseDate(this.parseDate(this.getValue()));
+        this.viewDate = val;
+        this.date = val;
+        this.renderPickerDate();
+        console.log(self.value);
+      }
+    }, {
+      name: 'click',
+      delegate: function delegate() {
+        return this.pcikerBtn;
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        this.setValue();
+      }
+    }],
+    methods: {
+      renderPickerDate: function renderPickerDate() {
+        var viewDate = this.viewDate,
+          $year = this.$year,
+          $month = this.$month,
+          months = this.months,
+          calendar = this.calendar;
+        var yearText = viewDate.getFullYear();
+        var montText = months[viewDate.getMonth()];
+        this.weeks = find(this.pickerHeader, this.calendar);
+        this.bodys = find(this.pickerBody, this.calendar);
+        this.weeks.innerHTML = this.renderWeek();
+        this.isActivePicker = true;
+        $year.innerHTML = yearText;
+        $month.innerHTML = montText;
+        addClass(calendar, 'mui_active');
+        this.renderDays();
+        // css(calendar, 'top', `30%`)
+        // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+        // css(calendar, 'left', `${dimensions(this.$el).left}px`)
+        this.positionAt(calendar, this.$el);
+      },
+      closePickerDate: function closePickerDate() {
+        var weeks = this.weeks,
+          bodys = this.bodys,
+          calendar = this.calendar;
+        weeks.innerHTML = '';
+        bodys.innerHTML = '';
+        this.isActivePicker = false;
+        removeClass(calendar, 'mui_active');
+      },
+      getValue: function getValue() {
+        console.log(dateFormat(this.target.value, this.datePattern));
+        // datePattern()
+        // dateFormat(this.target.value, this.datePattern)
+        return this.target.value;
+      },
+      setValue: function setValue() {
+        console.log('aa');
+        this.target.value = this.formatDate(this.date);
+      },
+      createItem: function createItem(data, type) {
+        var selectedClassName = this.selectedClassName,
+          disabledClassName = this.disabledClassName,
+          weeksClassName = this.weeksClassName,
+          daysClassName = this.daysClassName,
+          todayClassName = this.todayClassName;
+        var itemDefault = {
+          text: '',
+          view: '',
+          prev: false,
+          next: false,
+          active: false,
+          disabled: false,
+          picked: false,
+          classes: type === 'title' ? [weeksClassName] : [daysClassName],
+          tag: type === 'title' ? 'th' : 'td'
+        };
+        var item = mergeOptions(itemDefault, data);
+        if (item.active) item.classes.push(todayClassName);
+        if (item.picked) item.classes.push(selectedClassName);
+
+        // 이전 달이거나 다음 달일 경우
+        if (item.prev || item.next) item.classes.push(disabledClassName);
+        if (type !== 'title') {
+          item.text = "<button type=\"button\" data-date=\"".concat(item.data, "\">").concat(item.text, "</button>");
+        }
+        return "<".concat(item.tag, " class=\"").concat(item.classes.join(' '), "\">").concat(item.text, "</").concat(item.tag, ">");
+      },
+      renderWeek: function renderWeek() {
+        var _this = this;
+        var items = ['<tr>'];
+        var weekStart = this.weekStart,
+          days = this.days,
+          daysMin = this.daysMin;
+        weekStart = parseInt(weekStart, 10) % 7;
+        days = days.slice(weekStart).concat(days.slice(0, weekStart));
+        daysMin = daysMin.slice(weekStart).concat(daysMin.slice(0, weekStart));
+        each(daysMin, function (day, i) {
+          items.push(_this.createItem({
+            text: day,
+            title: daysMin[i]
+          }, 'title'));
+        });
+        items.push('</tr>');
+        // console.log(items)
+        return items.join('');
+        // this.$week.html(items.join(''));
+      },
+      renderYears: function renderYears() {
+        var options = this.options,
+          startDate = this.startDate,
+          endDate = this.endDate;
+        var disabledClass = options.disabledClass,
+          filter = options.filter,
+          yearSuffix = options.yearSuffix;
+        var viewYear = this.viewDate.getFullYear();
+        var now = new Date();
+        var thisYear = now.getFullYear();
+        var year = this.date.getFullYear();
+        var start = -5;
+        var end = 6;
+        var items = [];
+        var prevDisabled = false;
+        var nextDisabled = false;
+        var i;
+        for (i = start; i <= end; i += 1) {
+          var date = new Date(viewYear + i, 1, 1);
+          var disabled = false;
+          if (startDate) {
+            disabled = date.getFullYear() < startDate.getFullYear();
+            if (i === start) {
+              prevDisabled = disabled;
+            }
+          }
+          if (!disabled && endDate) {
+            disabled = date.getFullYear() > endDate.getFullYear();
+            if (i === end) {
+              nextDisabled = disabled;
+            }
+          }
+          if (!disabled && filter) {
+            disabled = filter.call(this.$element, date, 'year') === false;
+          }
+          var picked = viewYear + i === year;
+          var view = picked ? 'year picked' : 'year';
+          items.push(this.createItem({
+            picked: picked,
+            disabled: disabled,
+            text: viewYear + i,
+            view: disabled ? 'year disabled' : view,
+            highlighted: date.getFullYear() === thisYear
+          }));
+        }
+        this.$yearsPrev.toggleClass(disabledClass, prevDisabled);
+        this.$yearsNext.toggleClass(disabledClass, nextDisabled);
+        this.$yearsCurrent.toggleClass(disabledClass, true).html("".concat(viewYear + start + yearSuffix, " - ").concat(viewYear + end).concat(yearSuffix));
+        this.$years.html(items.join(''));
+      },
+      renderMonths: function renderMonths() {
+        var options = this.options,
+          startDate = this.startDate,
+          endDate = this.endDate,
+          viewDate = this.viewDate;
+        var disabledClass = options.disabledClass || '';
+        var months = options.monthsShort;
+        var filter = $$1.isFunction(options.filter) && options.filter;
+        var viewYear = viewDate.getFullYear();
+        var now = new Date();
+        var thisYear = now.getFullYear();
+        var thisMonth = now.getMonth();
+        var year = this.date.getFullYear();
+        var month = this.date.getMonth();
+        var items = [];
+        var prevDisabled = false;
+        var nextDisabled = false;
+        var i;
+        for (i = 0; i <= 11; i += 1) {
+          var date = new Date(viewYear, i, 1);
+          var disabled = false;
+          if (startDate) {
+            prevDisabled = date.getFullYear() === startDate.getFullYear();
+            disabled = prevDisabled && date.getMonth() < startDate.getMonth();
+          }
+          if (!disabled && endDate) {
+            nextDisabled = date.getFullYear() === endDate.getFullYear();
+            disabled = nextDisabled && date.getMonth() > endDate.getMonth();
+          }
+          if (!disabled && filter) {
+            disabled = filter.call(this.$element, date, 'month') === false;
+          }
+          var picked = viewYear === year && i === month;
+          var view = picked ? 'month picked' : 'month';
+          items.push(this.createItem({
+            disabled: disabled,
+            picked: picked,
+            highlighted: viewYear === thisYear && date.getMonth() === thisMonth,
+            index: i,
+            text: months[i],
+            view: disabled ? 'month disabled' : view
+          }));
+        }
+        this.$yearPrev.toggleClass(disabledClass, prevDisabled);
+        this.$yearNext.toggleClass(disabledClass, nextDisabled);
+        this.$yearCurrent.toggleClass(disabledClass, prevDisabled && nextDisabled).html(viewYear + options.yearSuffix || '');
+        this.$months.html(items.join(''));
+      },
+      renderDays: function renderDays() {
+        this.$el;
+          var startDate = this.startDate,
+          endDate = this.endDate,
+          viewDate = this.viewDate,
+          currentDate = this.date;
+        var weekStart = this.weekStart,
+          filter = this.filter;
+        var viewYear = viewDate.getFullYear();
+        var viewMonth = viewDate.getMonth();
+        var now = new Date();
+        var thisYear = now.getFullYear();
+        var thisMonth = now.getMonth();
+        var thisDay = now.getDate();
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth();
+        var day = currentDate.getDate();
+        var length;
+        var i;
+        var n;
+
+        // Days of prev month
+        // -----------------------------------------------------------------------
+        var prevItems = [];
+        var prevViewYear = viewYear;
+        var prevViewMonth = viewMonth;
+        if (viewMonth === 0) {
+          prevViewYear -= 1;
+          prevViewMonth = 11;
+        } else {
+          prevViewMonth -= 1;
+        }
+
+        // 이전달의 마지막 날 또는 이전달의 길이
+        length = getDaysInMonth(prevViewYear, prevViewMonth);
+
+        // 이번달의 첫 날
+        var firstDay = new Date(viewYear, viewMonth, 1);
+        // console.log(this.formatDate(firstDay))
+
+        // 이전 달 중 보이는 날의 길이
+        // [0,1,2,3,4,5,6] - [0,1,2,3,4,5,6] => [-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6]
+        n = firstDay.getDay() - parseInt(weekStart, 10) % 7;
+        // [-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6] => [1,2,3,4,5,6,7]
+
+        if (n <= 0) {
+          n += 7;
+        }
+        if (startDate) {
+          firstDay.getTime() <= startDate.getTime();
+        }
+        for (i = length - (n - 1); i <= length; i += 1) {
+          var prevViewDate = new Date(prevViewYear, prevViewMonth, i);
+          var disabled = false;
+          if (startDate) {
+            disabled = prevViewDate.getTime() < startDate.getTime();
+          }
+          if (!disabled && filter) {
+            disabled = filter.call($element, prevViewDate, 'day') === false;
+          }
+          prevItems.push(this.createItem({
+            disabled: disabled,
+            active: prevViewYear === thisYear && prevViewMonth === thisMonth && prevViewDate.getDate() === thisDay,
+            prev: true,
+            picked: prevViewYear === year && prevViewMonth === month && i === day,
+            text: i,
+            view: 'day prev',
+            data: this.formatDate(prevViewDate)
+          }));
+        }
+
+        // Days of next month
+        // -----------------------------------------------------------------------
+
+        var nextItems = [];
+        var nextViewYear = viewYear;
+        var nextViewMonth = viewMonth;
+        if (viewMonth === 11) {
+          nextViewYear += 1;
+          nextViewMonth = 0;
+        } else {
+          nextViewMonth += 1;
+        }
+
+        // 이번달의 마지막 날
+        length = getDaysInMonth(viewYear, viewMonth);
+
+        // 켈린더 개수 42칸 유지 (이번달 게수에서 이전 달 개수를 뺀 값) (42 means 6 rows and 7 columns)
+        n = 42 - (prevItems.length + length);
+
+        // 이번달의 마지막 날
+        var lastDate = new Date(viewYear, viewMonth, length);
+
+        // endDate가 있을 경우
+        if (endDate) {
+          lastDate.getTime() >= endDate.getTime();
+        }
+        for (i = 1; i <= n; i += 1) {
+          var date = new Date(nextViewYear, nextViewMonth, i);
+          var picked = nextViewYear === year && nextViewMonth === month && i === day;
+          var _disabled = false;
+          if (endDate) {
+            _disabled = date.getTime() > endDate.getTime();
+          }
+          if (!_disabled && filter) {
+            _disabled = filter.call($element, date, 'day') === false;
+          }
+          nextItems.push(this.createItem({
+            disabled: _disabled,
+            picked: picked,
+            active: nextViewYear === thisYear && nextViewMonth === thisMonth && date.getDate() === thisDay,
+            next: true,
+            text: i,
+            view: 'day next',
+            data: this.formatDate(date)
+          }));
+        }
+
+        // Days of current month
+        // -----------------------------------------------------------------------
+
+        var items = [];
+        for (i = 1; i <= length; i += 1) {
+          var _date = new Date(viewYear, viewMonth, i);
+          var _disabled2 = false;
+          if (startDate) {
+            _disabled2 = _date.getTime() < startDate.getTime();
+          }
+          if (!_disabled2 && endDate) {
+            _disabled2 = _date.getTime() > endDate.getTime();
+          }
+          if (!_disabled2 && filter) {
+            _disabled2 = filter.call($element, _date, 'day') === false;
+          }
+          var _picked = viewYear === year && viewMonth === month && i === day;
+          var view = _picked ? 'day picked' : 'day';
+          items.push(this.createItem({
+            disabled: _disabled2,
+            picked: _picked,
+            active: viewYear === thisYear && viewMonth === thisMonth && _date.getDate() === thisDay,
+            text: i,
+            view: _disabled2 ? 'day disabled' : view,
+            data: this.formatDate(_date)
+          }));
+        }
+
+        // , items, nextItems
+        var currItems = [].concat(prevItems, items, nextItems);
+        var itemes = [];
+        // console.log(currItems)
+        var column = 7;
+        for (var _i = 0; _i < currItems.length; _i++) {
+          var num = _i % column;
+          if (num === 0) {
+            itemes.push('<tr>');
+            itemes.push(currItems[_i]);
+          } else if (num === column - 1) {
+            itemes.push(currItems[_i]);
+            itemes.push('</tr>');
+          } else {
+            itemes.push(currItems[_i]);
+          }
+        }
+
+        // Render days picker
+        // -----------------------------------------------------------------------
+        empty(this.bodys);
+        this.bodys.innerHTML = itemes.join('');
+        // this.$monthPrev.toggleClass(disabledClass, prevDisabled);
+        // this.$monthNext.toggleClass(disabledClass, nextDisabled);
+        // this.$monthCurrent
+        //   .toggleClass(disabledClass, prevDisabled && nextDisabled)
+        //   .html(options.yearFirst
+        //     ? `${viewYear + yearSuffix} ${months[viewMonth]}`
+        //     : `${months[viewMonth]} ${viewYear}${yearSuffix}`);
+        // this.$days.html(prevItems.join('') + items.join('') + nextItems.join(''));
+      },
+      formatDate: function formatDate(date) {
+        var format = this.format;
+        var formatted = '';
+        if (isDate(date)) {
+          var year = date.getFullYear();
+          var month = date.getMonth();
+          var day = date.getDate();
+          var values = {
+            d: day,
+            dd: addLeadingZero(day, 2),
+            m: month + 1,
+            mm: addLeadingZero(month + 1, 2),
+            yy: String(year).substring(2),
+            yyyy: addLeadingZero(year, 4)
+          };
+          formatted = format.source;
+          each(format.parts, function (part) {
+            formatted = formatted.replace(part, values[part]);
+          });
+        }
+        return formatted;
+      },
+      parseDate: function parseDate(date) {
+        console.log(date);
+        var format = this.format;
+        var parts = [];
+        if (!isDate(date)) {
+          if (isString(date)) {
+            parts = date.match(/\d+/g) || [];
+          }
+          date = date ? new Date(date) : new Date();
+          if (!isDate(date)) {
+            date = new Date();
+          }
+          if (parts.length === format.parts.length) {
+            // Set year and month first
+            each(parts, function (i, part) {
+              var value = parseInt(part, 10);
+              switch (format.parts[i]) {
+                case 'yy':
+                  date.setFullYear(2000 + value);
+                  break;
+                case 'yyyy':
+                  // Converts 2-digit year to 2000+
+                  date.setFullYear(part.length === 2 ? 2000 + value : value);
+                  break;
+                case 'mm':
+                case 'm':
+                  date.setMonth(value - 1);
+                  break;
+              }
+            });
+
+            // Set day in the last to avoid converting `31/10/2019` to `01/10/2019`
+            each(parts, function (i, part) {
+              var value = parseInt(part, 10);
+              switch (format.parts[i]) {
+                case 'dd':
+                case 'd':
+                  date.setDate(value);
+                  break;
+              }
+            });
+          }
+        }
+
+        // Ignore hours, minutes, seconds and milliseconds to avoid side effect (#192)
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      },
+      setDate: function setDate(val) {
+        this.viewDate = val;
+        this.date = val;
+        this.setValue();
+      },
+      parseFormat: function parseFormat(format) {
+        var source = String(format).toLowerCase();
+        var parts = source.match(/(y|m|d)+/g);
+        if (!parts || parts.length === 0) {
+          throw new Error('Invalid date format.');
+        }
+        format = {
+          source: source,
+          parts: parts
+        };
+        each(parts, function (part) {
+          switch (part) {
+            case 'dd':
+            case 'd':
+              format.hasDay = true;
+              break;
+            case 'mm':
+            case 'm':
+              format.hasMonth = true;
+              break;
+            case 'yyyy':
+            case 'yy':
+              format.hasYear = true;
+              break;
+          }
+        });
+        return format;
+      }
+    },
+    update: {
+      write: function write() {
+        if (this.isActivePicker) this.closePickerDate();
+      },
+      events: ['scroll', 'resize']
+    }
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -10297,6 +11059,7 @@
     Addimage: addimage,
     Acclist: acclist,
     Scrollbar: scrollbar,
+    Datepicker: datepicker,
     Worklists: worklists
   });
 

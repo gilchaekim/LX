@@ -2029,6 +2029,9 @@
 		<button data-layer="lx_report">현장조사 보고서</button>
 		<button data-layer="lx_search_webmap">웹맵 검색</button>
 		<button data-layer="lx_newwebmap">새 웹맵</button>
+		<button data-layer="lx_report_example">보고서 양식</button>
+		<button data-layer="lx_saved_report">양식저장</button>
+		<button data-layer="lx_point_analysis">포인트 군집 분석</button>
 		
 		
 	</div>
@@ -3848,7 +3851,7 @@
 
 
 	<!-- 현장조사 보고서 등록 -->
-	<div class="popup column_layer lx_report_write" style="display:;" >
+	<div class="popup column_layer lx_report_write" style="display:none;" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">
@@ -3894,6 +3897,20 @@
 										<button type="button" class="btn blue">
 											<span>사진 업로드</span>
 										</button>
+									</div>
+								</div>
+								<div class="form_list">
+									<div class="form_multi">
+										<div class="block">
+											<input type="text" placeholder="작성자 이름">	
+										</div>
+										<div class="block">
+											<div class="mui_datepicker" mui-datepicker>
+												<span class="mui_input">
+													<input type="text" placeholder="날짜선택">
+												</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -3945,11 +3962,217 @@
 					<button type="button" class="btn blue">
 						<span>저장</span>
 					</button>
+					<button type="button" class="btn darkgrey">
+						<span>삭제</span>
+					</button>
 				</div>
 			</div>
 		</div>
 		<!--//cont-->
 	</div>
+
+
+	<!-- 보고서 양식 -->
+	<div class="popup column_layer lx_report_example mini" style="display:none;" >
+		<div class="inset">
+			<!--head-->
+			<div class="head blue">
+				<strong class="titPop">
+					보고서 양식
+				</strong>
+				<div class="btnGroup">
+					<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+				</div>
+			</div>
+			<!--//head-->
+			<!--cont-->
+			<div class="cont">
+				<div class="report_example">
+					<div class="title">
+						<p>보고서 양식 총 <em>N</em>건</p>
+						<button type="button" class="btn line">
+							<span>삭제하기</span>
+						</button>
+					</div>
+					<div class="data_table_m type2">
+						<table>
+							<colgroup>
+								<col style="width: 20%;">
+								<col style="width: 40%;">
+								<col style="width: 40%;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>선택</th>
+									<th>양식명</th>
+									<th>등록일</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="checkbox" name="" id="">
+									</td>
+									<td>
+										<p>보고서양식1</p>
+									</td>
+									<td>
+										<p>2023-08-01</p>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="paging_m">
+						<a href="" class="first">처음</a>
+						<a href="" class="prev">이전</a>
+						<p class="current">page 1 of 1</p>
+						<a href="" class="next">다음</a>
+						<a href="" class="last">마지막</a>
+					</div>
+				</div>
+				<div class="bottom_fixed">
+					<div class="inset">
+						<button type="button" class="btn blue">
+							<span>불러오기</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		<!--//cont-->
+		</div>
+	</div>
+
+	<!-- 양식저장 -->
+	<div class="popup column_layer lx_saved_report mini" style="display:none;" >
+		<div class="inset">
+			<!--head-->
+			<div class="head blue">
+				<strong class="titPop">
+					양식저장
+				</strong>
+				<div class="btnGroup">
+					<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+				</div>
+			</div>
+			<!--//head-->
+			<!--cont-->
+			<div class="cont">
+				<div class="saved_report">
+					<div class="form_m">
+						<div class="form_list">
+							<p class="title">제목<em class="requird">*</em></p>
+							<div class="form_cont">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom_fixed">
+					<div class="inset">
+						<button type="button" class="btn blue">
+							<span>저장</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		<!--//cont-->
+		</div>
+	</div>
+
+	<!-- 포인트 군집 분석 -->
+	<div class="popup column_layer lx_point_analysis half bg_white" id="togglePop" style="display:;" >
+		<div class="inset">
+			<!--head-->
+			<div class="head blue">
+				<strong class="titPop">
+					포인트 군집 분석
+				</strong>
+				<div class="toggle">
+					<button type="button" class="btn_toggle" mui-toggle="target:#togglePop;cls:active_toggle">
+						<span>토글</span>
+					</button>
+				</div>
+				<div class="btnGroup">
+					<button type="button" class="btnPopClose" @click="hide"><span class="hidden">팝업 닫기</span></button>
+				</div>
+			</div>
+			<!--//head-->
+			<!--cont-->
+			<div class="cont">
+				<div class="point_analysis">
+					<p class="title">포인트 군집 분석</p>
+					<div class="btns">
+						<span class="btn_group">
+							<button type="button" class="btn1"></button>
+							<button type="button" class="btn2"></button>
+							<button type="button" class="btn3"></button>
+							<button type="button" class="btn4"></button>
+						</span>
+						<span class="control">
+							<button type="button" class="btn1">이전</button>
+							<button type="button" class="btn2">다음</button>
+						</span>
+					</div>
+					<div class="data_table_m type2">
+						<table>
+							<colgroup>
+								<col style="width: 40%;">
+								<col style="width: 60%;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>지역_읍</th>
+									<td>
+										<p>퇴촌면</p>
+									</td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+								<tr>
+									<th>지역_읍</th>
+									<td><p>퇴촌면</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		<!--//cont-->
+		</div>
+	</div>
+	
 	
 
 
