@@ -1,13 +1,13 @@
 @import "common/mixins";
 @import "common/swiper";
 
-$url_common: "../js/webmap/images/";
-// $url_common: '../images/';
+// $url_common: "../js/webmap/images/";
+$url_common: '../images/';
 
-#alertDimmed,
-#alertPopBox {
-  display: none !important;
-}
+// #alertDimmed,
+// #alertPopBox {
+//   display: none !important;
+// }
 .test_btn_list {
   position: absolute;
   top: 100px;
@@ -4117,7 +4117,23 @@ $url_common: "../js/webmap/images/";
       width: 90px !important;
     }
   }
-
+  .alert{
+    width: auto;
+    left: 20px !important;
+    right: 20px !important;
+    .cont {
+      padding: 20px;
+      .titCont{
+        font-size: 18px;
+      }
+      .btnArea {
+        margin-top: 20px;
+        .btn {
+          height: 50px;
+        }
+      }
+    }
+  }
   .popup{
     top: 0;
     left: 0;

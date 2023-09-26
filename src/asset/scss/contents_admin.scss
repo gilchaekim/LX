@@ -652,6 +652,7 @@ button, label {
   &.fit {
     .edit_quick_service {
       position: absolute;
+      z-index: 2;
       top: 50%;
       right: 0;
       width: 80px;
@@ -1419,6 +1420,7 @@ button, label {
       position: absolute;
       top: 105px;
       left: 50px;
+      z-index: 2;
     }
     .goto_link{
       display: block;
