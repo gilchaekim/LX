@@ -555,11 +555,12 @@ block content
   
   script.
     const {$, on, trigger} = GCui.util;
-    on($('#toggle_box1'), 'shown hidden', ()=>{
-      trigger(window, "resize")
-      setTimeout(()=>{
-        //- GCui.sticky($('#edit_config')).update()
-        trigger(window, "resize")
-      }, 0)
+    on($('#toggle_box1'), 'show hide', ()=>{
+      //- trigger(window, "resize")
+      GCui.sticky($('#edit_config')).update()
+      //- setTimeout(()=>{
+      //-   //- GCui.sticky($('#edit_config')).update()
+      //-   trigger(window, "resize")
+      //- }, 0)
     })
     
