@@ -3356,7 +3356,7 @@ button, label {
   margin-top: 20px;
 }
 .edit_ground.vertrical_type .edit_contents {
-  margin: 46px 108px 85px;
+  padding: 46px 108px 85px;
 }
 .edit_ground.vertrical_type .main_title {
   min-height: 60px;
@@ -3424,6 +3424,30 @@ button, label {
 .edit_ground.vertrical_type .goto_link.img img {
   width: 100%;
   height: 100%;
+}
+.edit_ground.vertrical_type .goto_link.img .link_btn {
+  box-sizing: border-box;
+  height: 46px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  text-align: center;
+  color: #fff;
+  line-height: 42px;
+  font-size: 18px;
+  bottom: 74px;
+  left: 37px;
+  position: absolute;
+  border-radius: 23px;
+  width: 150px;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .edit_ground.vertrical_type .goto_link.img .link_btn {
+    bottom: 50px;
+    left: 20px;
+    height: 36px;
+    width: 120px;
+    line-height: 32px;
+    font-size: 14px;
+  }
 }
 .edit_ground.vertrical_type .notice_wrap {
   padding: 48px;
@@ -3663,6 +3687,12 @@ button, label {
   padding-top: 16px;
   margin-top: 16px;
   border-top: 1px solid #A3A3A3;
+}
+.edit_ground .edit_config.mui_active {
+  left: 50%;
+  right: auto;
+  z-index: 999;
+  margin-left: 627px;
 }
 .edit_ground .layout_cont {
   display: flex;
@@ -3993,6 +4023,15 @@ button, label {
 }
 .movie_photo .preview img {
   width: 100%;
+}
+.movie_photo .youtube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 .movie_photo .link {
   position: absolute;

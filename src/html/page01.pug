@@ -268,7 +268,7 @@ block content
             a(href="") 첨부파일 관리
           li
             a(href="") 영상지도 파일 관리
-    .edit_config 
+    .edit_config(mui-sticky="offset:70;", id="edit_config")
       +button({
         label:"설정 열기",
         className:"toggle_layer",
@@ -553,3 +553,13 @@ block content
       button(type="button").btn.bg-grey.lg 이전
       button(type="button").btn.bg-blue.lg 완료
   
+  script.
+    const {$, on, trigger} = GCui.util;
+    on($('#toggle_box1'), 'shown hidden', ()=>{
+      trigger(window, "resize")
+      setTimeout(()=>{
+        //- GCui.sticky($('#edit_config')).update()
+        trigger(window, "resize")
+      }, 0)
+    })
+    

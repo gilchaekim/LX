@@ -297,7 +297,7 @@
   function isWindow(obj) {
     return isObject(obj) && obj === obj.window;
   }
-  function isDocument(obj) {
+  function isDocument$1(obj) {
     return nodeType(obj) === 9;
   }
   function isNode(obj) {
@@ -373,7 +373,7 @@
   var toArray = Array.from || function (value) {
     return arrPrototype.slice.call(value);
   };
-  function toNode(element) {
+  function toNode$1(element) {
     return toNodes(element)[0];
   }
   function toNodes(element) {
@@ -383,8 +383,8 @@
     if (isWindow(element)) {
       return element;
     }
-    element = toNode(element);
-    return element ? (isDocument(element) ? element : element.ownerDocument).defaultView : window;
+    element = toNode$1(element);
+    return element ? (isDocument$1(element) ? element : element.ownerDocument).defaultView : window;
   }
   function toMs(time) {
     return !time ? 0 : endsWith(time, 'ms') ? toFloat(time) : toFloat(time) * 1000;
@@ -511,7 +511,7 @@
     elements = toNodes(elements);
     var _elements = elements,
       length = _elements.length;
-    i = isNumeric(i) ? toNumber(i) : i === 'next' ? current + 1 : i === 'previous' ? current - 1 : elements.indexOf(toNode(i));
+    i = isNumeric(i) ? toNumber(i) : i === 'next' ? current + 1 : i === 'previous' ? current - 1 : elements.indexOf(toNode$1(i));
     if (finite) {
       return clamp(i, 0, length - 1);
     }
@@ -533,7 +533,7 @@
       return;
     }
     if (isUndefined(value)) {
-      element = toNode(element);
+      element = toNode$1(element);
       return element && element.getAttribute(name);
     } else {
       toNodes(element).forEach(function (element) {
@@ -950,7 +950,7 @@
    * @returns element의 부모 요소
    */
   function parent(element) {
-    element = toNode(element);
+    element = toNode$1(element);
     return element && isElement(element.parentNode) && element.parentNode;
   }
   function filter(element, selector) {
@@ -993,7 +993,7 @@
     }).filter(Boolean);
   }
   function within(element, selector) {
-    return isString(selector) ? !!closest(element, selector) : toNode(selector).contains(toNode(element));
+    return isString(selector) ? !!closest(element, selector) : toNode$1(selector).contains(toNode$1(element));
   }
 
   /**
@@ -1019,7 +1019,7 @@
    * @returns selector와 매칭되는 엘리먼트
    */
   function children(element, selector) {
-    element = toNode(element);
+    element = toNode$1(element);
     var children = element ? toNodes(element.children) : [];
     return selector ? filter(children, selector) : children;
   }
@@ -1030,7 +1030,7 @@
    * @returns index
    */
   function index(element, ref) {
-    return ref ? toNodes(element).indexOf(toNode(ref)) : children(parent(element)).indexOf(element);
+    return ref ? toNodes(element).indexOf(toNode$1(ref)) : children(parent(element)).indexOf(element);
   }
 
   function query(selector, context) {
@@ -1041,10 +1041,10 @@
   }
   function getContext(selector) {
     var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-    return isString(selector) && isContextSelector(selector) || isDocument(context) ? context : context.ownerDocument;
+    return isString(selector) && isContextSelector(selector) || isDocument$1(context) ? context : context.ownerDocument;
   }
   function find(selector, context) {
-    return toNode(_query(selector, context, 'querySelector'));
+    return toNode$1(_query(selector, context, 'querySelector'));
   }
   function findAll(selector, context) {
     return toNodes(_query(selector, context, 'querySelectorAll'));
@@ -1239,7 +1239,7 @@
     return target && 'addEventListener' in target;
   }
   function toEventTarget(target) {
-    return isEventTarget(target) ? target : toNode(target);
+    return isEventTarget(target) ? target : toNode$1(target);
   }
   function toEventTargets(target) {
     return isArray(target) ? target.map(toEventTarget).filter(Boolean) : isString(target) ? findAll(target) : isEventTarget(target) ? [target] : toNodes(target);
@@ -1370,7 +1370,7 @@
    * @returns structure element
    */
   function wrapAll(element, structure) {
-    structure = toNode(before(element, structure));
+    structure = toNode$1(before(element, structure));
     while (structure.firstChild) {
       structure = structure.firstChild;
     }
@@ -1468,7 +1468,7 @@
    * @returns element
    */
   function $$1(selector, context) {
-    return isHtml(selector) ? toNode(fragment(selector)) : find(selector, context);
+    return isHtml(selector) ? toNode$1(fragment(selector)) : find(selector, context);
   }
 
   /**
@@ -1683,7 +1683,7 @@
    * }
    */
   function dimensions(element) {
-    var rect = isElement(element) ? toNode(element).getBoundingClientRect() : {
+    var rect = isElement(element) ? toNode$1(element).getBoundingClientRect() : {
       height: height(element),
       width: width(element),
       top: 0,
@@ -1733,7 +1733,7 @@
     var _offset = offset(element),
       top = _offset.top,
       left = _offset.left;
-    var _toNode = toNode(element),
+    var _toNode = toNode$1(element),
       _toNode$ownerDocument = _toNode.ownerDocument,
       body = _toNode$ownerDocument.body,
       documentElement = _toNode$ownerDocument.documentElement,
@@ -1754,7 +1754,7 @@
   }
   function offsetPosition(element) {
     var offset = [0, 0];
-    element = toNode(element);
+    element = toNode$1(element);
     do {
       offset[0] += element.offsetTop;
       offset[1] += element.offsetLeft;
@@ -1784,11 +1784,11 @@
         if (isWindow(element)) {
           return element["inner".concat(propName)];
         }
-        if (isDocument(element)) {
+        if (isDocument$1(element)) {
           var doc = element.documentElement;
           return Math.max(doc["offset".concat(propName)], doc["scroll".concat(propName)]);
         }
-        element = toNode(element);
+        element = toNode$1(element);
         value = css(element, prop);
         value = value === 'auto' ? element["offset".concat(propName)] : toFloat(value) || 0;
         return value - boxModelAdjust(element, prop);
@@ -2087,6 +2087,14 @@
     var start = Math.max(0, elementOffsetTop - viewportHeight + startOffset);
     var end = Math.min(maxScroll, elementOffsetTop + element.offsetHeight - endOffset);
     return clamp((scrollTop - start) / (end - start));
+  }
+  function scrollTop(element, top) {
+    if (isWindow(element) || isDocument(element)) {
+      element = getScrollingElement(element);
+    } else {
+      element = toNode(element);
+    }
+    element.scrollTop = top;
   }
   function scrollParents(element) {
     var overflowRe = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : /auto|scroll|hidden|clip/;
@@ -2794,7 +2802,7 @@
     isObject: isObject,
     isPlainObject: isPlainObject,
     isWindow: isWindow,
-    isDocument: isDocument,
+    isDocument: isDocument$1,
     isNode: isNode,
     isElement: isElement,
     isBoolean: isBoolean,
@@ -2812,7 +2820,7 @@
     toNumber: toNumber,
     toFloat: toFloat,
     toArray: toArray,
-    toNode: toNode,
+    toNode: toNode$1,
     toNodes: toNodes,
     toWindow: toWindow,
     toMs: toMs,
@@ -2868,6 +2876,7 @@
     isInView: isInView,
     scrollIntoView: scrollIntoView,
     scrolledOver: scrolledOver,
+    scrollTop: scrollTop,
     scrollParents: scrollParents,
     offsetViewport: offsetViewport,
     headStr: headStr,
@@ -2930,7 +2939,7 @@
      * @param {event} e 이벤트
      */
     UICommon.update = function (element, e) {
-      element = element ? toNode(element) : document.body;
+      element = element ? toNode$1(element) : document.body;
       parents(element).reverse().forEach(function (element) {
         return update(element[DATA], e);
       });

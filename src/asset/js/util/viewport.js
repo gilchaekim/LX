@@ -103,6 +103,17 @@ export function scrolledOver(element, startOffset = 0, endOffset = 0) {
     return clamp((scrollTop - start) / (end - start));
 }
 
+export function scrollTop(element, top) {
+
+    if (isWindow(element) || isDocument(element)) {
+        element = getScrollingElement(element);
+    } else {
+        element = toNode(element);
+    }
+
+    element.scrollTop = top;
+}
+
 export function scrollParents(element, overflowRe = /auto|scroll|hidden|clip/, scrollable = false) {
     const scrollEl = scrollingElement(element);
 

@@ -1,13 +1,13 @@
 @import "common/mixins";
 @import "common/swiper";
 
-// $url_common: "../js/webmap/images/";
-$url_common: '../images/';
+$url_common: "../js/webmap/images/";
+// $url_common: '../images/';
 
-// #alertDimmed,
-// #alertPopBox {
-//   display: none !important;
-// }
+#alertDimmed,
+#alertPopBox {
+  display: none !important;
+}
 .test_btn_list {
   position: absolute;
   top: 100px;

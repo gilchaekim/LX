@@ -340,7 +340,7 @@
                 </ul>
               </div>
             </div>
-            <div class="edit_config">
+            <div class="edit_config" mui-sticky="offset:70;" id="edit_config">
               <button class="mui_button mui_medium mui_primary toggle_layer" type="button" mui-toggle="target:#toggle_box1;"><span>설정 열기</span></button>
               <div class="config_conts" id="toggle_box1">
                 <p class="title">제목</p>
@@ -773,6 +773,20 @@
               <button class="btn bg-blue lg" type="button">미리보기</button></span><span class="ar">
               <button class="btn bg-grey lg" type="button">이전</button>
               <button class="btn bg-blue lg" type="button">완료</button></span></div>
+          <script>
+            const {
+              $,
+              on,
+              trigger
+            } = GCui.util;
+            on($('#toggle_box1'), 'shown hidden', () => {
+              trigger(window, "resize")
+              setTimeout(() => {
+                //- GCui.sticky($('#edit_config')).update()
+                trigger(window, "resize")
+              }, 0)
+            })
+          </script>
           <div id="footer" style="display:none">
             <div class="inner">
               <h1 class="logo left"><img class="va-m" src="/admin/images/common/footer-logo.png" alt="LX 국토정보플랫폼" /></h1>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;

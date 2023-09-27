@@ -2,8 +2,8 @@ extends ../components/templates/base2.pug
 
 block content
 
-  .edit_ground.vertrical_type(style="background:#29b6f6")
-    .edit_header 
+  .edit_ground.vertrical_type
+    .edit_header(style="background:#29b6f6")
       .sec.logo
         a(href="") 
           img(src="/admin/images/logo_ex2.png", alt="")
@@ -52,7 +52,7 @@ block content
         .menu.all_menu
           button(type="button")
             span.hidden 전체메뉴
-    .edit_contents 
+    .edit_contents(style="background:#29b6f6")
       .sec.main_title
         p.text 전주시 빅데이터 플랫폼에 오신것을 환영합니다
       .sec.sub_title
@@ -176,6 +176,7 @@ block content
         .grid
           a.goto_link.img
             img(src="/admin/images/ico_ex10.png", alt="")
+            span.link_btn 바로가기
         .grid
           .quick_service_el 
             p.title 자주 찾는 서비스

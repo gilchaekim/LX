@@ -9,6 +9,7 @@ export {default as Addimage} from './core/addimage';
 export {default as Acclist} from './core/acclist';
 export {default as Scrollbar} from './core/scrollbar';
 export {default as Datepicker} from './core/datepicker';
+export {default as Sticky} from './core/sticky';
 
 // 마크업진행표
 export {default as Worklists} from './custom/worklists';

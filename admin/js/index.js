@@ -637,7 +637,7 @@
   function isWindow(obj) {
     return isObject$2(obj) && obj === obj.window;
   }
-  function isDocument(obj) {
+  function isDocument$1(obj) {
     return nodeType(obj) === 9;
   }
   function isNode$1(obj) {
@@ -713,7 +713,7 @@
   var toArray$1 = Array.from || function (value) {
     return arrPrototype.slice.call(value);
   };
-  function toNode(element) {
+  function toNode$1(element) {
     return toNodes(element)[0];
   }
   function toNodes(element) {
@@ -723,8 +723,8 @@
     if (isWindow(element)) {
       return element;
     }
-    element = toNode(element);
-    return element ? (isDocument(element) ? element : element.ownerDocument).defaultView : window;
+    element = toNode$1(element);
+    return element ? (isDocument$1(element) ? element : element.ownerDocument).defaultView : window;
   }
   function toMs$1(time) {
     return !time ? 0 : endsWith(time, 'ms') ? toFloat(time) : toFloat(time) * 1000;
@@ -851,7 +851,7 @@
     elements = toNodes(elements);
     var _elements = elements,
       length = _elements.length;
-    i = isNumeric(i) ? toNumber(i) : i === 'next' ? current + 1 : i === 'previous' ? current - 1 : elements.indexOf(toNode(i));
+    i = isNumeric(i) ? toNumber(i) : i === 'next' ? current + 1 : i === 'previous' ? current - 1 : elements.indexOf(toNode$1(i));
     if (finite) {
       return clamp(i, 0, length - 1);
     }
@@ -873,7 +873,7 @@
       return;
     }
     if (isUndefined(value)) {
-      element = toNode(element);
+      element = toNode$1(element);
       return element && element.getAttribute(name);
     } else {
       toNodes(element).forEach(function (element) {
@@ -1290,7 +1290,7 @@
    * @returns element의 부모 요소
    */
   function parent(element) {
-    element = toNode(element);
+    element = toNode$1(element);
     return element && isElement(element.parentNode) && element.parentNode;
   }
   function filter(element, selector) {
@@ -1333,7 +1333,7 @@
     }).filter(Boolean);
   }
   function within(element, selector) {
-    return isString(selector) ? !!closest(element, selector) : toNode(selector).contains(toNode(element));
+    return isString(selector) ? !!closest(element, selector) : toNode$1(selector).contains(toNode$1(element));
   }
 
   /**
@@ -1359,7 +1359,7 @@
    * @returns selector와 매칭되는 엘리먼트
    */
   function children(element, selector) {
-    element = toNode(element);
+    element = toNode$1(element);
     var children = element ? toNodes(element.children) : [];
     return selector ? filter(children, selector) : children;
   }
@@ -1370,7 +1370,7 @@
    * @returns index
    */
   function index(element, ref) {
-    return ref ? toNodes(element).indexOf(toNode(ref)) : children(parent(element)).indexOf(element);
+    return ref ? toNodes(element).indexOf(toNode$1(ref)) : children(parent(element)).indexOf(element);
   }
 
   function query(selector, context) {
@@ -1381,10 +1381,10 @@
   }
   function getContext(selector) {
     var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-    return isString(selector) && isContextSelector(selector) || isDocument(context) ? context : context.ownerDocument;
+    return isString(selector) && isContextSelector(selector) || isDocument$1(context) ? context : context.ownerDocument;
   }
   function find(selector, context) {
-    return toNode(_query(selector, context, 'querySelector'));
+    return toNode$1(_query(selector, context, 'querySelector'));
   }
   function findAll(selector, context) {
     return toNodes(_query(selector, context, 'querySelectorAll'));
@@ -1579,7 +1579,7 @@
     return target && 'addEventListener' in target;
   }
   function toEventTarget(target) {
-    return isEventTarget(target) ? target : toNode(target);
+    return isEventTarget(target) ? target : toNode$1(target);
   }
   function toEventTargets(target) {
     return isArray(target) ? target.map(toEventTarget).filter(Boolean) : isString(target) ? findAll(target) : isEventTarget(target) ? [target] : toNodes(target);
@@ -1710,7 +1710,7 @@
    * @returns structure element
    */
   function wrapAll(element, structure) {
-    structure = toNode(before(element, structure));
+    structure = toNode$1(before(element, structure));
     while (structure.firstChild) {
       structure = structure.firstChild;
     }
@@ -1808,7 +1808,7 @@
    * @returns element
    */
   function $$1(selector, context) {
-    return isHtml(selector) ? toNode(fragment(selector)) : find(selector, context);
+    return isHtml(selector) ? toNode$1(fragment(selector)) : find(selector, context);
   }
 
   /**
@@ -2023,7 +2023,7 @@
    * }
    */
   function dimensions(element) {
-    var rect = isElement(element) ? toNode(element).getBoundingClientRect() : {
+    var rect = isElement(element) ? toNode$1(element).getBoundingClientRect() : {
       height: height(element),
       width: width(element),
       top: 0,
@@ -2073,7 +2073,7 @@
     var _offset = offset(element),
       top = _offset.top,
       left = _offset.left;
-    var _toNode = toNode(element),
+    var _toNode = toNode$1(element),
       _toNode$ownerDocument = _toNode.ownerDocument,
       body = _toNode$ownerDocument.body,
       documentElement = _toNode$ownerDocument.documentElement,
@@ -2094,7 +2094,7 @@
   }
   function offsetPosition(element) {
     var offset = [0, 0];
-    element = toNode(element);
+    element = toNode$1(element);
     do {
       offset[0] += element.offsetTop;
       offset[1] += element.offsetLeft;
@@ -2124,11 +2124,11 @@
         if (isWindow(element)) {
           return element["inner".concat(propName)];
         }
-        if (isDocument(element)) {
+        if (isDocument$1(element)) {
           var doc = element.documentElement;
           return Math.max(doc["offset".concat(propName)], doc["scroll".concat(propName)]);
         }
-        element = toNode(element);
+        element = toNode$1(element);
         value = css(element, prop);
         value = value === 'auto' ? element["offset".concat(propName)] : toFloat(value) || 0;
         return value - boxModelAdjust(element, prop);
@@ -2427,6 +2427,14 @@
     var start = Math.max(0, elementOffsetTop - viewportHeight + startOffset);
     var end = Math.min(maxScroll, elementOffsetTop + element.offsetHeight - endOffset);
     return clamp((scrollTop - start) / (end - start));
+  }
+  function scrollTop(element, top) {
+    if (isWindow(element) || isDocument(element)) {
+      element = getScrollingElement(element);
+    } else {
+      element = toNode(element);
+    }
+    element.scrollTop = top;
   }
   function scrollParents(element) {
     var overflowRe = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : /auto|scroll|hidden|clip/;
@@ -3134,7 +3142,7 @@
     isObject: isObject$2,
     isPlainObject: isPlainObject,
     isWindow: isWindow,
-    isDocument: isDocument,
+    isDocument: isDocument$1,
     isNode: isNode$1,
     isElement: isElement,
     isBoolean: isBoolean,
@@ -3152,7 +3160,7 @@
     toNumber: toNumber,
     toFloat: toFloat,
     toArray: toArray$1,
-    toNode: toNode,
+    toNode: toNode$1,
     toNodes: toNodes,
     toWindow: toWindow,
     toMs: toMs$1,
@@ -3208,6 +3216,7 @@
     isInView: isInView,
     scrollIntoView: scrollIntoView,
     scrolledOver: scrolledOver,
+    scrollTop: scrollTop,
     scrollParents: scrollParents,
     offsetViewport: offsetViewport,
     headStr: headStr,
@@ -3274,7 +3283,7 @@
      * @param {event} e 이벤트
      */
     UICommon.update = function (element, e) {
-      element = element ? toNode(element) : document.body;
+      element = element ? toNode$1(element) : document.body;
       parents(element).reverse().forEach(function (element) {
         return update$1(element[DATA], e);
       });
@@ -3538,7 +3547,7 @@
       if (isUndefined(value)) {
         continue;
       }
-      value = props[key] === Boolean && value === '' ? true : coerce(props[key], value);
+      value = props[key] === Boolean && value === '' ? true : coerce$1(props[key], value);
       if (prop === 'target' && (!value || startsWith(value, '_'))) {
         continue;
       }
@@ -3548,7 +3557,7 @@
     for (var _key in options) {
       var _prop = camelize(_key);
       if (props[_prop] !== undefined) {
-        data$1[_prop] = coerce(props[_prop], options[_key]);
+        data$1[_prop] = coerce$1(props[_prop], options[_key]);
       }
     }
     return data$1;
@@ -3558,7 +3567,7 @@
       return !arr || !hasOwn(arr, key);
     });
   }
-  function coerce(type, value) {
+  function coerce$1(type, value) {
     if (type === Boolean) {
       return toBoolean(value);
     } else if (type === Number) {
@@ -3626,7 +3635,7 @@
         if (isUndefined(data[key])) {
           delete data[key];
         } else {
-          data[key] = props[key] ? coerce(props[key], data[key]) : data[key];
+          data[key] = props[key] ? coerce$1(props[key], data[key]) : data[key];
         }
       }
     }
@@ -5216,7 +5225,7 @@
   function getBrowser() {
     return browser || (browser = calcBrowser()), browser;
   }
-  function Resize(e) {
+  function Resize$1(e) {
     var t = e.swiper,
       s = e.on,
       a = e.emit;
@@ -9657,7 +9666,7 @@
     Object.keys(prototypes[e]).forEach(function (t) {
       Swiper.prototype[t] = prototypes[e][t];
     });
-  }), Swiper.use([Resize, Observer]);
+  }), Swiper.use([Resize$1, Observer]);
   var modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax, Zoom, Controller, A11y, History, HashNavigation, Autoplay, Thumb, freeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards];
   Swiper.use(modules);
 
@@ -10954,6 +10963,401 @@
     }
   };
 
+  var Media = {
+    props: {
+      media: Boolean
+    },
+    data: {
+      media: false
+    },
+    connected: function connected() {
+      var _this = this;
+      var media = toMedia(this.media, this.$el);
+      this.matchMedia = true;
+      if (media) {
+        this.mediaObj = window.matchMedia(media);
+        var handler = function handler() {
+          _this.matchMedia = _this.mediaObj.matches;
+          trigger(_this.$el, createEvent("mediachange", false, true, [_this.mediaObj]));
+        };
+        this.offMediaObj = on(this.mediaObj, "change", function () {
+          handler();
+          _this.$emit("resize");
+        });
+        handler();
+      }
+    },
+    disconnected: function disconnected() {
+      var _this$offMediaObj;
+      (_this$offMediaObj = this.offMediaObj) === null || _this$offMediaObj === void 0 ? void 0 : _this$offMediaObj.call(this);
+    }
+  };
+  function toMedia(value, element) {
+    if (isString(value)) {
+      if (startsWith(value, "@")) {
+        value = toFloat(css(element, "--uk-breakpoint-".concat(value.substr(1))));
+      } else if (isNaN(value)) {
+        return value;
+      }
+    }
+    return value && isNumeric(value) ? "(min-width: ".concat(value, "px)") : "";
+  }
+
+  var Resize = {
+    connected: function connected() {
+      var _this$$options$resize,
+        _this = this;
+      this.registerObserver(observeResize(((_this$$options$resize = this.$options.resizeTargets) === null || _this$$options$resize === void 0 ? void 0 : _this$$options$resize.call(this)) || this.$el, function () {
+        return _this.$emit('resize');
+      }));
+    }
+  };
+
+  var Scroll = {
+    connected: function connected() {
+      var _this = this;
+      registerScrollListener(this._uid, function () {
+        return _this.$emit('scroll');
+      });
+    },
+    disconnected: function disconnected() {
+      unregisterScrollListener(this._uid);
+    }
+  };
+  var scrollListeners = new Map();
+  var unbindScrollListener;
+  function registerScrollListener(id, listener) {
+    unbindScrollListener = unbindScrollListener || on(window, 'scroll', function () {
+      return scrollListeners.forEach(function (listener) {
+        return listener();
+      });
+    }, {
+      passive: true,
+      capture: true
+    });
+    scrollListeners.set(id, listener);
+  }
+  function unregisterScrollListener(id) {
+    scrollListeners["delete"](id);
+    if (unbindScrollListener && !scrollListeners.size) {
+      unbindScrollListener();
+      unbindScrollListener = null;
+    }
+  }
+
+  var sticky = {
+    mixins: [Class, Media, Resize, Scroll],
+    props: {
+      position: String,
+      top: null,
+      bottom: null,
+      start: null,
+      end: null,
+      offset: String,
+      overflowFlip: Boolean,
+      animation: String,
+      clsActive: String,
+      clsInactive: String,
+      clsFixed: String,
+      clsBelow: String,
+      selTarget: String,
+      showOnUp: Boolean,
+      targetOffset: Number
+    },
+    data: {
+      position: 'top',
+      top: false,
+      bottom: false,
+      start: false,
+      end: false,
+      offset: 0,
+      overflowFlip: false,
+      animation: '',
+      clsActive: 'mui_active',
+      clsInactive: '',
+      clsFixed: 'uk-sticky-fixed',
+      clsBelow: 'uk-sticky-below',
+      selTarget: '',
+      showOnUp: false,
+      targetOffset: false
+    },
+    computed: {
+      selTarget: function selTarget(_ref, $el) {
+        var selTarget = _ref.selTarget;
+        return selTarget && $$1(selTarget, $el) || $el;
+      }
+    },
+    resizeTargets: function resizeTargets() {
+      return document.documentElement;
+    },
+    connected: function connected() {
+      this.start = coerce(this.start || this.top);
+      this.end = coerce(this.end || this.bottom);
+      this.placeholder = $$1('+ .uk-sticky-placeholder', this.$el) || $$1('<div class="uk-sticky-placeholder"></div>');
+      this.isFixed = false;
+      this.setActive(false);
+    },
+    disconnected: function disconnected() {
+      if (this.isFixed) {
+        this.hide();
+        removeClass(this.selTarget, this.clsInactive);
+      }
+      remove$1(this.placeholder);
+      this.placeholder = null;
+    },
+    events: [{
+      name: 'resize',
+      el: function el() {
+        return window;
+      },
+      handler: function handler() {
+        this.$emit('resize');
+      }
+    }, {
+      name: 'load hashchange popstate',
+      el: function el() {
+        return window;
+      },
+      filter: function filter() {
+        return this.targetOffset !== false;
+      },
+      handler: function handler() {
+        var _this = this;
+        var _document = document,
+          scrollingElement = _document.scrollingElement;
+        if (!location.hash || scrollingElement.scrollTop === 0) {
+          return;
+        }
+        setTimeout(function () {
+          var targetOffset = offset($$1(location.hash));
+          var elOffset = offset(_this.$el);
+          if (_this.isFixed && intersectRect(targetOffset, elOffset)) {
+            scrollingElement.scrollTop = targetOffset.top - elOffset.height - toPx(_this.targetOffset, 'height', _this.placeholder) - toPx(_this.offset, 'height', _this.placeholder);
+          }
+        });
+      }
+    }],
+    update: [{
+      read: function read(_ref2, types) {
+        var _this2 = this;
+        var height$1 = _ref2.height,
+          margin = _ref2.margin;
+        this.inactive = !this.matchMedia || !isVisible(this.$el);
+        if (this.inactive) {
+          return false;
+        }
+        var hide = this.active && types.has('resize');
+        if (hide) {
+          css(this.selTarget, 'transition', '0s');
+          this.hide();
+        }
+        if (!this.active) {
+          height$1 = offset(this.$el).height;
+          margin = css(this.$el, 'margin');
+        }
+        if (hide) {
+          this.show();
+          requestAnimationFrame(function () {
+            return css(_this2.selTarget, 'transition', '');
+          });
+        }
+        var referenceElement = this.isFixed ? this.placeholder : this.$el;
+        var windowHeight = height(window);
+        var position = this.position;
+        if (this.overflowFlip && height$1 > windowHeight) {
+          position = position === 'top' ? 'bottom' : 'top';
+        }
+        var offset$1 = toPx(this.offset, 'height', referenceElement);
+        if (position === 'bottom' && (height$1 < windowHeight || this.overflowFlip)) {
+          offset$1 += windowHeight - height$1;
+        }
+        var overflow = this.overflowFlip ? 0 : Math.max(0, height$1 + offset$1 - windowHeight);
+        var topOffset = offset(referenceElement).top;
+        var start = (this.start === false ? topOffset : parseProp(this.start, this.$el, topOffset)) - offset$1;
+        var end = this.end === false ? document.scrollingElement.scrollHeight - windowHeight : parseProp(this.end, this.$el, topOffset + height$1, true) - offset(this.$el).height + overflow - offset$1;
+        return {
+          start: start,
+          end: end,
+          offset: offset$1,
+          overflow: overflow,
+          topOffset: topOffset,
+          height: height$1,
+          margin: margin,
+          width: dimensions(referenceElement).width,
+          top: offsetPosition(referenceElement)[0]
+        };
+      },
+      write: function write(_ref3) {
+        var height = _ref3.height,
+          margin = _ref3.margin;
+        var placeholder = this.placeholder;
+        css(placeholder, {
+          height: height,
+          margin: margin
+        });
+        if (!within(placeholder, document)) {
+          after(this.$el, placeholder);
+          placeholder.hidden = true;
+        }
+      },
+      events: ['resize']
+    }, {
+      read: function read(_ref4) {
+        var _ref4$scroll = _ref4.scroll,
+          prevScroll = _ref4$scroll === void 0 ? 0 : _ref4$scroll,
+          _ref4$dir = _ref4.dir,
+          prevDir = _ref4$dir === void 0 ? 'down' : _ref4$dir,
+          overflow = _ref4.overflow,
+          _ref4$overflowScroll = _ref4.overflowScroll,
+          overflowScroll = _ref4$overflowScroll === void 0 ? 0 : _ref4$overflowScroll,
+          start = _ref4.start,
+          end = _ref4.end;
+        var scroll = document.scrollingElement.scrollTop;
+        var dir = prevScroll <= scroll ? 'down' : 'up';
+        return {
+          dir: dir,
+          prevDir: prevDir,
+          scroll: scroll,
+          prevScroll: prevScroll,
+          offsetParentTop: offset((this.isFixed ? this.placeholder : this.$el).offsetParent).top,
+          overflowScroll: clamp(overflowScroll + clamp(scroll, start, end) - clamp(prevScroll, start, end), 0, overflow)
+        };
+      },
+      write: function write(data, types) {
+        var _this3 = this;
+        var isScrollUpdate = types.has('scroll');
+        var _data$initTimestamp = data.initTimestamp,
+          initTimestamp = _data$initTimestamp === void 0 ? 0 : _data$initTimestamp,
+          dir = data.dir,
+          prevDir = data.prevDir,
+          scroll = data.scroll,
+          _data$prevScroll = data.prevScroll,
+          prevScroll = _data$prevScroll === void 0 ? 0 : _data$prevScroll,
+          top = data.top,
+          start = data.start,
+          topOffset = data.topOffset,
+          height = data.height;
+        if (scroll < 0 || scroll === prevScroll && isScrollUpdate || this.showOnUp && !isScrollUpdate && !this.isFixed) {
+          return;
+        }
+        var now = Date.now();
+        if (now - initTimestamp > 300 || dir !== prevDir) {
+          data.initScroll = scroll;
+          data.initTimestamp = now;
+        }
+        if (this.showOnUp && !this.isFixed && Math.abs(data.initScroll - scroll) <= 30 && Math.abs(prevScroll - scroll) <= 10) {
+          return;
+        }
+        if (this.inactive || scroll < start || this.showOnUp && (scroll <= start || dir === 'down' && isScrollUpdate || dir === 'up' && !this.isFixed && scroll <= topOffset + height)) {
+          if (!this.isFixed) {
+            if (Animation.inProgress(this.$el) && top > scroll) {
+              Animation.cancel(this.$el);
+              this.hide();
+            }
+            return;
+          }
+          this.isFixed = false;
+          if (this.animation && scroll > topOffset) {
+            Animation.cancel(this.$el);
+            Animation.out(this.$el, this.animation).then(function () {
+              return _this3.hide();
+            }, noop);
+          } else {
+            this.hide();
+          }
+        } else if (this.isFixed) {
+          this.update();
+        } else if (this.animation && scroll > topOffset) {
+          Animation.cancel(this.$el);
+          this.show();
+          Animation["in"](this.$el, this.animation)["catch"](noop);
+        } else {
+          this.show();
+        }
+      },
+      events: ['resize', 'scroll']
+    }],
+    methods: {
+      show: function show() {
+        this.isFixed = true;
+        this.update();
+        this.placeholder.hidden = false;
+      },
+      hide: function hide() {
+        this.setActive(false);
+        removeClass(this.$el, this.clsFixed, this.clsBelow);
+        css(this.$el, {
+          position: '',
+          top: '',
+          width: ''
+        });
+        this.placeholder.hidden = true;
+      },
+      update: function update() {
+        var _this$_data = this._data,
+          width = _this$_data.width,
+          _this$_data$scroll = _this$_data.scroll,
+          scroll = _this$_data$scroll === void 0 ? 0 : _this$_data$scroll,
+          overflow = _this$_data.overflow,
+          _this$_data$overflowS = _this$_data.overflowScroll,
+          overflowScroll = _this$_data$overflowS === void 0 ? 0 : _this$_data$overflowS,
+          start = _this$_data.start,
+          end = _this$_data.end,
+          offset = _this$_data.offset,
+          topOffset = _this$_data.topOffset,
+          height = _this$_data.height,
+          offsetParentTop = _this$_data.offsetParentTop;
+        var active = start !== 0 || scroll > start;
+        var position = 'fixed';
+        if (scroll > end) {
+          offset += end - offsetParentTop;
+          position = 'absolute';
+        }
+        if (overflow) {
+          offset -= overflowScroll;
+        }
+        css(this.$el, {
+          position: position,
+          top: "".concat(offset, "px"),
+          width: width
+        });
+        this.setActive(active);
+        toggleClass(this.$el, this.clsBelow, scroll > topOffset + height);
+        addClass(this.$el, this.clsFixed);
+      },
+      setActive: function setActive(active) {
+        var prev = this.active;
+        this.active = active;
+        if (active) {
+          replaceClass(this.selTarget, this.clsInactive, this.clsActive);
+          prev !== active && trigger(this.$el, 'active');
+        } else {
+          replaceClass(this.selTarget, this.clsActive, this.clsInactive);
+          prev !== active && trigger(this.$el, 'inactive');
+        }
+      }
+    }
+  };
+  function parseProp(value, el, propOffset, padding) {
+    if (!value) {
+      return 0;
+    }
+    if (isNumeric(value) || isString(value) && value.match(/^-?\d/)) {
+      return propOffset + toPx(value, 'height', el, true);
+    } else {
+      var refElement = value === true ? parent(el) : query(value, el);
+      return offset(refElement).bottom - (padding && refElement && within(el, refElement) ? toFloat(css(refElement, 'paddingBottom')) : 0);
+    }
+  }
+  function coerce(value) {
+    if (value === 'true') {
+      return true;
+    } else if (value === 'false') {
+      return false;
+    }
+    return value;
+  }
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -11060,6 +11464,7 @@
     Acclist: acclist,
     Scrollbar: scrollbar,
     Datepicker: datepicker,
+    Sticky: sticky,
     Worklists: worklists
   });
 
