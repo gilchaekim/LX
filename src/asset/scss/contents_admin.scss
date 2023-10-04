@@ -42,6 +42,11 @@ button, label {
     height: 30px;
   }
 }
+.sticky {
+  .edit_btn {
+    width: 32px;
+  }
+}
 .add_table{
   .mui_radio_group {
     padding-top: 0;
@@ -106,7 +111,7 @@ button, label {
 #contant_main{
   .edit_contents{
     @include respondTo("tablet"){
-      margin: 44px 20px;
+      padding: 44px 20px;
     }
   }
   .tnb {
@@ -555,8 +560,84 @@ button, label {
     .grid {
       width: 25%;
       height: 300px;
-      .mui-slider, .slider  {
+      .mui-slider, .slider, .grid_inner  {
         height: 100%;
+      }
+      .mui-slider{
+        display: none;
+        position: relative;
+        height: 50%;
+        @include respondTo("tablet"){
+          height: 60%;
+        }
+      }
+      .grid_inner {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        .mui-slider{
+          padding: 0 24px;
+          .slide_list {
+            padding: 0 41px;
+          }
+        }
+        .mui_page_arrows{
+          left: 24px;
+          right: 24px;
+          bottom: 70%;
+          button {
+            position: absolute;
+            top: 0;
+            &.mui_button_prev {
+              left: 0;
+            }
+            &.mui_button_next {
+              right: 0;
+            }
+          }
+        }
+        .swiper_pagenation {
+          left: 50%;
+          bottom: 24px;
+          transform: translate(-50%, 0);
+          @include respondTo("tablet"){
+            bottom: 12px;
+          }
+          .swiper-pagination-bullet{
+            width: 6px;
+            height: 6px;
+            opacity: .5;
+            &.swiper-pagination-bullet-active {
+              width: 6px;
+              opacity: 1;
+            }
+          }
+        }
+        &.mui_active {
+          z-index: 1;
+          width: 200%;
+          .mui-slider{
+            display: block;
+          }
+        }
+      }
+      @include respondTo("tablet"){
+        &:nth-child(2n) {
+          .grid_inner {
+            &.mui_active {
+              left: -100%;
+              width: 200%;
+            }
+          }
+        }  
+      }
+      &:nth-child(4n) {
+        .grid_inner {
+          &.mui_active {
+            left: -100%;
+            width: 200%;
+          }
+        }
       }
     }
   }
@@ -1428,6 +1509,24 @@ button, label {
       font-family: 'Noto Sans';
       position: relative;
       padding: 24px;
+      text-align: left;
+      &.mui_active {
+        height: 50%;
+        width: 100%;
+        @include respondTo("tablet"){
+          height: 40%;
+        }
+        .sub_txt{
+          width: 50%;
+        }
+        .icon {
+          bottom: auto;
+          top: 38px;
+          @include respondTo("tablet"){
+            top: 10px;
+          }
+        }
+      }
       .text{
         font-size: 28px;
         font-weight: 700;
@@ -1564,6 +1663,104 @@ button, label {
           align-items: center;
           border-radius: 20px;
           background: rgba(0, 157, 232, 1);
+        }
+      }
+    }
+    .text_list {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0 ;
+      @include respondTo("tablet"){
+        margin-top: 0;
+      }
+      li{
+        width: calc( 33.3333333% - 8px);
+        a {
+          font-family: 'Noto Sans Medium';
+          height: 29px;
+          display: block;
+          line-height: 29px;
+          position: relative;
+          padding-left: 30px;
+          font-size: 16px;
+          color: #fff;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          border-bottom: 1px solid rgba(255, 255, 255,  .7);
+          &::after{
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translate(0, -50%);
+
+          }
+        }
+        
+      }
+    }
+    .edit_header {
+      position: relative;
+      z-index: 2;
+      .main_menu {
+        .menu {
+          & > ul {
+            & > li {
+              position: relative;
+              &.mui_active {
+                & > a {
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+        .sub_menu{
+          position: absolute;
+          height: auto;
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          .inner {
+            width: auto !important;
+            min-width: 0 !important;
+            background: #fff;
+            padding: 20px;
+            margin-top: 0 !important;
+          }
+          ul {
+            display: block;
+            
+            li {
+              white-space: nowrap;
+              text-align: center;
+              a {
+                display: block;
+                color: #000;
+                font-size: 16px;
+                font-family: "Noto Sans KR";
+                &:hover {
+                  font-family: "Noto Sans Bold";
+                }
+              }
+              &:not(:first-child) {
+                margin-top: 15px;
+              }
+            }
+          }
+        }
+        .mui_active {
+          .sub_menu {
+            display: block;
+          }
         }
       }
     }

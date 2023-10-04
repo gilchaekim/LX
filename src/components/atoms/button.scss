@@ -70,27 +70,25 @@
       position: absolute;
       top: 40%;
       left: 50%;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #ddd;
+      padding: 4px 10px;
+      border-radius: 20px;
       font-size: 13px;
-      color:$font_color03;
+      color:#333;
       box-shadow: 0 6px 8px rgba(0,0,0,.04);
-      background:$bg_color03;
+      background:#fff;
       z-index: 999;
       .text{
         max-width: calc(100vw - 58px);
         display: block;
       }
       .mui_arrow{
-        width: 12px;
-        height: 9px;
-        background: url($url_common+"ico_arrow2.png") no-repeat center;
-        background-size: 100%;
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+        background: #fff;
         position: absolute;
-        top: -8.5px;
-        left: 50%;
-        margin-left: -6px;
+        left: 20px;
+        top: -4px;
       }
     }
   }

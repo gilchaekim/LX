@@ -4322,6 +4322,218 @@
     }
   };
 
+  var Container = {
+    props: {
+      container: Boolean
+    },
+    data: {
+      container: true
+    },
+    computed: {
+      container: function container(_ref) {
+        var container = _ref.container;
+        return container === true && this.$container || container && $$1(container);
+      }
+    }
+  };
+
+  var Position = {
+    props: {
+      pos: String,
+      offset: null,
+      flip: Boolean,
+      shift: Boolean,
+      inset: Boolean
+    },
+    data: {
+      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
+      offset: false,
+      flip: true,
+      shift: true,
+      inset: false
+    },
+    connected: function connected() {
+      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
+      var _this$pos = _slicedToArray(this.pos, 2);
+      this.dir = _this$pos[0];
+      this.align = _this$pos[1];
+      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
+    },
+    methods: {
+      positionAt: function positionAt$1(element, target, boundary) {
+        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
+        var placement = [this.flip && 'flip', this.shift && 'shift'];
+        var attach = {
+          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
+          target: [this.dir, this.align]
+        };
+        if (this.axis === 'y') {
+          for (var prop in attach) {
+            attach[prop].reverse();
+          }
+          offset.reverse();
+          placement.reverse();
+        }
+        var _scrollParents = scrollParents(element, /auto|scroll/),
+          _scrollParents2 = _slicedToArray(_scrollParents, 1),
+          scrollElement = _scrollParents2[0];
+        scrollElement.scrollTop;
+          scrollElement.scrollLeft;
+
+        // Ensure none positioned element does not generate scrollbars
+        var elDim = dimensions(element);
+        css(element, {
+          top: -elDim.height,
+          left: -elDim.width
+        });
+        return positionAt(element, target, {
+          attach: attach,
+          offset: offset,
+          boundary: boundary,
+          placement: placement,
+          viewportOffset: this.getViewportOffset(element)
+        });
+      },
+      getPositionOffset: function getPositionOffset(element) {
+        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
+      },
+      getShiftOffset: function getShiftOffset(element) {
+        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
+      },
+      getViewportOffset: function getViewportOffset(element) {
+        return toPx(css(element, '--mui-position-viewport-offset'));
+      }
+    }
+  };
+
+  var _events;
+  var tooltip = {
+    mixins: [Container, Togglable, Position],
+    props: {
+      text: String
+    },
+    data: {
+      text: '',
+      delay: 0,
+      offset: 4,
+      pos: 'bottom-left',
+      animation: ['mui-animation-tooltip'],
+      duration: 200,
+      cls: 'mui_active'
+    },
+    connected: function connected() {
+      // console.log(this.text);
+    },
+    events: (_events = {
+      focus: 'show',
+      blur: 'hide'
+    }, _defineProperty(_events, "".concat(pointerEnter, " ").concat(pointerLeave), function _(e) {
+      if (!isTouch(e)) {
+        this[e.type === pointerEnter ? 'show' : 'hide']();
+      }
+    }), _defineProperty(_events, pointerDown, function (e) {
+      if (isTouch(e)) {
+        this.show();
+      }
+    }), _events),
+    methods: {
+      show: function show() {
+        var _this = this;
+        if (this.isToggled(this.tooltip || null) || !this.text) {
+          return;
+        }
+        this._unbind = once(document, "show keydown ".concat(pointerDown), this.hide, false, function (e) {
+          return e.type === pointerDown && !within(e.target, _this.$el) || e.type === 'keydown' && e.keyCode === 27 || e.type === 'show' && e.detail[0] !== _this && e.detail[0].$name === _this.$name;
+        });
+        clearTimeout(this.showTimer);
+        this.showTimer = setTimeout(this._show, this.delay);
+      },
+      _show: function _show() {
+        var _this2 = this;
+        this.tooltip = append(this.container, "<div class=\"mui_".concat(this.$options.name, "_content\">\n                    <div class=\"mui_arrow\"></div>\n                    <div class=\"mui_").concat(this.$options.name, "_inner\"><span class=\"text\">").concat(this.text, "</div>\n                 </div>"));
+        on(this.tooltip, 'toggled', function (e, toggled) {
+          if (!toggled) {
+            return;
+          }
+          var position = _this2.positionAt(_this2.tooltip, _this2.$el);
+          if (!!(position !== null && position !== void 0 && position.cale)) {
+            // console.log($('.mui_arrow', this.tooltip));
+            console.log(position.cale);
+            css($$1('.mui_arrow', _this2.tooltip), 'transform', "translateX(".concat(position.cale * -1, "px)"));
+          }
+          var _getAlignment = getAlignment(_this2.tooltip, _this2.$el, _this2.pos),
+            _getAlignment2 = _slicedToArray(_getAlignment, 2),
+            dir = _getAlignment2[0],
+            align = _getAlignment2[1];
+          _this2.origin = _this2.axis === 'y' ? "".concat(flipPosition(dir), "-").concat(align) : "".concat(align, "-").concat(flipPosition(dir));
+        });
+        this.toggleElement(this.tooltip, true);
+      },
+      hide: function hide() {
+        var _this3 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (!matches(_this3.$el, 'input:focus')) {
+                    _context.next = 2;
+                    break;
+                  }
+                  return _context.abrupt("return");
+                case 2:
+                  clearTimeout(_this3.showTimer);
+                  if (_this3.isToggled(_this3.tooltip || null)) {
+                    _context.next = 5;
+                    break;
+                  }
+                  return _context.abrupt("return");
+                case 5:
+                  _context.next = 7;
+                  return _this3.toggleElement(_this3.tooltip, false, false);
+                case 7:
+                  remove$1(_this3.tooltip);
+                  _this3.tooltip = null;
+                  _this3._unbind();
+                case 10:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }))();
+      }
+    }
+  };
+  function getAlignment(el, target, _ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+      dir = _ref2[0],
+      align = _ref2[1];
+    var elOffset = offset(el);
+    var targetOffset = offset(target);
+    var properties = [['left', 'right'], ['top', 'bottom']];
+    for (var _i = 0, _properties = properties; _i < _properties.length; _i++) {
+      var _props = _properties[_i];
+      if (elOffset[_props[0]] >= targetOffset[_props[1]]) {
+        dir = _props[1];
+        break;
+      }
+      if (elOffset[_props[1]] <= targetOffset[_props[0]]) {
+        dir = _props[0];
+        break;
+      }
+    }
+    var props = includes(properties[0], dir) ? properties[1] : properties[0];
+    if (elOffset[props[0]] === targetOffset[props[0]]) {
+      align = props[0];
+    } else if (elOffset[props[1]] === targetOffset[props[1]]) {
+      align = props[1];
+    } else {
+      align = 'center';
+    }
+    return [dir, align];
+  }
+
   var formatter = {
     props: {
       numeric: Boolean,
@@ -4483,21 +4695,6 @@
     });
     return result;
   }
-
-  var Container = {
-    props: {
-      container: Boolean
-    },
-    data: {
-      container: true
-    },
-    computed: {
-      container: function container(_ref) {
-        var container = _ref.container;
-        return container === true && this.$container || container && $$1(container);
-      }
-    }
-  };
 
   var prevented;
   function preventBackgroundScroll(el) {
@@ -10204,75 +10401,6 @@
     }
   };
 
-  var Position = {
-    props: {
-      pos: String,
-      offset: null,
-      flip: Boolean,
-      shift: Boolean,
-      inset: Boolean
-    },
-    data: {
-      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
-      offset: false,
-      flip: true,
-      shift: true,
-      inset: false
-    },
-    connected: function connected() {
-      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
-      var _this$pos = _slicedToArray(this.pos, 2);
-      this.dir = _this$pos[0];
-      this.align = _this$pos[1];
-      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
-    },
-    methods: {
-      positionAt: function positionAt$1(element, target, boundary) {
-        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
-        var placement = [this.flip && 'flip', this.shift && 'shift'];
-        var attach = {
-          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
-          target: [this.dir, this.align]
-        };
-        if (this.axis === 'y') {
-          for (var prop in attach) {
-            attach[prop].reverse();
-          }
-          offset.reverse();
-          placement.reverse();
-        }
-        var _scrollParents = scrollParents(element, /auto|scroll/),
-          _scrollParents2 = _slicedToArray(_scrollParents, 1),
-          scrollElement = _scrollParents2[0];
-        scrollElement.scrollTop;
-          scrollElement.scrollLeft;
-
-        // Ensure none positioned element does not generate scrollbars
-        var elDim = dimensions(element);
-        css(element, {
-          top: -elDim.height,
-          left: -elDim.width
-        });
-        return positionAt(element, target, {
-          attach: attach,
-          offset: offset,
-          boundary: boundary,
-          placement: placement,
-          viewportOffset: this.getViewportOffset(element)
-        });
-      },
-      getPositionOffset: function getPositionOffset(element) {
-        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
-      },
-      getShiftOffset: function getShiftOffset(element) {
-        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
-      },
-      getViewportOffset: function getViewportOffset(element) {
-        return toPx(css(element, '--mui-position-viewport-offset'));
-      }
-    }
-  };
-
   var datepicker = {
     mixins: [Position],
     props: {
@@ -11456,6 +11584,7 @@
     Accordion: accordion,
     Tab: tab,
     Toggle: toggle,
+    Tooltip: tooltip,
     Formatter: formatter,
     Modal: modal,
     Slider: slider,

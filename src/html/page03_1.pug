@@ -65,61 +65,143 @@ block content
           className:"search_btn"
         })
       .sec.grid_box.grid_4x2
-        .grid
-          .slides_wrap(mui-slider="pagination:true;arrow:true;")
-            .slider
-              .swiper-wrapper
-                .slide_list.swiper-slide
-                  a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
-                    span.icon 
-                      img(src="/admin/images/ico_ex5.png", alt="")
-                    span.text 데이터 공간
-                    span.sub_txt 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다
-                .slide_list.swiper-slide
-                  a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
-                    span.icon 
-                      img(src="/admin/images/ico_ex5.png", alt="")
-                    span.text 데이터 공간
-                    span.sub_txt 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다
-                .slide_list.swiper-slide
-                  a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
-                    span.icon 
-                      img(src="/admin/images/ico_ex5.png", alt="")
-                    span.text 데이터 공간
-                    span.sub_txt 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다
-        .grid
-          a.goto_link(href="", style="background:rgba(229, 169, 12, 1)")
-            span.icon 
-              img(src="/admin/images/ico_ex6.png", alt="")
-            span.text 지도 서비스
-            span.sub_txt 업무에 필요한 주제도를 직접 제작하여공간분석 및 공유합니다
-        .grid
-          a.goto_link(href="", style="background:rgba(52, 57, 154, 1)")
-            span.icon 
-              img(src="/admin/images/ico_ex6.png", alt="")
-            span.text 업무 서비스
-            span.sub_txt 전주시에 특화된 공간정보 기반의 행정지원 서비스입니다
-        .grid
-          a.goto_link(href="", style="background:rgba(255, 255, 255, 1)")
+        .grid(style="background:rgba(255, 255, 255, 1)")
+          a.goto_link(href="")
             span.icon 
               img(src="/admin/images/ico_ex7.png", alt="")
             span.text(style="color:#000") 서비스 모듈
             span.sub_txt(style="color:#000") 전주시에 특화된 공간정보 기반의 행정지원 서비스입니다
         .grid
-          a.goto_link(href="", style="background:rgba(52, 57, 154, 1)")
-            span.icon 
-              img(src="/admin/images/ico_ex8.png", alt="")
-            span.text(style="color:#fff") 커뮤니티
-            span.sub_txt(style="color:#fff") 전주시 빅데이터 플랫폼 활용 방법에 대한 소통창구입니다
+          .grid_inner#gridLayer2(style="background:rgba(0, 157, 232, 1)")
+            a.goto_link(href="#none", mui-toggle="target:#gridLayer2;cls:mui_active")
+              span.icon 
+                img(src="/admin/images/ico_ex5.png", alt="")
+              span.text 데이터 공간
+              span.sub_txt 플랫폼 내에서 활용할 파일 및 도형 데이터를 등록합니다.
+            .slides_wrap(mui-slider="pagination:true;arrow:true;")
+              .slider
+                .swiper-wrapper
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
         .grid
-          a.goto_link.img
-            img(src="/admin/images/img_ex.png", alt="")
+          .grid_inner(style="background:rgba(52, 57, 154, 1)")
+            a.goto_link(href="")
+              span.icon 
+                img(src="/admin/images/ico_ex6.png", alt="")
+              span.text 업무 서비스
+              span.sub_txt 전주시에 특화된 공간정보 기반의 행정지원 서비스입니다
         .grid
-          a.goto_link(href="", style="background:rgba(0, 157, 232, 1)")
-            span.icon 
-              img(src="/admin/images/ico_ex9.png", alt="")
-            span.text(style="color:#fff") 고객지원
-            span.sub_txt(style="color:#fff") 다양한 고객지원 서비스를 제공합니다
+          .grid_inner#gridLayer4(style="background:rgba(229, 169, 12, 1)")
+            a.goto_link(href="#none", mui-toggle="target:#gridLayer4;cls:mui_active")
+              span.icon 
+                img(src="/admin/images/ico_ex6.png", alt="")
+              span.text 지도 서비스
+              span.sub_txt 업무에 필요한 주제도를 직접 제작하여공간분석 및 공유합니다
+            .slides_wrap(mui-slider="pagination:true;arrow:true;")
+              .slider
+                .swiper-wrapper
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
+                  .slide_list.swiper-slide
+                    ul.text_list 
+                      li
+                        a(href="", mui-tooltip="text:파일 관리") 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:동영상 파일 관리") 동영상 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:데이터 검색") 데이터 검색
+                      li
+                        a(href="", mui-tooltip="text:테이블 관리") 테이블 관리
+                      li
+                        a(href="", mui-tooltip="text:첨부파일 파일 관리") 첨부파일 파일 관리
+                      li
+                        a(href="", mui-tooltip="text:메타 데이터 검색") 메타 데이터 검색
+
+
+        .grid
+          .grid_inner(style="background:rgba(52, 57, 154, 1)")
+            a.goto_link(href="")
+              span.icon 
+                img(src="/admin/images/ico_ex8.png", alt="")
+              span.text(style="color:#fff") 커뮤니티
+              span.sub_txt(style="color:#fff") 전주시 빅데이터 플랫폼 활용 방법에 대한 소통창구입니다
+        .grid
+          .grid_inner
+            a.goto_link.img
+              img(src="/admin/images/img_ex.png", alt="")
+        .grid
+          .grid_inner(style="background:rgba(0, 157, 232, 1)")
+            a.goto_link(href="")
+              span.icon 
+                img(src="/admin/images/ico_ex9.png", alt="")
+              span.text(style="color:#fff") 고객지원
+              span.sub_txt(style="color:#fff") 다양한 고객지원 서비스를 제공합니다
         .grid
           a.goto_link.img
             img(src="/admin/images/img_ex.png", alt="")

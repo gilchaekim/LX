@@ -735,13 +735,12 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   position: absolute;
   top: 40%;
   left: 50%;
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 13px;
-  color: var(--font_color03);
+  color: #333;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.04);
-  background: var(--bg_color03);
+  background: #fff;
   z-index: 999;
 }
 .mui_tooltip_content .text {
@@ -749,14 +748,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
 }
 .mui_tooltip_content .mui_arrow {
-  width: 12px;
-  height: 9px;
-  background: url("../images/ico_arrow2.png") no-repeat center;
-  background-size: 100%;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: #fff;
   position: absolute;
-  top: -8.5px;
-  left: 50%;
-  margin-left: -6px;
+  left: 20px;
+  top: -4px;
 }
 
 caption {
@@ -1992,6 +1990,10 @@ button, label {
   height: 30px;
 }
 
+.sticky .edit_btn {
+  width: 32px;
+}
+
 .add_table .mui_radio_group {
   padding-top: 0;
 }
@@ -2052,7 +2054,7 @@ button, label {
 
 @media (max-width: 1199px) {
   #contant_main .edit_contents {
-    margin: 44px 20px;
+    padding: 44px 20px;
   }
 }
 #contant_main .tnb button {
@@ -2470,8 +2472,80 @@ button, label {
   width: 25%;
   height: 300px;
 }
-.grid_box.grid_4x2 .grid .mui-slider, .grid_box.grid_4x2 .grid .slider {
+.grid_box.grid_4x2 .grid .mui-slider, .grid_box.grid_4x2 .grid .slider, .grid_box.grid_4x2 .grid .grid_inner {
   height: 100%;
+}
+.grid_box.grid_4x2 .grid .mui-slider {
+  display: none;
+  position: relative;
+  height: 50%;
+}
+@media (max-width: 1199px) {
+  .grid_box.grid_4x2 .grid .mui-slider {
+    height: 60%;
+  }
+}
+.grid_box.grid_4x2 .grid .grid_inner {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui-slider {
+  padding: 0 24px;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui-slider .slide_list {
+  padding: 0 41px;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui_page_arrows {
+  left: 24px;
+  right: 24px;
+  bottom: 70%;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui_page_arrows button {
+  position: absolute;
+  top: 0;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui_page_arrows button.mui_button_prev {
+  left: 0;
+}
+.grid_box.grid_4x2 .grid .grid_inner .mui_page_arrows button.mui_button_next {
+  right: 0;
+}
+.grid_box.grid_4x2 .grid .grid_inner .swiper_pagenation {
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 0);
+}
+@media (max-width: 1199px) {
+  .grid_box.grid_4x2 .grid .grid_inner .swiper_pagenation {
+    bottom: 12px;
+  }
+}
+.grid_box.grid_4x2 .grid .grid_inner .swiper_pagenation .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  opacity: 0.5;
+}
+.grid_box.grid_4x2 .grid .grid_inner .swiper_pagenation .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 6px;
+  opacity: 1;
+}
+.grid_box.grid_4x2 .grid .grid_inner.mui_active {
+  z-index: 1;
+  width: 200%;
+}
+.grid_box.grid_4x2 .grid .grid_inner.mui_active .mui-slider {
+  display: block;
+}
+@media (max-width: 1199px) {
+  .grid_box.grid_4x2 .grid:nth-child(2n) .grid_inner.mui_active {
+    left: -100%;
+    width: 200%;
+  }
+}
+.grid_box.grid_4x2 .grid:nth-child(4n) .grid_inner.mui_active {
+  left: -100%;
+  width: 200%;
 }
 .grid_box.grid_1x3 .grid {
   width: 25%;
@@ -3394,6 +3468,28 @@ button, label {
   font-family: "Noto Sans";
   position: relative;
   padding: 24px;
+  text-align: left;
+}
+.edit_ground.vertrical_type .goto_link.mui_active {
+  height: 50%;
+  width: 100%;
+}
+@media (max-width: 1199px) {
+  .edit_ground.vertrical_type .goto_link.mui_active {
+    height: 40%;
+  }
+}
+.edit_ground.vertrical_type .goto_link.mui_active .sub_txt {
+  width: 50%;
+}
+.edit_ground.vertrical_type .goto_link.mui_active .icon {
+  bottom: auto;
+  top: 38px;
+}
+@media (max-width: 1199px) {
+  .edit_ground.vertrical_type .goto_link.mui_active .icon {
+    top: 10px;
+  }
 }
 .edit_ground.vertrical_type .goto_link .text {
   font-size: 28px;
@@ -3530,6 +3626,93 @@ button, label {
   align-items: center;
   border-radius: 20px;
   background: rgb(0, 157, 232);
+}
+.edit_ground.vertrical_type .text_list {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0;
+}
+@media (max-width: 1199px) {
+  .edit_ground.vertrical_type .text_list {
+    margin-top: 0;
+  }
+}
+.edit_ground.vertrical_type .text_list li {
+  width: calc(33.3333333% - 8px);
+}
+.edit_ground.vertrical_type .text_list li a {
+  font-family: "Noto Sans Medium";
+  height: 29px;
+  display: block;
+  line-height: 29px;
+  position: relative;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+.edit_ground.vertrical_type .text_list li a::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(0, -50%);
+}
+.edit_ground.vertrical_type .edit_header {
+  position: relative;
+  z-index: 2;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .menu > ul > li {
+  position: relative;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .menu > ul > li.mui_active > a {
+  font-weight: 700;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu {
+  position: absolute;
+  height: auto;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu .inner {
+  width: auto !important;
+  min-width: 0 !important;
+  background: #fff;
+  padding: 20px;
+  margin-top: 0 !important;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu ul {
+  display: block;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu ul li {
+  white-space: nowrap;
+  text-align: center;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu ul li a {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu ul li a:hover {
+  font-family: "Noto Sans Bold";
+}
+.edit_ground.vertrical_type .edit_header .main_menu .sub_menu ul li:not(:first-child) {
+  margin-top: 15px;
+}
+.edit_ground.vertrical_type .edit_header .main_menu .mui_active .sub_menu {
+  display: block;
 }
 .edit_ground * {
   box-sizing: border-box;
