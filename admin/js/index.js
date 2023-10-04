@@ -11075,8 +11075,8 @@
       animation: '',
       clsActive: 'mui_active',
       clsInactive: '',
-      clsFixed: 'uk-sticky-fixed',
-      clsBelow: 'uk-sticky-below',
+      clsFixed: 'mui_sticky_fixed',
+      clsBelow: 'mui_sticky_below',
       selTarget: '',
       showOnUp: false,
       targetOffset: false
@@ -11093,7 +11093,7 @@
     connected: function connected() {
       this.start = coerce(this.start || this.top);
       this.end = coerce(this.end || this.bottom);
-      this.placeholder = $$1('+ .uk-sticky-placeholder', this.$el) || $$1('<div class="uk-sticky-placeholder"></div>');
+      this.placeholder = $$1('+ .mui-sticky-placeholder', this.$el) || $$1('<div class="mui-sticky-placeholder"></div>');
       this.isFixed = false;
       this.setActive(false);
     },

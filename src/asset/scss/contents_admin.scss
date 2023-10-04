@@ -1678,6 +1678,11 @@ button, label {
     position: absolute;
     top: 70px;
     right: 40px;
+    .box {
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
     .mui_button.toggle_layer {
       width: 40px;
       height: 40px;
@@ -1730,11 +1735,13 @@ button, label {
       margin-top: 16px;
       border-top: 1px solid #A3A3A3;
     }
-    &.mui_active {
-      left: 50%;
-      right: auto;
-      z-index: 999;
-      margin-left: 627px;
+    .inset{
+      &.mui_active {
+        left: 50%;
+        right: auto;
+        z-index: 999;
+        margin-left: 627px;
+      }
     }
   }
 

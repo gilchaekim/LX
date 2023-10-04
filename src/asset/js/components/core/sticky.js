@@ -62,8 +62,8 @@ export default {
         animation: '',
         clsActive: 'mui_active',
         clsInactive: '',
-        clsFixed: 'uk-sticky-fixed',
-        clsBelow: 'uk-sticky-below',
+        clsFixed: 'mui_sticky_fixed',
+        clsBelow: 'mui_sticky_below',
         selTarget: '',
         showOnUp: false,
         targetOffset: false,
@@ -84,8 +84,8 @@ export default {
         this.end = coerce(this.end || this.bottom);
 
         this.placeholder =
-            $('+ .uk-sticky-placeholder', this.$el) ||
-            $('<div class="uk-sticky-placeholder"></div>');
+            $('+ .mui-sticky-placeholder', this.$el) ||
+            $('<div class="mui-sticky-placeholder"></div>');
         this.isFixed = false;
         this.setActive(false);
     },

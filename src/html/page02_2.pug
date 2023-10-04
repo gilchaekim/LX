@@ -92,131 +92,133 @@ block content
       .sec.copy 
         +edit_btn({title:"푸터 내용 입력"})
     .edit_config 
-      +button({
-        label:"설정 열기",
-        className:"toggle_layer",
-        muiToggle:'target:#toggle_box1;'
-      })
-      div(hidden).config_conts#toggle_box1 
-        p.title 제목
-        //- +form()
-        //-   +form_body({title:"이미지 파일 등록"})
-        //-     +inputFile()
-        //-     +text({
-        //-       type:'warning',
-        //-       text:"* 3840px X 2160px 를 권장 합니다."
-        //-     })
-        //-     +button_select({
-        //-       label:"등록된 이미지 확인 및 수정"
-        //-     })
-        //-   +form_body({title:"이미지 파일 등록"})
-        //-     +inputFile()
-        //-     +text({
-        //-       type:'warning',
-        //-       text:"* 3840px X 2160px 를 권장 합니다."
-        //-     })
-        //-     +button_select({
-        //-       label:"등록된 이미지 확인 및 수정"
-        //-     })
-        +tabsWrap({
-          active:2,
-          className:""
-        })
-          +tab("메인 기능")
-            .layout_cont 
-              button(type="button").box_block
-                .box 
-                  span 타이틀
-              button(type="button").box_block
-                .box 
-                  span 타이틀
-              button(type="button").box_block
-                .box 
-                  span 바로가기
-                .box 
-                  span 자주 찾는 서비스
-              button(type="button").box_block.al3x1
-                .box 
-                  span 이미지&동영상
-                .box 
-                  span 이미지<br>&<br>동영상
-              button(type="button").box_block.al1x3
-                .box 
-                  span 이미지<br>&<br>동영상
-                .box 
-                  span 이미지&동영상
-              button(type="button").box_block
-                .box 
-                  span 타이틀
-          +tab("메인 메뉴")
-            .layout_cont 
-              button(type="button").box_block.al4x4
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-                .box 
-                  span 메인메뉴<br>&<br>이미지
-          +tab("서브 메뉴")
-            .layout_cont.al2x2
-              button(type="button").box_block.group.main_menu
-                .box 
-                  span 메인 타이틀
-                .box 
-                  span 서브 타이틀
-                .box 
-                  span 검색바
-                .box.end 
-                  span 자주 찾는 서비스
-              button(type="button").box_block.group.sub1x1x1
-                .box_wrap
-                  .box 
-                    span 이미지
-                  .box 
-                    span 이미지
-                .box_wrap
-                  .box 
-                    span 이미지
-                  .box 
-                    span 이미지
-                .box 
-                  span 동영상
-              button(type="button").box_block.group.sub1x1x1
-                .box 
-                  span 동영상
-                .box 
-                  span 이미지
-                .box 
-                  span 이미지
-              button(type="button").box_block.group.sub2x1
-                .box 
-                  span 동영상
-                .box_wrap
-                  .box 
-                    span 바로가기
-                  .box 
-                    span 바로가기
-              button(type="button").box_block.group.sub2x1
-                .box 
-                  span 동영상
-                .box 
-                  span 이미지
-              button(type="button").box_block.group.sub1x2
-                .box 
-                  span 이미지
-                .box 
-                  span 동영상
-          +tab("이미지&영상")
+      .inset(mui-sticky="offset:70;end:9999", id="edit_config")
+        .box
+          +button({
+            label:"설정 열기",
+            className:"toggle_layer",
+            muiToggle:'target:#toggle_box1;'
+          })
+          div(hidden).config_conts#toggle_box1 
+            p.title 제목
+            //- +form()
+            //-   +form_body({title:"이미지 파일 등록"})
+            //-     +inputFile()
+            //-     +text({
+            //-       type:'warning',
+            //-       text:"* 3840px X 2160px 를 권장 합니다."
+            //-     })
+            //-     +button_select({
+            //-       label:"등록된 이미지 확인 및 수정"
+            //-     })
+            //-   +form_body({title:"이미지 파일 등록"})
+            //-     +inputFile()
+            //-     +text({
+            //-       type:'warning',
+            //-       text:"* 3840px X 2160px 를 권장 합니다."
+            //-     })
+            //-     +button_select({
+            //-       label:"등록된 이미지 확인 및 수정"
+            //-     })
+            +tabsWrap({
+              active:2,
+              className:""
+            })
+              +tab("메인 기능")
+                .layout_cont 
+                  button(type="button").box_block
+                    .box 
+                      span 타이틀
+                  button(type="button").box_block
+                    .box 
+                      span 타이틀
+                  button(type="button").box_block
+                    .box 
+                      span 바로가기
+                    .box 
+                      span 자주 찾는 서비스
+                  button(type="button").box_block.al3x1
+                    .box 
+                      span 이미지&동영상
+                    .box 
+                      span 이미지<br>&<br>동영상
+                  button(type="button").box_block.al1x3
+                    .box 
+                      span 이미지<br>&<br>동영상
+                    .box 
+                      span 이미지&동영상
+                  button(type="button").box_block
+                    .box 
+                      span 타이틀
+              +tab("메인 메뉴")
+                .layout_cont 
+                  button(type="button").box_block.al4x4
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+                    .box 
+                      span 메인메뉴<br>&<br>이미지
+              +tab("서브 메뉴")
+                .layout_cont.al2x2
+                  button(type="button").box_block.group.main_menu
+                    .box 
+                      span 메인 타이틀
+                    .box 
+                      span 서브 타이틀
+                    .box 
+                      span 검색바
+                    .box.end 
+                      span 자주 찾는 서비스
+                  button(type="button").box_block.group.sub1x1x1
+                    .box_wrap
+                      .box 
+                        span 이미지
+                      .box 
+                        span 이미지
+                    .box_wrap
+                      .box 
+                        span 이미지
+                      .box 
+                        span 이미지
+                    .box 
+                      span 동영상
+                  button(type="button").box_block.group.sub1x1x1
+                    .box 
+                      span 동영상
+                    .box 
+                      span 이미지
+                    .box 
+                      span 이미지
+                  button(type="button").box_block.group.sub2x1
+                    .box 
+                      span 동영상
+                    .box_wrap
+                      .box 
+                        span 바로가기
+                      .box 
+                        span 바로가기
+                  button(type="button").box_block.group.sub2x1
+                    .box 
+                      span 동영상
+                    .box 
+                      span 이미지
+                  button(type="button").box_block.group.sub1x2
+                    .box 
+                      span 이미지
+                    .box 
+                      span 동영상
+              +tab("이미지&영상")
 
   .btnarea_new
     span.al
