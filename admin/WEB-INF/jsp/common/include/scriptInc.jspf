@@ -1,0 +1,15 @@
+<!-- script -->
+<script type="text/javascript" src="<c:url value='/js/jquery/jquery-1.12.4.min.js'/>" ></script>
+<script type="text/javascript" src="<c:url value='/js/jquery/jquery-ui.min.js'/>" ></script>
+<script type="text/javascript" src='<c:url value="/js/cmm/customAlert.js"/>'></script>
+
+<!-- module -->
+<script type="module" src='<c:url value="/js/webapp/webAppMain.js"/>'></script>
+
+<link rel="stylesheet" href='<c:url value="/css/popup.css"/>'/>
+<link rel="stylesheet" href='<c:url value="/css/common.css"/>'/>
+
+<script type="text/javascript" src='<c:url value="/js/cmm/cmmn.js"/>'></script>
+
+
+
