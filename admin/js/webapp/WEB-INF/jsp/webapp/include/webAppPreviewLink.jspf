@@ -1,0 +1,47 @@
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<script>
+	const contextPath = "${contextPath}" // ex) /smt
+	let mainProjection = "${mainProjection}"		
+</script>
+<!-- css -->
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/lib/jquery-ui.css">
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/lib/colorpicker/colorpicker.css">
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/toc.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/widget.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/common.css"/>
+<link rel="stylesheet" href="<c:out value="${contextPath}" />/css/common_custom.css"/>
+<link rel="stylesheet" href="http://10.0.0.219:3001/oui/oui.css"/>
+<!-- widget css -->
+
+
+<!-- libs -->
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/jquery-ui.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/vue/vue.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/colorpicker/colorpicker.js"></script>
+<script type="text/javascript"  src="<c:out value="${contextPath}" />/lib/sortable.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/lib/html2canvas/html2canvas.js"></script>
+
+<!-- type script -->
+<script type="text/javascript" src="http://10.0.0.219:3001/lxpd/odf.min.js"></script>
+<script type="text/javascript" src="http://10.0.0.219:3001/oui/oui.min.js"></script>
+<script type="text/javascript" src="<c:out value="${contextPath}" />/js/cmm/customAlert.js"></script>
+
+
+<!-- type module -->
+<script type="module" src="<c:out value="${contextPath}" />/js/webapp/model/data.js"></script>
+<script type="module" src="<c:out value="${contextPath}" />/js/cmm/commonUtils.js"></script>
+<script type="module" src="<c:out value="${contextPath}" />/js/webapp/core/webapp.js"></script>
+<!-- widget -->
+
+
+<!-- data -->
+
+<!-- model -->
+
+<!-- app -->
+
+
+<!-- vue -->
+<script type="module" src="<c:out value="${contextPath}" />/js/webapp/vues/sampleFrame/sampleFrameVue.js"></script>
+<!-- vue Components -->

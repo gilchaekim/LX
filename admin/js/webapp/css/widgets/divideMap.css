@@ -1,0 +1,465 @@
+@charset "UTF-8";
+/*분할지도 위젯 css*/
+
+#widget .dep1 > li.divideWidget .divideMap_tool,
+.divideMap_widget li#divideMapWidget .divideMap_tool
+{
+	min-height: 67px;
+	background-repeat: no-repeat;
+	background-position: center 18px;
+    color: #555;
+}
+
+#widget .dep1 > li.divideWidget .divideMap_divType,
+.divideMap_widget li#divideMapWidget .divideMap_divType
+{
+	min-height: 67px;
+	background-repeat: no-repeat;
+	background-position: center 18px;
+	padding: 0 7px;
+    color: #555;
+}
+
+.divideMap_widget li#homeControlWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn{
+	height: 67px;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    width: 50px;
+	background-image: url("../../images/toolbar/ico-home-01.png");
+}
+.divideMap_widget li#homeControlWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn:hover{
+	background-image: url("../../images/toolbar/ico-home-01-active.png");
+}
+
+#widget .dep1 > li.divideWidget > .divideMap_tool, 
+.divideMap_widget li#divideMapWidget > .divideMap_tool
+{
+	background-image: url("../../images/toolbar/ico-tool-divide.png");
+	background-position: center 12px;
+}
+#widget .dep1 > li.divideWidget:hover > .divideMap_tool,
+.divideMap_widget li#divideMapWidget:hover > .divideMap_tool {
+	background-image: url("../../images/toolbar/ico-tool-divide-active.png");
+}
+
+#widget .dep1 > li.divideWidget > .divideMap_toolbox,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox
+{
+    word-break: keep-all;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    transition: .2s;
+    background: #fff;
+    box-shadow: 0.6px 0.8px 4px 0 rgb(0 0 0 / 35%);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox li
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox li
+{
+	min-height: 67px;
+	padding: 0 7px; 
+    color: #555;
+}
+
+/*2분할 아이콘 set*/
+/*2분할 - 세로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.vertical,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.vertical
+{
+	background-image: url(../../images/toolbar/ico-divide-01-01.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.vertical:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.vertical.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.vertical:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.vertical.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-01-01-active.png);
+}
+/*2분할 - 가로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal
+{
+	background-image: url(../../images/toolbar/ico-divide-01-02.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_dualMap.horizonal.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-01-02-active.png);
+}
+/*3분할 아이콘 set*/
+/*3분할 - 세로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical
+{
+	background-image: url(../../images/toolbar/ico-divide-02-01.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.vertical.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-01-active.png);
+}
+/*3분할 - 가로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal
+{
+	background-image: url(../../images/toolbar/ico-divide-02-02.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.horizonal.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-02-active.png);
+}
+/*3분할 - 복합형 1*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01
+{
+	background-image: url(../../images/toolbar/ico-divide-02-03.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-01.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-03-active.png);
+}
+/*3분할 - 복합형 2*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02
+{
+	background-image: url(../../images/toolbar/ico-divide-02-04.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-02.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-04-active.png);
+}
+/*3분할 - 복합형 3*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03
+{
+	background-image: url(../../images/toolbar/ico-divide-02-05.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-03.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-05-active.png);
+}
+/*3분할 - 복합형 4*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04
+{
+	background-image: url(../../images/toolbar/ico-divide-02-06.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_threepleMap.complex-04.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-02-06-active.png);
+}
+
+/*4분할 아이콘 set*/
+/*4분할 - 가로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal{
+	background-image: url(../../images/toolbar/ico-divide-03-03.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.horizonal.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-03-03-active.png);
+}
+/*4분할 - 세로*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex{
+	background-image: url(../../images/toolbar/ico-divide-03-02.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-03-02-active.png);
+}
+/*4분할 - 복합형*/
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex{
+	background-image: url(../../images/toolbar/ico-divide-03-01.png);
+}
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex:hover,
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_quadMap.complex.divideMap_active,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex:hover,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_quadMap.complex.divideMap_active
+{
+	background-image: url(../../images/toolbar/ico-divide-03-01-active.png);
+}
+
+
+.divideMap_divType span
+{
+	display: block;
+    padding-top: 36px;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+
+#widget .dep1 > li.divideWidget > .divideMap_toolbox button.divideMap_tool>span,
+.divideMap_widget li#divideMapWidget > .divideMap_toolbox button.divideMap_tool>span,
+.divideMap_widget li#homeControlWidget > .homeControl_homeControlContent > .homeControl_moveHomeBtn>span
+{
+    display: block;
+    padding-top: 36px;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+
+
+.divideMap_widget
+{
+    width: 58px;
+    transition: .4s;
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 30%);
+}
+.divideMap_widget >li{
+	position: relative;
+    border-bottom: 1px solid #eeeeee;
+    text-align: center;
+    padding: 0 5px;
+    font-family: 'Pretendard Bold';
+    background: #fff;
+}
+.divideMap_widget >li:hover{
+    background-color: #436aeb;
+    border-bottom: 1px solid #fff;
+}
+.divideMap_widget >li:hover{
+    background-color: #436aeb;
+    border-bottom: 1px solid #fff;
+}
+.divideMap_widget >li:hover button.basemap_tool>span,
+.divideMap_widget >li:hover button.divideMap_tool>span,
+.divideMap_widget >li:hover button>span.divideMap_tocOnOffText,
+.divideMap_widget >li:hover button.homeControl_moveHomeBtn>span
+
+{
+	color : white;
+}
+
+
+.divideMap_widget>li>button>span{
+	display: block;
+    padding-top: 36px;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+
+.odf-dividemap-container .divideMap_widget{
+	position : absolute;
+	top : 10px;
+	right : 10px;
+}
+
+
+.odf-dividemap-container .odf-view .divideMap_widget{
+	display : none;
+}
+	
+.odf-dividemap-container .odf-view.on2 .divideMap_widget,
+.odf-dividemap-container .odf-view.on3 .divideMap_widget,
+.odf-dividemap-container .odf-view.on4 .divideMap_widget
+{
+	display : block;
+}
+	
+	
+	
+/*분할지도 MINI TOC*/
+.divideMap_toc .divideMap_miniTOCFrame{
+	position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.divideMap_toc .divideMap_miniTOCFrame>button {
+	background: #fff url(../../images/toc/ico-small-toc-show.png) no-repeat center;
+	position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    box-shadow: 0.5px 0.9px 4px 0 rgb(0 0 0 / 27%);
+}
+.divideMap_toc .divideMap_miniTOCFrame>button.divideMap_on{
+	background: #fff url(../../images/toc/ico-small-toc-hide.png) no-repeat center;
+}
+
+.divideMap_toc .divideMap_miniTOCFrame>button>span{
+	display : none;
+}
+.divideMap_toc .divideMap_miniTOCFrame .divideMap_tocArea
+{
+	position: absolute;
+    left: calc(100% + 3px);
+    top: 0px; 
+	width : 270px;
+    overflow-y: hidden;
+    transition: .4s;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0.5px 0.9px 4px 0 rgb(0 0 0 / 27%);
+}
+
+.divideMap_toc .divideMap_miniTOCFrame .toc_tocContentList{
+	margin-top: 0px;
+}
+
+/*분할지도 내 toc header영역*/
+.divideMap_toc .divideMap_tocArea .toc_tocTool{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.divideMap_toc .divideMap_tocArea .toc_tocTool .toc_btnGroup{
+	    display: flex;
+}
+.divideMap_toc .divideMap_tocArea .toc_tocTool .toc_btnGroup:last-of-type button {
+	width: 27px;
+	height: 25px;
+	margin: 0;
+}
+.divideMap_toc .divideMap_tocArea .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllView{
+	margin-right: 2px;
+    background-image: url(../../images/toc/ico-toc-all-view-hide.png);
+}
+.divideMap_toc .divideMap_tocArea .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllView.toc_off{
+	background-image: url("../../images/toc/ico-toc-all-view-show.png");
+}
+/*분할지도 내 toc title 영역*/
+.divideMap_toc .divideMap_tocArea .toc_layerText
+{
+    overflow-x: clip;
+    max-width: 170px;
+}
+.divideMap_toc .divideMap_tocArea .toc_children .toc_layerText
+{
+    max-width: 150px;
+}
+.divideMap_toc .divideMap_tocArea .rstcustom__rowWrapper div{
+	display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: 'Pretendard';
+    font-weight: normal;
+    color: #333;
+    padding-right: 0px;
+    overflow-x: clip;
+}
+.divideMap_toc .divideMap_tocArea .rstcustom__rowTitle{
+    padding: 0px 0px 0px 10px;
+}
+
+.divideMap_toc .divideMap_tocArea .rstcustom__nodeContent{
+	padding-left :0px !important;
+}
+.divideMap_toc .divideMap_tocArea .toc_children{
+    margin-left: 20px !important;
+}
+
+/*전체레이어 on/off*/
+.divideMap_toc .divideMap_tocArea .rstcustom__collapseButton:before{
+    content: url(../../images/toc/ico-group-show.png);
+}
+.divideMap_toc .divideMap_tocArea .rstcustom__expandButton:before {
+    content: url(../../images/toc/ico-group-hide.png);
+}
+/*그룹 title*/
+.divideMap_toc .divideMap_tocArea .toc_groupContent .rstcustom__rowTitle{
+    display: block;
+    margin-left: 15px;
+    padding-left: 16px !important;
+    font-family: '맑은 고딕';
+    font-weight: bold;
+    max-width: 185px;
+    color: #555;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+/*on/off*/
+.divideMap_toc .divideMap_tocArea .toc_btnLayerView{
+	background-position: center;
+	background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+	background-image: url("../../images/toc/ico-group-view-hide.png");
+}
+.divideMap_toc .divideMap_tocArea .toc_btnLayerView.on{
+	background-image: url("../../images/toc/ico-group-view-show.png");
+}
+/*레이어 on/off*/
+.divideMap_toc .divideMap_tocArea .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerView
+ {
+	background-image: url("../../images/toc/ico-layer-view.png");
+}
+.divideMap_toc .divideMap_tocArea .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerView.on
+{
+	background-image: url("../../images/toc/ico-layer-view-hover.png");
+}
+
+
+/* line 945, scss/common.scss */
+.divideMap_toc .divideMap_tocArea  i.ico-multi-line {
+  display: block;
+	background-image: url(../../images/toc/ico-layer-line.png);
+}
+
+/* line 946, scss/common.scss */
+.divideMap_toc .divideMap_tocArea  i.ico-multi-point {
+  display: block;
+	background-image: url(../../images/toc/ico-layer-dot.png);
+}
+
+/* line 947, scss/common.scss */
+.divideMap_toc .divideMap_tocArea  i.ico-multi-polygon {
+  display: block;
+	background-image: url(../../images/toc/ico-layer-plane.png);
+}
+
+/* line 948, scss/common.scss */
+.divideMap_toc .divideMap_tocArea  i.ico-hitmap {
+  display: block;
+	background-image: url(../../images/ico/ico-layer-hitmap.png);
+}    
+
+.divideMap_toc .divideMap_tocArea  i.ico-geoTiff {
+  display: block;
+	background-image: url(../../images/ico/ico-layer-g.png);
+}
+.divideMap_toc .divideMap_tocArea  i.ico-customImage{
+  display: block;
+}
+.divideMap_toc .divideMap_tocArea i{
+	background-size: contain;
+}
+    
+    
+/*스케일 컨트롤*/
+#scaleWidget-dMakKey-main .scaleControl_scaleControlContent{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

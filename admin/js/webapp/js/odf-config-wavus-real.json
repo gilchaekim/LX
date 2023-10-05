@@ -1,0 +1,140 @@
+{
+	"center" : [276179.88560667867, 413632.9594010007],
+	"zoom": 9, 
+   "maxZoom": 23, 
+   "minZoom": 8, 
+   "projection": "EPSG:5186",
+   
+   "baroEMapURL" : "http://10.1.48.93:8000/map/api/map/baroemap",
+   "baroEMapAirURL" : "http://10.1.48.93:8000/map/api/map/ngisair",
+   "baroEMapInternetYN" : true,
+   "baroEMapKey" : "",
+   "preload" : 0,
+   
+   "vWorldURL" : "http://10.1.48.93:8000/map/api/vworld/wmts",
+   "vWorldKey": "",
+   "kakaoURL" :"https://map0.daumcdn.net",
+   
+   "basemapOption" : {
+	   "baroEMap" : ["eMapBasic","eMapColor","eMapLowV","eMapWhite","eMapEnglish","eMapChinese","eMapJapanese","eMapWhiteEdu","eMapAIR"],
+	   "kakao" : [],
+	   "vWorld" : ["vWorldBase","vWorldGray","vWorldMidnight","vWorldHybrid","vWorldSatellite"],
+	   "OSM" : []
+   },
+   "airphotoVersion" :["AIRPHOTO_base", "AIRPHOTO_2012", "AIRPHOTO_2013", "AIRPHOTO_2014", "AIRPHOTO_2015", "AIRPHOTO_2016", "AIRPHOTO_2017", "AIRPHOTO_2018", "AIRPHOTO_2019", "AIRPHOTO_2020" ],
+   "gridSet" :{
+	 "epsg5179": {
+	   "matrixSet": "EPSG:5179",
+	   "projection": "EPSG:5179",
+	   "tileOrigin": [531371.8435309182, 2274021.3084674757], 
+	   "tileResolutions": [
+		 5139.693645455303,
+		 2569.8468227276517,
+		 1284.9234113638258,
+		 642.4617056819129,
+		 321.23085284095646,
+		 160.61542642047823,
+		 80.30771321023911,
+		 40.15385660511956,
+		 20.07692830255978,
+		 10.03846415127989,
+		 5.019232075639945,
+		 2.5096160378199723,
+		 1.2548080189099862,
+		 0.6274040094549931
+	   ], 
+	   "tileMatrixIds": [
+		 "EPSG:5179:0",
+		 "EPSG:5179:1",
+		 "EPSG:5179:2",
+		 "EPSG:5179:3",
+		 "EPSG:5179:4",
+		 "EPSG:5179:5",
+		 "EPSG:5179:6",
+		 "EPSG:5179:7",
+		 "EPSG:5179:8",
+		 "EPSG:5179:9",
+		 "EPSG:5179:10",
+		 "EPSG:5179:11",
+		 "EPSG:5179:12",
+		 "EPSG:5179:13"
+	   ]
+	 }
+   },
+   "basemapProxy" :{
+	   "kakao": {
+		 "kakaoBase": {
+		 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+		 },
+		 "kakaoSkyview": {
+		 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+		 }
+	   },
+	   "vWorld": {
+		   "vWorldBase": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+		   "vWorldGray": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+		   "vWorldMidnight": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+			 "vWorldHybrid": {
+			 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+			 "vWorldSatellite": {
+			 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 }
+	   },
+	   "baroEMap": {
+		   "eMapBasic": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+			 "eMapColor": {
+			 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+		   "eMapLowV": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+		   "eMapEnglish": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+		   "eMapChinese": {
+		   		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+			 "eMapJapanese": {
+			 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			 },
+			 "eMapWhite": {
+			 		   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			},
+			"eMapWhiteEdu": {
+					   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			},
+			"eMapAIR": {
+					   		"proxyURL": "/smt/proxyUrl.jsp",
+		   		"proxyParam": "url"
+			}
+	   },
+	   "OSM": {
+		   "OSM": {
+			 }
+	   }
+	 } 
+}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* 주소검색 위젯 */
+
+.odf_addressSearch_widget {
+    display: flex;
+    margin-right: 23px;
+    width: 327px;
+}
+.addrItem{
+    font-size: 14px;
+    font-family: '맑은 고딕';
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    display: block;
+}
+.addrItem .roadAddr{
+    margin-bottom: 4px;
+}
+.addrItem .roadAddr, .addrItem .jibunAddr, .addrItem .poiAddr{
+	display: flex;
+    /* align-items: center; 도로명, 지번 태그 위쪽정렬로*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+.addrItem .roadTag, .addrItem .jibunTag, .addrItem .poiTag {
+    display: inline-block;
+    width: 55px;
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    height: fit-content;
+    margin-right: 5px;
+}
+.addrItem .roadTag {
+    background: #283ebf;
+}
+.addrItem .jibunTag {
+    background: #00b8a3;
+}
+.addrItem .poiTag {
+    background:  #ff7200;
+}
+
+.addrItem .addrDesc {
+    flex: 1;
+    word-break: keep-all;
+}

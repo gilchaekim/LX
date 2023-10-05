@@ -1,0 +1,771 @@
+@charset "UTF-8";
+/* toc 위젯 */
+/* line 5, scss/toc.scss */
+
+#analysis {
+	display: none;
+	height: 100%;
+	z-index: 10;
+}
+
+/* line 6, scss/toc.scss */
+#analysis.active {
+	display: flex;
+}
+
+/* line 8, scss/toc.scss */
+#analysis.active .toc .inner{
+	width: 370px;
+	height: 100%;
+}
+
+/* line 9, scss/toc.scss */
+#analysis.active .toc .head {
+	height: 50px;
+}
+
+/* line 11, scss/toc.scss */
+#analysis.active .toc.hide .inner {
+	width: 50px;
+	height: 100%;
+}
+
+/* line 12, scss/toc.scss */
+#analysis.active .toc.hide .head {
+	visibility: visible;
+}
+
+/* line 16, scss/toc.scss */
+#analysis .toc {
+	height: 100%;
+	box-shadow: 1.5px 2.6px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+
+/* line 16, scss/toc.scss */
+#analysis .toc.dep2 {
+	display:none;
+}
+#analysis .toc.dep2.active {
+	display:block;
+}
+/* line 17, scss/toc.scss */
+#analysis .toc .inner {
+	width: 0;
+	height: 0;
+}
+
+/* line 18, scss/toc.scss */
+#analysis .toc .head {
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	height: 0;
+	transition: .4s;
+}
+
+/* line 19, scss/toc.scss */
+#analysis .toc .head .titBox {
+	display: flex;
+	align-items: center;
+}
+
+/* line 20, scss/toc.scss */
+#analysis .toc .head .titToc {
+	margin-left: 20px;
+	line-height: 50px;
+	color: #fff;
+	font-size: 20px;
+	font-family: "Pretendard";
+	font-weight: normal;
+}
+
+/* line 21, scss/toc.scss */
+#analysis .toc .head .btnGroup {
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+}
+
+/* line 22, scss/toc.scss */
+#analysis .toc .head .btnTocClose {
+	margin-left: 30px;
+	width: 24px;
+	height: 24px;
+	background: url("../../images/toc/ico-toc-close.png");
+}
+
+/* line 23, scss/toc.scss */
+#analysis .toc .head .btnTocHide {
+	width: 14px;
+	height: 26px;
+	background: url("../../images/toc/ico-toc-hide.png") no-repeat center;
+}
+
+/* line 25, scss/toc.scss */
+#analysis .toc .cont {
+	max-height: calc(100% - 50px);
+}
+
+/* line 26, scss/toc.scss */
+#analysis .toc .cont .odf_toc {
+	width: auto;
+	padding: 9px 11px;
+}
+
+/* line 27, scss/toc.scss */
+#analysis .toc .cont .inner.type02 {
+	padding: 20px;
+}
+
+/* line 31, scss/toc.scss */
+#analysis .toc.dep1 .head {
+	background: #2F5597;
+}
+
+
+/* line 32, scss/toc.scss */
+#analysis .toc.dep1 .inner {
+	background: #f6f9fe;
+}
+
+/* line 35, scss/toc.scss */
+#analysis .toc.dep2 .head {
+	background: #8FAADC;
+}
+
+/* line 36, scss/toc.scss */
+#analysis .toc.dep2 .inner {
+	background: #fff;
+}
+
+/* line 39, scss/toc.scss */
+#analysis .toc.hide .inner {
+	width: 0;
+	height: 0;
+}
+
+/* line 40, scss/toc.scss */
+#analysis .toc.hide .head {
+	visibility: hidden;
+	height: 100%;
+	justify-content: flex-end;
+	flex-direction: column-reverse;
+}
+
+/* line 41, scss/toc.scss */
+#analysis .toc.hide .head .titToc {
+	writing-mode: vertical-lr;
+	margin-left: 0;
+	margin-top: 15px;
+}
+
+/* line 42, scss/toc.scss */
+#analysis .toc.hide .head .btnGroup {
+	margin: 19px 0 0 0;
+	flex-direction: column-reverse;
+}
+
+/* line 43, scss/toc.scss */
+#analysis .toc.hide .head .btnGroup .btnTocHide {
+	transform: rotate(180deg);
+}
+
+/* line 44, scss/toc.scss */
+#analysis .toc.hide .head .btnGroup .btnTocClose {
+	margin: 0 0 19px 0;
+}
+
+/* line 47, scss/toc.scss */
+#analysis .toc.hide .cont {
+	display: none;
+}
+
+/* line 49, scss/toc.scss */
+#analysis .toc .toc_tocTool {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* line 50, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup {
+	display: flex;
+}
+
+/* line 52, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup:last-of-type button {
+	width: 27px;
+	height: 25px;
+	margin: 0;
+}
+
+/* line 53, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllView {
+	margin-right: 2px;
+	background-image: url("../../images/toc/ico-toc-all-view-hide.png");
+}
+
+/* line 54, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllView:hover{
+	background-image: url("../../images/toc/ico-toc-all-view-show.png");
+}
+
+/* line 56, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllRemove {
+	background-image: url("../../images/toc/ico-toc-all-remove-hide.png");
+}
+
+/* line 57, scss/toc.scss */
+#analysis .toc .toc_tocTool .toc_btnGroup:last-of-type button.toc_btnAllRemove:hover {
+	background-image: url("../../images/toc/ico-toc-all-remove-show.png");
+}
+
+/* line 62, scss/toc.scss */
+#analysis .toc .toc_tocTool button {
+	margin-right: 30px;
+	text-indent: 16px;
+	color: #2F5597;
+	font-size: 16px;
+	font-family: 'Pretendard';
+	font-weight: bold;
+}
+
+/* line 63, scss/toc.scss */
+#analysis .toc .toc_tocTool button.toc_btnTocAdd {
+	background: url("../../images/toc/ico-toctool-add.png") no-repeat left center;
+}
+
+/* line 64, scss/toc.scss */
+#analysis .toc .toc_tocTool button.toc_btnTocSearch {
+	background: url("../../images/toc/ico-toctool-search.png") no-repeat left center;
+}
+
+/* line 65, scss/toc.scss */
+#analysis .toc .toc_tocTool button.toc_btnTocUpload {
+	margin-right: 0px;
+	background: url("../../images/toc/ico-toctool-upload.png") no-repeat left center;
+}  
+
+/* line 68, scss/toc.scss */
+#analysis .toc_tocContentList {
+	margin-top: 10px;
+	padding-right: 3px;
+}
+#analysis .rstcustom__node{
+	margin-bottom : 5px;
+}
+#analysis .rstcustom__rowWrapper {
+	padding: 0 2px 0 0;
+}
+#analysis .rstcustom__node .toc_children{
+	
+}
+#analysis .toc_children .rstcustom__rowContents{
+	background-color: #eef6ff;
+	margin-bottom: 10px
+}
+#analysis .toc_parent{
+	
+}
+#analysis .toc_children{
+	margin-left: 20px;
+}
+#analysis .rstcustom__rowContents{
+	
+}
+#analysis .rstcustom__nodeContent{
+	padding-left :0px !important;
+}
+/* line 69, scss/toc.scss */
+#analysis .toc .groupList .groupBox {
+	margin-bottom: 10px;
+	padding: 20px 10px 20px 20px;
+	background: #fff;
+	border: 1px solid #eef1f8;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+
+/* line 70, scss/toc.scss */
+#analysis .toc .groupList .groupBox:last-of-type {
+	margin-bottom: 0;
+}
+
+
+/* line 71, scss/toc.scss */
+#analysis .toc .groupList .groupBox .row {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* line 72, scss/toc.scss */
+#analysis .toc .groupList .groupBox .titGroup {
+	display: block;
+	padding-left: 25px;
+	font-size: 16px;
+	font-family: 'Pretendard';
+	font-weight: bold;
+	max-width: 185px;
+	color: #555;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	background: url("../../images/toc/ico-group-hide.png") no-repeat left 2px;
+}
+#analysis .rstcustom__rowTitle div{
+	display: flex;
+}
+
+#analysis .rstcustom__rowTitle div div{
+	width: 15px !important;
+    height: 15px !important;
+}
+
+
+/* line 74, scss/toc.scss */
+#analysis .toc .groupList .groupBox .toc_btnGroup {
+	display: flex;
+}
+
+/* line 75, scss/toc.scss */
+#analysis .toc .groupList .groupBox .toc_btnGroup button {
+	width: 23px;
+	height: 23px;
+}
+
+/* line 76, scss/toc.scss */
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupView {
+	margin-right: 6px;
+	background-image: url("../../images/toc/ico-group-view-hide.png");
+}
+
+
+#analysis .toc_btnLayerView {
+	
+	background-image: url("../../images/toc/ico-group-view-hide.png");
+}
+
+/* line 77, scss/toc.scss */
+#analysis .toc_LayerView:hover,
+#analysis .toc_btnLayerView.on {
+	background-image: url("../../images/toc/ico-group-view-show.png");
+}
+
+/* line 79, scss/toc.scss */
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupRemove {
+	background-image: url("../../images/toc/ico-group-remove-hide.png");
+}
+#analysis .btnLayerDelete {
+	background-image: url("../../images/toc/ico-group-remove-hide.png");
+}
+#analysis .btnLayerDelete:hover,
+#analysis .btnLayerDelete.on  {
+	background-image: url("../../images/toc/ico-group-remove-show.png");
+}
+/* line 80, scss/toc.scss */
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupRemove:hover, 
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupRemove.active{
+	background-image: url("../../images/toc/ico-group-remove-show.png");
+}
+
+/* line 82, scss/toc.scss */
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupEdit{
+	margin-right: 6px;
+	background-image: url("../../images/toc/ico-group-edit.png");
+}
+
+/* line 83, scss/toc.scss */
+#analysis .toc .groupList .groupBox .btnGroup button.btnGroupEdit:hover, #analysis .toc .groupList .groupBox .btnGroup button.btnGroupEdit.active{
+	background-image: url("../../images/toc/ico-group-edit-hover.png");
+}
+
+/* line 88, scss/toc.scss */
+#analysis .toc .groupList .groupBox.active .titGroup{
+	color: #1a1a1a;
+	background: url("../../images/toc/ico-group-show.png") no-repeat left 2px;
+}
+
+/* line 89, scss/toc.scss */
+#analysis .toc .groupList .groupBox.active .layerList{
+	display: block;
+}
+
+/* line 93, scss/toc.scss */
+#analysis .toc .groupList .groupBox .layerList .layerBox:last-of-type{
+	border-bottom: 0;
+}
+
+/* line 98, scss/toc.scss */
+#analysis .toc .layerList{
+	display: none;
+	margin-top: 12px;
+}
+
+/* line 99, scss/toc.scss */
+#analysis .toc .layerList .layerBox{
+	padding: 0;
+	cursor: pointer;
+	border: 0;
+	border-bottom: 1px solid #eef1f8;
+}
+
+/* line 101, scss/toc.scss */
+#analysis .toc .layerBox{
+	padding: 8px 10px 10px;
+	background: #fff;
+	border: 1px solid #eef1f8;
+	border-radius: 4px;
+}
+
+/* line 102, scss/toc.scss */
+#analysis .toc .layerBox .inner{
+	position: relative;
+	padding: 10px;
+	background: #fff;
+}
+
+/* line 103, scss/toc.scss */
+#analysis .toc .layerBox .editBox{
+	top: 10px;
+	transform: translate(0);
+	justify-content: center;
+}
+
+/* line 105, scss/toc.scss */
+#analysis .toc .layerBox:hover .inner{
+	background: #f6f9fe;
+}
+
+/* line 106, scss/toc.scss */
+#analysis .toc .layerBox:hover .editBox{
+	background: #f6f9fe;
+}
+
+/* line 108, scss/toc.scss */
+#analysis .toc .layerBox .tit{
+	display: flex;
+	font-size: 16px;
+	font-family: 'Pretendard';
+	font-weight: normal;
+}
+
+/* line 109, scss/toc.scss */
+#analysis .toc .layerBox .tit i.ico{
+	display: block;
+	width: 13px;
+	height: 13px;
+	margin-right: 0;
+	margin-top: 4px;
+	background-position: center;
+}
+
+/* line 110, scss/toc.scss */
+#analysis .toc .layerBox .tit i.ico.ico-dot{
+	background-image: url("../../images/toc/ico-layer-dot.png");
+}
+
+/* line 111, scss/toc.scss */
+#analysis .toc .layerBox .tit i.ico.ico-line{
+	background-image: url("../../images/toc/ico-layer-line.png");
+}
+
+/* line 112, scss/toc.scss */
+#analysis .toc .layerBox .tit i.ico.ico-plane{
+	background-image: url("../../images/toc/ico-layer-plane.png");
+}
+
+/* line 113, scss/toc.scss */
+#analysis .toc .layerBox .tit i.ico.ico-hitman{
+	background-image: url("../../images/toc/ico-layer-hitman.png");
+}
+
+/* line 115, scss/toc.scss */
+#analysis .toc .layerBox .tit p{
+	flex: 1;
+	padding-right: 5px;
+	margin-left: 5px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+}
+
+/* line 118, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup{
+	display: flex;
+	margin-top: 25px;
+	justify-content: flex-end;
+}
+
+/* line 119, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup button{
+	width: 23px;
+	height: 23px;
+	margin-right: 5px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* line 120, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup button.btnLayerEdit{
+	background-image: url("../../images/toc/ico-layer-edit.png");
+}
+
+/* line 121, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup button.btnLayerEdit:hover,
+#analysis .toc .layerBox .btnGroup button.btnLayerEdit.active{
+	background-image: url("../../images/toc/ico-layer-edit-hover.png");
+}
+
+/* line 123, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerDelete {
+	background-image: url("../../images/toc/ico-layer-remove.png");
+}
+
+/* line 124, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton >  button.toc_btnLayerDelete:hover, 
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton >  button.toc_btnLayerDelete.on {
+	background-image: url("../../images/toc/ico-layer-remove-hover.png");
+}
+
+/* line 126, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerView {
+	background-image: url("../../images/toc/ico-layer-view.png");
+}
+
+/* line 127, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerView.on {
+	background-image: url("../../images/toc/ico-layer-view-hover.png");
+}
+
+/* line 129, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup button.btnLayerBookmark{
+	background-image: url("../../images/toc/ico-layer-bookmark.png");
+}
+
+/* line 130, scss/toc.scss */
+#analysis .toc .layerBox .btnGroup button.btnLayerBookmark:hover, #analysis .toc .layerBox .btnGroup button.btnLayerBookmark.active{
+	background-image: url("../../images/toc/ico-layer-bookmark-hover.png");
+}
+
+/* line 132, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerGrid {
+	background-image: url("../../images/toc/ico-layer-property.png");
+}
+
+/* line 133, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerGrid:hover,
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerGrid.on {
+	background-image: url("../../images/toc/ico-layer-property-hover.png");
+}
+
+/* line 135, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerDetail{
+	margin-right: 0;
+	background-image: url("../../images/toc/ico-layer-more.png");
+}
+
+/* line 136, scss/toc.scss */
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerDetail:hover, 
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLayerDetail.active {
+	background-image: url("../../images/toc/ico-layer-more-hover.png");
+}
+
+
+#analysis .toc_hidden ,
+#analysis .rstcustom__toolbarButton > button > span{
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+#analysis .toc_hidden ,
+#analysis .rstcustom__toolbarButton > button{
+	width: 23px;
+    height: 23px;
+}
+
+#analysis .toc_groupContent .rstcustom__rowTitle{
+    display: block;
+    margin-left: 15px;
+    padding-left: 16px !important;
+    font-size: 16px;
+    font-family: 'Pretendard';
+    font-weight: bold;
+    max-width: 185px;
+    color: #555;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+/* .toc_layerContent .rstcustom__rowTitle div { */
+/* 	display: block; */
+/*     font-size: 16px; */
+/*     font-family: 'Pretendard'; */
+/*     font-weight: bold; */
+/*     max-width: 185px; */
+/*     color: #555; */
+/*     -webkit-line-clamp: 2; */
+/*     -webkit-box-orient: vertical; */
+/*     line-height: 20px; */
+/*     overflow: hidden; */
+/*     text-overflow: ellipsis; */
+/*     word-break: break-all; */
+/* 	height: 20px; */
+/* } */
+
+#analysis .toc_layerContent .rstcustom__rowTitle .toc_layerText{
+    display: block;
+    float: left;
+    flex: 1;
+    padding-right: 5px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    font-size: 16px;
+    font-family: 'Pretendard';
+    font-weight: normal;
+    height: 20px;	
+}
+
+#analysis .toc_layerContent .rstcustom__rowTitle div span:nth-child(1){
+	float: left;
+	margin: 1px 5px 0px 5px;
+}
+#analysis .toc_layerContent .rstcustom__rowContents{
+	width : 100%;
+	align-items: start;
+	display: block;
+}
+
+#analysis .toc_layerContent .rstcustom__rowTitle{
+    margin-left: 7px;
+    padding-left: 7px !important;
+}
+
+#analysis .rstcustom__collapseButton:before {
+	content : url("../../images/toc/ico-group-show.png");
+	
+}
+#analysis .rstcustom__expandButton:before {
+    content: url("../../images/toc/ico-group-hide.png");
+}
+#analysis .rstcustom__rowContents {
+	box-shadow : none;
+    border: 1px solid #eef1f8;
+}
+#analysis .toc_layerContent .rstcustom__toolbarButton{
+	display: flex;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLabelView{
+	background-image: url("../../images/toc/ico-layer-bookmark-hover.png");
+}
+#analysis .toc_layerContent > .rstcustom__rowContents > .rstcustom__rowToolbar > .rstcustom__toolbarButton > button.toc_btnLabelView.off{
+	background-image: url("../../images/toc/ico-layer-bookmark.png");
+}
+#analysis .toc_layerContent .rstcustom__rowToolbar{
+	justify-content: flex-end;
+	margin-top: -15px;
+}
+
+/*직접선택 팝업 ui*/
+.odf-map .spatialAnalysis_selectFeature{
+    width: 270px;
+    transition: .4s;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0.5px 0.9px 4px 0 rgb(0 0 0 / 27%);
+}
+.odf-map .spatialAnalysis_selectFeature:after
+{
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    display: block;
+    content: '';
+    box-shadow: -2px 4px 4px rgb(0 0 0 / 10%);
+    border: 10px solid transparent;
+    border-left: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+    transform: rotate(-45deg) translateX(-50%);
+}
+.odf-map .spatialAnalysis_selectFeature .spatialAnalysis_body{
+	max-height : 300px;
+	overflow-y : auto;
+}
+.odf-map .spatialAnalysis_selectFeature .spatialAnalysis_body .spatialAnalysis_featureItem:first-of-type{
+    border-top: 1px solid #eef1f8;
+}
+.odf-map .spatialAnalysis_selectFeature .spatialAnalysis_body .spatialAnalysis_featureItem{
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #eef1f8;
+    padding: 0 10px;
+    transition: .3s;
+}
+
+.odf-map .spatialAnalysis_selectFeature .spatialAnalysis_body .spatialAnalysis_featureItem .lyrNm{
+	
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: 'Pretendard';
+    font-weight: normal;
+    color: #333;
+}
+
+#spatialAnalysisWidget::-webkit-scrollbar {
+    width: 0px;  
+}
+
+#spatialAnalysisWidget::-webkit-scrollbar-thumb {
+    background: #2F5597; /* 스크롤바 색상 */
+    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+
+#spatialAnalysisWidget::-webkit-scrollbar-track {
+    background: #2F5597;  /*스크롤바 뒷 배경 색상*/
+}
+
+#spatialAnalysisWidget{
+	max-height:100%;
+	overflow-y:auto;
+	scrollbar-width: none;
+	scrollbar-arrow-color: #2F5597;
+	scrollbar-3dlight-color: #2F5597;
+	scrollbar-darkshadow-color: #2F5597;
+	scrollbar-face-color: #2F5597;
+	scrollbar-hightlight-color: #2F5597;
+	scrollbar-shadow-color: #2F5597;
+	scrollbar-track-color: #2F5597;
+	
+}
