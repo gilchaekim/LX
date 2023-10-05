@@ -227,7 +227,7 @@
 }
 
 $sqrt_2: 1.41421356237;
-@mixin cssIcon2($icon, $size: 20px, $thick: 2px, $color: $text_color01, $icosize: 100%, $display: inline-block, $position: relative,$direction: 'up',$interval: 8px,$align:middle,$width:auto,$height:auto) {
+@mixin cssIcon2($icon, $size: 20px, $thick: 2px, $color: #000, $icosize: 100%, $display: inline-block, $position: relative,$direction: 'up',$interval: 8px,$align:middle,$width:auto,$height:auto) {
 
     @if $icon == plus {
         position: $position;
