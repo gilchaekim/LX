@@ -4094,7 +4094,80 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .secInner .switch_box {
   margin-left: 20px;
 }
+.secInner .sec_cont {
+  margin-top: 10px;
+}
+.secInner .decs {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+.secInner .btn_group {
+  display: flex;
+  gap: 10px;
+}
 
+.detail_setting_lv2 {
+  height: 100%;
+  width: 370px;
+  background: #fff;
+}
+.detail_setting_lv2 .sett_header {
+  height: 50px;
+  background: #8FAADC;
+  position: relative;
+}
+.detail_setting_lv2 .sett_header .title {
+  padding-left: 20px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 50px;
+}
+.detail_setting_lv2 .sett_header .ctr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail_setting_lv2 .sett_header .ctr span {
+  font-size: 0;
+  color: transparent;
+  display: block;
+}
+.detail_setting_lv2 .sett_header .ctr.del span {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 19px;
+  height: 19px;
+}
+.detail_setting_lv2 .sett_header .ctr.del span:before, .detail_setting_lv2 .sett_header .ctr.del span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+.detail_setting_lv2 .sett_header .ctr.del span:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.detail_setting_lv2 .sett_header .ctr.del span:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.detail_setting_lv2 .sett_header .ctr.toggle span {
+  width: 14px;
+  height: 26px;
+  background: url("../js/webapp/images/webapp/arr_r.png") no-repeat center;
+}
+.detail_setting_lv2 .sett_content.type1 {
+  padding: 10px;
+}
 .switch {
   display: inline-block;
   vertical-align: top;
@@ -4273,5 +4346,40 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .map_tab .tabs .del span:after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mui_checkbox {
+  position: relative;
+}
+.mui_checkbox.chk_btn input[type=checkbox] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.mui_checkbox.chk_btn input[type=checkbox]:checked + label {
+  background: #2F5597;
+  border-color: #2F5597;
+  color: #fff;
+}
+.mui_checkbox.chk_btn input[type=checkbox]:checked + label .ico {
+  background-image: url("../js/webapp/images/webapp/ico_time_on.png");
+}
+.mui_checkbox.chk_btn label {
+  border: 1px solid #E9E9E9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #555;
+  display: inline-flex;
+  align-items: center;
+  min-width: 86px;
+  justify-content: center;
+}
+.mui_checkbox.chk_btn label .ico {
+  width: 21px;
+  height: 21px;
+  background: url("../js/webapp/images/webapp/ico_time.png") no-repeat center;
+  font-size: 12px;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=webmap.css.map */

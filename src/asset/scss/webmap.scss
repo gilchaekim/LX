@@ -2,6 +2,7 @@
 @import "common/swiper";
 
 $url_common: "../js/webmap/images/";
+$url_common_app: "../js/webapp/images/";
 // $url_common: '../images/';
 
 // #alertDimmed,
@@ -4296,7 +4297,73 @@ $url_common: "../js/webmap/images/";
   .switch_box{
     margin-left: 20px;
   }
+  .sec_cont {
+    margin-top: 10px;
+  }
+  .decs {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+  }
+  .btn_group {
+    display: flex;
+    gap: 10px;
+  }
 }
+
+.detail_setting_lv2 {
+  height: 100%;
+  width: 370px;
+  background: #fff;
+  .sett_header {
+    height: 50px;
+    background: #8FAADC;
+    position: relative;
+    .title {
+      padding-left: 20px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 50px;
+    }
+    .ctr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 0;
+        color: transparent;
+        display: block;
+      }
+      &.del {
+        span {
+          @include cssIcon2("close", $size:19px, $color:#fff, $thick:1px);
+        }
+      }
+      &.toggle {
+        span {
+          width: 14px;
+          height: 26px;
+          background: url($url_common_app+"webapp/arr_r.png") no-repeat center;
+        }
+      }
+    }
+  }
+  .sett_content {
+
+    &.type1 {
+      padding: 10px;
+    }
+    .timeslider {
+      
+    }
+  }
+}
+
 
 .switch{
   display: inline-block;
@@ -4447,6 +4514,43 @@ $url_common: "../js/webmap/images/";
         @include cssIcon2("close", $size:12px, $color:#333);
         color: transparent;
         font-size: 0;
+      }
+    }
+  }
+}
+
+.mui_checkbox {
+  position: relative;
+  &.chk_btn {
+    input[type="checkbox"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      &:checked + label {
+        background: #2F5597;
+        border-color: #2F5597;
+        color: #fff;
+        .ico {
+          background-image: url($url_common_app+"webapp/ico_time_on.png");
+        }
+      }
+    }
+    label {
+      border: 1px solid #E9E9E9;
+      padding: 8px 12px;
+      border-radius: 4px;
+      color: #555;
+      display: inline-flex;
+      align-items: center;
+      min-width: 86px;
+      justify-content: center;
+      .ico {
+        width: 21px;
+        height: 21px;
+        background: url($url_common_app+"webapp/ico_time.png") no-repeat center;
+        font-size: 12px;
+        margin-right: 10px;
       }
     }
   }
