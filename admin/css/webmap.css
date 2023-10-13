@@ -216,6 +216,15 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
     transform: rotate(360deg);
   }
 }
+.webmap .styleBox-button {
+  width: 36px;
+  height: 36px;
+  color: transparent;
+  font-size: 0;
+  padding: 0;
+  background: url("../images/common/ico_style.png") no-repeat center;
+}
+
 .test_btn_list {
   position: absolute;
   top: 100px;
