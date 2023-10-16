@@ -1,19 +1,59 @@
 @import "common/mixins";
 @import "common/swiper";
 
-// $url_common: "../js/webmap/images/";
-// $url_common_app: "../js/webapp/images/";
-$url_common: '../images/';
-$url_common_app: '../images/';
+$url_common: "../js/webmap/images/";
+$url_common_app: "../js/webapp/images/";
+// $url_common: '../images/';
+// $url_common_app: '../images/';
 
 // #alertDimmed,
 // #alertPopBox {
 //   display: none !important;
 // }
 .popup {
+  &.new_pop {
+    .btnArea {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  }
   .cont {
     max-height: calc(100vh - 150px);
     overflow: auto;
+  }
+}
+.set_theme_wrap {
+  .group {
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #707070;
+  }
+  .num_list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    &.circle {
+      button {
+        border-radius: 50%;
+      }
+    }
+    &.rect2 {
+      button {
+        border-radius: 2px;
+      }
+    }
+    button {
+      width: 20px;
+      height: 20px;
+      background: #8FAADC;
+      color: #fff;
+      font-size: 10px;
+      &.active {
+        background: #2F5597;
+      }
+    }
   }
 }
 .webmap {
@@ -4299,6 +4339,216 @@ $url_common_app: '../images/';
 
 
 // 웹앱
+.map_timeslider {
+  background: rgba($color: #fff, $alpha: .9);
+  border-radius: 4px;
+  position: absolute;
+  left: 10%;
+  &.top {
+    top: 10%;
+    .layer_slider {
+      bottom: auto;
+      top: calc(100% + 20px);
+      &::after {
+        bottom: auto;
+        top: -5px;
+      }
+    }
+  }
+  &.bottom {
+    bottom: 10%;
+  }
+  .inset {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+  }
+  .ctr1 {
+    padding-right: 14px;
+    button {
+      width: 32px;
+      height: 32px;
+      background: url($url_common_app+"common/ico_play2.png") no-repeat center;
+      background-size: 100%;
+      &.pause {
+        background-image: url($url_common_app+"common/ico_pause2.svg");
+      }
+
+    }
+  }
+  .progress {
+    width: 296px;
+    height: 6px;
+    background: #CACACA;
+    position: relative;
+    .pt {
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      left: 0;
+      background: #436AEB;
+      min-width: 6px;
+      width: 100%;
+      i {
+        width: 6px;
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        background: #436AEB;
+        cursor: pointer;
+        right: 0;
+      }
+    }
+  }
+  .ctr2 {
+    display: flex;
+    padding-left: 12px;
+    gap: 8px;
+    button {
+      width: 26px;
+      height: 26px;
+      &.btn1 {
+        background: url($url_common_app+"common/ico_slider.png") no-repeat center;
+        background-size: 100%;
+        &.active {
+          background-image: url($url_common_app+"common/ico_slider_active.png");
+        }
+      }
+      &.btn2 {
+        background: url($url_common_app+"common/ico_config.png") no-repeat center;
+        background-size: 20px;
+        &.active {
+          background-image: url($url_common_app+"common/ico_config_active.png");
+        }
+      }
+    }
+  }
+  .btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    .btn {
+      justify-content: center;
+      &.grey2 {
+        background: #D7DADF;
+        color: #000;
+      }
+      &.blue2 {
+        background: #2F5597;
+        color: #fff;
+      }
+    }
+  }
+  .layer_slider {
+    position: absolute;
+    bottom: calc(100% + 20px);
+    right: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    &#speedSet {
+      &::after {
+        right: 28px;
+      }
+    }
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: block;
+      background: #fff;
+      transform: rotate(45deg);
+      position: absolute;
+      bottom: -5px;
+      right: 62px;
+    }
+    .close {
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      span {
+        @include cssIcon2("close", $size:14px, $color:#333, $thick:1px);
+      }
+    }
+    .title {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .set_speed {
+      width: 260px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        border-radius: 5px;
+        position: absolute;
+        top: 4px;
+        left: 5px;
+        right: 5px;
+        background: #CACACA;
+      }
+      button {
+        position: relative;
+        z-index: 2;
+        span {
+          display: block;
+          font-size: 10px;
+          color: #878787;
+          padding-top: 13px;
+          position: relative;
+          &::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: #436AEB;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -5px;
+          }
+        }
+      }
+    }
+    .form_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title {
+        margin-bottom: 0;
+        font-size: 12px;
+        padding-right: 6px;
+      }
+      & ~ .form_box {
+        margin-top: 10px;
+      }
+      .form_cont {
+        width: 160px;
+        display: flex;
+        gap: 4px;
+        .select, .input {
+          flex: 1;
+        }
+        select {
+          width: 100%;
+          height: 27px;
+        }
+        input {
+          width: 100%;
+          height: 27px;
+        }
+      }
+    }
+  }
+}
 .secInner {
   * {
     box-sizing: border-box;
@@ -4375,12 +4625,144 @@ $url_common_app: '../images/';
     }
   }
   .sett_content {
-
+    * {
+      box-sizing: border-box;
+    }
     &.type1 {
       padding: 10px;
     }
+    .btn {
+      min-width: 96px;
+    }
+    .btns {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      .btn {
+        justify-content: center;
+        &.grey2 {
+          background: #D7DADF;
+          color: #000;
+        }
+        &.blue2 {
+          background: #2F5597;
+          color: #fff;
+        }
+      }
+
+    }
+    .select_layout {
+      .mui_checkbox_group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .mui_checkbox {
+        position: relative;
+        label {
+          border: 2px solid transparent;
+          display: block;
+        }
+        input {
+          opacity: 0;
+          position: absolute;
+          width: 0;
+          height: 0;
+          &:checked + label {
+            border: 2px solid #333;
+          }
+        }
+      }
+    }
     .timeslider {
-      
+      .box{
+        border: 1px solid #707070;
+        .title {
+          font-family: "Pretendard Bold";
+          color: #333;
+          font-size: 16px;
+        }
+        padding: 20px;
+        & ~ .box{
+          margin-top: 20px;
+        }
+        .select_layout {
+          margin-top: 12px;
+        }
+      }
+      .time_box_wrap {
+        margin-bottom: 20px;
+      }
+      .time_box {
+        margin-top: 8px;
+        .inset {
+          display: flex;
+        }
+        .gage {
+          border: 1px solid #D9D9D9;
+          height: 8px;
+          width: 100%;
+          margin-top: 4px;
+          position: relative;
+          .bar {
+            position: absolute;
+            width: 2px;
+            background: #555555;
+            top: -4px;
+            bottom: -4px;
+            left: 0;
+          }
+        }
+        .data {
+          margin-top: 6px;
+        }
+        .ctr {
+          display: flex;
+          padding-left: 8px;
+          gap: 8px;
+          button {
+            width: 16px;
+            height: 16px;
+            &.play {
+              background: url($url_common_app+"common/ico_play.png") no-repeat center;
+              background-size: 100%;
+            }
+            &.stop {
+              background: url($url_common_app+"common/ico_stop.png") no-repeat center;
+              background-size: 100%;
+            }
+            &.pause {
+              background: url($url_common_app+"common/ico_pause.png") no-repeat center;
+              background-size: 100%;
+            }
+          }
+        }
+      }
+      .form_box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & ~ .form_box {
+          margin-top: 10px;
+        }
+        .form_cont {
+          width: 180px;
+          display: flex;
+          gap: 4px;
+          .select, .input {
+            flex: 1;
+          }
+          select {
+            width: 100%;
+            height: 27px;
+          }
+          input {
+            width: 100%;
+            height: 27px;
+          }
+        }
+      }
     }
   }
 }

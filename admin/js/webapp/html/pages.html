@@ -1660,7 +1660,8 @@
 			</div>
 			<!--// toc 1뎁스-->
 		</div>
-		<div class="detail_setting_lv2">
+		<!-- 신규 추가 [타임 슬라이더] -->
+		<div class="detail_setting_lv2" style="display: none;">
 			<div class="sett_header">
 				<p class="title">타임 슬라이더</p>
 				<button type="button" class="ctr del">
@@ -1673,12 +1674,119 @@
 			<div class="sett_content type1">
 				<div class="timeslider">
 					<div class="box">
-						
+						<div class="time_box_wrap">
+							<p class="title">타임 슬라이더 설정</p>
+							<div class="time_box">
+								<div class="inset">
+									<div class="gage">
+										<span class="bar"></span>
+									</div>
+									<div class="ctr">
+										<!-- 일시정지 pause -->
+										<button type="button" class="play"></button>
+										<button type="button" class="stop"></button>
+									</div>
+								</div>
+								<p class="data">FriDec 08 2023 09:00:00 GMT +0900 (한국표준시)</p>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">레이어 설정</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">Time slider test</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">칼럼 설정</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">시간</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">Date 타입</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">YYYY-MM-DD</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">Date 간격설정</p>
+							<div class="form_cont">
+								<span class="input">
+									<input type="text">
+								</span>
+								<span class="select">
+									<select id="">
+										<option value="">일</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">표출시간설정(초)</p>
+							<div class="form_cont">
+								<span class="input">
+									<input type="text">
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">누적 여부</p>
+							<div class="form_cont">
+								<div class="checkbox">
+									<input type="checkbox" id="all231" value="all">
+									<label for="all231"></label>
+								</div>
+							</div>
+						</div>
+						<div class="btns">
+							<button type="button" class="btn grey2">초기화</button>
+							<button type="button" class="btn blue2">생성</button>
+						</div>
 					</div>
 					<div class="box">
-
+						<p class="title">타임 슬라이더 위치</p>
+						<div class="select_layout">
+							<div class="mui_checkbox_group">
+								<span class="mui_checkbox">
+									<input type="radio" id="chk11" name="aaaa">
+									<label for="chk11">
+										<img src="../images/common/timeslider01.png" alt="">
+									</label>
+								</span>
+								<span class="mui_checkbox">
+									<input type="radio" id="chk12" name="aaaa">
+									<label for="chk12">
+										<img src="../images/common/timeslider02.png" alt="">
+									</label>
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<!-- 신규 추가 [타임 슬라이더] -->
+		<div class="detail_setting_lv2" style="display: ;">
+			<div class="sett_header">
+				<p class="title">섹션 설정</p>
+				<button type="button" class="ctr del">
+					<span>삭제</span>
+				</button>
+			</div>
+			<div class="sett_content type2">
+				
 			</div>
 		</div>
 		<div class="mapContainer inner_tab inner_bar">
@@ -1699,7 +1807,119 @@
 				<button type="button" class="arrows"><span>닫기</span></button>
 			</div>
 			<div class="mapArea">
-
+				<!-- 신규 추가 [ 타임슬라이더 ] -->
+				<!-- 슬라이더 위치 top, bottom -->
+				<div class="map_timeslider top" style="display: none;">
+					<div class="inset">
+						<div class="ctr1">
+							<button type="button" class="play"></button>
+						</div>
+						<div class="progress">
+							<span class="pt" style="width: 50%;">
+								<i></i>
+							</span>
+						</div>
+						<div class="ctr2">
+							<button type="button" class="btn1"></button>
+							<button type="button" class="btn2"></button>
+						</div>
+					</div>
+					<div class="layer_slider" id="timesliderSet" style="display:none;">
+						<p class="title">타임 슬라이더 설정</p>
+						<div class="form_box">
+							<p class="title">레이어 설정</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">Time slider test</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">칼럼 설정</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">시간</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">Date 타입</p>
+							<div class="form_cont">
+								<span class="select">
+									<select id="">
+										<option value="">YYYY-MM-DD</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">Date 간격설정</p>
+							<div class="form_cont">
+								<span class="input">
+									<input type="text">
+								</span>
+								<span class="select">
+									<select id="">
+										<option value="">일</option>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">표출시간설정(초)</p>
+							<div class="form_cont">
+								<span class="input">
+									<input type="text">
+								</span>
+							</div>
+						</div>
+						<div class="form_box">
+							<p class="title">누적 여부</p>
+							<div class="form_cont">
+								<div class="checkbox">
+									<input type="checkbox" id="all2321" value="all">
+									<label for="all2321"></label>
+								</div>
+							</div>
+						</div>
+						<div class="btns">
+							<button type="button" class="btn grey2">초기화</button>
+							<button type="button" class="btn blue2">생성</button>
+						</div>
+						<button type="button" class="close">
+							<span></span>
+						</button>
+					</div>
+					<div class="layer_slider" id="speedSet">
+						<p class="title">재생속도</p>
+						<div class="set_speed">
+							<button type="button">
+								<span>0.5X</span>
+							</button>
+							<button type="button">
+								<span>0.75X</span>
+							</button>
+							<button type="button">
+								<span>1X(기본)</span>
+							</button>
+							<button type="button">
+								<span>1.25X</span>
+							</button>
+							<button type="button">
+								<span>1.5X</span>
+							</button>
+						</div>
+						<button type="button" class="close">
+							<span></span>
+						</button>
+					</div>
+				</div>
+				
+					
 				<div id="newWebAppView" class="app" style="background:#fafafa;">
 					<div class="inner">
 						<div class="searchArea">
@@ -3127,6 +3347,82 @@
 		<!--//cont-->
 
 	</div>
+
+	<!-- 신규 추가 [섹션 테마 설정 v팝업] -->
+	<div class="popup new_pop theme_set" style="width:400px; display:none;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">섹션 테마 설정</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose"><span class="hidden" @click="hide()">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="inner section type02">
+				<div class="set_theme_wrap">
+					<div class="titSec"><strong>섹션 테마 선택</strong></div>
+					<div class="group">
+						<p class="sub_title">테마1_ 원형</p>
+						<div class="num_list circle">
+							<button type="button" class="active">1</button>
+							<button type="button">2</button>
+							<button type="button">3</button>
+							<button type="button">4</button>
+							<button type="button">5</button>
+							<button type="button">6</button>
+							<button type="button">7</button>
+							<button type="button">8</button>
+							<button type="button">9</button>
+							<button type="button">10</button>
+						</div>
+					</div>
+					<div class="group">
+						<p class="sub_title">테마1_ 사각형</p>
+						<div class="num_list rect">
+							<button type="button" class="active">1</button>
+							<button type="button">2</button>
+							<button type="button">3</button>
+							<button type="button">4</button>
+							<button type="button">5</button>
+							<button type="button">6</button>
+							<button type="button">7</button>
+							<button type="button">8</button>
+							<button type="button">9</button>
+							<button type="button">10</button>
+						</div>
+					</div>
+					<div class="group">
+						<p class="sub_title">테마1_ 사각형(둥근 모서리)</p>
+						<div class="num_list rect2">
+							<button type="button" class="active">1</button>
+							<button type="button">2</button>
+							<button type="button">3</button>
+							<button type="button">4</button>
+							<button type="button">5</button>
+							<button type="button">6</button>
+							<button type="button">7</button>
+							<button type="button">8</button>
+							<button type="button">9</button>
+							<button type="button">10</button>
+						</div>
+					</div>
+				</div>
+				<div class="btnArea">
+					<button type="button" class="btn black2 lg" @click="checkedFalseAll"><span>취소</span></button>
+					<button type="button" class="btn blue lg" @click="applyLandOption"><span>완료</span></button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+
+
+
+
 	<!-- modal 웹맵 검색 -->
 
 
