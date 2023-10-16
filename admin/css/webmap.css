@@ -216,11 +216,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
     transform: rotate(360deg);
   }
 }
-#alertDimmed,
-#alertPopBox {
-  display: none !important;
-}
-
 .popup .cont {
   max-height: calc(100vh - 150px);
   overflow: auto;
