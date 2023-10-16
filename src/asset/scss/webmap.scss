@@ -314,13 +314,6 @@ $url_common_app: '../images/';
     flex-wrap: wrap;
     .mui_checkbox {
       position: relative;
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(233, 233, 233, 1);
-      width: 55px;
-      height: 72px;
-      border-radius: 4px;
-      justify-content: center;
       input {
         opacity: 0;
         position: absolute;
@@ -341,8 +334,15 @@ $url_common_app: '../images/';
         }
       }
       label {
-
-        display: block;
+        border: 1px solid rgba(233, 233, 233, 1);
+        width: 55px;
+        height: 72px;
+        border-radius: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
         box-sizing: border-box;
         padding: 4px 0;
         text-align: center;
@@ -350,7 +350,7 @@ $url_common_app: '../images/';
         font-size: 10px;
         .ico {
           height: 26px;
-          display: block;
+          width: 100%;
           img {
             &:nth-child(2) {
               display: none;
@@ -358,7 +358,6 @@ $url_common_app: '../images/';
           }
         }
         .text {
-          display: block;
           margin-top: 4px;
           display: flex;
           align-items: center;

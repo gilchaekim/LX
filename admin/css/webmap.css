@@ -512,13 +512,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .select_widget .mui_checkbox_group .mui_checkbox {
   position: relative;
-  display: flex;
-  align-items: center;
-  border: 1px solid rgb(233, 233, 233);
-  width: 55px;
-  height: 72px;
-  border-radius: 4px;
-  justify-content: center;
 }
 .select_widget .mui_checkbox_group .mui_checkbox input {
   opacity: 0;
@@ -536,7 +529,15 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: inline;
 }
 .select_widget .mui_checkbox_group .mui_checkbox label {
-  display: block;
+  border: 1px solid rgb(233, 233, 233);
+  width: 55px;
+  height: 72px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
   box-sizing: border-box;
   padding: 4px 0;
   text-align: center;
@@ -544,13 +545,12 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .select_widget .mui_checkbox_group .mui_checkbox label .ico {
   height: 26px;
-  display: block;
+  width: 100%;
 }
 .select_widget .mui_checkbox_group .mui_checkbox label .ico img:nth-child(2) {
   display: none;
 }
 .select_widget .mui_checkbox_group .mui_checkbox label .text {
-  display: block;
   margin-top: 4px;
   display: flex;
   align-items: center;
