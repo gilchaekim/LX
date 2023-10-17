@@ -1,4 +1,4 @@
-import { getRows } from '../../core/margin';
+import { getRows } from '../../../core/margin';
 import {
     addClass,
     children,

@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.GCui = factory());
-})(this, (function () { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
+  typeof define === 'function' && define.amd ? define(['uikit-util'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.GCui = factory(global.uikitUtil));
+})(this, (function (uikitUtil) { 'use strict';
 
   function ownKeys(object, enumerableOnly) {
     var keys = Object.keys(object);
@@ -773,7 +773,7 @@
     }
     return true;
   }
-  function sortBy(array, prop) {
+  function sortBy$1(array, prop) {
     return array.slice().sort(function (_ref, _ref2) {
       var _ref$prop = _ref[prop],
         propA = _ref$prop === void 0 ? 0 : _ref$prop;
@@ -2172,7 +2172,7 @@
 
   // update strategy
   strats.update = function (parentVal, childVal) {
-    return sortBy(concatStrat(parentVal, isFunction(childVal) ? {
+    return sortBy$1(concatStrat(parentVal, isFunction(childVal) ? {
       read: childVal
     } : childVal), 'order');
   };
@@ -3169,7 +3169,7 @@
     assign: assign,
     last: last,
     each: each,
-    sortBy: sortBy,
+    sortBy: sortBy$1,
     sumBy: sumBy,
     uniqueBy: uniqueBy,
     clamp: clamp,
@@ -3358,7 +3358,7 @@
     };
     UICommon.prototype._initProps = function (props) {
       var key;
-      props = props || getProps(this.$options, this.$name);
+      props = props || getProps$1(this.$options, this.$name);
       for (key in props) {
         if (!isUndefined(props[key])) {
           this.$props[key] = props[key];
@@ -3531,7 +3531,7 @@
       }
     }
   }
-  function getProps(opts, name) {
+  function getProps$1(opts, name) {
     var data$1 = {};
     var _opts$args = opts.args,
       args = _opts$args === void 0 ? [] : _opts$args,
@@ -3688,7 +3688,7 @@
       return hyphenate(key);
     }).concat($name);
     var observer = new MutationObserver(function (records) {
-      var data = getProps($options, $name);
+      var data = getProps$1($options, $name);
       if (records.some(function (_ref3) {
         var attributeName = _ref3.attributeName;
         var prop = attributeName.replace('data-', '');
@@ -6203,7 +6203,7 @@
       })) : e.slideTo(r);
     } else e.slideTo(r);
   }
-  var slide = {
+  var slide$1 = {
     slideTo: slideTo,
     slideToLoop: slideToLoop,
     slideNext: slideNext,
@@ -6839,7 +6839,7 @@
       update: update,
       translate: translate,
       transition: transition,
-      slide: slide,
+      slide: slide$1,
       loop: loop,
       grabCursor: grabCursor,
       events: events$1,
@@ -11486,6 +11486,698 @@
     return value;
   }
 
+  function getRows(items) {
+    return sortBy(items, 'top', 'bottom');
+  }
+  function sortBy(items, startProp, endProp) {
+    var sorted = [[]];
+    var _iterator4 = _createForOfIteratorHelper(items),
+      _step4;
+    try {
+      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+        var el = _step4.value;
+        if (!isVisible(el)) {
+          continue;
+        }
+        var dim = getOffset(el);
+        for (var i = sorted.length - 1; i >= 0; i--) {
+          var current = sorted[i];
+          if (!current[0]) {
+            current.push(el);
+            break;
+          }
+          var startDim = void 0;
+          if (current[0].offsetParent === el.offsetParent) {
+            startDim = getOffset(current[0]);
+          } else {
+            dim = getOffset(el, true);
+            startDim = getOffset(current[0], true);
+          }
+          if (dim[startProp] >= startDim[endProp] - 1 && dim[startProp] !== startDim[startProp]) {
+            sorted.push([el]);
+            break;
+          }
+          if (dim[endProp] - 1 > startDim[startProp] || dim[startProp] === startDim[startProp]) {
+            current.push(el);
+            break;
+          }
+          if (i === 0) {
+            sorted.unshift([el]);
+            break;
+          }
+        }
+      }
+    } catch (err) {
+      _iterator4.e(err);
+    } finally {
+      _iterator4.f();
+    }
+    return sorted;
+  }
+  function getOffset(element) {
+    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var offsetTop = element.offsetTop,
+      offsetLeft = element.offsetLeft,
+      offsetHeight = element.offsetHeight,
+      offsetWidth = element.offsetWidth;
+    if (offset) {
+      var _offsetPosition = offsetPosition(element);
+      var _offsetPosition2 = _slicedToArray(_offsetPosition, 2);
+      offsetTop = _offsetPosition2[0];
+      offsetLeft = _offsetPosition2[1];
+    }
+    return {
+      top: offsetTop,
+      left: offsetLeft,
+      bottom: offsetTop + offsetHeight,
+      right: offsetLeft + offsetWidth
+    };
+  }
+
+  var clsLeave = 'uk-transition-leave';
+  var clsEnter = 'uk-transition-enter';
+  function fade(action, target, duration) {
+    var stagger = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+    var index = transitionIndex(target, true);
+    var propsIn = {
+      opacity: 1
+    };
+    var propsOut = {
+      opacity: 0
+    };
+    var wrapIndexFn = function wrapIndexFn(fn) {
+      return function () {
+        return index === transitionIndex(target) ? fn() : Promise.reject();
+      };
+    };
+    var leaveFn = wrapIndexFn(function () {
+      uikitUtil.addClass(target, clsLeave);
+      return Promise.all(getTransitionNodes(target).map(function (child, i) {
+        return new Promise(function (resolve) {
+          return setTimeout(function () {
+            return uikitUtil.Transition.start(child, propsOut, duration / 2, 'ease').then(resolve);
+          }, i * stagger);
+        });
+      })).then(function () {
+        return uikitUtil.removeClass(target, clsLeave);
+      });
+    });
+    var enterFn = wrapIndexFn(function () {
+      var oldHeight = uikitUtil.height(target);
+      uikitUtil.addClass(target, clsEnter);
+      action();
+      uikitUtil.css(uikitUtil.children(target), {
+        opacity: 0
+      });
+
+      // Ensure UIkit updates have propagated
+      return new Promise(function (resolve) {
+        return requestAnimationFrame(function () {
+          var nodes = uikitUtil.children(target);
+          var newHeight = uikitUtil.height(target);
+
+          // Ensure Grid cells do not stretch when height is applied
+          uikitUtil.css(target, 'alignContent', 'flex-start');
+          uikitUtil.height(target, oldHeight);
+          var transitionNodes = getTransitionNodes(target);
+          uikitUtil.css(nodes, propsOut);
+          var transitions = transitionNodes.map(function (child, i) {
+            return new Promise(function (resolve) {
+              return setTimeout(function () {
+                return uikitUtil.Transition.start(child, propsIn, duration / 2, 'ease').then(resolve);
+              }, i * stagger);
+            });
+          });
+          if (oldHeight !== newHeight) {
+            transitions.push(uikitUtil.Transition.start(target, {
+              height: newHeight
+            }, duration / 2 + transitionNodes.length * stagger, 'ease'));
+          }
+          Promise.all(transitions).then(function () {
+            uikitUtil.removeClass(target, clsEnter);
+            if (index === transitionIndex(target)) {
+              uikitUtil.css(target, {
+                height: '',
+                alignContent: ''
+              });
+              uikitUtil.css(nodes, {
+                opacity: ''
+              });
+              delete target.dataset.transition;
+            }
+            resolve();
+          });
+        });
+      });
+    });
+    return uikitUtil.hasClass(target, clsLeave) ? waitTransitionend(target).then(enterFn) : uikitUtil.hasClass(target, clsEnter) ? waitTransitionend(target).then(leaveFn).then(enterFn) : leaveFn().then(enterFn);
+  }
+  function transitionIndex(target, next) {
+    if (next) {
+      target.dataset.transition = 1 + transitionIndex(target);
+    }
+    return uikitUtil.toNumber(target.dataset.transition) || 0;
+  }
+  function waitTransitionend(target) {
+    return Promise.all(uikitUtil.children(target).filter(uikitUtil.Transition.inProgress).map(function (el) {
+      return new Promise(function (resolve) {
+        return uikitUtil.once(el, 'transitionend transitioncanceled', resolve);
+      });
+    }));
+  }
+  function getTransitionNodes(target) {
+    return getRows(uikitUtil.children(target)).reduce(function (nodes, row) {
+      return nodes.concat(uikitUtil.sortBy(row.filter(function (el) {
+        return uikitUtil.isInView(el);
+      }), 'offsetLeft'));
+    }, []);
+  }
+
+  function slide (action, target, duration) {
+    return new Promise(function (resolve) {
+      return requestAnimationFrame(function () {
+        var nodes = children(target);
+
+        // Get current state
+        var currentProps = nodes.map(function (el) {
+          return getProps(el, true);
+        });
+        var targetProps = css(target, ['height', 'padding']);
+
+        // Cancel previous animations
+        Transition.cancel(target);
+        nodes.forEach(Transition.cancel);
+        reset(target);
+
+        // Adding, sorting, removing nodes
+        action();
+
+        // Find new nodes
+        nodes = nodes.concat(children(target).filter(function (el) {
+          return !includes(nodes, el);
+        }));
+
+        // Wait for update to propagate
+        Promise.resolve().then(function () {
+          // Force update
+          fastdom.flush();
+
+          // Get new state
+          var targetPropsTo = css(target, ['height', 'padding']);
+          var _getTransitionProps = getTransitionProps(target, nodes, currentProps),
+            _getTransitionProps2 = _slicedToArray(_getTransitionProps, 2),
+            propsTo = _getTransitionProps2[0],
+            propsFrom = _getTransitionProps2[1];
+
+          // Reset to previous state
+          nodes.forEach(function (el, i) {
+            return propsFrom[i] && css(el, propsFrom[i]);
+          });
+          css(target, _objectSpread2({
+            display: 'block'
+          }, targetProps));
+
+          // Start transitions on next frame
+          requestAnimationFrame(function () {
+            var transitions = nodes.map(function (el, i) {
+              return parent(el) === target && Transition.start(el, propsTo[i], duration, 'ease');
+            }).concat(Transition.start(target, targetPropsTo, duration, 'ease'));
+            Promise.all(transitions).then(function () {
+              nodes.forEach(function (el, i) {
+                return parent(el) === target && css(el, 'display', propsTo[i].opacity === 0 ? 'none' : '');
+              });
+              reset(target);
+            }, noop).then(resolve);
+          });
+        });
+      });
+    });
+  }
+  function getProps(el, opacity) {
+    var zIndex = css(el, 'zIndex');
+    return isVisible(el) ? _objectSpread2({
+      display: '',
+      opacity: opacity ? css(el, 'opacity') : '0',
+      pointerEvents: 'none',
+      position: 'absolute',
+      zIndex: zIndex === 'auto' ? index(el) : zIndex
+    }, getPositionWithMargin(el)) : false;
+  }
+  function getTransitionProps(target, nodes, currentProps) {
+    var propsTo = nodes.map(function (el, i) {
+      return parent(el) && i in currentProps ? currentProps[i] ? isVisible(el) ? getPositionWithMargin(el) : {
+        opacity: 0
+      } : {
+        opacity: isVisible(el) ? 1 : 0
+      } : false;
+    });
+    var propsFrom = propsTo.map(function (props, i) {
+      var from = parent(nodes[i]) === target && (currentProps[i] || getProps(nodes[i]));
+      if (!from) {
+        return false;
+      }
+      if (!props) {
+        delete from.opacity;
+      } else if (!('opacity' in props)) {
+        var opacity = from.opacity;
+        if (opacity % 1) {
+          props.opacity = 1;
+        } else {
+          delete from.opacity;
+        }
+      }
+      return from;
+    });
+    return [propsTo, propsFrom];
+  }
+  function reset(el) {
+    css(el.children, {
+      height: '',
+      left: '',
+      opacity: '',
+      pointerEvents: '',
+      position: '',
+      top: '',
+      marginTop: '',
+      marginLeft: '',
+      transform: '',
+      width: '',
+      zIndex: ''
+    });
+    css(el, {
+      height: '',
+      display: '',
+      padding: ''
+    });
+  }
+  function getPositionWithMargin(el) {
+    var _offset = offset(el),
+      height = _offset.height,
+      width = _offset.width;
+    var _position = position(el),
+      top = _position.top,
+      left = _position.left;
+    var _css = css(el, ['marginTop', 'marginLeft']),
+      marginLeft = _css.marginLeft,
+      marginTop = _css.marginTop;
+    return {
+      top: top,
+      left: left,
+      height: height,
+      width: width,
+      marginLeft: marginLeft,
+      marginTop: marginTop,
+      transform: ''
+    };
+  }
+
+  var Animate = {
+    props: {
+      duration: Number,
+      animation: Boolean
+    },
+    data: {
+      duration: 50,
+      animation: 'slide'
+    },
+    methods: {
+      animate: function animate(action) {
+        var _this = this;
+        var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.$el;
+        var name = this.animation;
+        var animationFn = name === 'fade' ? fade : name === 'delayed-fade' ? function () {
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          return fade.apply(void 0, args.concat([40]));
+        } : name ? slide : function () {
+          action();
+          return Promise.resolve();
+        };
+        return animationFn(action, target, this.duration).then(function () {
+          return _this.$update(target, 'resize');
+        }, noop);
+      }
+    }
+  };
+
+  var sortable = {
+    mixins: [Class, Animate],
+    props: {
+      group: String,
+      threshold: Number,
+      clsItem: String,
+      clsPlaceholder: String,
+      clsDrag: String,
+      clsDragState: String,
+      clsBase: String,
+      clsNoDrag: String,
+      clsEmpty: String,
+      clsCustom: String,
+      handle: String
+    },
+    data: {
+      group: false,
+      threshold: 5,
+      clsItem: 'mui-sortable-item',
+      clsPlaceholder: 'mui-sortable-placeholder',
+      clsDrag: 'mui-sortable-drag',
+      clsDragState: 'mui-drag',
+      clsBase: 'mui-sortable',
+      clsNoDrag: 'mui-sortable-nodrag',
+      clsEmpty: 'mui-sortable-empty',
+      clsCustom: '',
+      handle: false,
+      pos: {}
+    },
+    created: function created() {
+      var _this = this;
+      var _loop = function _loop() {
+        var key = _arr[_i];
+        var fn = _this[key];
+        _this[key] = function (e) {
+          assign(_this.pos, getEventPos(e));
+          fn(e);
+        };
+      };
+      for (var _i = 0, _arr = ['init', 'start', 'move', 'end']; _i < _arr.length; _i++) {
+        _loop();
+      }
+    },
+    events: {
+      name: pointerDown,
+      passive: false,
+      handler: 'init'
+    },
+    computed: {
+      target: function target() {
+        return (this.$el.tBodies || [this.$el])[0];
+      },
+      items: function items() {
+        return children(this.target);
+      },
+      isEmpty: {
+        get: function get() {
+          return isEmpty$1(this.items);
+        },
+        watch: function watch(empty) {
+          toggleClass(this.target, this.clsEmpty, empty);
+        },
+        immediate: true
+      },
+      handles: {
+        get: function get(_ref, el) {
+          var handle = _ref.handle;
+          return handle ? $$(handle, el) : this.items;
+        },
+        watch: function watch(handles, prev) {
+          css(prev, {
+            touchAction: '',
+            userSelect: ''
+          });
+          css(handles, {
+            touchAction: hasTouch ? 'none' : '',
+            userSelect: 'none'
+          }); // touchAction set to 'none' causes a performance drop in Chrome 80
+        },
+
+        immediate: true
+      }
+    },
+    update: {
+      write: function write(data) {
+        if (!this.drag || !parent(this.placeholder)) {
+          return;
+        }
+        var _this$pos = this.pos,
+          x = _this$pos.x,
+          y = _this$pos.y,
+          _this$origin = this.origin,
+          offsetTop = _this$origin.offsetTop,
+          offsetLeft = _this$origin.offsetLeft,
+          placeholder = this.placeholder;
+        css(this.drag, {
+          top: y - offsetTop,
+          left: x - offsetLeft
+        });
+        var sortable = this.getSortable(document.elementFromPoint(x, y));
+        if (!sortable) {
+          return;
+        }
+        var items = sortable.items;
+        if (items.some(Transition.inProgress)) {
+          return;
+        }
+        var target = findTarget(items, {
+          x: x,
+          y: y
+        });
+        if (items.length && (!target || target === placeholder)) {
+          return;
+        }
+        var previous = this.getSortable(placeholder);
+        var insertTarget = findInsertTarget(sortable.target, target, placeholder, x, y, sortable === previous && data.moved !== target);
+        if (insertTarget === false) {
+          return;
+        }
+        if (insertTarget && placeholder === insertTarget) {
+          return;
+        }
+        if (sortable !== previous) {
+          previous.remove(placeholder);
+          data.moved = target;
+        } else {
+          delete data.moved;
+        }
+        sortable.insert(placeholder, insertTarget);
+        this.touched.add(sortable);
+      },
+      events: ['move']
+    },
+    methods: {
+      init: function init(e) {
+        var target = e.target,
+          button = e.button,
+          defaultPrevented = e.defaultPrevented;
+        var _this$items$filter = this.items.filter(function (el) {
+            return within(target, el);
+          }),
+          _this$items$filter2 = _slicedToArray(_this$items$filter, 1),
+          placeholder = _this$items$filter2[0];
+        if (!placeholder || defaultPrevented || button > 0 || isInput(target) || within(target, ".".concat(this.clsNoDrag)) || this.handle && !within(target, this.handle)) {
+          return;
+        }
+        e.preventDefault();
+        this.touched = new Set([this]);
+        this.placeholder = placeholder;
+        this.origin = _objectSpread2({
+          target: target,
+          index: index(placeholder)
+        }, this.pos);
+        on(document, pointerMove, this.move);
+        on(document, pointerUp, this.end);
+        if (!this.threshold) {
+          this.start(e);
+        }
+      },
+      start: function start(e) {
+        this.drag = appendDrag(this.$container, this.placeholder);
+        var _this$placeholder$get = this.placeholder.getBoundingClientRect(),
+          left = _this$placeholder$get.left,
+          top = _this$placeholder$get.top;
+        assign(this.origin, {
+          offsetLeft: this.pos.x - left,
+          offsetTop: this.pos.y - top
+        });
+        addClass(this.drag, this.clsDrag, this.clsCustom);
+        addClass(this.placeholder, this.clsPlaceholder);
+        addClass(this.items, this.clsItem);
+        addClass(document.documentElement, this.clsDragState);
+        trigger(this.$el, 'start', [this, this.placeholder]);
+        trackScroll(this.pos);
+        this.move(e);
+      },
+      move: function move(e) {
+        if (this.drag) {
+          this.$emit('move');
+        } else if (Math.abs(this.pos.x - this.origin.x) > this.threshold || Math.abs(this.pos.y - this.origin.y) > this.threshold) {
+          this.start(e);
+        }
+      },
+      end: function end() {
+        off(document, pointerMove, this.move);
+        off(document, pointerUp, this.end);
+        if (!this.drag) {
+          return;
+        }
+        untrackScroll();
+        var sortable = this.getSortable(this.placeholder);
+        if (this === sortable) {
+          if (this.origin.index !== index(this.placeholder)) {
+            trigger(this.$el, 'moved', [this, this.placeholder]);
+          }
+        } else {
+          trigger(sortable.$el, 'added', [sortable, this.placeholder]);
+          trigger(this.$el, 'removed', [this, this.placeholder]);
+        }
+        trigger(this.$el, 'stop', [this, this.placeholder]);
+        remove$1(this.drag);
+        this.drag = null;
+        var _iterator = _createForOfIteratorHelper(this.touched),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var _step$value = _step.value,
+              clsPlaceholder = _step$value.clsPlaceholder,
+              clsItem = _step$value.clsItem;
+            var _iterator2 = _createForOfIteratorHelper(this.touched),
+              _step2;
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                var _sortable = _step2.value;
+                removeClass(_sortable.items, clsPlaceholder, clsItem);
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        this.touched = null;
+        removeClass(document.documentElement, this.clsDragState);
+      },
+      insert: function insert(element, target) {
+        var _this2 = this;
+        addClass(this.items, this.clsItem);
+        var insert = function insert() {
+          return target ? before(target, element) : append(_this2.target, element);
+        };
+        this.animate(insert);
+      },
+      remove: function remove(element) {
+        if (!within(element, this.target)) {
+          return;
+        }
+        this.animate(function () {
+          return remove$1(element);
+        });
+      },
+      getSortable: function getSortable(element) {
+        do {
+          var sortable = this.$getComponent(element, 'sortable');
+          if (sortable && (sortable === this || this.group !== false && sortable.group === this.group)) {
+            return sortable;
+          }
+        } while (element = parent(element));
+      }
+    }
+  };
+  var trackTimer;
+  function trackScroll(pos) {
+    var last = Date.now();
+    trackTimer = setInterval(function () {
+      var x = pos.x,
+        y = pos.y;
+      y += document.scrollingElement.scrollTop;
+      var dist = (Date.now() - last) * 0.3;
+      last = Date.now();
+      scrollParents(document.elementFromPoint(x, pos.y), /auto|scroll/).reverse().some(function (scrollEl) {
+        var scroll = scrollEl.scrollTop,
+          scrollHeight = scrollEl.scrollHeight;
+        var _offsetViewport = offsetViewport(scrollEl),
+          top = _offsetViewport.top,
+          bottom = _offsetViewport.bottom,
+          height = _offsetViewport.height;
+        if (top < y && top + 35 > y) {
+          scroll -= dist;
+        } else if (bottom > y && bottom - 35 < y) {
+          scroll += dist;
+        } else {
+          return;
+        }
+        if (scroll > 0 && scroll < scrollHeight - height) {
+          scrollEl.scrollTop = scroll;
+          return true;
+        }
+      });
+    }, 15);
+  }
+  function untrackScroll() {
+    clearInterval(trackTimer);
+  }
+  function appendDrag(container, element) {
+    var clone = append(container, element.outerHTML.replace(/(^<)(?:li|tr)|(?:li|tr)(\/>$)/g, '$1div$2'));
+    css(clone, 'margin', '0', 'important');
+    css(clone, {
+      boxSizing: 'border-box',
+      width: element.offsetWidth,
+      height: element.offsetHeight,
+      padding: css(element, 'padding')
+    });
+    height(clone.firstElementChild, height(element.firstElementChild));
+    return clone;
+  }
+  function findTarget(items, point) {
+    return items[findIndex(items, function (item) {
+      return pointInRect(point, item.getBoundingClientRect());
+    })];
+  }
+  function findInsertTarget(list, target, placeholder, x, y, sameList) {
+    if (!children(list).length) {
+      return;
+    }
+    var rect = target.getBoundingClientRect();
+    if (!sameList) {
+      if (!isHorizontal(list, placeholder)) {
+        return y < rect.top + rect.height / 2 ? target : target.nextElementSibling;
+      }
+      return target;
+    }
+    var placeholderRect = placeholder.getBoundingClientRect();
+    var sameRow = linesIntersect([rect.top, rect.bottom], [placeholderRect.top, placeholderRect.bottom]);
+    var pointerPos = sameRow ? x : y;
+    var lengthProp = sameRow ? 'width' : 'height';
+    var startProp = sameRow ? 'left' : 'top';
+    var endProp = sameRow ? 'right' : 'bottom';
+    var diff = placeholderRect[lengthProp] < rect[lengthProp] ? rect[lengthProp] - placeholderRect[lengthProp] : 0;
+    if (placeholderRect[startProp] < rect[startProp]) {
+      if (diff && pointerPos < rect[startProp] + diff) {
+        return false;
+      }
+      return target.nextElementSibling;
+    }
+    if (diff && pointerPos > rect[endProp] - diff) {
+      return false;
+    }
+    return target;
+  }
+  function isHorizontal(list, placeholder) {
+    var single = children(list).length === 1;
+    if (single) {
+      append(list, placeholder);
+    }
+    var items = children(list);
+    var isHorizontal = items.some(function (el, i) {
+      var rectA = el.getBoundingClientRect();
+      return items.slice(i + 1).some(function (el) {
+        var rectB = el.getBoundingClientRect();
+        return !linesIntersect([rectA.left, rectA.right], [rectB.left, rectB.right]);
+      });
+    });
+    if (single) {
+      remove$1(placeholder);
+    }
+    return isHorizontal;
+  }
+  function linesIntersect(lineA, lineB) {
+    return lineA[1] > lineB[0] && lineB[1] > lineA[0];
+  }
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -11594,6 +12286,7 @@
     Scrollbar: scrollbar,
     Datepicker: datepicker,
     Sticky: sticky,
+    Sortable: sortable,
     Worklists: worklists
   });
 

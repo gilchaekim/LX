@@ -57,7 +57,7 @@
 	<link rel="stylesheet" href="../js/odf/odf.css" />
 	<link rel="stylesheet" href="../js/oui/oui.css" />
 	<link rel="stylesheet" href="../css/share.css" />
-
+	
 	<!-- widget css -->
 	<link rel="stylesheet" href="../css/widgets/modal.css" />
 	<link rel="stylesheet" href="../css/widgets/toc.css" />
@@ -190,6 +190,14 @@
 	<script type="text/javascript" src="../js/oui/uiCustom.js" defer></script>
 	<script type="text/javascript" src="../js/oui/api.js"></script>
 	<script type="text/javascript" src="../js/oui/widget.js"></script>
+
+
+
+	<script type="text/javascript" src="../../index.js"></script>
+
+
+
+
 
 
 </head>
@@ -1778,15 +1786,86 @@
 			</div>
 		</div>
 		<!-- 신규 추가 [타임 슬라이더] -->
-		<div class="detail_setting_lv2" style="display: ;">
+		<div class="detail_setting_lv2 set_section" style="display: ;">
 			<div class="sett_header">
 				<p class="title">섹션 설정</p>
 				<button type="button" class="ctr del">
 					<span>삭제</span>
 				</button>
 			</div>
-			<div class="sett_content type2">
-				
+			<div class="sett_content type1">
+				<div class="add_tour">
+					<div class="add">
+						<span class="input">
+							<input type="text" placeholder="투어명을 입력해주세요">
+						</span>
+						<span class="btn_se">
+							<button type="button">
+								<span>추가</span>
+							</button>
+						</span>						
+					</div>
+					<div class="tour_list">
+						<ul mui-sortable="handle: .btn_drag">
+							<li>
+								<div class="box">
+									<div class="btn_drag">
+										<span class="button drag">이동</span>
+									</div>
+									<div class="text">
+										<input type="text">
+									</div>									
+									<div class="ctr">
+										<button type="button" class="write">수정</button>
+										<button type="button" class="del">삭제</button>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="box">
+									<div class="btn_drag">
+										<span class="button drag">이동</span>
+									</div>
+									<div class="text">
+										<p class="title">투어2</p>
+									</div>									
+									<div class="ctr">
+										<button type="button" class="write">수정</button>
+										<button type="button" class="del">삭제</button>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="box">
+									<div class="btn_drag">
+										<span class="button drag">이동</span>
+									</div>
+									<div class="text">
+										<p class="title">투어3</p>
+									</div>									
+									<div class="ctr">
+										<button type="button" class="write">수정</button>
+										<button type="button" class="del">삭제</button>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="box">
+									<div class="btn_drag">
+										<span class="button drag">이동</span>
+									</div>
+									<div class="text">
+										<p class="title">투어4</p>
+									</div>									
+									<div class="ctr">
+										<button type="button" class="write">수정</button>
+										<button type="button" class="del">삭제</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="mapContainer inner_tab inner_bar">
@@ -1807,6 +1886,69 @@
 				<button type="button" class="arrows"><span>닫기</span></button>
 			</div>
 			<div class="mapArea">
+
+				<!-- 신규 추가 [ 텝 컨텐츠 ] -->
+				<!-- <div class="details_tab_cont">
+					
+				</div> -->
+
+				<!-- 신규 추가 [ 섹션 설정 상세 ] -->
+				<div class="detail_setting_lv2 set_section" style="display: ;">
+					<div class="inset">
+						<div class="sett_header">
+							<p class="title">섹션 설정</p>
+							<button type="button" class="ctr del">
+								<span>삭제</span>
+							</button>
+						</div>
+						<div class="sett_content type1 grid_tour layout2">
+							<div class="theme_list">
+								<div class="inner">
+									<button type="button" class="active">1</button>
+									<button type="button">2</button>
+									<button type="button">3</button>
+									<button type="button">4</button>
+									<button type="button">5</button>
+								</div>
+							</div>
+							<div class="add_tour">
+								<div class="add">
+									<span class="input">
+										<input type="text" placeholder="투어명을 입력해주세요">
+									</span>
+									<span class="btn_se point">
+										<button type="button">
+											<span>위치지정</span>
+										</button>
+									</span>						
+								</div>
+								<div class="theme_list">
+									<div class="inner">
+										<button type="button" class="active">1</button>
+										<button type="button">2</button>
+										<button type="button">3</button>
+										<button type="button">4</button>
+										<button type="button">5</button>
+									</div>
+								</div>
+								<div class="editer_sec">
+									 
+								</div>
+								<div class="btns">
+									<button type="button" class="btn blue2 lg">
+										<span>저장</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 신규 추가 [섹선 포인터] -->
+				<!-- <button type="button" class="pointer active" style="position: absolute;top:10%;left:80%">1</button>
+				<button type="button" class="pointer" style="position: absolute;top:10%;left:90%">2</button> -->
+
+
+
 				<!-- 신규 추가 [ 타임슬라이더 ] -->
 				<!-- 슬라이더 위치 top, bottom -->
 				<div class="map_timeslider top" style="display: none;">

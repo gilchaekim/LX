@@ -42,4 +42,20 @@
     transform: translateY(0);
   }
 }
+.mui-drag, .mui-drag * {
+  cursor: move;
+}
+
+.mui-drag iframe {
+  pointer-events: none;
+}
+
+.mui-dragover {
+  box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+}
+
+.mui-sortable-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
 /*# sourceMappingURL=animation.css.map */

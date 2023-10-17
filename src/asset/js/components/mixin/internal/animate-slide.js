@@ -10,7 +10,7 @@ import {
     parent,
     position,
     Transition,
-} from 'uikit-util';
+} from '../../../util/';
 
 export default function (action, target, duration) {
     return new Promise((resolve) =>

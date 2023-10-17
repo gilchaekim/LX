@@ -216,6 +216,41 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
     transform: rotate(360deg);
   }
 }
+.mui-drag {
+  cursor: move;
+}
+
+.mui-sortable-drag {
+  position: absolute;
+}
+
+.mui-sortable {
+  position: relative;
+}
+
+.mui-sortable > :last-child {
+  margin-bottom: 0;
+}
+
+.mui-sortable-drag {
+  position: fixed !important;
+  z-index: 1050 !important;
+  pointer-events: none;
+}
+
+.mui-sortable-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mui-sortable-empty {
+  min-height: 50px;
+}
+
+.mui-sortable-handle:hover {
+  cursor: move;
+}
+
 .popup.new_pop .btnArea {
   display: flex;
   justify-content: center;
@@ -225,6 +260,176 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .popup .cont {
   max-height: calc(100vh - 150px);
   overflow: auto;
+}
+
+.grid_tour {
+  display: flex;
+  background: #F6F9FE;
+  flex-direction: row-reverse;
+}
+.grid_tour.layout2 > .theme_list {
+  display: none;
+}
+.grid_tour.layout2 .add_tour .theme_list {
+  padding: 10px 0 0;
+  display: block;
+}
+.grid_tour.layout2 .add_tour .theme_list .inner {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.grid_tour.layout2 .editer_sec {
+  height: calc(100% - 180px) !important;
+}
+.grid_tour .add_tour {
+  width: 100%;
+}
+.grid_tour .add_tour .editer_sec {
+  background: #fff;
+  margin-top: 10px;
+  height: calc(100% - 150px);
+}
+.grid_tour .add_tour .theme_list {
+  display: none;
+}
+.grid_tour .theme_list .inner {
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+.grid_tour .theme_list button {
+  width: 30px;
+  height: 30px;
+  background: #8FAADC;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  font-family: "Pretendard Bold";
+}
+.grid_tour .theme_list button.active {
+  background: #2F5597;
+}
+
+.set_section .add_tour .add, .mui-sortable-drag .add_tour .add {
+  display: flex;
+}
+.set_section .add_tour .add .input, .mui-sortable-drag .add_tour .add .input {
+  width: 100%;
+}
+.set_section .add_tour .add .input input, .mui-sortable-drag .add_tour .add .input input {
+  width: 100%;
+}
+.set_section .add_tour .add .btn_se, .mui-sortable-drag .add_tour .add .btn_se {
+  padding-left: 10px;
+}
+.set_section .add_tour .add .btn_se.point button, .mui-sortable-drag .add_tour .add .btn_se.point button {
+  text-align: center;
+  width: 80px;
+}
+.set_section .add_tour .add .btn_se.point button span, .mui-sortable-drag .add_tour .add .btn_se.point button span {
+  font-size: 12px;
+  width: 100%;
+  color: #000;
+  padding-left: 18px;
+  white-space: nowrap;
+  display: block;
+  background: url("../js/webapp/images/common/ico_pointer2.svg") no-repeat 10px center;
+  background-size: 12px;
+  line-height: 38px;
+  height: auto;
+}
+.set_section .add_tour .add .btn_se.point button span:before, .set_section .add_tour .add .btn_se.point button span::after, .mui-sortable-drag .add_tour .add .btn_se.point button span:before, .mui-sortable-drag .add_tour .add .btn_se.point button span::after {
+  display: none;
+}
+.set_section .add_tour .add .btn_se button, .mui-sortable-drag .add_tour .add .btn_se button {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid #2F5597;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.set_section .add_tour .add .btn_se button span, .mui-sortable-drag .add_tour .add .btn_se button span {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+  color: transparent;
+  font-size: 0;
+}
+.set_section .add_tour .add .btn_se button span:before, .set_section .add_tour .add .btn_se button span:after, .mui-sortable-drag .add_tour .add .btn_se button span:before, .mui-sortable-drag .add_tour .add .btn_se button span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #2F5597;
+}
+.set_section .add_tour .add .btn_se button span:before, .mui-sortable-drag .add_tour .add .btn_se button span:before {
+  transform: translate(-50%, -50%);
+}
+.set_section .add_tour .add .btn_se button span:after, .mui-sortable-drag .add_tour .add .btn_se button span:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.set_section .add_tour .tour_list, .mui-sortable-drag .add_tour .tour_list {
+  margin-top: 20px;
+}
+.set_section .add_tour .tour_list > ul > li ~ li, .mui-sortable-drag .add_tour .tour_list > ul > li ~ li {
+  margin-top: 10px;
+}
+.set_section .add_tour .btns, .mui-sortable-drag .add_tour .btns {
+  justify-content: end !important;
+  margin-top: 20px;
+}
+.set_section .box, .mui-sortable-drag .box {
+  border: 1px solid #E9E9E9;
+  height: 38px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.set_section .box .text, .mui-sortable-drag .box .text {
+  width: 100%;
+}
+.set_section .box input, .mui-sortable-drag .box input {
+  height: 28px;
+  width: 100%;
+}
+.set_section .box button, .set_section .box .button, .mui-sortable-drag .box button, .mui-sortable-drag .box .button {
+  width: 28px;
+  height: 28px;
+  color: transparent;
+  font-size: 0;
+  display: block;
+}
+.set_section .box .btn_drag, .mui-sortable-drag .box .btn_drag {
+  padding-right: 8px;
+  cursor: pointer;
+}
+.set_section .box .ctr, .mui-sortable-drag .box .ctr {
+  display: flex;
+  padding-left: 8px;
+}
+.set_section .box .drag, .mui-sortable-drag .box .drag {
+  background: url("../js/webapp/images/common/ico_drag.png") no-repeat center;
+}
+.set_section .box .write, .mui-sortable-drag .box .write {
+  background: url("../js/webapp/images/ico/ico-sort-edit.png") no-repeat center;
+}
+.set_section .box .del, .mui-sortable-drag .box .del {
+  background: url("../js/webapp/images/ico/ico-sort-remove.png") no-repeat center;
 }
 
 .set_theme_wrap .group {
@@ -4384,6 +4589,33 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   gap: 10px;
 }
 
+.mapArea .inset {
+  width: 370px;
+  height: 100%;
+}
+.mapArea .inset .input {
+  width: auto !important;
+}
+.mapArea .pointer {
+  width: 20px;
+  height: 30px;
+  line-height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background: url("../js/webapp/images/common/ico_pointer.svg") no-repeat center;
+  background-size: 100%;
+  background-size: 100%;
+  font-family: "Pretendard Bold";
+  color: #000;
+  font-size: 10px;
+  padding-top: 5px;
+}
+.mapArea .pointer.active {
+  background-image: url("../js/webapp/images/common/ico_pointer3.svg");
+}
+
 .detail_setting_lv2 {
   height: 100%;
   width: 370px;
@@ -4441,6 +4673,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   width: 14px;
   height: 26px;
   background: url("../js/webapp/images/webapp/arr_r.png") no-repeat center;
+}
+.detail_setting_lv2 .sett_content {
+  height: calc(100% - 50px);
+  overflow: auto;
 }
 .detail_setting_lv2 .sett_content * {
   box-sizing: border-box;
