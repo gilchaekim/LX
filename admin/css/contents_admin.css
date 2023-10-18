@@ -4041,6 +4041,45 @@ button, label {
   transform: rotate(180deg);
   margin-left: 6px;
 }
+.goto_link .sub_menu_lists {
+  margin-top: 15px;
+  max-height: calc(100% - 60px);
+  overflow: auto;
+}
+.goto_link .sub_menu_lists::-webkit-scrollbar {
+  width: 2px;
+}
+.goto_link .sub_menu_lists::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.goto_link .sub_menu_lists a {
+  display: block;
+  background: none;
+  color: #fff;
+  border-radius: 0;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 0 0 24px;
+  position: relative;
+}
+.goto_link .sub_menu_lists a:hover {
+  color: #1D386C;
+}
+.goto_link .sub_menu_lists a:hover::after {
+  background: #1D386C;
+}
+.goto_link .sub_menu_lists a::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  left: 0;
+}
 
 .footer {
   display: flex;

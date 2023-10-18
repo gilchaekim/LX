@@ -379,6 +379,15 @@
 									<main-tab inline-template ref="mainTab">
 										<div class="tabCont active">
 											<span>화면1</span>
+											<!-- 신규 추가 [텝 네비] -->
+											<div class="sub_tab_nav">
+												<button type="button" class="active">
+													<span>텝1</span>
+												</button>
+												<button type="button">
+													<span>텝2</span>
+												</button>
+											</div>
 											<!--tabContWrap-->
 											<div class="tabContWrap type06">
 												<!--tabNav-->
@@ -1785,8 +1794,8 @@
 				</div>
 			</div>
 		</div>
-		<!-- 신규 추가 [타임 슬라이더] -->
-		<div class="detail_setting_lv2 set_section" style="display: ;">
+		<!-- 신규 추가 [섹션 설정] -->
+		<div class="detail_setting_lv2 set_section" style="display: none;">
 			<div class="sett_header">
 				<p class="title">섹션 설정</p>
 				<button type="button" class="ctr del">
@@ -1868,6 +1877,134 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- 신규 추가 [정보창] -->
+		<div class="detail_setting_lv2 set_section" style="display: ;">
+			<div class="sett_header">
+				<p class="title">정보창</p>
+				<button type="button" class="ctr del">
+					<span>삭제</span>
+				</button>
+			</div>
+			<div class="sett_content type1">
+				<div class="data_section">
+					<div style="display: none;">
+						<p class="title">정보창내용</p>
+						<div class="search_pointer">
+							<span class="input">
+								<input type="text" placeholder="정보창 내용 입력">
+							</span>
+							<span class="btn_se point">
+								<button type="button">
+									<span>위치지정</span>
+								</button>
+							</span>						
+						</div>
+						<div class="editer_sec">
+							에디터 영역
+						</div>
+						<div class="btns">
+							<button type="button" class="btn blue2">생성</button>
+						</div>
+						<p class="title">생성된 정보창 <em>N</em>개</p>
+						<div class="table hover txt-center analysisTable">
+							<table>
+								<caption>공간분석 설정</caption>
+								<colgroup>
+									<col style="width:60px;">
+									<col style="width:auto;">
+									<col style="width:60px;">
+									<col style="width:60px;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">
+											
+										</th>
+										<th scope="col" class="txt-left">제목</th>
+										<th scope="col">수정</th>
+										<th scope="col">삭제</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td class="txt-left">정보창 1</td>
+										<td>
+											<button type="button" class="modif"></button>
+										</td>
+										<td>
+											<button type="button" class="del"></button>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td class="txt-left">정보창 2</td>
+										<td>
+											<button type="button" class="modif"></button>
+										</td>
+										<td>
+											<button type="button" class="del"></button>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td class="txt-left">정보창</td>
+										<td>
+											<button type="button" class="modif"></button>
+										</td>
+										<td>
+											<button type="button" class="del"></button>
+										</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td class="txt-left">정보창</td>
+										<td>
+											<button type="button" class="modif"></button>
+										</td>
+										<td>
+											<button type="button" class="del"></button>
+										</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td class="txt-left">정보창</td>
+										<td>
+											<button type="button" class="modif"></button>
+										</td>
+										<td>
+											<button type="button" class="del"></button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div>
+						<p class="title blue_ico">데이터추가</p>
+						<p class="title">정보창내용</p>
+						<div class="data_layer_list">
+							<div class="layer">
+								<p class="title folder">전주시_ 동물병원.csv</p>
+								<div class="btns">
+									<button type="button" class="del"></button>
+									<button type="button" class="link"></button>
+								</div>
+							</div>
+							<div class="layer">
+								<p class="title photo">이미지 데이터 1</p>
+								<div class="btns">
+									<button type="button" class="del"><span></span></button>
+									<button type="button" class="link"><span></span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 		<div class="mapContainer inner_tab inner_bar">
 			<!-- 신규 추가 [새로 생성] -->
 			<div class="map_title">
@@ -1888,12 +2025,40 @@
 			<div class="mapArea">
 
 				<!-- 신규 추가 [ 텝 컨텐츠 ] -->
-				<!-- <div class="details_tab_cont">
-					
+				<!-- <div class="details_tab_cont blue">
+					<div class="inset">
+						<p class="title1">대 제목</p>
+						<p class="title2">중 제목</p>
+						<div class="theme_list">
+							<div class="inner">
+								<button type="button" class="active">1</button>
+								<button type="button">2</button>
+								<button type="button">3</button>
+								<button type="button">4</button>
+								<button type="button">5</button>
+							</div>
+						</div>
+						<div class="section_cont">
+							<div class="group">
+								<p class="title3">소 제목</p>
+								<p class="decs">The view is now focused on the deepest part of the Inferno.
+									The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld river – Cocytus. In the very center,
+									i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+									The view is now focused on the deepest part of the Inferno.
+									The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld river – Cocytus. In the very center,</p>
+								<div class="img">
+									<img src="../images/common/img_ex.png" alt="">
+								</div>
+								<div class="img">
+									<img src="../images/common/img_ex.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
 				</div> -->
 
 				<!-- 신규 추가 [ 섹션 설정 상세 ] -->
-				<div class="detail_setting_lv2 set_section" style="display: ;">
+				<div class="detail_setting_lv2 set_section" style="display: none;">
 					<div class="inset">
 						<div class="sett_header">
 							<p class="title">섹션 설정</p>
@@ -1901,7 +2066,8 @@
 								<span>삭제</span>
 							</button>
 						</div>
-						<div class="sett_content type1 grid_tour layout2">
+						<!-- type2 = 클래스 추가 layout2  -->
+						<div class="sett_content type1 grid_tour">
 							<div class="theme_list">
 								<div class="inner">
 									<button type="button" class="active">1</button>
@@ -1912,7 +2078,7 @@
 								</div>
 							</div>
 							<div class="add_tour">
-								<div class="add">
+								<div class="search_pointer">
 									<span class="input">
 										<input type="text" placeholder="투어명을 입력해주세요">
 									</span>
@@ -2060,6 +2226,28 @@
 						</button>
 					</div>
 				</div>
+
+				<!-- 신규 추가 [지형단면도 차트 영역] -->
+				<!-- <div class="layer_chart" id="layerChart">
+					<p class="title">지형단면도</p>
+					<div class="btn_group">
+						<button type="button" class="draw"></button>
+						<button type="button" class="toggle" mui-toggle="target:#layerChart;cls:active"></button>
+					</div>
+					<div class="chart_sec">
+						<div style="border: 1px solid red;height: 200px;"></div>
+					</div>
+					<div class="label_vertical">
+						<p>고도<br>(m)</p>
+					</div>
+					<div class="label_horizontal">
+						<p>거리 (km)</p>
+						<p>최소 : <i>100</i></p>
+						<p>최대 : <i>312</i></p>
+						<p>시작지점 : <i>100</i></p>
+						<p>종료지점 : <i>312</i></p>
+					</div>
+				</div> -->
 				
 					
 				<div id="newWebAppView" class="app" style="background:#fafafa;">
@@ -3554,6 +3742,31 @@
 				<div class="btnArea">
 					<button type="button" class="btn black2 lg" @click="checkedFalseAll"><span>취소</span></button>
 					<button type="button" class="btn blue lg" @click="applyLandOption"><span>완료</span></button>
+				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+
+	<!-- 신규 추가 [섹션 테마 설정 v팝업] -->
+	<div class="popup new_pop theme_set" style="width:1000px; display:;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">데이터 추가</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose"><span class="hidden" @click="hide()">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="inner section type03">
+				<div class="add_data_pop">
+					<div class="nav">
+						
+					</div>
+					<div class="cont"></div>
 				</div>
 			</div>
 		</div>

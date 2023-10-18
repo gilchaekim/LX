@@ -2104,6 +2104,46 @@ button, label {
       margin-left: 6px; 
     }
   }
+  .sub_menu_lists {
+    margin-top: 15px;
+    max-height: calc( 100% - 60px);
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 2px;
+      &-thumb {
+        background-color: rgba($color: #fff, $alpha: .8);
+      }
+    }
+  
+    a {
+      display: block;
+      background: none;
+      color: #fff;
+      border-radius: 0;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 0 0 24px;
+      position: relative;
+      &:hover {
+        color: #1D386C;
+        &::after {
+          background: #1D386C;
+        }
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        margin-top: -2px;
+        left: 0;
+      }
+    }
+  }
 }
 .footer{
   display: flex;
