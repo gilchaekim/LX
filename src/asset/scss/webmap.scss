@@ -51,7 +51,15 @@ $url_common_app: "../js/webapp/images/";
 
 
 
-
+.mui_tooltip_content {
+  position: absolute;
+  .mui_tooltip_inner {
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #BABFC7;
+    color: #000;
+  }
+}
 .popup {
   &.new_pop {
     .btnArea {
@@ -67,6 +75,210 @@ $url_common_app: "../js/webapp/images/";
     .inner.type03 {
       padding: 0;
     }
+  }
+}
+.add_data_pop {
+  * {
+    box-sizing: border-box;
+  }
+  display: flex;
+  .nav {
+    background: #eee;
+    width: 180px;
+    .title {
+      height: 42px;
+      line-height: 42px;
+      background: #444;
+      font-size: 16px;
+      color: #fff;
+      padding-left: 20px;
+    }
+    button {
+      display: block;
+      position: relative;
+      width: 100%;
+      text-align: left;
+      &.active {
+        color: #436AEB !important;
+      }
+    }
+    .menu_type1 {
+      padding-bottom: 5px;
+      background: #fff;
+      button {
+        color: #666;
+        
+      }
+      .deps1 {
+        padding-left: 32px;
+        height: 42px;
+        font-size: 16px;
+        &::after {
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          margin-top: -2px;
+          background-color: #ccc;
+        }
+      }
+      .deps2 {
+        font-size: 14px;
+        padding-left: 45px;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+    .menu_type2 {
+      button {
+        height: 42px;
+        line-height: 42px;
+        font-weight: 500;
+        color: #333;
+        padding-left: 46px;
+        font-size: 16px;
+        background: url($url_common_app+"common/ico_menu01.svg") no-repeat 20px center;
+        background-size: 13px;
+        &.active {
+          background-color: #fff;
+        }
+        &.type2 {
+          background-image: url($url_common_app+"common/ico_menu02.svg");
+        }
+        &.type3 {
+          background-image: url($url_common_app+"common/ico_menu03.svg");
+        }
+        &.type4 {
+          background-image: url($url_common_app+"common/ico_menu04.svg");
+        }
+        &.type5 {
+          background-image: url($url_common_app+"common/ico_menu05.svg");
+        }
+        &.type6 {
+          background-image: url($url_common_app+"common/ico_menu06.svg");
+        }
+        &.type7 {
+          background-image: url($url_common_app+"common/ico_menu07.svg");
+        }
+      }
+    }
+  }
+  .cont {
+    flex: 1 1;
+    padding: 30px;
+    .sort_by {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 16px;
+        color: #666;
+        em {
+          font-style: normal;
+          color: #283EBF;
+        }
+      }
+      select {
+        min-width: 160px;
+      }
+    }
+    .list {
+      margin-top: 20px;
+      .table {
+        &.thead {
+          border-bottom: 0 none;
+          th {
+            border-bottom: 0 none;
+          }
+        }
+        &.tbody {
+          td {
+            text-align: center;
+          }
+          .ico {
+            background: url($url_common_app+"common/ico_menu01.svg") no-repeat center;
+            background-size: 24px;
+            &.type2 {
+              background-image: url($url_common_app+"common/ico_menu02.svg");
+            }
+            &.type3 {
+              background-image: url($url_common_app+"common/ico_menu03.svg");
+            }
+            &.type4 {
+              background-image: url($url_common_app+"common/ico_menu04.svg");
+            }
+            &.type5 {
+              background-image: url($url_common_app+"common/ico_menu05.svg");
+            }
+            &.type6 {
+              background-image: url($url_common_app+"common/ico_menu06.svg");
+            }
+            &.type7 {
+              background-image: url($url_common_app+"common/ico_menu07.svg");
+            }
+          }
+          button, .ico {
+            width: 42px;
+            height: 42px;
+            border-radius: 1px;
+            border: 1px solid #E9E9E9;
+            display: block;
+            span {
+              color: transparent;
+              font-size: 0;
+            }
+            &.add {
+              span {
+                @include cssIcon2("plus", $size:24px, $thick:2px, $color:#666);
+              }
+            }
+            &.del {
+              background: url($url_common+"common/ico-in-remove.png") no-repeat center;
+            }
+          }
+        }
+        th {
+          height: 56px;
+        }
+      }
+    }
+  }
+}
+.over_scroll {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: rgba(233, 233, 233, 1);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(217, 217, 217, 1);
+    border-radius: 7px;
+  }
+}
+.table_del {
+  background: url($url_common+"common/ico-in-remove.png") no-repeat center;
+  width: 100%;
+  height: 30px;
+}
+.data_detail {
+  padding: 20px 30px;
+}
+.form_search {
+  display: flex;
+  input {
+    flex: 1 1; 
+  }
+  button {
+    width: 48px;
+    height: 40px;
+    background:#333 url($url_common_app+"common/ico_search.svg") no-repeat center;
+    border-radius: 4px;
+    margin-left: 12px;
+    color: transparent;
+    font-size: 0;
   }
 }
 .grid_tour {

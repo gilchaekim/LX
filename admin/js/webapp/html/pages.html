@@ -1594,30 +1594,111 @@
 												<!--tabSec-->
 												<div class="tabSec">
 													<strong class="titSec">협업 부서설정</strong>
-													<div class="tabTable">
-														<table v-if="data.webAppOptions.detailSetting">
-															<caption>정보창</caption>
-															<div class="btnArea flex" style="margin-top:10px;">
-																<button type="button" class="btn blue 1g" @click="apply"><span>협업 부서설정</span></button>
-															</div>
+													<!-- 신규 추가 [구조 변경] -->
+													<div v-if="data.webAppOptions.detailSetting" style="margin-top: 10px;">
+														<button type="button" class="btn blue2 1g" @click="apply"><span>협업 부서설정</span></button>
+													</div>
+													<div class="table" style="margin-top: 10px;">
+														<table>
+															<caption>협업부서 현황</caption>
+															<colgroup>
+																<col style="width: 35%;" />
+																<col style="width: 35%;" />
+																<col style="width: 30%;" />
+															</colgroup>
+															<thead>
+																<tr>
+																	<th scope="col">사용자</th>
+																	<th scope="col">기관</th>
+																	<th scope="col">삭제</th>
+																</tr>
+															</thead>
 														</table>
+														<div class="over_scroll" style="max-height: 255px;">
+															<table>
+																<colgroup>
+																	<col style="width: 35%;" />
+																	<col style="width: 35%;" />
+																	<col style="width: 30%;" />
+																</colgroup>
+																<tbody>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>사용자명</td>
+																		<td>기관명</td>
+																		<td>
+																			<button type="button" class="table_del"></button>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
 													</div>
 												</div>
 												<!--tabSec-->
-												<div class="tabSec">
-													<div class="tabTable">
-														<table v-if="data.webAppOptions.detailSetting">
-															<tbody>
-																<tr>
-																	<th scope="row"><label>그리드부분</label></th>
-																	<td>
-
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-												</div>
+												
 												<!--//tabSec-->
 												<!--tabSec-->
 												<template v-if="['SES','JOR','STR'].includes(data.webAppOptions.mapTmplatTyCode)">
@@ -1989,14 +2070,14 @@
 								<p class="title folder">전주시_ 동물병원.csv</p>
 								<div class="btns">
 									<button type="button" class="del"></button>
-									<button type="button" class="link"></button>
+									<button type="button" class="link" mui-tooltip="text:데이터 로그;pos:top-center"></button>
 								</div>
 							</div>
 							<div class="layer">
 								<p class="title photo">이미지 데이터 1</p>
 								<div class="btns">
 									<button type="button" class="del"><span></span></button>
-									<button type="button" class="link"><span></span></button>
+									<button type="button" class="link" mui-tooltip="text:데이터 로그;pos:top-center"><span></span></button>
 								</div>
 							</div>
 						</div>
@@ -3678,7 +3759,7 @@
 
 	</div>
 
-	<!-- 신규 추가 [섹션 테마 설정 v팝업] -->
+	<!-- 신규 추가 [섹션 테마 설정 팝업] -->
 	<div class="popup new_pop theme_set" style="width:400px; display:none;" >
 		<!--head-->
 		<div class="head blue">
@@ -3749,8 +3830,8 @@
 
 	</div>
 
-	<!-- 신규 추가 [섹션 테마 설정 v팝업] -->
-	<div class="popup new_pop theme_set" style="width:1000px; display:;" >
+	<!-- 신규 추가 [데이터 추가 팝업] -->
+	<div class="popup new_pop theme_set" style="width:1000px; display:none;" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">데이터 추가</strong>
@@ -3764,10 +3845,248 @@
 			<div class="inner section type03">
 				<div class="add_data_pop">
 					<div class="nav">
-						
+						<p class="title">구분</p>
+						<div class="menu_type1">
+							<button type="button" class="deps1 active">데이터</button>
+							<button type="button" class="deps2">사용자 데이터</button>
+							<button type="button" class="deps2">부서 공유 데이터</button>
+						</div>
+						<p class="title">필터</p>
+						<div class="menu_type2">
+							<button type="button" class="type1 active">전체</button>
+							<button type="button" class="type2">파일</button>
+							<button type="button" class="type3">테이블</button>
+							<button type="button" class="type4">사진</button>
+							<button type="button" class="type5">동영상</button>
+							<button type="button" class="type6">첨부파일</button>
+							<button type="button" class="type7">영상지도</button>
+						</div>
 					</div>
-					<div class="cont"></div>
+					<div class="cont">
+						<div class="form_search">
+							<input type="text" placeholder="레이어명으로 검색">
+							<button type="button">
+								<span>검색</span>
+							</button>
+						</div>
+						<div class="sort_by">
+							<p>국가공간정보에 관한 검색결과는 총 <em>30</em>건입니다.</p>
+							<select name="" id="">
+								<option value="">정렬</option>
+							</select>
+						</div>
+						<div class="list">
+							<div class="table thead">
+								<table>
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width:62px;">
+										<col style="width:auto;">
+										<col style="width:260px;">
+										<col style="width:62px;">
+										<col style="width:62px;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>종류</th>
+											<th>데이터 명</th>
+											<th>데이터 설명</th>
+											<th>추가</th>
+											<th>삭제</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="table tbody">
+								<table>
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width:62px;">
+										<col style="width:auto;">
+										<col style="width:260px;">
+										<col style="width:62px;">
+										<col style="width:62px;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<td>
+												<span class="ico type1"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type2"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type3"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type4"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type5"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type6"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span class="ico type7"></span>
+											</td>
+											<td>전주시_동물병원.csv</td>
+											<td>등록일자 : 2022-05-19</td>
+											<td>
+												<button type="button" class="add">
+													<span>추가</span>
+												</button>
+											</td>
+											<td>
+												<button type="button" class="del">
+													<span>삭제</span>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
+			</div>
+		</div>
+		<!--//cont-->
+
+	</div>
+	<!-- 신규 추가 [데이터 상세 정보 팝업] -->
+	<div class="popup new_pop theme_set" style="width:1000px; display:;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">데이터 상세 정보</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose"><span class="hidden" @click="hide()">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="inner section type03">
+				<div class="data_detail">
+					<div class="table">
+						<table>
+							<caption>기본정보</caption>
+							<colgroup>
+								<col style="width:140px;">
+								<col style="width:270px;">
+								<col style="width:140px;">
+								<col style="width:auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">파일명</th>
+									<td colspan="3">전주시_동물병원.csv</td>
+								</tr>
+								<tr>
+									<th scope="row">소유자</th>
+									<td>manager</td>
+									<th scope="row">올린 날짜</th>
+									<td>2023-01-01</td>
+								</tr>
+								<tr>
+									<th scope="row">유형</th>
+									<td>csv</td>
+									<th scope="row">크기</th>
+									<td>13.2KB</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="btnArea flex sb" style="margin-top:20px;">
+						<button type="button" class="btn blue2 lg"><span>다운로드</span></button>
+						<button type="button" class="btn black2 lg"><span>삭제</span></button>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 		<!--//cont-->

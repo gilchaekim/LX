@@ -251,6 +251,16 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   cursor: move;
 }
 
+.mui_tooltip_content {
+  position: absolute;
+}
+.mui_tooltip_content .mui_tooltip_inner {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #BABFC7;
+  color: #000;
+}
+
 .popup.new_pop .btnArea {
   display: flex;
   justify-content: center;
@@ -263,6 +273,225 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .popup .cont .inner.type03 {
   padding: 0;
+}
+
+.add_data_pop {
+  display: flex;
+}
+.add_data_pop * {
+  box-sizing: border-box;
+}
+.add_data_pop .nav {
+  background: #eee;
+  width: 180px;
+}
+.add_data_pop .nav .title {
+  height: 42px;
+  line-height: 42px;
+  background: #444;
+  font-size: 16px;
+  color: #fff;
+  padding-left: 20px;
+}
+.add_data_pop .nav button {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+.add_data_pop .nav button.active {
+  color: #436AEB !important;
+}
+.add_data_pop .nav .menu_type1 {
+  padding-bottom: 5px;
+  background: #fff;
+}
+.add_data_pop .nav .menu_type1 button {
+  color: #666;
+}
+.add_data_pop .nav .menu_type1 .deps1 {
+  padding-left: 32px;
+  height: 42px;
+  font-size: 16px;
+}
+.add_data_pop .nav .menu_type1 .deps1::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  margin-top: -2px;
+  background-color: #ccc;
+}
+.add_data_pop .nav .menu_type1 .deps2 {
+  font-size: 14px;
+  padding-left: 45px;
+  height: 30px;
+  line-height: 30px;
+}
+.add_data_pop .nav .menu_type2 button {
+  height: 42px;
+  line-height: 42px;
+  font-weight: 500;
+  color: #333;
+  padding-left: 46px;
+  font-size: 16px;
+  background: url("../js/webapp/images/common/ico_menu01.svg") no-repeat 20px center;
+  background-size: 13px;
+}
+.add_data_pop .nav .menu_type2 button.active {
+  background-color: #fff;
+}
+.add_data_pop .nav .menu_type2 button.type2 {
+  background-image: url("../js/webapp/images/common/ico_menu02.svg");
+}
+.add_data_pop .nav .menu_type2 button.type3 {
+  background-image: url("../js/webapp/images/common/ico_menu03.svg");
+}
+.add_data_pop .nav .menu_type2 button.type4 {
+  background-image: url("../js/webapp/images/common/ico_menu04.svg");
+}
+.add_data_pop .nav .menu_type2 button.type5 {
+  background-image: url("../js/webapp/images/common/ico_menu05.svg");
+}
+.add_data_pop .nav .menu_type2 button.type6 {
+  background-image: url("../js/webapp/images/common/ico_menu06.svg");
+}
+.add_data_pop .nav .menu_type2 button.type7 {
+  background-image: url("../js/webapp/images/common/ico_menu07.svg");
+}
+.add_data_pop .cont {
+  flex: 1 1;
+  padding: 30px;
+}
+.add_data_pop .cont .sort_by {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.add_data_pop .cont .sort_by p {
+  font-size: 16px;
+  color: #666;
+}
+.add_data_pop .cont .sort_by p em {
+  font-style: normal;
+  color: #283EBF;
+}
+.add_data_pop .cont .sort_by select {
+  min-width: 160px;
+}
+.add_data_pop .cont .list {
+  margin-top: 20px;
+}
+.add_data_pop .cont .list .table.thead {
+  border-bottom: 0 none;
+}
+.add_data_pop .cont .list .table.thead th {
+  border-bottom: 0 none;
+}
+.add_data_pop .cont .list .table.tbody td {
+  text-align: center;
+}
+.add_data_pop .cont .list .table.tbody .ico {
+  background: url("../js/webapp/images/common/ico_menu01.svg") no-repeat center;
+  background-size: 24px;
+}
+.add_data_pop .cont .list .table.tbody .ico.type2 {
+  background-image: url("../js/webapp/images/common/ico_menu02.svg");
+}
+.add_data_pop .cont .list .table.tbody .ico.type3 {
+  background-image: url("../js/webapp/images/common/ico_menu03.svg");
+}
+.add_data_pop .cont .list .table.tbody .ico.type4 {
+  background-image: url("../js/webapp/images/common/ico_menu04.svg");
+}
+.add_data_pop .cont .list .table.tbody .ico.type5 {
+  background-image: url("../js/webapp/images/common/ico_menu05.svg");
+}
+.add_data_pop .cont .list .table.tbody .ico.type6 {
+  background-image: url("../js/webapp/images/common/ico_menu06.svg");
+}
+.add_data_pop .cont .list .table.tbody .ico.type7 {
+  background-image: url("../js/webapp/images/common/ico_menu07.svg");
+}
+.add_data_pop .cont .list .table.tbody button, .add_data_pop .cont .list .table.tbody .ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 1px;
+  border: 1px solid #E9E9E9;
+  display: block;
+}
+.add_data_pop .cont .list .table.tbody button span, .add_data_pop .cont .list .table.tbody .ico span {
+  color: transparent;
+  font-size: 0;
+}
+.add_data_pop .cont .list .table.tbody button.add span, .add_data_pop .cont .list .table.tbody .ico.add span {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+.add_data_pop .cont .list .table.tbody button.add span:before, .add_data_pop .cont .list .table.tbody button.add span:after, .add_data_pop .cont .list .table.tbody .ico.add span:before, .add_data_pop .cont .list .table.tbody .ico.add span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #666;
+}
+.add_data_pop .cont .list .table.tbody button.add span:before, .add_data_pop .cont .list .table.tbody .ico.add span:before {
+  transform: translate(-50%, -50%);
+}
+.add_data_pop .cont .list .table.tbody button.add span:after, .add_data_pop .cont .list .table.tbody .ico.add span:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.add_data_pop .cont .list .table.tbody button.del, .add_data_pop .cont .list .table.tbody .ico.del {
+  background: url("../js/webmap/images/common/ico-in-remove.png") no-repeat center;
+}
+.add_data_pop .cont .list .table th {
+  height: 56px;
+}
+
+.over_scroll {
+  overflow: auto;
+}
+.over_scroll::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgb(233, 233, 233);
+}
+.over_scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(217, 217, 217);
+  border-radius: 7px;
+}
+
+.table_del {
+  background: url("../js/webmap/images/common/ico-in-remove.png") no-repeat center;
+  width: 100%;
+  height: 30px;
+}
+
+.data_detail {
+  padding: 20px 30px;
+}
+
+.form_search {
+  display: flex;
+}
+.form_search input {
+  flex: 1 1;
+}
+.form_search button {
+  width: 48px;
+  height: 40px;
+  background: #333 url("../js/webapp/images/common/ico_search.svg") no-repeat center;
+  border-radius: 4px;
+  margin-left: 12px;
+  color: transparent;
+  font-size: 0;
 }
 
 .grid_tour {
