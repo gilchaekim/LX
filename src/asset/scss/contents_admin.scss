@@ -2111,13 +2111,13 @@ button, label {
     margin-top: 15px;
     max-height: calc( 100% - 60px);
     overflow: auto;
+    display: none;
     &::-webkit-scrollbar {
       width: 2px;
       &-thumb {
         background-color: rgba($color: #fff, $alpha: .8);
       }
-    }
-  
+    }  
     a {
       display: block;
       background: none;
@@ -2144,6 +2144,16 @@ button, label {
         top: 50%;
         margin-top: -2px;
         left: 0;
+      }
+    }
+  }
+  &.sub_menu {
+    &:hover {
+      .sub_menu_lists{
+        display: block;
+      }
+      .sub_txt {
+        display: none;
       }
     }
   }

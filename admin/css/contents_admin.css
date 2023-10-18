@@ -4050,6 +4050,7 @@ button, label {
   margin-top: 15px;
   max-height: calc(100% - 60px);
   overflow: auto;
+  display: none;
 }
 .goto_link .sub_menu_lists::-webkit-scrollbar {
   width: 2px;
@@ -4084,6 +4085,12 @@ button, label {
   top: 50%;
   margin-top: -2px;
   left: 0;
+}
+.goto_link.sub_menu:hover .sub_menu_lists {
+  display: block;
+}
+.goto_link.sub_menu:hover .sub_txt {
+  display: none;
 }
 
 .footer {
