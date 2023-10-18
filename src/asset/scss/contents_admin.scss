@@ -1859,7 +1859,6 @@ button, label {
   .edit_footer {
     padding: 40px 108px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-top: 1px solid #fff;
     .logo {
@@ -1869,6 +1868,10 @@ button, label {
     .copy {
       width: 994px;
       height: 67px;
+      margin-left: 100px;
+      @include respondTo("tablet"){
+        margin-left: 0;
+      }
     }
   }
   .edit_config {

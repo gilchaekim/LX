@@ -3819,7 +3819,6 @@ button, label {
 .edit_ground .edit_footer {
   padding: 40px 108px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-top: 1px solid #fff;
 }
@@ -3830,6 +3829,12 @@ button, label {
 .edit_ground .edit_footer .copy {
   width: 994px;
   height: 67px;
+  margin-left: 100px;
+}
+@media (max-width: 1199px) {
+  .edit_ground .edit_footer .copy {
+    margin-left: 0;
+  }
 }
 .edit_ground .edit_config {
   position: absolute;
