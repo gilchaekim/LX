@@ -197,11 +197,14 @@ block content
 
         .grid
           .grid_inner(style="background:rgba(52, 57, 154, 1)")
-            a.goto_link(href="")
+            .goto_link.sub_menu
               span.icon 
                 img(src="/admin/images/ico_ex8.png", alt="")
               span.text(style="color:#fff") 커뮤니티
-              span.sub_txt(style="color:#fff") 전주시 빅데이터 플랫폼 활용 방법에 대한 소통창구입니다
+              .sub_menu_lists
+                a(href="") 동영상 파일 관리
+                a(href="") 동영상 파일 관리
+              //- span.sub_txt(style="color:#fff") 전주시 빅데이터 플랫폼 활용 방법에 대한 소통창구입니다
         .grid
           .grid_inner
             a.goto_link.img
