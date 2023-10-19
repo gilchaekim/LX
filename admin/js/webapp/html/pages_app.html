@@ -377,7 +377,7 @@
 									v-if="data.webAppOptions.detailSetting.mainTab && ['표준','간편보기','편집','스토리맵','비교','시간인식','고도','부서'].includes(data.webAppOptions.detailSetting.layoutTab.titSec)">
 
 									<main-tab inline-template ref="mainTab">
-										<div class="tabCont active">
+										<div class="tabCont active"> 
 											<span>화면1</span>
 											<!-- 신규 추가 [텝 네비] -->
 											<div class="sub_tab_nav">
@@ -1960,7 +1960,7 @@
 		</div>
 
 		<!-- 신규 추가 [정보창] -->
-		<div class="detail_setting_lv2 set_section" style="display: ;">
+		<div class="detail_setting_lv2 set_section" style="display: none;">
 			<div class="sett_header">
 				<p class="title">정보창</p>
 				<button type="button" class="ctr del">
@@ -2106,7 +2106,7 @@
 			<div class="mapArea">
 
 				<!-- 신규 추가 [ 텝 컨텐츠 ] -->
-				<!-- <div class="details_tab_cont blue">
+				<div class="details_tab_cont blue" style="display: none;">
 					<div class="inset">
 						<p class="title1">대 제목</p>
 						<p class="title2">중 제목</p>
@@ -2136,7 +2136,7 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 
 				<!-- 신규 추가 [ 섹션 설정 상세 ] -->
 				<div class="detail_setting_lv2 set_section" style="display: none;">
@@ -2190,6 +2190,45 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- 신규 추가 [ 부서데이터관리 ] -->
+				<div class="detail_setting_lv2 set_section mui_toggle_layer" style="display: ;">
+					<div class="inset">
+						<div class="sett_header">
+							<p class="title">부서데이터관리</p>
+							<button type="button" class="ctr toggle" mui-toggle="target:.mui_toggle_layer;cls:mui_hidden;">
+								<span>열기/닫기</span>
+							</button>
+						</div>
+						<div class="sett_content type1">
+							<div class="data_section">
+								<div>
+									<p class="title">데이터</p>
+									<div class="data_layer_list">
+										<div class="layer">
+											<p class="title folder">전주시_ 동물병원.csv</p>
+											<div class="btns">
+												<button type="button" class="del"></button>
+												<button type="button" class="link" mui-tooltip="text:데이터 로그;pos:top-center"></button>
+											</div>
+										</div>
+										<div class="layer">
+											<p class="title photo">이미지 데이터 1</p>
+											<div class="btns">
+												<button type="button" class="del"><span></span></button>
+												<button type="button" class="link" mui-tooltip="text:데이터 로그;pos:top-center"><span></span></button>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+				
 				<!-- 신규 추가 [섹선 포인터] -->
 				<!-- <button type="button" class="pointer active" style="position: absolute;top:10%;left:80%">1</button>
 				<button type="button" class="pointer" style="position: absolute;top:10%;left:90%">2</button> -->
@@ -4039,7 +4078,7 @@
 
 	</div>
 	<!-- 신규 추가 [데이터 상세 정보 팝업] -->
-	<div class="popup new_pop theme_set" style="width:1000px; display:;" >
+	<div class="popup new_pop theme_set" style="width:1000px; display:none;" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">데이터 상세 정보</strong>
@@ -4094,7 +4133,170 @@
 	</div>
 
 
+	<!-- 신규 추가 [데이터 로그] -->
+	<div class="popup new_pop theme_set" style="width:400px; display:none;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">데이터 로그</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose"><span class="hidden" @click="hide()">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="data_log">
+				<p class="title">날짜</p>
+				<div class="datepicker_form">
+					<input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+					<input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+				</div>
+				<div class="search_form">
+					<span>
+						<input type="text" placeholder="User ID/Action명 입력">
+					</span>
+					<button type="button" class="btn blue2">검색</button>
+					
+				</div>
+				<div class="table">
+					<table>
+						<caption>데이터로그 현황</caption>
+						<colgroup>
+							<col style="width: 35%;" />
+							<col style="width: 35%;" />
+							<col style="width: 30%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">User ID</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="over_scroll" style="max-height: 450px;">
+						<table>
+							<colgroup>
+								<col style="width: 35%;" />
+								<col style="width: 35%;" />
+								<col style="width: 30%;" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+								<tr>
+									<td>2023.05.01 10:10:00</td>
+									<td>Manage</td>
+									<td>download</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!--//cont-->
 
+	</div>
+
+	<!-- 신규 추가 [상세 보기] -->
+	<div class="popup new_pop theme_set" style="width:400px; display:;" >
+		<!--head-->
+		<div class="head blue">
+			<strong class="titPop">전주시 동물병원</strong>
+			<div class="btnGroup">
+				<button type="button" class="btnPopClose"><span class="hidden" @click="hide()">팝업 닫기</span></button>
+			</div>
+		</div>
+		<!--//head-->
+		<!--cont-->
+		<div class="cont">
+			<div class="word_view over_scroll">
+				<p class="title">제목</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				<p class="decs">
+					The view is now focused on the deepest part of the Inferno. The Ninth Circle is located at the bottom of the Well of Titans and is formed by the frozen waters of the last underworld
+					river – Cocytus. In the very center, i.e. in the center of the entire Earth, Lucifer (The emperor of the realm of grief) protrudes out from the ice.
+				</p>
+				
+			</div>
+			
+		</div>
+		<!--//cont-->
+
+	</div>
 
 
 	<!-- modal 웹맵 검색 -->
