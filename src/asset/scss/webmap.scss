@@ -5625,6 +5625,7 @@ $url_common_app: '../images/';
 }
 .mapContainer{
   .map_title {
+    display: none;
     background: #000  url($url_common+"common/logo-main.png") no-repeat 16px center;
     background-size: 30px;
     padding-left: 52px;
@@ -5640,12 +5641,15 @@ $url_common_app: '../images/';
   }
 }
 .map_tab {
-  height: 50px;
-  background: #fff;
-  display: flex;
-  box-sizing: border-box;
-  padding-top: 10px;
-  position: relative;
+  display: none;
+  .inset {
+    height: 50px;
+    background: #fff;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 10px;
+    position: relative;
+  }
   * {
     box-sizing: border-box;
   }

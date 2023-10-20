@@ -366,7 +366,7 @@ button, label {
         }
         .blocks{
           display: block;
-          width: auto;
+          width: 100%;
           height: auto;
           & ~ .blocks{
             margin-left: 0;
@@ -742,6 +742,10 @@ button, label {
     }
     .edit_contents {
       margin: 46px 108px 85px;
+      @include respondTo("tablet"){
+        margin-left: 20px;
+        margin-right: 20px;
+      }
     }
     .main_title{
       min-height: 60px;
