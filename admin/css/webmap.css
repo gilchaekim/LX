@@ -5429,6 +5429,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 
 .mapContainer .map_title {
+  display: none;
   background: #000 url("../images/common/logo-main.png") no-repeat 16px center;
   background-size: 30px;
   padding-left: 52px;
@@ -5440,6 +5441,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   line-height: 50px;
 }
 .map_tab {
+  display: none;
+}
+.map_tab .inset {
   height: 50px;
   background: #fff;
   display: flex;

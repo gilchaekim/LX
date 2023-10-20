@@ -2662,6 +2662,12 @@ button, label {
 .edit_ground.fit .edit_contents {
   margin: 46px 108px 85px;
 }
+@media (max-width: 1199px) {
+  .edit_ground.fit .edit_contents {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
 .edit_ground.fit .main_title {
   min-height: 60px;
 }
