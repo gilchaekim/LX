@@ -216,11 +216,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
     transform: rotate(360deg);
   }
 }
-#alertDimmed,
-#alertPopBox {
-  display: none !important;
-}
-
 .mui-drag {
   cursor: move;
 }
