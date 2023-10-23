@@ -15,6 +15,7 @@ app.webapp.components = app.webapp.components || {};
 //			},
 			initWebApp: function (template) {
 				$(`#${template.type}`).addClass('active').siblings('.temp').removeClass('active');
+				
 				app.webapp.data.mapTemplate = template;
 				if (app.webapp.data.mapTemplate) {
 					app.webapp.data.webAppOptions.mapTmplatTyCode = app.webapp.data.mapTemplate.type;
@@ -23,6 +24,9 @@ app.webapp.components = app.webapp.components || {};
 					//app.webapp.data.webAppOptions.detailSetting.widgetTab.landInfoCheckedList = app.webapp.data.landInfoCheckedList;
 					callAlert("success", "생성이 완료 되었습니다.", () => {
 						this.hide();
+						this.activeTab();
+						this.activeTitle();
+						
 						$('.detail > .tool').trigger('click');
 						switch (app.webapp.data.webAppOptions.detailSetting.layoutTab.titSec) {
 							case "표준": //표준 템플릿
@@ -72,6 +76,12 @@ app.webapp.components = app.webapp.components || {};
 				} else {
 					callAlert("fail", "템플릿을 먼저 선택해주세요");
 				}
+			},
+			activeTab : () => {
+				$("#mapTabList").show();
+			},
+			activeTitle : () => {
+				$("#mapTitle").show();
 			},
 			hide: function () {
 				$('#newWebAppView').hide();
