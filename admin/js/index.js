@@ -12223,16 +12223,6 @@
       offset: 0
     },
     connected: function connected() {},
-    computed: {},
-    events: [{
-      name: 'load',
-      delegate: function delegate() {
-        return window;
-      },
-      handler: function handler(e) {
-        console.log('dddd');
-      }
-    }],
     methods: {
       render: function render() {
         var $el = this.$el;
