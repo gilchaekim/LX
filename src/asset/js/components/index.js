@@ -12,6 +12,7 @@ export {default as Scrollbar} from './core/scrollbar';
 export {default as Datepicker} from './core/datepicker';
 export {default as Sticky} from './core/sticky';
 export {default as Sortable} from './core/sortable';
+export {default as Chart} from './core/chart';
 // export {default as Grid} from './core/grid';
 
 // 마크업진행표
