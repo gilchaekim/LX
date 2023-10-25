@@ -10432,7 +10432,7 @@
       $year: '.picker_header>.year_month>.current_year',
       $month: '.picker_header>.year_month>.current_month',
       datePattern: ['yyyy', 'mm', 'dd'],
-      format: 'yyyy.mm.dd',
+      format: 'yyyy-mm-dd',
       // The start view date
       startDate: null,
       // The end view date
@@ -10453,6 +10453,7 @@
     },
     created: function created() {
       this.calendar = append(document.body, this.template);
+      console.log('sdfsdfs');
     },
     computed: {
       prevBtn: function prevBtn(_ref) {

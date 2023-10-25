@@ -4152,7 +4152,7 @@
 
 
 	<!-- 신규 추가 [데이터 로그] -->
-	<div class="popup new_pop theme_set" style="width:400px; display:none;" >
+	<div class="popup new_pop theme_set" style="width:400px; display:;" >
 		<!--head-->
 		<div class="head blue">
 			<strong class="titPop">데이터 로그</strong>
@@ -4166,8 +4166,16 @@
 			<div class="data_log">
 				<p class="title">날짜</p>
 				<div class="datepicker_form">
-					<input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-					<input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+					<div class="input_datepicker" mui-datepicker>
+						<span>
+							<input type="text" class="datepicker" placeholder="YYYY-MM-DD">	
+						</span>
+					</div>
+					<div class="input_datepicker" mui-datepicker>
+						<span>
+							<input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+						</span>
+					</div>					
 				</div>
 				<div class="search_form">
 					<span>
