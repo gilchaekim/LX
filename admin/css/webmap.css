@@ -1558,7 +1558,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 #userMenu {
   position: absolute;
   top: 15px;
-  right: 100px;
+  right: 20px;
   display: flex;
   z-index: 20;
 }
@@ -1940,12 +1940,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 #widget {
   position: absolute;
   width: 42px;
-  right: 15px;
-  top: 15px;
+  right: 20px;
+  top: 70px;
   z-index: 10;
 }
 #widget .flex {
   width: 100%;
+  margin-bottom: 10px;
 }
 #widget .widget_toggle {
   width: 100%;
@@ -1966,12 +1967,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 #widget .group {
   display: none;
-  position: absolute;
   right: 0;
-  visibility: hidden;
   opacity: 0;
   transition: 0.4s;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+  width: 42px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 #widget .group.active {
   display: block;
@@ -2001,9 +2003,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 #widget .group .btnGroup button.btnRight {
   background-image: url("../images/common/btn-widget-down.png");
-}
-#widget .dep1 {
-  border-radius: 4px;
 }
 #widget .dep1 > li {
   position: relative;
@@ -2348,7 +2347,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 #widget .zoomWidget {
   width: 100%;
-  margin-top: 500px;
   display: flex;
   flex-direction: column;
   background: #fff;

@@ -10453,7 +10453,6 @@
     },
     created: function created() {
       this.calendar = append(document.body, this.template);
-      console.log('sdfsdfs');
     },
     computed: {
       prevBtn: function prevBtn(_ref) {
@@ -10649,13 +10648,13 @@
         removeClass(calendar, 'mui_active');
       },
       getValue: function getValue() {
-        console.log(dateFormat(this.target.value, this.datePattern));
+        // console.log(dateFormat(this.target.value, this.datePattern));
         // datePattern()
         // dateFormat(this.target.value, this.datePattern)
         return this.target.value;
       },
       setValue: function setValue() {
-        console.log('aa');
+        // console.log('aa');
         this.target.value = this.formatDate(this.date);
       },
       createItem: function createItem(data, type) {
@@ -11004,7 +11003,7 @@
         return formatted;
       },
       parseDate: function parseDate(date) {
-        console.log(date);
+        // console.log(date);
         var format = this.format;
         var parts = [];
         if (!isDate(date)) {
@@ -12223,20 +12222,38 @@
       duration: 300,
       offset: 0
     },
-    connected: function connected() {},
+    connected: function connected() {
+      this.render();
+    },
     methods: {
       render: function render() {
         var $el = this.$el;
         var options = {
           chart: {
-            type: 'line'
+            type: 'line',
+            animations: {
+              enabled: true,
+              easing: 'easeinout',
+              speed: 800,
+              animateGradually: {
+                enabled: true,
+                delay: 0
+              },
+              dynamicAnimation: {
+                enabled: true,
+                speed: 350
+              }
+            }
+          },
+          stroke: {
+            width: 2
           },
           series: [{
             name: 'sales',
             data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
           }],
           xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+            categories: [1991, 1992]
           }
         };
         new ApexCharts$1($el, options).render();

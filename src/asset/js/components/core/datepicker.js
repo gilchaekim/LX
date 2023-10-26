@@ -93,7 +93,6 @@ export default {
   },
   created() {
     this.calendar = append(document.body, this.template)
-    console.log('sdfsdfs');
   },
 
   computed: {
@@ -300,13 +299,13 @@ export default {
       removeClass(calendar, 'mui_active');
     },
     getValue() {
-      console.log(dateFormat(this.target.value, this.datePattern));
+      // console.log(dateFormat(this.target.value, this.datePattern));
       // datePattern()
       // dateFormat(this.target.value, this.datePattern)
       return this.target.value;
     },
     setValue() {
-      console.log('aa');
+      // console.log('aa');
       this.target.value = this.formatDate(this.date);
     },
     createItem(data, type) {
@@ -740,7 +739,7 @@ export default {
       return formatted;
     },
     parseDate(date) {
-      console.log(date);
+      // console.log(date);
       const { format } = this;
       let parts = [];
   

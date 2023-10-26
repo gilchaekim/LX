@@ -1369,7 +1369,7 @@ $url_common_app: '../images/';
 #userMenu {
   position: absolute;
   top: 15px;
-  right: 100px;
+  right: 20px;
   display: flex;
   z-index: 20;
 
@@ -1809,11 +1809,12 @@ $url_common_app: '../images/';
 #widget {
   position: absolute;
   width: 42px;
-  right: 15px;
-  top: 15px;
+  right: 20px;
+  top: 70px;
   z-index: 10;
   .flex{
     width: 100%;
+    margin-bottom: 10px;
   }
   .widget_toggle{
     width: 100%;
@@ -1838,13 +1839,13 @@ $url_common_app: '../images/';
   }
   .group {
     display: none;
-    position: absolute;
     right: 0;
-    visibility: hidden;
     opacity: 0;
     transition: .4s;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
-
+    width: 42px;
+    border-radius: 4px;
+    overflow: hidden;
     &.active {
       display: block;
       visibility: visible;
@@ -1882,7 +1883,6 @@ $url_common_app: '../images/';
   }
 
   .dep1 {
-    border-radius: 4px;
 
     > li {
       position: relative;
@@ -2349,7 +2349,6 @@ $url_common_app: '../images/';
 
   .zoomWidget {
     width: 100%;
-    margin-top: 500px;
     display: flex;
     flex-direction: column;
     background: #fff;
