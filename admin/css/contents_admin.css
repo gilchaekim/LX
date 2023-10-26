@@ -4636,6 +4636,16 @@ button, label {
   height: 50px !important;
 }
 
+.optionArea [mui-datepicker] {
+  width: 170px;
+}
+.optionArea [mui-datepicker] input {
+  width: 100%;
+}
+.optionArea [mui-datepicker] + span {
+  margin: 0 6px;
+}
+
 .mui_datepicker input {
   background: url("../images/mobile/ico_calendar.png") no-repeat right 10px center;
   background-size: 24px;

@@ -2677,6 +2677,17 @@ button, label {
     height: 50px !important;
   }
 }
+.optionArea {
+  [mui-datepicker] {
+    width: 170px;
+    input {
+      width: 100%;
+    }
+    & + span {
+      margin: 0 6px;
+    }
+  }
+}
 .mui_datepicker{
   input{
     background: url($url_common+"mobile/ico_calendar.png") no-repeat right 10px center;
