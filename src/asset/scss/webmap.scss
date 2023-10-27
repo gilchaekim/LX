@@ -1,10 +1,10 @@
 @import "common/mixins";
 @import "common/swiper";
 
-$url_common: "../js/webmap/images/";
-$url_common_app: "../js/webapp/images/";
-// $url_common: '../images/';
-// $url_common_app: '../images/';
+// $url_common: "../js/webmap/images/";
+// $url_common_app: "../js/webapp/images/";
+$url_common: '../images/';
+$url_common_app: '../images/';
 
 // #alertDimmed,
 // #alertPopBox {
@@ -1998,9 +1998,9 @@ $url_common_app: "../js/webapp/images/";
             background-position: center 8px;
             background-size: 18px;
           }
-          // 지점 추후 이미지 교체
+          
           &.landInfoWidget_pointBtn {
-            background-image: url($url_common+"widget/단일좌표변환.png");
+            background-image: url($url_common+"toolbar/ico-measure-03.png");
             background-repeat: no-repeat;
             background-position: center 8px;
             background-size: 18px;
