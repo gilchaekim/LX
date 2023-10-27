@@ -2010,6 +2010,117 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   font-family: "Pretendard Bold";
   background: #fff;
 }
+#widget .dep1 > li.divideWidget .divideMap_divType, #widget .dep1 > li .divideMap_widget li#divideMapWidget .divideMap_divType {
+  background-position: center 10px;
+}
+#widget .dep1 > li > div button + div button {
+  width: 50px !important;
+}
+#widget .dep1 > li > div button ~ button {
+  border-left: 1px solid #eee;
+}
+#widget .dep1 > li > div button.analysisLcWidget_searchLegacyBtn {
+  background-image: url("../images/widget/기존위치찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisLcWidget_searchNewBtn {
+  background-image: url("../images/widget/새위치파생분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisLcWidget_searchCenterBtn {
+  background-image: url("../images/widget/중심찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisLcWidget_searchSimilarBtn {
+  background-image: url("../images/widget/유사한위치찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisPttrnWidget_densityBtn {
+  background-image: url("../images/widget/밀도계산분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisPttrnWidget_hotspotBtn {
+  background-image: url("../images/widget/핫스팟분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisPttrnWidget_gatherPointsBtn {
+  background-image: url("../images/widget/포인트군집분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisPttrnWidget_interpolatePointsBtn {
+  background-image: url("../images/widget/포인트내삽찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisPttrnWidget_searchOutliersBtn {
+  background-image: url("../images/widget/이상치찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisProximityWidget_connectDestinationBtn {
+  background-image: url("../images/widget/출발지와목적지연결분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisProximityWidget_bufferBtn {
+  background-image: url("../images/widget/버퍼생성분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisProximityWidget_drivingAreaBtn {
+  background-image: url("../images/widget/운전시간영역생성분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisProximityWidget_findNearestPointBtn {
+  background-image: url("../images/widget/최근접위치찾기분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisProximityWidget_findPathBtn {
+  background-image: url("../images/widget/경로계획분석.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisCoordWidget_fileBtn {
+  background-image: url("../images/widget/파일좌표변환.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.analysisCoordWidget_singleBtn {
+  background-image: url("../images/widget/단일좌표변환.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
+#widget .dep1 > li > div button.landInfoWidget_pointBtn {
+  background-image: url("../images/widget/단일좌표변환.png");
+  background-repeat: no-repeat;
+  background-position: center 8px;
+  background-size: 18px;
+}
 #widget .dep1 > li:first-of-type {
   border-radius: 4px 4px 0 0;
 }
@@ -2020,7 +2131,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   vertical-align: top;
   padding-top: 26px;
   height: 50px;
-  letter-spacing: -1px;
   line-height: 10px;
   font-size: 10px;
   box-sizing: border-box;

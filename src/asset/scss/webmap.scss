@@ -1889,6 +1889,126 @@ $url_common_app: '../images/';
       text-align: center;
       font-family: 'Pretendard Bold';
       background: #fff;
+      &.divideWidget .divideMap_divType, .divideMap_widget li#divideMapWidget .divideMap_divType {
+        background-position: center 10px;
+      }
+      & > div {
+        button {
+          & + div {
+            & button {
+              width: 50px !important;
+            }
+          }
+          & ~ button {
+            border-left: 1px solid #eee;
+          }
+          &.analysisLcWidget_searchLegacyBtn {
+            background-image: url($url_common+"widget/기존위치찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisLcWidget_searchNewBtn {
+            background-image: url($url_common+"widget/새위치파생분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisLcWidget_searchCenterBtn {
+            background-image: url($url_common+"widget/중심찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisLcWidget_searchSimilarBtn {
+            background-image: url($url_common+"widget/유사한위치찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisPttrnWidget_densityBtn {
+            background-image: url($url_common+"widget/밀도계산분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisPttrnWidget_hotspotBtn {
+            background-image: url($url_common+"widget/핫스팟분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisPttrnWidget_gatherPointsBtn {
+            background-image: url($url_common+"widget/포인트군집분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisPttrnWidget_interpolatePointsBtn {
+            background-image: url($url_common+"widget/포인트내삽찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisPttrnWidget_searchOutliersBtn {
+            background-image: url($url_common+"widget/이상치찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisProximityWidget_connectDestinationBtn {
+            background-image: url($url_common+"widget/출발지와목적지연결분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisProximityWidget_bufferBtn {
+            background-image: url($url_common+"widget/버퍼생성분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisProximityWidget_drivingAreaBtn {
+            background-image: url($url_common+"widget/운전시간영역생성분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisProximityWidget_findNearestPointBtn {
+            background-image: url($url_common+"widget/최근접위치찾기분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisProximityWidget_findPathBtn {
+            background-image: url($url_common+"widget/경로계획분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisCoordWidget_fileBtn {
+            background-image: url($url_common+"widget/파일좌표변환.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisCoordWidget_singleBtn {
+            background-image: url($url_common+"widget/단일좌표변환.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.landInfoWidget_pointBtn {
+            background-image: url($url_common+"widget/단일좌표변환.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+
+
+
+        }
+      }
       &:first-of-type {
         border-radius: 4px 4px 0 0;
       }
@@ -1900,7 +2020,7 @@ $url_common_app: '../images/';
         vertical-align: top;
         padding-top: 26px;
         height: 50px;
-        letter-spacing: -1px;
+        // letter-spacing: -1px;
         line-height: 10px;
         font-size: 10px;
         box-sizing: border-box;
