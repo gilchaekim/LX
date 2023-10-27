@@ -1,10 +1,10 @@
 @import "common/mixins";
 @import "common/swiper";
 
-// $url_common: "../js/webmap/images/";
-// $url_common_app: "../js/webapp/images/";
-$url_common: '../images/';
-$url_common_app: '../images/';
+$url_common: "../js/webmap/images/";
+$url_common_app: "../js/webapp/images/";
+// $url_common: '../images/';
+// $url_common_app: '../images/';
 
 // #alertDimmed,
 // #alertPopBox {
@@ -1998,14 +1998,111 @@ $url_common_app: '../images/';
             background-position: center 8px;
             background-size: 18px;
           }
+          // 지점 추후 이미지 교체
           &.landInfoWidget_pointBtn {
             background-image: url($url_common+"widget/단일좌표변환.png");
             background-repeat: no-repeat;
             background-position: center 8px;
             background-size: 18px;
           }
+          &.analysisSumryWidget_joinBtn {
+            background-image: url($url_common+"widget/조인피처분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisSumryWidget_nrbyBtn {
+            background-image: url($url_common+"widget/주변요약분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisSumryWidget_rangeBtn {
+            background-image: url($url_common+"widget/범위내요약분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisSumryWidget_centerBtn {
+            background-image: url($url_common+"widget/중심및분산요약분석.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_dsslveBtn {
+            background-image: url($url_common+"widget/경계디졸브.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_extrcBtn {
+            background-image: url($url_common+"widget/데이터추출.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_dvsionBtn {
+            background-image: url($url_common+"widget/공간분할생성.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_mergeBtn {
+            background-image: url($url_common+"widget/레이어병합.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_eraseBtn {
+            background-image: url($url_common+"widget/레이어중첩지우기.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_intsctBtn {
+            background-image: url($url_common+"widget/레이어중첩교차.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_unionBtn {
+            background-image: url($url_common+"widget/레이어중첩유니온.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_clusteringBtn {
+            background-image: url($url_common+"widget/클러스터링2.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_arBtn {
+            background-image: url($url_common+"widget/면적계산.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
+          &.analysisManageWidget_ltBtn {
+            background-image: url($url_common+"widget/길이계산.png");
+            background-repeat: no-repeat;
+            background-position: center 8px;
+            background-size: 18px;
+          }
 
-
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+           
+          
 
         }
       }
