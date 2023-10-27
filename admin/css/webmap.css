@@ -4467,7 +4467,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 
 .mui_datepicker input {
-  background: url("../images/mobile/ico_calendar.png") no-repeat right 10px center;
+  background: #fff url("../images/mobile/ico_calendar.png") no-repeat right 10px center;
   background-size: 24px;
 }
 

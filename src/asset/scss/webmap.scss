@@ -4664,7 +4664,7 @@ $url_common_app: '../images/';
 }
 .mui_datepicker{
   input{
-    background: url($url_common+"mobile/ico_calendar.png") no-repeat right 10px center;
+    background:#fff url($url_common+"mobile/ico_calendar.png") no-repeat right 10px center;
     background-size: 24px;
   }
 }
