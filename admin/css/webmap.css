@@ -1973,7 +1973,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
   width: 42px;
   border-radius: 4px;
-  overflow: hidden;
 }
 #widget .group.active {
   display: block;
