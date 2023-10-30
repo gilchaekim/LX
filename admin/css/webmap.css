@@ -5664,9 +5664,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   font-size: 18px;
   line-height: 50px;
 }
-.map_tab {
-  display: none;
-}
 .map_tab .inset {
   height: 50px;
   background: #fff;
