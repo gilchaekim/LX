@@ -30,6 +30,7 @@ export default {
         slide:" .swiper-wrapper > .swiper-slide",
         clsOpen: 'mui_active',
         toggle: ' .ctrl',
+        scrollIco:".scroll_ico",
         transition: 'ease',
         duration:300,
         offset: 0
@@ -37,17 +38,24 @@ export default {
 
     computed: {
         target({target}, $el) {
-            return $(target, $el)
+            return $(target, $el);
+        },
+        scrollIco({scrollIco}, $el) {
+            return $(scrollIco, $el);
         },
     },
     connected() {
-        this.setSize()
+        this.setSize();
         this.Swiper= new Swiper(this.target, {
             mousewheel: true,
             direction:"horizontal",
             slidesPerView: "auto",
             freeMode: true,
         });
+        this.Swiper.on('scroll', (e) => {
+            const scrollLeft = e.translate;
+            css(this.scrollIco, "display", scrollLeft === 0 ? "block" : "none");
+        })
     },
 
     methods: {
@@ -56,7 +64,7 @@ export default {
             let itemsWidth = $$(this.blocks).reduce((size, element) => {
                 return size + width(element) + toFloat(css(element, 'marginLeft'));
             }, 0);
-            css($(this.slide), 'width', `${itemsWidth}px`)
+            css($(this.slide), 'width', `${itemsWidth}px`);
         }
 
     }

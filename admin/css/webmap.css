@@ -224,6 +224,12 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   position: absolute;
 }
 
+.odf_addressSearch_widget .addressSearch_result {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
 .mui-sortable {
   position: relative;
 }

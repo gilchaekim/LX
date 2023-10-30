@@ -10372,6 +10372,7 @@
       slide: " .swiper-wrapper > .swiper-slide",
       clsOpen: 'mui_active',
       toggle: ' .ctrl',
+      scrollIco: ".scroll_ico",
       transition: 'ease',
       duration: 300,
       offset: 0
@@ -10380,15 +10381,24 @@
       target: function target(_ref, $el) {
         var target = _ref.target;
         return $$1(target, $el);
+      },
+      scrollIco: function scrollIco(_ref2, $el) {
+        var scrollIco = _ref2.scrollIco;
+        return $$1(scrollIco, $el);
       }
     },
     connected: function connected() {
+      var _this = this;
       this.setSize();
       this.Swiper = new Swiper(this.target, {
         mousewheel: true,
         direction: "horizontal",
         slidesPerView: "auto",
         freeMode: true
+      });
+      this.Swiper.on('scroll', function (e) {
+        var scrollLeft = e.translate;
+        css(_this.scrollIco, "display", scrollLeft === 0 ? "block" : "none");
       });
     },
     methods: {
