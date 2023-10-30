@@ -2490,7 +2490,7 @@ button, label {
   margin: 0 auto;
 }
 .grid_box.grid_4x2 {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 .grid_box.grid_4x2 .grid {
   width: 25%;
@@ -3750,6 +3750,14 @@ button, label {
 }
 .edit_ground.vertrical_type .edit_header .main_menu .mui_active .sub_menu {
   display: block;
+}
+.edit_ground.vertrical_type .sec.grid_box {
+  margin-top: 30px;
+}
+@media (max-width: 1199px) {
+  .edit_ground.vertrical_type .sec.grid_box {
+    margin-top: 0;
+  }
 }
 .edit_ground.vertrical_type .scroll_ico {
   position: fixed;
