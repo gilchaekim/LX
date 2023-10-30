@@ -715,6 +715,37 @@ button, label {
       bottom: 0;
     }
   }
+  .scroll_ico{
+    width: 47px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    z-index: 100;
+    opacity: .8;
+    @include respondTo("tablet"){
+      display: none;
+    }
+    &::after {
+      content: '';
+      width: 14px;
+      height: 10px;
+      background: url($url_common+"arrow.svg") repeat-x left center;
+      position: absolute;right: -22px;
+      top: 50%;
+      margin-top: -5px;
+    }
+    i{
+      position: absolute;
+      width: 6px;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+      top: 50%;
+      margin-top: -2px;
+      left: 10px;
+      animation:mouse-scroll-hor 1s infinite
+    }
+  }
   .edit_header,
   .edit_contents,
   .edit_footer{
@@ -1223,38 +1254,12 @@ button, label {
         border: 2px solid #436AEB;
       }
       .scroll_ico{
-        width: 47px;
-        height: 30px;
-        border-radius: 15px;
-        border: 2px solid #fff;
         position: absolute;
         top: 50%;
         margin-top: -15px;
         left: 40px;
-        z-index: 100;
-        opacity: .8;
         @include respondTo("tablet"){
           display: none;
-        }
-        &::after {
-          content: '';
-          width: 14px;
-          height: 10px;
-          background: url($url_common+"arrow.svg") repeat-x left center;
-          position: absolute;right: -22px;
-          top: 50%;
-          margin-top: -5px;
-        }
-        i{
-          position: absolute;
-          width: 6px;
-          height: 4px;
-          background-color: #fff;
-          border-radius: 2px;
-          top: 50%;
-          margin-top: -2px;
-          left: 10px;
-          animation:mouse-scroll-hor 1s infinite
         }
       }
       
@@ -1783,6 +1788,13 @@ button, label {
           }
         }
       }
+    }
+    .scroll_ico {
+      position: fixed;
+      bottom: 60PX;
+      left: 50%;
+      transform: rotate(90deg);
+      margin-left: -26px;
     }
   }
   * {

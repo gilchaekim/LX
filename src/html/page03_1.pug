@@ -292,3 +292,14 @@ block content
         .footer
           p.text (우)54994 전라북도 전주시 완산구 노송광장로 10 | 대표전화 : 063-222-1000 | 팩스 : 063-281-5000
           p.copyright Copyright © 2023 Jeonjy City. All Rights Reserved.
+    .scroll_ico 
+      i
+  script.
+    var on = GCui.util.on;
+    var css = GCui.util.css;
+    var $ = GCui.util.$;
+    console.log(on)
+    on(document, "scroll", function(e){
+      var scrollTop = e.target.scrollingElement.scrollTop;
+      css($('.scroll_ico'), 'display', scrollTop === 0 ? "block":"none");
+    })

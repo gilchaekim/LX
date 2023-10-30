@@ -2626,6 +2626,40 @@ button, label {
   right: 0;
   bottom: 0;
 }
+.edit_ground .scroll_ico {
+  width: 47px;
+  height: 30px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  z-index: 100;
+  opacity: 0.8;
+}
+@media (max-width: 1199px) {
+  .edit_ground .scroll_ico {
+    display: none;
+  }
+}
+.edit_ground .scroll_ico::after {
+  content: "";
+  width: 14px;
+  height: 10px;
+  background: url("../images/arrow.svg") repeat-x left center;
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  margin-top: -5px;
+}
+.edit_ground .scroll_ico i {
+  position: absolute;
+  width: 6px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 2px;
+  top: 50%;
+  margin-top: -2px;
+  left: 10px;
+  animation: mouse-scroll-hor 1s infinite;
+}
 .edit_ground .edit_header,
 .edit_ground .edit_contents,
 .edit_ground .edit_footer {
@@ -3216,42 +3250,15 @@ button, label {
   border: 2px solid #436AEB;
 }
 .edit_ground.horizontal_type .edit_contents .scroll_ico {
-  width: 47px;
-  height: 30px;
-  border-radius: 15px;
-  border: 2px solid #fff;
   position: absolute;
   top: 50%;
   margin-top: -15px;
   left: 40px;
-  z-index: 100;
-  opacity: 0.8;
 }
 @media (max-width: 1199px) {
   .edit_ground.horizontal_type .edit_contents .scroll_ico {
     display: none;
   }
-}
-.edit_ground.horizontal_type .edit_contents .scroll_ico::after {
-  content: "";
-  width: 14px;
-  height: 10px;
-  background: url("../images/arrow.svg") repeat-x left center;
-  position: absolute;
-  right: -22px;
-  top: 50%;
-  margin-top: -5px;
-}
-.edit_ground.horizontal_type .edit_contents .scroll_ico i {
-  position: absolute;
-  width: 6px;
-  height: 4px;
-  background-color: #fff;
-  border-radius: 2px;
-  top: 50%;
-  margin-top: -2px;
-  left: 10px;
-  animation: mouse-scroll-hor 1s infinite;
 }
 .edit_ground.horizontal_type .edit_contents .grid {
   display: flex;
@@ -3743,6 +3750,13 @@ button, label {
 }
 .edit_ground.vertrical_type .edit_header .main_menu .mui_active .sub_menu {
   display: block;
+}
+.edit_ground.vertrical_type .scroll_ico {
+  position: fixed;
+  bottom: 60PX;
+  left: 50%;
+  transform: rotate(90deg);
+  margin-left: -26px;
 }
 .edit_ground * {
   box-sizing: border-box;

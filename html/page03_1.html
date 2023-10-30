@@ -232,7 +232,18 @@
             </div>
           </div>
         </div>
+        <div class="scroll_ico"> <i></i></div>
       </div>
+      <script>
+        var on = GCui.util.on;
+        var css = GCui.util.css;
+        var $ = GCui.util.$;
+        console.log(on)
+        on(document, "scroll", function(e) {
+          var scrollTop = e.target.scrollingElement.scrollTop;
+          css($('.scroll_ico'), 'display', scrollTop === 0 ? "block" : "none");
+        })
+      </script>
     </div>
   </div>
 </body>
