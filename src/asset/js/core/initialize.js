@@ -47,6 +47,7 @@ export default function (UICommon) {
         const {data = {}} = this.$options;
         
         for (const key in data) {
+            
             _.$props[key] = _[key] = data[key];
         }
     }

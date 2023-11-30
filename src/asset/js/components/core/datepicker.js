@@ -18,7 +18,7 @@ import {
   data,
   css,
 } from '../../util/index';
-import {cssPrefix} from 'GC-data'
+import {cssPrefix} from 'GC-data';
 
 export default {
   mixins: [Position],

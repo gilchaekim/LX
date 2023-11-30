@@ -6,7 +6,7 @@ import ApexCharts from 'apexcharts';
 export default {
     
     props: {
-
+      chartData : Array
     },
 
     data: {
@@ -21,46 +21,47 @@ export default {
         toggle: ' .ctrl',
         transition: 'ease',
         duration:300,
-        offset: 0
+        offset: 0,
+        chartData:null
     },
     connected(){
-
-          this.render();
+      this.render();
     },
 
     methods: {
-        render() {
-            const {$el} = this;
-            var options = {
-                chart: {
-                  type: 'line',
-                  animations: {
-                    enabled: true,
-                    easing: 'easeinout',
-                    speed: 800,
-                    animateGradually: {
-                        enabled: true,
-                        delay: 0
-                    },
-                    dynamicAnimation: {
-                        enabled: true,
-                        speed: 350
-                    }
-                  }
-                },
-                stroke: {
-                  width: 2
-                },
-                series: [{
-                  name: 'sales',
-                  data: [30,40,35,50,49,60,70,91,125]
-                }],
-                xaxis: {
-                  categories: [1991,1992]
-                }
+      render() {
+        const {$el} = this;
+        console.log(this.chartData);
+        var options = {
+          chart: {
+            type: 'line',
+            animations: {
+              enabled: true,
+              easing: 'easeinout',
+              speed: 800,
+              animateGradually: {
+                  enabled: true,
+                  delay: 0
+              },
+              dynamicAnimation: {
+                  enabled: true,
+                  speed: 350
+              }
             }
-            new ApexCharts($el, options).render();
+          },
+          stroke: {
+            width: 2
+          },
+          series: [{
+            name: 'sales',
+            data: [30,40,35,50,49,60,70,91,125]
+          }],
+          xaxis: {
+            categories: [1991,1992]
+          }
         }
+        new ApexCharts($el, options).render();
+      }
     }
 
 };

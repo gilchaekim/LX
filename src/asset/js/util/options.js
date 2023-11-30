@@ -22,8 +22,9 @@ strats.update = function (parentVal, childVal) {
 
 // property strategy
 strats.props = function (parentVal, childVal) {
-
+    
     if (isArray(childVal)) {
+        console.log(childVal);    
         childVal = childVal.reduce((value, key) => {
             value[key] = String;
             return value;
@@ -132,7 +133,6 @@ export function mergeOptions(parent, child, vm) {
 
 export function parseOptions(options, args = []) {
     try {
-
         return !options
             ? {}
             : startsWith(options, '{')

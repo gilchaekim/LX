@@ -1840,6 +1840,7 @@
   // property strategy
   strats.props = function (parentVal, childVal) {
     if (isArray(childVal)) {
+      console.log(childVal);
       childVal = childVal.reduce(function (value, key) {
         value[key] = String;
         return value;
@@ -3488,6 +3489,7 @@
       }
       GCui[name] = function (element, data) {
         // 토스트 팝업을 위한..
+
         if (!isElement(element) && isPlainObject(element)) {
           data = element;
           element = null;

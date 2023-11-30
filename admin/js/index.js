@@ -2180,6 +2180,7 @@
   // property strategy
   strats.props = function (parentVal, childVal) {
     if (isArray(childVal)) {
+      console.log(childVal);
       childVal = childVal.reduce(function (value, key) {
         value[key] = String;
         return value;
@@ -12217,7 +12218,9 @@
   var ApexCharts$1 = /*@__PURE__*/getDefaultExportFromCjs(apexcharts_commonExports);
 
   var chart = {
-    props: {},
+    props: {
+      chartData: Array
+    },
     data: {
       targets: '> .list',
       active: false,
@@ -12230,7 +12233,8 @@
       toggle: ' .ctrl',
       transition: 'ease',
       duration: 300,
-      offset: 0
+      offset: 0,
+      chartData: null
     },
     connected: function connected() {
       this.render();
@@ -12238,6 +12242,7 @@
     methods: {
       render: function render() {
         var $el = this.$el;
+        console.log(this.chartData);
         var options = {
           chart: {
             type: 'line',
@@ -12397,6 +12402,7 @@
       }
       GCui[name] = function (element, data) {
         // 토스트 팝업을 위한..
+
         if (!isElement(element) && isPlainObject(element)) {
           data = element;
           element = null;

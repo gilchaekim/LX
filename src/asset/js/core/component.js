@@ -14,8 +14,10 @@ export default function (GCui) {
             }
             return components[name];
         }
+        
         GCui[name] = function (element, data) {
             // 토스트 팝업을 위한..
+            
             if(!isElement(element) && isPlainObject(element)){
                 data = element;
                 element = null;
@@ -39,7 +41,7 @@ export default function (GCui) {
                         instance.$destroy();
                     }
                 }
-    
+                
                 return new component({el: element, data});
     
             }

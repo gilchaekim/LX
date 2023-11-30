@@ -2123,7 +2123,7 @@
 			<div class="mapArea">
 
 				<!-- 신규 추가 [ 텝 컨텐츠 ] -->
-				<div class="details_tab_cont blue" style="display: none;">
+				<div class="details_tab_cont blue" style="display: ;">
 					<div class="inset">
 						<p class="title1">대 제목</p>
 						<p class="title2">중 제목</p>
@@ -2156,7 +2156,7 @@
 				</div>
 
 				<!-- 신규 추가 [ 섹션 설정 상세 ] -->
-				<div class="detail_setting_lv2 set_section" style="display: none;">
+				<div class="detail_setting_lv2 set_section" style="display: ;">
 					<div class="inset">
 						<div class="sett_header">
 							<p class="title">섹션 설정</p>
@@ -2372,9 +2372,16 @@
 						<button type="button" class="toggle" mui-toggle="target:#layerChart;cls:active"></button>
 					</div>
 					<div class="chart_sec">
-						<div mui-chart style="border: 1px solid red;height: 200px;"></div>
+						<!-- <div id="testChart" style="border: 1px solid red;height: 200px;"></div> -->
 						<!-- <div mui-chart></div> -->
 					</div>
+					<script>
+						// const {$} = GCui.util;
+						GCui.chart('#testChart', {
+							chartData:[30,40,35,50,49,60,70,91,125]
+						})
+
+					</script>
 					<div class="label_vertical">
 						<p>고도<br>(m)</p>
 					</div>

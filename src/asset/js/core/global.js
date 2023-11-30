@@ -33,8 +33,8 @@ export default function (UICommon) {
     
         Sub.prototype = Object.create(Super.prototype);
         Sub.prototype.constructor = Sub;
+        
         Sub.options = mergeOptions(Super.options, options);
-    
         Sub.super = Super;
         Sub.extend = Super.extend;
         return Sub;
